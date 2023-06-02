@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Account;
 
 import java.io.IOException;
@@ -23,13 +24,12 @@ public class signin extends HttpServlet {
         String pass_raw = req.getParameter("password");
         AccountDB adb = new AccountDB();
         Account account = adb.getAccount(user_raw, pass_raw);
+        HttpSession session = req.getSession();
         if(account == null){
-            req.setAttribute("mess", "fail");
-            req.getRequestDispatcher("view/tb.jsp").forward(req,resp);
-        }else{
-            req.setAttribute("account", account);
-            req.setAttribute("mess", "success");
-            req.getRequestDispatcher("view/tb.jsp").forward(req,resp);
+            session.setAttribute("mess", "Login Fail");
+            req.getRequestDispatcher("view/signin.jsp").forward(req,resp);
         }
+        session.setAttribute("account", account);
+        req.getRequestDispatcher("view/tb.jsp").forward(req,resp);
     }
 }
