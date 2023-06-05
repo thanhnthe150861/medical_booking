@@ -10,11 +10,11 @@ import model.Account;
 
 import java.io.IOException;
 
-@WebServlet(name = "signup", value = "/signup")
-public class signup extends HttpServlet {
+@WebServlet(name = "register", value = "/register")
+public class register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("view/signup.jsp").forward(req,resp);
+        req.getRequestDispatcher("view/register.jsp").forward(req,resp);
     }
 
     @Override

@@ -31,8 +31,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
-                    <h3 class="mb-4 text-center">Sign In</h3>
-                    <form action="signin" class="signin-form" method="post">
+                    <h3 class="mb-4 text-center">Login</h3>
+                    <form action="login" class="login-form" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username" name="username" required>
                         </div>
@@ -48,7 +48,7 @@
 <%--                            </select>--%>
 <%--                        </div>--%>
                         <div class="form-group">
-                            <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                            <button type="submit" class="form-control btn btn-primary submit px-3">Login</button>
                         </div>
                         <div class="form-group d-md-flex">
                             <div class="w-50">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </form>
-                    <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+                    <p class="w-100 text-center">&mdash; Or Login With &mdash;</p>
                     <div class="social d-flex text-center">
                         <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
                         <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>

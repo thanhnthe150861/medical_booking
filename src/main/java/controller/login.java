@@ -11,11 +11,11 @@ import model.Account;
 
 import java.io.IOException;
 
-@WebServlet(name = "signin", value = "/signin")
-public class signin extends HttpServlet {
+@WebServlet(name = "login", value = "/login")
+public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("view/signin.jsp").forward(req,resp);
+        req.getRequestDispatcher("view/login.jsp").forward(req,resp);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class signin extends HttpServlet {
         HttpSession session = req.getSession();
         if(account == null){
             session.setAttribute("mess", "Login Fail");
-            req.getRequestDispatcher("view/signin.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/login.jsp").forward(req,resp);
         }
         session.setAttribute("account", account);
         req.getRequestDispatcher("view/tb.jsp").forward(req,resp);

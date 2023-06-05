@@ -31,8 +31,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
-                    <h3 class="mb-4 text-center">Sign Up</h3>
-                    <form action="signup" class="signin-form" method="post">
+                    <h3 class="mb-4 text-center">Register</h3>
+                    <form action="register" class="login-form" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username" name="username" required>
                         </div>
@@ -55,7 +55,7 @@
                         <%--                            </select>--%>
                         <%--                        </div>--%>
                         <div class="form-group">
-                            <button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
+                            <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
                         </div>
                         <div class="form-group d-md-flex">
                             <div class="w-50">
@@ -65,14 +65,14 @@
                                 </label>
                             </div>
                             <div class="w-50 text-md-right">
-                                <a href="#" style="color: #fff">Sign In</a>
+                                <a href="#" style="color: #fff">Login</a>
                             </div>
                             <div class="w-50 text-md-right">
                                 <a href="#" style="color: #fff">Forgot Password</a>
                             </div>
                         </div>
                     </form>
-<%--                    <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>--%>
+<%--                    <p class="w-100 text-center">&mdash; Or Login With &mdash;</p>--%>
 <%--                    <div class="social d-flex text-center">--%>
 <%--                        <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>--%>
 <%--                        <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>--%>
