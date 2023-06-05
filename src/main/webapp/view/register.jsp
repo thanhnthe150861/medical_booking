@@ -41,6 +41,9 @@
                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
+                            <input  type="text" class="form-control" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
                             <input  type="text" class="form-control" name="phone" placeholder="Phone" required>
                         </div>
                         <div class="form-group">
@@ -58,17 +61,17 @@
                             <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
                         </div>
                         <div class="form-group d-md-flex">
-                            <div class="w-50">
-                                <label class="checkbox-wrap checkbox-primary">Remember Me
-                                    <input type="checkbox" checked>
-                                    <span class="checkmark"></span>
-                                </label>
+<%--                            <div class="w-50">--%>
+<%--                                <label class="checkbox-wrap checkbox-primary">Remember Me--%>
+<%--                                    <input type="checkbox" checked>--%>
+<%--                                    <span class="checkmark"></span>--%>
+<%--                                </label>--%>
+<%--                            </div>--%>
+                            <div class="w-50 text-md-left">
+                                <a href="login" style="color: #fff">Login</a>
                             </div>
                             <div class="w-50 text-md-right">
-                                <a href="#" style="color: #fff">Login</a>
-                            </div>
-                            <div class="w-50 text-md-right">
-                                <a href="#" style="color: #fff">Forgot Password</a>
+                                <a href="forgot" style="color: #fff">Forgot Password</a>
                             </div>
                         </div>
                     </form>

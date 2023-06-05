@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
-                <h2 class="heading-section">Medical</h2>
+                <h2 class="heading-section">Medical Booking</h2>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -57,8 +57,12 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
+<%--                            <div class="w-50 text-md-left">--%>
+<%--                                <a href="#" style="color: #fff">Register</a>--%>
+<%--                            </div>--%>
                             <div class="w-50 text-md-right">
-                                <a href="#" style="color: #fff">Forgot Password</a>
+                                <a href="register" style="color: #fff">Register</a><br>
+                                <a href="forgot" style="color: #fff">Forgot Password</a>
                             </div>
                         </div>
                     </form>

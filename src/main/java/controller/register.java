@@ -21,15 +21,16 @@ public class register extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String user_raw = req.getParameter("username");
         String pass_raw = req.getParameter("password");
+        String name_raw = req.getParameter("name");
+        String phone_raw = req.getParameter("phone");
+        String email_raw = req.getParameter("email");
         AccountDB adb = new AccountDB();
-        Account account = adb.getAccount(user_raw, pass_raw);
-        if(account == null){
-            req.setAttribute("mess", "fail");
-            req.getRequestDispatcher("view/tb.jsp").forward(req,resp);
-        }else{
-            req.setAttribute("account", account);
-            req.setAttribute("mess", "success");
-            req.getRequestDispatcher("view/tb.jsp").forward(req,resp);
-        }
+        Account account = new Account();
+        account.setUsername(user_raw);
+        account.setPassword(pass_raw);
+        account.setPhone(phone_raw);
+        account.setEmail(email_raw);
+        account.setIsAdmin(2);
+        adb.insertClient(account, name_raw);
     }
 }

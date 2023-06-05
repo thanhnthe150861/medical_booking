@@ -15,6 +15,8 @@ import java.io.IOException;
 public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        session.invalidate();
         req.getRequestDispatcher("view/login.jsp").forward(req,resp);
     }
 
@@ -26,10 +28,21 @@ public class login extends HttpServlet {
         Account account = adb.getAccount(user_raw, pass_raw);
         HttpSession session = req.getSession();
         if(account == null){
-            session.setAttribute("mess", "Login Fail");
+            session.setAttribute("mess", "User or Password incorrect");
             req.getRequestDispatcher("view/login.jsp").forward(req,resp);
+        }else{
+            if(account.getIsAdmin() == 0){// Admin
+                session.setAttribute("account", account);
+                req.getRequestDispatcher("view/Admin.html").forward(req,resp);
+            }else if(account.getIsAdmin() == 1){// Doctor
+                session.setAttribute("account", account);
+                req.getRequestDispatcher("view/doctors.html").forward(req,resp);
+            } else if (account.getIsAdmin() == 2) {// Client
+                session.setAttribute("account", account);
+                req.getRequestDispatcher("view/index.html").forward(req,resp);
+            }
+
         }
-        session.setAttribute("account", account);
-        req.getRequestDispatcher("view/tb.jsp").forward(req,resp);
+
     }
 }

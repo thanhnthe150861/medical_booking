@@ -5,12 +5,12 @@ public class Account {
     private String password;
     private String phone;
     private String email;
-    private String isAdmin;
+    private int isAdmin;
 
     public Account() {
     }
 
-    public Account(String username, String password, String phone, String email, String isAdmin) {
+    public Account(String username, String password, String phone, String email, int isAdmin) {
         this.username = username;
         this.password = password;
         this.phone = phone;
@@ -18,11 +18,11 @@ public class Account {
         this.isAdmin = isAdmin;
     }
 
-    public String getIsAdmin() {
+    public int getIsAdmin() {
         return isAdmin;
     }
 
-    public void setIsAdmin(String isAdmin) {
+    public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
     }
 
