@@ -14,7 +14,7 @@ public class AccountDB extends DBContext{
     private static ResultSet rs = null;
     public Account getAccount(String user, String pass){
         try {
-        String sql = "select * from account where username = ? and password = ?";
+        String sql = "SELECT * FROM account WHERE username = ? AND password = ?";
         stm = connection.prepareStatement(sql);
         stm.setString(1, user);
         stm.setString(2, pass);
@@ -38,7 +38,7 @@ public class AccountDB extends DBContext{
         List<Account> accountList = new ArrayList<>();
         Account account = null;
         try {
-            String sql = "select * from account";
+            String sql = "SELECT * FROM account";
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
             while (rs.next()){
@@ -54,6 +54,20 @@ public class AccountDB extends DBContext{
             throw new RuntimeException(e);
         }
         return accountList;
+    }
+
+    public void UpdateAccount(Account account){
+        try {
+            String sql = "UPDATE account\n" +
+                    "SET password = ?" +
+                    "WHERE username = ?;";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, account.getPassword());
+            stm.setString(2, account.getUsername());
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Account checkAccountExist(String user){
@@ -76,6 +90,15 @@ public class AccountDB extends DBContext{
             }
             return account;
         }
+
+//    public static void main(String[] args) {
+//        AccountDB adb = new AccountDB();
+//        if (adb.checkAccountExist("abc") != null){
+//            System.out.println("true");
+//        }else {
+//            System.out.println("false");
+//        }
+//    }
 
     public void insertClient(Account account, String name){
         try {

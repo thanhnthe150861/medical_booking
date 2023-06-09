@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Account;
 
 import java.io.IOException;
@@ -19,17 +20,19 @@ public class forgot extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user_raw = req.getParameter("username");
-        String pass_raw = req.getParameter("password");
+        String user = req.getParameter("username");
+        String phone = req.getParameter("phone_number");
+        String email = req.getParameter("email");
         AccountDB adb = new AccountDB();
-        Account account = adb.getAccount(user_raw, pass_raw);
-        if(account == null){
-            req.setAttribute("mess", "fail");
-            req.getRequestDispatcher("view/tb.jsp").forward(req,resp);
-        }else{
-            req.setAttribute("account", account);
-            req.setAttribute("mess", "success");
-            req.getRequestDispatcher("view/tb.jsp").forward(req,resp);
+        Account account = adb.checkAccountExist(user);
+        HttpSession session = req.getSession();
+        if (account != null){
+            if (account.getEmail().equalsIgnoreCase(email) && account.getPhone().equalsIgnoreCase(phone)){
+                session.setAttribute("account", account);
+                resp.sendRedirect("reset");
+            }
         }
+        req.setAttribute("mess", "Phone or Email incorrect!!!");
+        req.getRequestDispatcher("view/forgot.jsp").forward(req,resp);
     }
 }

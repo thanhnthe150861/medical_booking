@@ -39,7 +39,7 @@ public class login extends HttpServlet {
                 req.getRequestDispatcher("view/doctors.html").forward(req,resp);
             } else if (account.getIsAdmin() == 2) {// Client
                 session.setAttribute("account", account);
-                req.getRequestDispatcher("view/index.html").forward(req,resp);
+                req.getRequestDispatcher("view/about.html").forward(req,resp);
             }
 
         }
