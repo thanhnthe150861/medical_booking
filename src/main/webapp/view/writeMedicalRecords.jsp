@@ -31,9 +31,9 @@
         <div class="row">
           <div class="col-sm-8 text-sm">
             <div class="site-info">
-              <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
+              <a href="#"><span class="mai-call text-primary"></span> +08669999999</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> Phongkham@fpt.edu.vn</a>
             </div>
           </div>
           <div class="col-sm-4 text-right text-sm">
@@ -50,7 +50,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
+        <a class="navbar-brand" href="#"><span class="text-primary">Clinic</span>-TATQ</a>
 
         <form action="#">
           <div class="input-group input-navbar">
@@ -64,29 +64,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupport">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="vip.html">VIP</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="#">Login / Register</a>
-            </li>
-          </ul>
-        </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
     </nav>
   </header>
@@ -96,113 +73,85 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
-        <a href="booking.html" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>
 
-  <html>
-  <head>
-    <title>Hiển thị điểm thành viên</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <div class="member-score-container">
-      <h1>Điểm của thành viên: Nguyễn Văn A</h1>
-      <form>
-        <label for="member-score">Điểm</label>
-        <input type="number" id="member-score" name="member-score" value="8.5" readonly>
-        <input type="submit" value="Hiển thị điểm của thành viên khác">
-      </form>
+
+  <div class="bg-light">
+    <div class="page-section py-3 mt-md-n5 custom-index">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-secondary text-white">
+                <span class="mai-chatbubbles-outline"></span>
+              </div>
+              <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-primary text-white">
+                <span class="mai-shield-checkmark"></span>
+              </div>
+              <p><a href="writeMedicalRecords.jsp" class=""><span></span> Write Medical Records</a></p>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-accent text-white">
+                <span class="mai-basket"></span>
+              </div>
+              <p><a href="viewSchedule.jsp" class=""><span></span> View Schedule</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .page-section -->
+    
+    <div class="page-section">
+      <div class="container">
+        <h1 class="text-center wow fadeInUp">Medical Records</h1>
+        <form class="contact-form mt-5">
+          <div class="row mb-3">
+            <div class="col-sm-6 py-2 wow fadeInLeft">
+              <label for="fullName">Name</label>
+              <input type="text" id="fullName" class="form-control" placeholder="Full name..">
+            </div>
+            <div class="col-sm-6 py-2 wow fadeInRight">
+              <label for="emailAddress">Phone</label>
+              <input type="text" id="emailAddress" class="form-control" placeholder="Phone..">
+            </div>
+            <div class="col-12 py-2 wow fadeInUp">
+              <label for="subject">Diagnostic</label>
+              <input type="text" id="subject" class="form-control" placeholder="Diagnostic....">
+            </div>
+            <div class="col-12 py-2 wow fadeInUp">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" rows="8" placeholder="Enter Message.."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary wow zoomIn">Send Message</button>
+        </form>
+      </div>
     </div>
-    <script src="script.js"></script>
-  </body>
-  </html>
+    
 
-  <style>
-  body {
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
-  }
-  .member-score-container {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
-    width: 400px;
-  }
-  h1 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-  form {
-    display: inline-block;
-    text-align: left;
-  }
-  label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-  input[type="number"] {
-    background-color: #f2f2f2;
-    border: none;
-    border-radius: 3px;
-    box-sizing: border-box;
-    display: block;
-    font-size: 16px;
-    margin-bottom: 20px;
-    padding: 10px;
-    width: 100%;
-  }
-  input[type="submit"] {
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 3px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px;
-    width: 100%;
-    transition: all 0.3s ease;
-  }
-  input[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
-  </style>
+    
 
-  <script>
-  const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-      event.preventDefault(); // Prevent the form from submitting
-      window.location.href = '#';
-    });
-    </script>
 
-  
-  <div class="maps-container wow fadeInUp">
-      <a href="https://goo.gl/maps/gWzXpy7XisLX3xQLA?coh=178572&entry=tt"><img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t1.15752-9/348387688_824547325805226_4870617880354541066_n.png?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=BmCsPzL_1EgAX9Mxoj2&_nc_oc=AQmrxsbyWbDB8KhFNNm8zF3RLa3VNKIcX_JU47j15FnFqu4VGUiOT-EPrvgfFe36-y0&_nc_ht=scontent.fhan2-5.fna&oh=03_AdRwjXuNnaDPFoRsg4mgwOuHHtUG8lV7zgEikNqwL1lrsQ&oe=649649D3" alt=""></a>
-  </div>
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
       <div class="row align-items-center">
         <div class="col-lg-4 wow zoomIn">
           <div class="img-banner d-none d-lg-block">
-            <img src="images/mobile_app.png" alt="">
+            <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t1.15752-9/346145030_1363155317596800_7041459971065001048_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=XQmC17gatMsAX_wrWXq&_nc_ht=scontent.fhan2-5.fna&oh=03_AdRbeNHAzZDwpw6dkXuwwJHHqtkcDpF_kfN9-9N55FjC6Q&oe=6495BAB9" alt="">
           </div>
         </div>
         <div class="col-lg-8 wow fadeInRight">
-          <h1 class="font-weight-normal mb-3">Get easy access of all features using One Health Application</h1>
-          <a href="#"><img src="images/google_play.svg" alt=""></a>
-          <a href="#" class="ml-2"><img src="images/app_store.svg" alt=""></a>
+          <h1 class="font-weight-normal mb-3">Your health is our top priority - trust us to take care of you.</h1>
         </div>
       </div>
     </div>
@@ -268,11 +217,7 @@
 
 <script src="vendor/wow/wow.min.js"></script>
 
-<script src="js/google-maps.js"></script>
-
 <script src="js/theme.js"></script>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
   
 </body>
 </html>

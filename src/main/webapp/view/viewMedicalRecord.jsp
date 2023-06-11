@@ -68,22 +68,22 @@
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="about.jsp">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
+              <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
+              <a class="nav-link" href="booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vip.html">VIP</a>
+              <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="login.jsp">Login / Register</a>
+              <a class="btn btn-primary ml-lg-3" href="login.html">Login / Register</a>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->
@@ -91,132 +91,121 @@
     </nav>
   </header>
 
-  <div class="page-banner overlay-dark bg-image" style="background-image: url(images/bg_image_1.jpg);">
-    <div class="banner-section">
-      <div class="container text-center wow fadeInUp">
-        <nav aria-label="Breadcrumb">
-          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Doctors</li>
-          </ol>
-        </nav>
-        <h1 class="font-weight-normal">Our Doctors</h1>
-      </div> <!-- .container -->
-    </div> <!-- .banner-section -->
-  </div> <!-- .page-banner -->
 
-  <div class="page-section bg-light">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
+  <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
+    <div class="hero-section">
+      <div class="container text-center wow zoomIn">
+        <span class="subhead">Let's make your life happier</span>
+        <h1 class="display-4">Healthy Living</h1>
+      </div>
+    </div>
+  </div>
 
-          <div class="row">
-            
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_1.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Stein Albert</p>
-                  <span class="text-sm text-grey">Cardiology</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_2.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-                  <span class="text-sm text-grey">Dental</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_3.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-                  <span class="text-sm text-grey">General Health</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_1.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Stein Albert</p>
-                  <span class="text-sm text-grey">Cardiology</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_2.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-                  <span class="text-sm text-grey">Dental</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_3.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-                  <span class="text-sm text-grey">General Health</span>
-                </div>
-              </div>
-            </div>
 
+  <div class="bg-light">
+    <div class="page-section py-3 mt-md-n5 custom-index">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-secondary text-white">
+                <span class="mai-chatbubbles-outline"></span>
+              </div>
+              <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
+            </div>
           </div>
-
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-primary text-white">
+                <span class="mai-shield-checkmark"></span>
+              </div>
+              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Records</a></p>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-accent text-white">
+                <span class="mai-basket"></span>
+              </div>
+              <p><a href="informationcustomer.jsp" class=""><span></span> View Information</a></p>
+            </div>
+          </div>
         </div>
       </div>
-    </div> <!-- .container -->
-  </div> <!-- .page-section -->
+    </div> <!-- .page-section -->
+    <div class="page-section">
+      <div class="container">
+        <h1 class="text-center wow fadeInUp">Medicak records</h1>
+        <form>
+          <label for="patient-name">Tên bệnh nhân:</label>
+          <input type="text" id="patient-name" name="patient-name" required>
+           <label for="patient-age">Tuổi:</label>
+          <input type="number" id="patient-age" name="patient-age" required>
+           <label for="patient-gender">Giới tính:</label>
+           <input type="text" id="patient-gender" name="patient-gender" required>
+           <label for="patient-symptoms">Triệu chứng:</label>
+          <textarea id="patient-symptoms" name="patient-symptoms" required></textarea>
+           <label for="patient-diagnosis">Chuẩn đoán:</label>
+           <input type="text" id="patient-diagnosis" name="patient-diagnosis" required>
+           
+        </form>
+        
+      </div>
+    </div>
+    
+<style>
+  form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+ label {
+  display: block;
+  margin-top: 10px;
+}
+ input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+ button[type="submit"] {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+ button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+</style>
 
-  
-  
+<script>
+  // Lấy dữ liệu từ cơ sở dữ liệu
+const patientData = {
+  name: "Nguyễn Văn A",
+  age: 30,
+  gender: "Nam",
+  symptoms: "Đau đầu, mệt mỏi",
+  diagnosis: "Mất ngủ"
+};
+ // Điền dữ liệu vào các phần tử trong form
+document.getElementById("patient-name").value = patientData.name;
+document.getElementById("patient-age").value = patientData.age;
+document.getElementById("patient-gender").value = patientData.gender;
+document.getElementById("patient-symptoms").value = patientData.symptoms;
+document.getElementById("patient-diagnosis").value = patientData.diagnosis;
+
+</script>
+    
+
+
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
@@ -232,7 +221,6 @@
       </div>
     </div>
   </div> <!-- .banner-home -->
-
 
   <footer class="page-footer">
     <div class="container">

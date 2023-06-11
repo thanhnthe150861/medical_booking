@@ -64,6 +64,29 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupport">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.jsp">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.jsp">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="doctors.jsp">Doctors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="booking.jsp">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vip.jsp">VIP</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary ml-lg-3" href="login.jsp">Login / Register</a>
+            </li>
+          </ul>
+        </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
     </nav>
   </header>
@@ -73,6 +96,7 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
+        <a href="booking.jsp" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>
@@ -87,7 +111,7 @@
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p><a href="feedback.html" class=""><span></span> Feedback</a></p>
+              <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -95,7 +119,7 @@
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p><a href="writeMedicalRecords.html" class=""><span></span> Write Medical Records</a></p>
+              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Records</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -103,42 +127,115 @@
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p><a href="viewSchedule.html" class=""><span></span> View Schedule</a></p>
+              <p><a href="informationcustomer.jsp" class=""><span></span> View Information</a></p>
             </div>
           </div>
         </div>
       </div>
     </div> <!-- .page-section -->
-    
-    <div class="page-section">
+
+    <div class="page-section pb-0">
       <div class="container">
-        <h1 class="text-center wow fadeInUp">Medical Records</h1>
-        <form class="contact-form mt-5">
-          <div class="row mb-3">
-            <div class="col-sm-6 py-2 wow fadeInLeft">
-              <label for="fullName">Name</label>
-              <input type="text" id="fullName" class="form-control" placeholder="Full name..">
-            </div>
-            <div class="col-sm-6 py-2 wow fadeInRight">
-              <label for="emailAddress">Phone</label>
-              <input type="text" id="emailAddress" class="form-control" placeholder="Phone..">
-            </div>
-            <div class="col-12 py-2 wow fadeInUp">
-              <label for="subject">Diagnostic</label>
-              <input type="text" id="subject" class="form-control" placeholder="Diagnostic....">
-            </div>
-            <div class="col-12 py-2 wow fadeInUp">
-              <label for="message">Message</label>
-              <textarea id="message" class="form-control" rows="8" placeholder="Enter Message.."></textarea>
+        <div class="row align-items-center">
+          <div class="col-lg-6 py-3 wow fadeInUp">
+            <h1>Welcome to Clinic TATQ <br></h1>
+            <p class="text-grey mb-4">The clinic is a place that provides basic medical services to people in the area. This is the place where you can go for health check-ups, cures and advice on health-related issues. The doctors and nurses in the clinic are professionally trained and experienced to provide quality medical services. In addition, the clinic also often has adequate medical and laboratory equipment to help diagnose and treat diseases. In some cases, the clinic may also partner with specialized hospitals and departments to provide more specialized medical services to patients. Having regular health checkups and seeking routine medical care from professionals are important to maintaining good health and detecting health problems early for the best treatment.</p>
+            <a href="booking.jsp" class="btn btn-primary">Booking</a>
+          </div>
+          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+            <div class="img-place custom-img-1">
+              <img src="images/bg-doctor.png" alt="">
             </div>
           </div>
-          <button type="submit" class="btn btn-primary wow zoomIn">Send Message</button>
-        </form>
+        </div>
+      </div>
+    </div> <!-- .bg-light -->
+  </div> <!-- .bg-light -->
+
+  <div class="page-section">
+    <div class="container">
+      <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
+
+      <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src="images/doctors/doctor_1.jpg" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Stein Albert</p>
+              <span class="text-sm text-grey">Cardiology</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src="images/doctors/doctor_2.jpg" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Alexa Melvin</p>
+              <span class="text-sm text-grey">Dental</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src="images/doctors/doctor_3.jpg" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
+              <span class="text-sm text-grey">General Health</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src="images/doctors/doctor_3.jpg" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
+              <span class="text-sm text-grey">General Health</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card-doctor">
+            <div class="header">
+              <img src="images/doctors/doctor_3.jpg" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
+              <span class="text-sm text-grey">General Health</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    
-
-    
+  </div>
+  </div> <!-- .page-section -->
 
 
 

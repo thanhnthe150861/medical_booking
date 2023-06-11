@@ -95,7 +95,7 @@
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p><a href="writeMedicalRecords.html" class=""><span></span> Write Medical Records</a></p>
+              <p><a href="writeMedicalRecords.jsp" class=""><span></span> Write Medical Records</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -103,7 +103,7 @@
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p><a href="viewSchedule.html" class=""><span></span> View Schedule</a></p>
+              <p><a href="viewSchedule.jsp" class=""><span></span> View Schedule</a></p>
             </div>
           </div>
         </div>

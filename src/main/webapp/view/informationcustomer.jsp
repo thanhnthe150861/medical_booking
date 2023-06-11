@@ -64,9 +64,33 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupport">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.jsp">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.jsp">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="doctors.jsp">Doctors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="booking.jsp">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vip.jsp">VIP</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary ml-lg-3" href="login.html">Login / Register</a>
+            </li>
+          </ul>
+        </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
     </nav>
   </header>
+
 
   <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
     <div class="hero-section">
@@ -87,7 +111,7 @@
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p><a href="#" class=""><span></span> View customer</a></p>
+              <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -95,7 +119,7 @@
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p><a href="#" class=""><span></span> View doctor</a></p>
+              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Records</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -103,12 +127,70 @@
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p><a href="viewSchedule.html" class=""><span></span> View Schedule</a></p>
+              <p><a href="informationcustomer.jsp" class=""><span></span> View Information</a></p>
             </div>
           </div>
         </div>
       </div>
     </div> <!-- .page-section -->
+    <div class="page-section">
+      <div class="container">
+        <h1 class="text-center wow fadeInUp">Medicak records</h1>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Patient information</title>
+          <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+          <h1>Patient information</h1>
+          <div>
+            <label for="patient-name">Patient name:</label>
+            <span id="patient-name"></span>
+          </div>
+          <div>
+            <label for="patient-age">Age:</label>
+            <span id="patient-age"></span>
+          </div>
+          <div>
+            <label for="patient-gender">Gender:</label>
+            <span id="patient-gender"></span>
+          </div>
+          <div>
+            <label for="patient-symptoms">Symptom:</label>
+            <span id="patient-symptoms"></span>
+          </div>
+          <div>
+            <label for="patient-diagnosis">Diagnostic:</label>
+            <span id="patient-diagnosis"></span>
+          </div>
+          <script src="script.js"></script>
+        </body>
+        </html>
+      </div>
+    </div>
+
+    
+      <script>
+
+// Lấy thông tin của bệnh nhân bằng AJAX
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    const patientInfo = JSON.parse(this.responseText);
+    // Hiển thị thông tin của bệnh nhân trên trang web
+    document.getElementById("patient-name").textContent = patientInfo.name;
+    document.getElementById("patient-age").textContent = patientInfo.age;
+    document.getElementById("patient-gender").textContent = patientInfo.gender;
+    document.getElementById("patient-symptoms").textContent = patientInfo.symptoms;
+    document.getElementById("patient-diagnosis").textContent = patientInfo.diagnosis;
+  }
+};
+xhr.open("GET", "get_patient_info.php", true);
+xhr.send();
+      </script>
+
+
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">

@@ -68,19 +68,19 @@
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="about.jsp">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
+              <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
+              <a class="nav-link" href="booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vip.html">VIP</a>
+              <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="login.jsp">Login / Register</a>
@@ -91,88 +91,132 @@
     </nav>
   </header>
 
-  <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
-    <div class="hero-section">
-      <div class="container text-center wow zoomIn">
-        <span class="subhead">Let's make your life happier</span>
-        <h1 class="display-4">Healthy Living</h1>
-        <a href="booking.html" class="btn btn-primary">Booking</a>
-      </div>
-    </div>
-  </div>
+  <div class="page-banner overlay-dark bg-image" style="background-image: url(images/bg_image_1.jpg);">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+            <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Doctors</li>
+          </ol>
+        </nav>
+        <h1 class="font-weight-normal">Our Doctors</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div> <!-- .page-banner -->
 
-  <div class="bg-light">
-    <div class="page-section py-3 mt-md-n5 custom-index">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card-service wow fadeInUp">
-              <div class="circle-shape bg-secondary text-white">
-                <span class="mai-chatbubbles-outline"></span>
-              </div>
-              <p><a href="feedback.html" class=""><span></span> Feedback</a></p>
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card-service wow fadeInUp">
-              <div class="circle-shape bg-primary text-white">
-                <span class="mai-shield-checkmark"></span>
-              </div>
-              <p><a href="viewMedicalRecord.html" class=""><span></span> Medical Record</a></p>
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card-service wow fadeInUp">
-              <div class="circle-shape bg-accent text-white">
-                <span class="mai-basket"></span>
-              </div>
-              <p><a href="informationcustomer.html" class=""><span></span> View Information</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- .page-section -->
-
-  <div class="page-section">
+  <div class="page-section bg-light">
     <div class="container">
-      <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
-      <form class="main-form">
-        <div class="row mt-5 ">
-          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-            <input type="text" class="form-control" placeholder="Full name">
-          </div>
-          <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-            <select name="departement" id="departement" class="custom-select">
-              <option value="general">Male</option>
-              <option value="cardiology">Female</option>
-            </select>
-          </div>
-          <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-            <input type="date" class="form-control">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <div class="row">
+            
+            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src="images/doctors/doctor_1.jpg" alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr. Stein Albert</p>
+                  <span class="text-sm text-grey">Cardiology</span>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src="images/doctors/doctor_2.jpg" alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr. Alexa Melvin</p>
+                  <span class="text-sm text-grey">Dental</span>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src="images/doctors/doctor_3.jpg" alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
+                  <span class="text-sm text-grey">General Health</span>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src="images/doctors/doctor_1.jpg" alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr. Stein Albert</p>
+                  <span class="text-sm text-grey">Cardiology</span>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src="images/doctors/doctor_2.jpg" alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr. Alexa Melvin</p>
+                  <span class="text-sm text-grey">Dental</span>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
+              <div class="card-doctor">
+                <div class="header">
+                  <img src="images/doctors/doctor_3.jpg" alt="">
+                  <div class="meta">
+                    <a href="#"><span class="mai-call"></span></a>
+                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                  </div>
+                </div>
+                <div class="body">
+                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
+                  <span class="text-sm text-grey">General Health</span>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-            <input type="text" class="form-control" placeholder="Address..">
-          </div>
-          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-            <select name="departement" id="departement" class="custom-select">
-              <option value="general">Ears</option>
-              <option value="cardiology">Throat</option>
-              <option value="cardiology">Nose</option>
-            </select>
-          </div>
-          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-            <input type="text" class="form-control" placeholder="Numbers..">
-          </div>
-          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-            <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
-          </div>
         </div>
-
-        <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Submit</button>
-      </form>
-    </div>
+      </div>
+    </div> <!-- .container -->
   </div> <!-- .page-section -->
+
+  
+  
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
@@ -188,6 +232,7 @@
       </div>
     </div>
   </div> <!-- .banner-home -->
+
 
   <footer class="page-footer">
     <div class="container">
@@ -238,8 +283,8 @@
       <hr>
 
       <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
-    </div> <!-- .container -->
-  </footer> <!-- .page-footer -->
+    </div>
+  </footer>
 
 <script src="js/jquery-3.5.1.min.js"></script>
 

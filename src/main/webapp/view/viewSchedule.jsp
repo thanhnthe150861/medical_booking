@@ -120,7 +120,7 @@
     </style>
 </div>
 <div>
-<button1><a href="vip.html"><input type="week"></a></button1></div>
+<button1><a href="vip.jsp"><input type="week"></a></button1></div>
 <div>
 <body>
     <div class="container">

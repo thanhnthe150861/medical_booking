@@ -69,19 +69,19 @@
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="about.jsp'">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
+              <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
+              <a class="nav-link" href="booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vip.html">VIP</a>
+              <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="login">Login / Register</a>
@@ -97,7 +97,7 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
-        <a href="booking.html" class="btn btn-primary">Booking</a>
+        <a href="booking.jsp" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>
@@ -111,7 +111,7 @@
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p><a href="feedback.html" class=""><span></span> Feedback</a></p>
+              <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -119,7 +119,7 @@
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p><a href="viewMedicalRecord.html" class=""><span></span> Medical Record</a></p>
+              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Record</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -127,7 +127,7 @@
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p><a href="informationcustomer.html" class=""><span></span> View Information</a></p>
+              <p><a href="informationcustomer.jsp" class=""><span></span> View Information</a></p>
             </div>
           </div>
         </div>

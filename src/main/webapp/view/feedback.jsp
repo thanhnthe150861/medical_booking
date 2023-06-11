@@ -68,19 +68,19 @@
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="about.jsp">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
+              <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
+              <a class="nav-link" href="booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vip.html">VIP</a>
+              <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="login.html">Login / Register</a>
@@ -91,6 +91,7 @@
     </nav>
   </header>
 
+  
 
   <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
     <div class="hero-section">
@@ -111,7 +112,7 @@
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p><a href="feedback.html" class=""><span></span> Feedback</a></p>
+              <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -119,7 +120,7 @@
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p><a href="viewMedicalRecord.html" class=""><span></span> Medical Records</a></p>
+              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Records</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -127,7 +128,7 @@
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p><a href="informationcustomer.html" class=""><span></span> View Information</a></p>
+              <p><a href="informationcustomer.jsp" class=""><span></span> View Information</a></p>
             </div>
           </div>
         </div>
@@ -136,60 +137,67 @@
     <div class="page-section">
       <div class="container">
         <h1 class="text-center wow fadeInUp">Medicak records</h1>
-        <html>
-        <head>
-          <meta charset="UTF-8">
-          <title>Patient information</title>
-          <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-          <h1>Patient information</h1>
-          <div>
-            <label for="patient-name">Patient name:</label>
-            <span id="patient-name"></span>
-          </div>
-          <div>
-            <label for="patient-age">Age:</label>
-            <span id="patient-age"></span>
-          </div>
-          <div>
-            <label for="patient-gender">Gender:</label>
-            <span id="patient-gender"></span>
-          </div>
-          <div>
-            <label for="patient-symptoms">Symptom:</label>
-            <span id="patient-symptoms"></span>
-          </div>
-          <div>
-            <label for="patient-diagnosis">Diagnostic:</label>
-            <span id="patient-diagnosis"></span>
-          </div>
-          <script src="script.js"></script>
-        </body>
-        </html>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="feedback">Feedback:</label>
+          <textarea id="feedback" name="feedback" required></textarea>
+          <button type="submit"><a href="index.jsp" class=""><span></span> </a> Done</button>
+        </form>
       </div>
     </div>
 
+    <style>form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      display: block;
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    button[type="submit"] {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #3e8e41;
+    }</style>
+
+    <script>const form = document.querySelector('form');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const feedback = document.getElementById('feedback').value;
+        // Gửi dữ liệu đến server
+        // ...
+        // Hiển thị thông báo cho người dùng
+        alert('Cảm ơn bạn đã gửi phản hồi!');
+        // Reset form
+        form.reset();
+      });</script>
     
-      <script>
 
-// Lấy thông tin của bệnh nhân bằng AJAX
-const xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    const patientInfo = JSON.parse(this.responseText);
-    // Hiển thị thông tin của bệnh nhân trên trang web
-    document.getElementById("patient-name").textContent = patientInfo.name;
-    document.getElementById("patient-age").textContent = patientInfo.age;
-    document.getElementById("patient-gender").textContent = patientInfo.gender;
-    document.getElementById("patient-symptoms").textContent = patientInfo.symptoms;
-    document.getElementById("patient-diagnosis").textContent = patientInfo.diagnosis;
-  }
-};
-xhr.open("GET", "get_patient_info.php", true);
-xhr.send();
-      </script>
 
+
+    
 
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">

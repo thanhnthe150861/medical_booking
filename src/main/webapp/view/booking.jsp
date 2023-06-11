@@ -68,22 +68,22 @@
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="about.jsp">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
+              <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.html">Booking</a>
+              <a class="nav-link" href="booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vip.html">VIP</a>
+              <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="login.html">Login / Register</a>
+              <a class="btn btn-primary ml-lg-3" href="login.jsp">Login / Register</a>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->
@@ -91,16 +91,15 @@
     </nav>
   </header>
 
-
   <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
+        <a href="booking.jsp" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>
-
 
   <div class="bg-light">
     <div class="page-section py-3 mt-md-n5 custom-index">
@@ -111,7 +110,7 @@
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p><a href="feedback.html" class=""><span></span> Feedback</a></p>
+              <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -119,7 +118,7 @@
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p><a href="viewMedicalRecord.html" class=""><span></span> Medical Records</a></p>
+              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Record</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -127,112 +126,53 @@
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p><a href="informationcustomer.html" class=""><span></span> View Information</a></p>
+              <p><a href="informationcustomer.jsp" class=""><span></span> View Information</a></p>
             </div>
           </div>
         </div>
       </div>
     </div> <!-- .page-section -->
-    <div class="page-section">
-      <div class="container">
-        <h1 class="text-center wow fadeInUp">Medicak records</h1>
-        
-        
-      </div>
+
+  <div class="page-section">
+    <div class="container">
+      <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
+      <form class="main-form">
+        <div class="row mt-5 ">
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+            <input type="text" class="form-control" placeholder="Full name">
+          </div>
+          <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+            <select name="departement" id="departement" class="custom-select">
+              <option value="general">Male</option>
+              <option value="cardiology">Female</option>
+            </select>
+          </div>
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+            <input type="date" class="form-control">
+          </div>
+
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+            <input type="text" class="form-control" placeholder="Address..">
+          </div>
+          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <select name="departement" id="departement" class="custom-select">
+              <option value="general">Ears</option>
+              <option value="cardiology">Throat</option>
+              <option value="cardiology">Nose</option>
+            </select>
+          </div>
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+            <input type="text" class="form-control" placeholder="Numbers..">
+          </div>
+          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Submit</button>
+      </form>
     </div>
-    
-    <head>
-      <title>Chỉnh sửa thông tin nhân viên</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-      <div class="employee-form-container">
-        <h1>Chỉnh sửa thông tin nhân viên</h1>
-        <form>
-          <label for="employee-id">Mã nhân viên</label>
-          <input type="text" id="employee-id" name="employee-id" value="NV001" readonly>
-          <label for="employee-name">Tên nhân viên</label>
-          <input type="text" id="employee-name" name="employee-name" value="Nguyễn Văn A" required>
-          <label for="employee-age">Tuổi</label>
-          <input type="number" id="employee-age" name="employee-age" value="30" required>
-          <label for="employee-gender">Giới tính</label>
-          <select id="employee-gender" name="employee-gender" required>
-            <option value="Nam">Nam</option>
-            <option value="Nữ">Nữ</option>
-            <option value="Khác">Khác</option>
-          </select>
-          <label for="employee-email">Email</label>
-          <input type="email" id="employee-email" name="employee-email" value="nguyenvana@gmail.com" required>
-          <label for="employee-phone">Số điện thoại</label>
-          <input type="tel" id="employee-phone" name="employee-phone" value="0987654321" required>
-          <input type="submit" value="Lưu">
-        </form>
-      </div>
-      <script src="script.js"></script>
-    </body>
-
-    <style>
- body {
-	background-color: #f2f2f2;
-	font-family: Arial, sans-serif;
-}
- .employee-form-container {
-	background-color: #fff;
-	border-radius: 5px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-	margin: 50px auto;
-	padding: 20px;
-	text-align: center;
-	width: 400px;
-}
- h1 {
-	color: #333;
-	font-size: 24px;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-}
- form {
-	display: inline-block;
-	text-align: left;
-}
- label {
-	display: block;
-	font-size: 14px;
-	margin-bottom: 10px;
-	text-transform: uppercase;
-}
- input[type="text"], input[type="number"], input[type="email"], input[type="tel"], select {
-	background-color: #f2f2f2;
-	border: none;
-	border-radius: 3px;
-	box-sizing: border-box;
-	display: block;
-	font-size: 16px;
-	margin-bottom: 20px;
-	padding: 10px;
-	width: 100%;
-}
- input[type="submit"] {
-	background-color: #4CAF50;
-	border: none;
-	border-radius: 3px;
-	color: #fff;
-	cursor: pointer;
-	font-size: 16px;
-	padding: 10px;
-	width: 100%;
-	transition: all 0.3s ease;
-}
- input[type="submit"]:hover {
-	background-color: #3e8e41;
-}
-    </style>
-
-
-
-
+  </div> <!-- .page-section -->
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
@@ -298,8 +238,8 @@
       <hr>
 
       <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
-    </div>
-  </footer>
+    </div> <!-- .container -->
+  </footer> <!-- .page-footer -->
 
 <script src="js/jquery-3.5.1.min.js"></script>
 
