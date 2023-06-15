@@ -92,7 +92,7 @@
                         </c:if>
                         <c:if test="${sessionScope.account ne null}">
                             <c:if test="${sessionScope.account.isAdmin eq 0}">
-                                <a class="btn btn-primary ml-lg-3" href="#">Admin</a>
+                                <a class="btn btn-primary ml-lg-3" href="admin_dashboard">Admin</a>
                             </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 1}">
                                 <a class="btn btn-primary ml-lg-3" href="#">Doctor</a>
@@ -127,7 +127,20 @@
                         <div class="circle-shape bg-secondary text-white">
                             <span class="mai-chatbubbles-outline"></span>
                         </div>
-                        <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
+<%--                        <c:if test="${sessionScope.account eq null}">--%>
+<%--                            <a class="btn btn-primary ml-lg-3" href="login">Login / Register</a>--%>
+<%--                        </c:if>--%>
+                        <c:if test="${sessionScope.account ne null}">
+                            <c:if test="${sessionScope.account.isAdmin eq 0}">
+                                <p><a href="admin_dashboard" class=""><span></span> Dashboard</a></p>
+                            </c:if>
+                            <c:if test="${sessionScope.account.isAdmin eq 1}">
+                                <p><a href="#" class=""><span></span> Dashboard</a></p>
+                            </c:if>
+                            <c:if test="${sessionScope.account.isAdmin eq 2}">
+                                <p><a href="#" class=""><span></span> Dashboard</a></p>
+                            </c:if>
+                        </c:if>
                     </div>
                 </div>
                 <div class="col-md-4 py-3 py-md-0">
