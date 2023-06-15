@@ -28,6 +28,11 @@ CREATE TABLE account(
     isAdmin int NOT NULL,
 	PRIMARY KEY (username)
 );
+CREATE TABLE role(
+	id int NOT NULL,
+	name varchar(100) NOT NULL,
+	PRIMARY KEY (id)    
+);
 
 CREATE TABLE client(
 	id int auto_increment,
@@ -104,12 +109,15 @@ CREATE TABLE slot_booking(
 
 
 INSERT account (username, password, phone_number, email, isAdmin) VALUES (N'admin', N'123456', N'1234567890', N'thanh17042001@gmail.com', N'0');
+INSERT role (id, name) VALUES (0,N'Admin'),(1,N'Doctor'),(2,N'Client');
 INSERT rank_client (id, name) VALUES (1, N'Đồng'),(2, N'Bạc'),(3, N'Vàng'),(4, N'Kim Cương');
 select * from rank_client;
 select * from account;
 select * from client;
-delete from account where username = N'thanh';
+select * from role;
 
+ALTER TABLE account  ADD  CONSTRAINT FOREIGN KEY(isAdmin)
+REFERENCES role (id);
 
 ALTER TABLE bill  ADD  CONSTRAINT FOREIGN KEY(booking_id)
 REFERENCES booking (id);

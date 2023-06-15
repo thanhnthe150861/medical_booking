@@ -1,4 +1,4 @@
-package controller;
+package controller.login;
 
 import dal.AccountDB;
 import jakarta.servlet.ServletException;

@@ -14,7 +14,7 @@ public class home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Account account = (Account) session.getAttribute("account");
+        session.getAttribute("account");
         req.getRequestDispatcher("view/home.jsp").forward(req,resp);
     }
 
