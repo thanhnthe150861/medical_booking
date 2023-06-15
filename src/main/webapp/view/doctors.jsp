@@ -71,7 +71,7 @@
               <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.jsp">About Us</a>
+              <a class="nav-link" href="home.jsp">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.jsp">Doctors</a>
@@ -83,7 +83,7 @@
               <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="login.jsp">Login / Register</a>
+              <a class="btn btn-primary ml-lg-3" href="login/login.jsp">Login / Register</a>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->

@@ -32,7 +32,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
                     <h3 class="mb-4 text-center">Login</h3>
-                    <form action="login" class="login-form" method="post">
+                    <form action="" class="login-form" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username" name="username" required>
                         </div>

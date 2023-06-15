@@ -17,7 +17,7 @@ public class login extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.invalidate();
-        req.getRequestDispatcher("view/login.jsp").forward(req,resp);
+        req.getRequestDispatcher("view/login/login.jsp").forward(req,resp);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class login extends HttpServlet {
         HttpSession session = req.getSession();
         if(account == null){
             session.setAttribute("mess", "User or Password incorrect");
-            req.getRequestDispatcher("view/login.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/login/login.jsp").forward(req,resp);
         }else{
             if(account.getIsAdmin() == 0){// Admin
                 session.setAttribute("account", account);
@@ -39,7 +39,7 @@ public class login extends HttpServlet {
                 req.getRequestDispatcher("view/doctors.jsp").forward(req,resp);
             } else if (account.getIsAdmin() == 2) {// Client
                 session.setAttribute("account", account);
-                req.getRequestDispatcher("view/about.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/home.jsp").forward(req,resp);
             }
 
         }

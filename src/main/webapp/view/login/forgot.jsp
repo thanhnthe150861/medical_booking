@@ -38,11 +38,9 @@
             </div>
             <div class="form-group">
               <input  type="text" class="form-control" name="phone" placeholder="Phone" required>
-              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
             <div class="form-group">
               <input  type="text" class="form-control" name="email" placeholder="Email" required>
-              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
             <%--                        <div class="form-group">--%>
             <%--                            <select name="roleid" class="form-control">--%>

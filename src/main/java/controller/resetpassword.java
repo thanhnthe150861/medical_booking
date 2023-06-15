@@ -17,7 +17,7 @@ public class resetpassword extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.getAttribute("account");
-        req.getRequestDispatcher("view/resetpassword.jsp").forward(req,resp);
+        req.getRequestDispatcher("view/login/reset-password.jsp").forward(req,resp);
     }
 
     @Override
