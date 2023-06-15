@@ -33,13 +33,13 @@ public class login extends HttpServlet {
         }else{
             if(account.getIsAdmin() == 0){// Admin
                 session.setAttribute("account", account);
-                req.getRequestDispatcher("home").forward(req,resp);
+                resp.sendRedirect("home");
             }else if(account.getIsAdmin() == 1){// Doctor
                 session.setAttribute("account", account);
-                req.getRequestDispatcher("home").forward(req,resp);
+                resp.sendRedirect("home");
             } else if (account.getIsAdmin() == 2) {// Client
                 session.setAttribute("account", account);
-                req.getRequestDispatcher("home").forward(req,resp);
+                resp.sendRedirect("home");
             }
 
         }
