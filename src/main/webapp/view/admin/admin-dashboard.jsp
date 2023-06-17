@@ -39,11 +39,11 @@
 
 		<!-- Logo -->
 		<div class="header-left">
-			<a href="index.html" class="logo">
-				<img src="view/admin/assets/img/logo.png" alt="Logo">
+			<a href="home" class="logo">
+				<span class="text-primary">Clinic</span>-TATQ
 			</a>
-			<a href="index.html" class="logo logo-small">
-				<img src="view/admin/assets/img/logo-small.png" alt="Logo" width="30" height="30">
+			<a href="home" class="logo logo-small">
+				<span class="text-primary" width="50" height="50">Clinic</span>
 			</a>
 		</div>
 		<!-- /Logo -->

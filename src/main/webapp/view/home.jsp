@@ -52,7 +52,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#"><span class="text-primary">Clinic</span>-TATQ</a>
+            <a class="navbar-brand" href="home"><span class="text-primary">Clinic</span>-TATQ</a>
 
             <form action="#">
                 <div class="input-group input-navbar">
@@ -72,19 +72,47 @@
             <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.jsp">Home</a>
+                        <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.jsp'">About Us</a>
+                        <a class="nav-link" href="#'">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="doctors.jsp">Doctors</a>
+                    <c:if test="${sessionScope.account ne null}">
+                        <c:if test="${sessionScope.account.isAdmin eq 0}">
+                            <a class="nav-link" href="#">View Doctors</a>
+                        </c:if>
+                        <c:if test="${sessionScope.account.isAdmin eq 1}">
+                            <a class="nav-link" href="#">View Doctors</a>
+                        </c:if>
+                        <c:if test="${sessionScope.account.isAdmin eq 2}">
+                            <a class="nav-link" href="#">View Doctors</a>
+                        </c:if>
+                    </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="booking.jsp">Booking</a>
+                        <c:if test="${sessionScope.account ne null}">
+                            <c:if test="${sessionScope.account.isAdmin eq 0}">
+<%--                                <a class="nav-link" href="#">Booking</a>--%>
+                            </c:if>
+                            <c:if test="${sessionScope.account.isAdmin eq 1}">
+                                <a class="nav-link" href="#">View Booking</a>
+                            </c:if>
+                            <c:if test="${sessionScope.account.isAdmin eq 2}">
+                                <a class="nav-link" href="#">Booking</a>
+                            </c:if>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vip.jsp">VIP</a>
+                        <c:if test="${sessionScope.account ne null}">
+                            <c:if test="${sessionScope.account.isAdmin eq 0}">
+                                <a class="nav-link" href="#">View Rank User</a>
+                            </c:if>
+                            <c:if test="${sessionScope.account.isAdmin eq 1 || sessionScope.account.isAdmin eq 2}">
+                                <a class="nav-link" href="#">View Rank Doctor</a>
+                                <a class="nav-link" href="#">View Rank Client</a>
+                            </c:if>
+                        </c:if>
                     </li>
                     <li class="nav-item">
                         <c:if test="${sessionScope.account eq null}">
@@ -93,12 +121,15 @@
                         <c:if test="${sessionScope.account ne null}">
                             <c:if test="${sessionScope.account.isAdmin eq 0}">
                                 <a class="btn btn-primary ml-lg-3" href="admin_dashboard">Admin</a>
+                                <a class="btn btn-primary ml-lg-3" href="login">Log out</a>
                             </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 1}">
-                                <a class="btn btn-primary ml-lg-3" href="#">Doctor</a>
+                                <a class="btn btn-primary ml-lg-3" href="doctor_dashboard">Doctor</a>
+                                <a class="btn btn-primary ml-lg-3" href="login">Log out</a>
                             </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
-                                <a class="btn btn-primary ml-lg-3" href="#">Client</a>
+                                <a class="btn btn-primary ml-lg-3" href="client_dashboard">Client</a>
+                                <a class="btn btn-primary ml-lg-3" href="login">Log out</a>
                             </c:if>
                         </c:if>
                     </li>
@@ -113,7 +144,14 @@
         <div class="container text-center wow zoomIn">
             <span class="subhead">Let's make your life happier</span>
             <h1 class="display-4">Healthy Living</h1>
-            <a href="booking.jsp" class="btn btn-primary">Booking</a>
+            <c:if test="${sessionScope.account eq null}">
+                <a href="register" class="btn btn-primary">Booking</a>
+            </c:if>
+            <c:if test="${sessionScope.account ne null}">
+                <c:if test="${sessionScope.account.isAdmin eq 2}">
+                    <a href="#" class="btn btn-primary">Booking</a>
+                </c:if>
+            </c:if>
         </div>
     </div>
 </div>
@@ -125,11 +163,15 @@
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card-service wow fadeInUp">
                         <div class="circle-shape bg-secondary text-white">
-                            <span class="mai-chatbubbles-outline"></span>
+                            <span class="mai-"></span>
                         </div>
+
 <%--                        <c:if test="${sessionScope.account eq null}">--%>
 <%--                            <a class="btn btn-primary ml-lg-3" href="login">Login / Register</a>--%>
 <%--                        </c:if>--%>
+                        <c:if test="${sessionScope.account eq null}">
+                            <p><a href="login" class=""><span></span> Dashboard</a></p>
+                        </c:if>
                         <c:if test="${sessionScope.account ne null}">
                             <c:if test="${sessionScope.account.isAdmin eq 0}">
                                 <p><a href="admin_dashboard" class=""><span></span> Dashboard</a></p>
@@ -156,7 +198,7 @@
                         <div class="circle-shape bg-accent text-white">
                             <span class="mai-basket"></span>
                         </div>
-                        <p><a href="informationcustomer.jsp" class=""><span></span> View Information</a></p>
+                        <p><a href="#" class=""><span></span> View Information</a></p>
                     </div>
                 </div>
             </div>
