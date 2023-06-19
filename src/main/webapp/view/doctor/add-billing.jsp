@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/booking-success.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -65,14 +65,14 @@
 							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
 							<%--								<ul class="submenu">--%>
 							<%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
-							<%--									<li><a href="appointments.html">Appointments</a></li>--%>
+							<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
 							<%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
-							<%--									<li><a href="my-patients.html">Patients List</a></li>--%>
-							<%--									<li><a href="patient-profile.html">Patients Profile</a></li>--%>
+							<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
+							<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
 							<%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
-							<%--									<li><a href="invoices.html">Invoices</a></li>--%>
+							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
-							<%--									<li><a href="reviews.html">Reviews</a></li>--%>
+							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
 							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>	--%>
@@ -98,12 +98,12 @@
 							<%--									<li><a href="video-call.html">Video Call</a></li>--%>
 							<%--									<li><a href="search.html">Search Doctors</a></li>--%>
 							<%--									<li><a href="calendar.html">Calendar</a></li>--%>
-							<%--									<li><a href="components.html">Components</a></li>--%>
+							<%--									<li><a href="components.jsp">Components</a></li>--%>
 							<%--									<li class="has-submenu">--%>
-							<%--										<a href="invoices.html">Invoices</a>--%>
+							<%--										<a href="invoices.jsp">Invoices</a>--%>
 							<%--										<ul class="submenu">--%>
-							<%--											<li><a href="invoices.html">Invoices</a></li>--%>
-							<%--											<li><a href="invoice-view.html">Invoice View</a></li>--%>
+							<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
+							<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
 							<%--										</ul>--%>
 							<%--									</li>--%>
 							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
@@ -119,7 +119,7 @@
 							<%--								<a href="login.html">Login / Signup</a>--%>
 							<%--							</li>--%>
 						</ul>
-					</div>		 
+					</div>
 					<ul class="nav header-navbar-rht">
 						<li class="nav-item contact-item">
 							<div class="header-contact-img">
@@ -130,9 +130,31 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link header-login" href="login.html">login / Signup </a>
+						
+						<!-- User Menu -->
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+									</div>
+									<div class="user-text">
+										<h6>Darren Elder</h6>
+										<p class="text-muted mb-0">Doctor</p>
+									</div>
+								</div>
+								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+								<a class="dropdown-item" href="login">Logout</a>
+							</div>
 						</li>
+						<!-- /User Menu -->
+						
 					</ul>
 				</nav>
 			</header>
@@ -146,10 +168,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Booking</li>
+									<li class="breadcrumb-item active" aria-current="page">Add Billing</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Booking</h2>
+							<h2 class="breadcrumb-title">Add Billing</h2>
 						</div>
 					</div>
 				</div>
@@ -157,29 +179,146 @@
 			<!-- /Breadcrumb -->
 			
 			<!-- Page Content -->
-			<div class="content success-page-cont">
+			<div class="content">
 				<div class="container-fluid">
-				
-					<div class="row justify-content-center">
-						<div class="col-lg-6">
+
+					<div class="row">
+						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
 						
-							<!-- Success Card -->
-							<div class="card success-card">
+							<!-- Profile Widget -->
+							<div class="card widget-profile pat-widget-profile">
 								<div class="card-body">
-									<div class="success-cont">
-										<i class="fas fa-check"></i>
-										<h3>Appointment booked Successfully!</h3>
-										<p>Appointment booked with <strong>Dr. Darren Elder</strong><br> on <strong>12 Nov 2019 5:00PM to 6:00PM</strong></p>
-										<a href="invoice-view.html" class="btn btn-primary view-inv-btn">View Invoice</a>
+									<div class="pro-widget-content">
+										<div class="profile-info-widget">
+											<a href="#" class="booking-doc-img">
+												<img src="assets/img/patients/patient.jpg" alt="User Image">
+											</a>
+											<div class="profile-det-info">
+												<h3><a href="patient-profile.html">Richard Wilson</a></h3>
+												<div class="patient-details">
+													<h5><b>Patient ID :</b> PT0016</h5>
+													<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="patient-info">
+										<ul>
+											<li>Phone <span>+1 952 001 8563</span></li>
+											<li>Age <span>38 Years, Male</span></li>
+											<li>Blood Group <span>AB+</span></li>
+										</ul>
 									</div>
 								</div>
 							</div>
-							<!-- /Success Card -->
+							<!-- /Profile Widget -->
 							
 						</div>
+
+						<div class="col-md-7 col-lg-8 col-xl-9">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title mb-0">Add Billing</h4>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="biller-info">
+												<h4 class="d-block">Dr. Darren Elder</h4>
+												<span class="d-block text-sm text-muted">Dentist</span>
+												<span class="d-block text-sm text-muted">Newyork, United States</span>
+											</div>
+										</div>
+										<div class="col-sm-6 text-sm-right">
+											<div class="billing-info">
+												<h4 class="d-block">1 November 2019</h4>
+												<span class="d-block text-muted">#INV0001</span>
+											</div>
+										</div>
+									</div>
+									
+									<!-- Add Item -->
+									<div class="add-more-item text-right">
+										<a href="javascript:void(0);"><i class="fas fa-plus-circle"></i> Add Item</a>
+									</div>
+									<!-- /Add Item -->
+									
+									<!-- Billing Item -->
+									<div class="card card-table">
+										<div class="card-body">
+											<div class="table-responsive">
+												<table class="table table-hover table-center">
+													<thead>
+														<tr>													
+															<th style="min-width:200px;">Title</th>					
+															<th style="min-width:200px;">Amount</th>		
+															<th style="width:80px;"></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>								
+															<td>	
+																<input type="text" class="form-control">
+															</td>
+															<td>
+																<input type="text" class="form-control">
+															</td>							
+															<td>
+																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
+															</td>
+														</tr>
+														<tr>								
+															<td>	
+																<input type="text" class="form-control">
+															</td>
+															<td>
+																<input type="text" class="form-control">
+															</td>							
+															<td>
+																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<!-- /Billing Item -->
+									
+									<!-- Signature -->
+									<div class="row">
+										<div class="col-md-12 text-right">
+											<div class="signature-wrap">
+												<div class="signature">
+													Click here to sign
+												</div>
+												<div class="sign-name">
+													<p class="mb-0">( Dr. Darren Elder )</p>
+													<span class="text-muted">Signature</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- /Signature -->
+									
+									<!-- Submit Section -->
+									<div class="row">
+										<div class="col-md-12">
+											<div class="submit-section">
+												<button type="submit" class="btn btn-primary submit-btn">Save</button>
+												<button type="reset" class="btn btn-secondary submit-btn">Clear</button>
+											</div>
+										</div>
+									</div>
+									<!-- /Submit Section -->
+									
+								</div>
+							</div>
+						</div>
 					</div>
-					
+
 				</div>
+
 			</div>		
 			<!-- /Page Content -->
    
@@ -233,7 +372,7 @@
 										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Booking</a></li>
+										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
 										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
@@ -247,7 +386,7 @@
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For Doctors</h2>
 									<ul>
-										<li><a href="appointments.html"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+										<li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
@@ -332,10 +471,14 @@
 		<script src="assets/js/popper.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		
+		<!-- Sticky Sidebar JS -->
+        <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
+        <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
+		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
 		
 	</body>
 
-<!-- doccure/booking-success.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 </html>

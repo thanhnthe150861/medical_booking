@@ -65,14 +65,14 @@
 <%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
 <%--								<ul class="submenu">--%>
 <%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
-<%--									<li><a href="appointments.html">Appointments</a></li>--%>
+<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
 <%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
-<%--									<li><a href="my-patients.html">Patients List</a></li>--%>
-<%--									<li><a href="patient-profile.html">Patients Profile</a></li>--%>
+<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
+<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
 <%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
-<%--									<li><a href="invoices.html">Invoices</a></li>--%>
+<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 <%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
-<%--									<li><a href="reviews.html">Reviews</a></li>--%>
+<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
 <%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
 <%--								</ul>--%>
 <%--							</li>	--%>
@@ -98,12 +98,12 @@
 <%--									<li><a href="video-call.html">Video Call</a></li>--%>
 <%--									<li><a href="search.html">Search Doctors</a></li>--%>
 <%--									<li><a href="calendar.html">Calendar</a></li>--%>
-<%--									<li><a href="components.html">Components</a></li>--%>
+<%--									<li><a href="components.jsp">Components</a></li>--%>
 <%--									<li class="has-submenu">--%>
-<%--										<a href="invoices.html">Invoices</a>--%>
+<%--										<a href="invoices.jsp">Invoices</a>--%>
 <%--										<ul class="submenu">--%>
-<%--											<li><a href="invoices.html">Invoices</a></li>--%>
-<%--											<li><a href="invoice-view.html">Invoice View</a></li>--%>
+<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
+<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
 <%--										</ul>--%>
 <%--									</li>--%>
 <%--									<li><a href="blank-page.html">Starter Page</a></li>--%>

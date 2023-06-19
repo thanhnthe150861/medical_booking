@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/checkout.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/edit-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -65,14 +65,14 @@
 							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
 							<%--								<ul class="submenu">--%>
 							<%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
-							<%--									<li><a href="appointments.html">Appointments</a></li>--%>
+							<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
 							<%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
-							<%--									<li><a href="my-patients.html">Patients List</a></li>--%>
-							<%--									<li><a href="patient-profile.html">Patients Profile</a></li>--%>
+							<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
+							<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
 							<%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
-							<%--									<li><a href="invoices.html">Invoices</a></li>--%>
+							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
-							<%--									<li><a href="reviews.html">Reviews</a></li>--%>
+							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
 							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>	--%>
@@ -98,12 +98,12 @@
 							<%--									<li><a href="video-call.html">Video Call</a></li>--%>
 							<%--									<li><a href="search.html">Search Doctors</a></li>--%>
 							<%--									<li><a href="calendar.html">Calendar</a></li>--%>
-							<%--									<li><a href="components.html">Components</a></li>--%>
+							<%--									<li><a href="components.jsp">Components</a></li>--%>
 							<%--									<li class="has-submenu">--%>
-							<%--										<a href="invoices.html">Invoices</a>--%>
+							<%--										<a href="invoices.jsp">Invoices</a>--%>
 							<%--										<ul class="submenu">--%>
-							<%--											<li><a href="invoices.html">Invoices</a></li>--%>
-							<%--											<li><a href="invoice-view.html">Invoice View</a></li>--%>
+							<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
+							<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
 							<%--										</ul>--%>
 							<%--									</li>--%>
 							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
@@ -130,9 +130,31 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link header-login" href="login.html">login / Signup </a>
+						
+						<!-- User Menu -->
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+									</div>
+									<div class="user-text">
+										<h6>Darren Elder</h6>
+										<p class="text-muted mb-0">Doctor</p>
+									</div>
+								</div>
+								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+								<a class="dropdown-item" href="login">Logout</a>
+							</div>
 						</li>
+						<!-- /User Menu -->
+						
 					</ul>
 				</nav>
 			</header>
@@ -146,10 +168,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item active" aria-current="page">Edit Billing</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Checkout</h2>
+							<h2 class="breadcrumb-title">Edit Billing</h2>
 						</div>
 					</div>
 				</div>
@@ -158,184 +180,140 @@
 			
 			<!-- Page Content -->
 			<div class="content">
-				<div class="container">
+				<div class="container-fluid">
 
 					<div class="row">
-						<div class="col-md-7 col-lg-8">
-							<div class="card">
+						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+						
+							<!-- Profile Widget -->
+							<div class="card widget-profile pat-widget-profile">
 								<div class="card-body">
-								
-									<!-- Checkout Form -->
-<%--									<form action="https://dreamguys.co.in/demo/doccure/booking-success.html">--%>
-										<form action="checkout" method="post">
-										<!-- Personal Information -->
-										<div class="info-widget">
-											<h4 class="card-title">Personal Information</h4>
-											<div class="row">
-												<div class="col-md-6 col-sm-12">
-													<div class="form-group card-label">
-														<label>First Name</label>
-														<input class="form-control" type="text">
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12">
-													<div class="form-group card-label">
-														<label>Last Name</label>
-														<input class="form-control" type="text">
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12">
-													<div class="form-group card-label">
-														<label>Email</label>
-														<input class="form-control" type="email">
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12">
-													<div class="form-group card-label">
-														<label>Phone</label>
-														<input class="form-control" type="text">
-													</div>
+									<div class="pro-widget-content">
+										<div class="profile-info-widget">
+											<a href="#" class="booking-doc-img">
+												<img src="assets/img/patients/patient.jpg" alt="User Image">
+											</a>
+											<div class="profile-det-info">
+												<h3><a href="patient-profile.html">Richard Wilson</a></h3>
+												<div class="patient-details">
+													<h5><b>Patient ID :</b> PT0016</h5>
+													<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
 												</div>
 											</div>
-											<div class="exist-customer">Existing Customer? <a href="#">Click here to login</a></div>
 										</div>
-										<!-- /Personal Information -->
-										
-										<div class="payment-widget">
-											<h4 class="card-title">Payment Method</h4>
-											
-											<!-- Credit Card Payment -->
-											<div class="payment-list">
-												<label class="payment-radio credit-card-option">
-													<input type="radio" name="radio" checked>
-													<span class="checkmark"></span>
-													Credit card
-												</label>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group card-label">
-															<label for="card_name">Name on Card</label>
-															<input class="form-control" id="card_name" type="text">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group card-label">
-															<label for="card_number">Card Number</label>
-															<input class="form-control" id="card_number" placeholder="1234  5678  9876  5432" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="expiry_month">Expiry Month</label>
-															<input class="form-control" id="expiry_month" placeholder="MM" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="expiry_year">Expiry Year</label>
-															<input class="form-control" id="expiry_year" placeholder="YY" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="cvv">CVV</label>
-															<input class="form-control" id="cvv" type="text">
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- /Credit Card Payment -->
-											
-											<!-- Paypal Payment -->
-											<div class="payment-list">
-												<label class="payment-radio paypal-option">
-													<input type="radio" name="radio">
-													<span class="checkmark"></span>
-													Paypal
-												</label>
-											</div>
-											<!-- /Paypal Payment -->
-											
-											<!-- Terms Accept -->
-											<div class="terms-accept">
-												<div class="custom-checkbox">
-												   <input type="checkbox" id="terms_accept">
-												   <label for="terms_accept">I have read and accept <a href="#">Terms &amp; Conditions</a></label>
-												</div>
-											</div>
-											<!-- /Terms Accept -->
-											
-											<!-- Submit Section -->
-											<div class="submit-section mt-4">
-												<button type="submit" class="btn btn-primary submit-btn">Confirm and Pay</button>
-											</div>
-											<!-- /Submit Section -->
-											
-										</div>
-									</form>
-									<!-- /Checkout Form -->
-									
+									</div>
+									<div class="patient-info">
+										<ul>
+											<li>Phone <span>+1 952 001 8563</span></li>
+											<li>Age <span>38 Years, Male</span></li>
+											<li>Blood Group <span>AB+</span></li>
+										</ul>
+									</div>
 								</div>
 							</div>
+							<!-- /Profile Widget -->
 							
 						</div>
-						
-						<div class="col-md-5 col-lg-4 theiaStickySidebar">
-						
-							<!-- Booking Summary -->
-							<div class="card booking-card">
+
+						<div class="col-md-7 col-lg-8 col-xl-9">
+							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">Booking Summary</h4>
+									<h4 class="card-title mb-0">Edit Billing</h4>
 								</div>
 								<div class="card-body">
-								
-									<!-- Booking Doctor Info -->
-									<div class="booking-doc-info">
-										<a href="doctor-profile.html" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
-										</a>
-										<div class="booking-info">
-											<h4><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
-											<div class="rating">
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star"></i>
-												<span class="d-inline-block average-rating">35</span>
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="biller-info">
+												<h4 class="d-block">Dr. Darren Elder</h4>
+												<span class="d-block text-sm text-muted">Dentist</span>
+												<span class="d-block text-sm text-muted">Newyork, United States</span>
 											</div>
-											<div class="clinic-details">
-												<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
+										</div>
+										<div class="col-sm-6 text-sm-right">
+											<div class="billing-info">
+												<h4 class="d-block">1 November 2019</h4>
+												<span class="d-block text-muted">#INV0001</span>
 											</div>
 										</div>
 									</div>
-									<!-- Booking Doctor Info -->
 									
-									<div class="booking-summary">
-										<div class="booking-item-wrap">
-											<ul class="booking-date">
-												<li>Date <span>16 Nov 2019</span></li>
-												<li>Time <span>10:00 AM</span></li>
-											</ul>
-											<ul class="booking-fee">
-												<li>Consulting Fee <span>$100</span></li>
-												<li>Booking Fee <span>$10</span></li>
-												<li>Video Call <span>$50</span></li>
-											</ul>
-											<div class="booking-total">
-												<ul class="booking-total-list">
-													<li>
-														<span>Total</span>
-														<span class="total-cost">$160</span>
-													</li>
-												</ul>
+									<!-- Add Item -->
+									<div class="add-more-item text-right">
+										<a href="#"><i class="fa fa-plus-circle"></i> Add Item</a>
+									</div>
+									<!-- /Add Item -->
+									
+									<!-- Billing Item -->
+									<div class="card card-table">
+										<div class="card-body">
+											<div class="table-responsive">
+												<table class="table table-hover table-center">
+													<thead>
+														<tr>													
+															<th>Title</th>					
+															<th>Amount</th>		
+															<th style="width:80px;"></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>								
+															<td>	
+																<input type="text" class="form-control" value="Consulting Fee">
+															</td>
+															<td>
+																<input type="text" class="form-control" value="$330">
+															</td>							
+															<td>
+																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
+															</td>
+														</tr>
+														<tr>								
+															<td>	
+																<input type="text" class="form-control" value="Video Calling Appointment">
+															</td>
+															<td>
+																<input type="text" class="form-control" value="$100">
+															</td>							
+															<td>
+																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
+															</td>
+														</tr>
+													</tbody>
+												</table>
 											</div>
 										</div>
 									</div>
+									<!-- /Billing Item -->
+									
+									<!-- Signature -->
+									<div class="row">
+										<div class="col-md-12 text-right">
+											<div class="signature-wrap">
+												<div class="signature">
+													Click here to sign
+												</div>
+												<div class="sign-name">
+													<p class="mb-0">( Dr. Darren Elder )</p>
+													<span class="text-muted">Signature</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- /Signature -->
+									
+									<!-- Submit Section -->
+									<div class="row">
+										<div class="col-md-12">
+											<div class="submit-section">
+												<button type="submit" class="btn btn-primary submit-btn">Save</button>
+												<button type="reset" class="btn btn-secondary submit-btn">Clear</button>
+											</div>
+										</div>
+									</div>
+									<!-- /Submit Section -->
+									
 								</div>
 							</div>
-							<!-- /Booking Summary -->
-							
 						</div>
 					</div>
 
@@ -394,7 +372,7 @@
 										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Booking</a></li>
+										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
 										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
@@ -408,7 +386,7 @@
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For Doctors</h2>
 									<ul>
-										<li><a href="appointments.html"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+										<li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
@@ -502,5 +480,5 @@
 		
 	</body>
 
-<!-- doccure/checkout.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/edit-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 </html>

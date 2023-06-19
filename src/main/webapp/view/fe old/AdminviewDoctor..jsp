@@ -77,7 +77,7 @@
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../booking.jsp">Booking</a>
+              <a class="nav-link" href="../client/booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>

@@ -1,4 +1,4 @@
-package controller;
+package controller.client;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ public class booking  extends HttpServlet {
 //        HttpSession session = req.getSession();
 //        Account account = (Account) session.getAttribute("account");
 //        if (account != null && account.getIsAdmin() == 1){
-        req.getRequestDispatcher("view/booking.jsp").forward(req,resp);
+        req.getRequestDispatcher("view/client/booking.jsp").forward(req,resp);
 //        }
     }
 

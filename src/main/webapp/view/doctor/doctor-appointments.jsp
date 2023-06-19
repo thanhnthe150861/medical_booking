@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/appointments.html  30 Nov 2019 04:12:09 GMT -->
+<!-- doccure/appointments.jsp  30 Nov 2019 04:12:09 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -65,14 +65,14 @@
 							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
 							<%--								<ul class="submenu">--%>
 							<%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
-							<%--									<li><a href="appointments.html">Appointments</a></li>--%>
+							<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
 							<%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
-							<%--									<li><a href="my-patients.html">Patients List</a></li>--%>
-							<%--									<li><a href="patient-profile.html">Patients Profile</a></li>--%>
+							<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
+							<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
 							<%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
-							<%--									<li><a href="invoices.html">Invoices</a></li>--%>
+							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
-							<%--									<li><a href="reviews.html">Reviews</a></li>--%>
+							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
 							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>	--%>
@@ -98,12 +98,12 @@
 							<%--									<li><a href="video-call.html">Video Call</a></li>--%>
 							<%--									<li><a href="search.html">Search Doctors</a></li>--%>
 							<%--									<li><a href="calendar.html">Calendar</a></li>--%>
-							<%--									<li><a href="components.html">Components</a></li>--%>
+							<%--									<li><a href="components.jsp">Components</a></li>--%>
 							<%--									<li class="has-submenu">--%>
-							<%--										<a href="invoices.html">Invoices</a>--%>
+							<%--										<a href="invoices.jsp">Invoices</a>--%>
 							<%--										<ul class="submenu">--%>
-							<%--											<li><a href="invoices.html">Invoices</a></li>--%>
-							<%--											<li><a href="invoice-view.html">Invoice View</a></li>--%>
+							<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
+							<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
 							<%--										</ul>--%>
 							<%--									</li>--%>
 							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
@@ -148,9 +148,9 @@
 										<p class="text-muted mb-0">Doctor</p>
 									</div>
 								</div>
-								<a class="dropdown-item" href="doctor-dashboard.html">Dashboard</a>
-								<a class="dropdown-item" href="doctor-profile-settings.html">Profile Settings</a>
-								<a class="dropdown-item" href="login.html">Logout</a>
+								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+								<a class="dropdown-item" href="login">Logout</a>
 							</div>
 						</li>
 						<!-- /User Menu -->
@@ -167,7 +167,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item"><a href="home">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Appointments</li>
 								</ol>
 							</nav>
@@ -194,7 +194,7 @@
 										</a>
 										<div class="profile-det-info">
 											<h3>Dr. Darren Elder</h3>
-											
+
 											<div class="patient-details">
 												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
 											</div>
@@ -204,69 +204,69 @@
 								<div class="dashboard-widget">
 									<nav class="dashboard-menu">
 										<ul>
-											<li>
-												<a href="doctor-dashboard.html">
+											<li class="active">
+												<a href="doctor_dashboard">
 													<i class="fas fa-columns"></i>
 													<span>Dashboard</span>
 												</a>
 											</li>
-											<li class="active">
-												<a href="appointments.html">
+											<li>
+												<a href="#">
 													<i class="fas fa-calendar-check"></i>
 													<span>Appointments</span>
 												</a>
 											</li>
 											<li>
-												<a href="my-patients.html">
+												<a href="#">
 													<i class="fas fa-user-injured"></i>
 													<span>My Patients</span>
 												</a>
 											</li>
 											<li>
-												<a href="schedule-timings.html">
+												<a href="doctor_schedule_timings">
 													<i class="fas fa-hourglass-start"></i>
 													<span>Schedule Timings</span>
 												</a>
 											</li>
 											<li>
-												<a href="invoices.html">
+												<a href="#">
 													<i class="fas fa-file-invoice"></i>
 													<span>Invoices</span>
 												</a>
 											</li>
 											<li>
-												<a href="reviews.html">
+												<a href="#">
 													<i class="fas fa-star"></i>
 													<span>Reviews</span>
 												</a>
 											</li>
 											<li>
-												<a href="chat-doctor.html">
+												<a href="#">
 													<i class="fas fa-comments"></i>
 													<span>Message</span>
 													<small class="unread-msg">23</small>
 												</a>
 											</li>
 											<li>
-												<a href="doctor-profile-settings.html">
+												<a href="doctor_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Profile Settings</span>
 												</a>
 											</li>
 											<li>
-												<a href="social-media.html">
+												<a href="#">
 													<i class="fas fa-share-alt"></i>
 													<span>Social Media</span>
 												</a>
 											</li>
 											<li>
-												<a href="doctor-change-password.html">
+												<a href="doctor_change_password">
 													<i class="fas fa-lock"></i>
 													<span>Change Password</span>
 												</a>
 											</li>
 											<li>
-												<a href="index-2.html">
+												<a href="login">
 													<i class="fas fa-sign-out-alt"></i>
 													<span>Logout</span>
 												</a>
@@ -717,7 +717,7 @@
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For Doctors</h2>
 									<ul>
-										<li><a href="appointments.html"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+										<li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
@@ -857,5 +857,5 @@
 		
 	</body>
 
-<!-- doccure/appointments.html  30 Nov 2019 04:12:09 GMT -->
+<!-- doccure/appointments.jsp  30 Nov 2019 04:12:09 GMT -->
 </html>
