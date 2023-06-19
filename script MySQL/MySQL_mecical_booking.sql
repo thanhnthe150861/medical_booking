@@ -84,18 +84,6 @@ CREATE TABLE schedule(
 	PRIMARY KEY  (id)
 );
 
-CREATE TABLE schedule_client(
-                                schedule_id int NOT NULL,
-                                client_id int NOT NULL,
-                                PRIMARY KEY  (client_id, schedule_id)
-);
-
-CREATE TABLE schedule_doctor(
-                                schedule_id int NOT NULL,
-                                doctor_id int NOT NULL,
-                                PRIMARY KEY  (doctor_id,schedule_id)
-);
-
 CREATE TABLE slot(
 	id int NOT NULL,
 	name varchar(150) NOT NULL,
