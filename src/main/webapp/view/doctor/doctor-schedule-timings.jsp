@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/doctor-client-profile-settings.jsp  30 Nov 2019 04:12:14 GMT -->
+<!-- doccure/schedule-timings.html  30 Nov 2019 04:12:09 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -19,11 +19,6 @@
 		
 		<!-- Select2 CSS -->
 		<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
-		
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
-		
-		<link rel="stylesheet" href="assets/plugins/dropzone/dropzone.min.css">
 		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="assets/css/style.css">
@@ -175,11 +170,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+									<li class="breadcrumb-item"><a href="home">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Schedule Timings</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Profile Settings</h2>
+							<h2 class="breadcrumb-title">Schedule Timings</h2>
 						</div>
 					</div>
 				</div>
@@ -202,7 +197,6 @@
 										</a>
 										<div class="profile-det-info">
 											<h3>Dr. Darren Elder</h3>
-											
 											<div class="patient-details">
 												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
 											</div>
@@ -286,384 +280,183 @@
 							<!-- /Profile Sidebar -->
 							
 						</div>
+						
 						<div class="col-md-7 col-lg-8 col-xl-9">
-						
-							<!-- Basic Information -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Basic Information</h4>
-									<div class="row form-row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="change-avatar">
-													<div class="profile-img">
-														<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
-													</div>
-													<div class="upload-img">
-														<div class="change-photo-btn">
-															<span><i class="fa fa-upload"></i> Upload Photo</span>
-															<input type="file" class="upload">
-														</div>
-														<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Username <span class="text-danger">*</span></label>
-												<input type="text" class="form-control" readonly>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Email <span class="text-danger">*</span></label>
-												<input type="email" class="form-control" readonly>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>First Name <span class="text-danger">*</span></label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Last Name <span class="text-danger">*</span></label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Phone Number</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Gender</label>
-												<select class="form-control select">
-													<option>Select</option>
-													<option>Male</option>
-													<option>Female</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group mb-0">
-												<label>Date of Birth</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Basic Information -->
-							
-							<!-- About Me -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">About Me</h4>
-									<div class="form-group mb-0">
-										<label>Biography</label>
-										<textarea class="form-control" rows="5"></textarea>
-									</div>
-								</div>
-							</div>
-							<!-- /About Me -->
-							
-							<!-- Clinic Info -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Clinic Info</h4>
-									<div class="row form-row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Clinic Name</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Clinic Address</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<div class="form-group">
-												<label>Clinic Images</label>
-												<form action="#" class="dropzone"></form>
-											</div>
-											<div class="upload-wrap">
-												<div class="upload-images">
-													<img src="assets/img/features/feature-01.jpg" alt="Upload Image">
-													<a href="javascript:void(0);" class="btn btn-icon btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
-												</div>
-												<div class="upload-images">
-													<img src="assets/img/features/feature-02.jpg" alt="Upload Image">
-													<a href="javascript:void(0);" class="btn btn-icon btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Clinic Info -->
-
-							<!-- Contact Details -->
-							<div class="card contact-card">
-								<div class="card-body">
-									<h4 class="card-title">Contact Details</h4>
-									<div class="row form-row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Address Line 1</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">Address Line 2</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">City</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">State / Province</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">Country</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">Postal Code</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Contact Details -->
-							
-							<!-- Pricing -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Pricing</h4>
-									
-									<div class="form-group mb-0">
-										<div id="pricing_select">
-											<div class="custom-control custom-radio custom-control-inline">
-												<input type="radio" id="price_free" name="rating_option" class="custom-control-input" value="price_free" checked>
-												<label class="custom-control-label" for="price_free">Free</label>
-											</div>
-											<div class="custom-control custom-radio custom-control-inline">
-												<input type="radio" id="price_custom" name="rating_option" value="custom_price" class="custom-control-input">
-												<label class="custom-control-label" for="price_custom">Custom Price (per hour)</label>
-											</div>
-										</div>
-
-									</div>
-									
-									<div class="row custom_price_cont" id="custom_price_cont" style="display: none;">
-										<div class="col-md-4">
-											<input type="text" class="form-control" id="custom_rating_input" name="custom_rating_count" value="" placeholder="20">
-											<small class="form-text text-muted">Custom price you can add</small>
-										</div>
-									</div>
-									
-								</div>
-							</div>
-							<!-- /Pricing -->
-							
-							<!-- Services and Specialization -->
-							<div class="card services-card">
-								<div class="card-body">
-									<h4 class="card-title">Services and Specialization</h4>
-									<div class="form-group">
-										<label>Services</label>
-										<input type="text" data-role="tagsinput" class="input-tags form-control" placeholder="Enter Services" name="services" value="Tooth cleaning " id="services">
-										<small class="form-text text-muted">Note : Type & Press enter to add new services</small>
-									</div> 
-									<div class="form-group mb-0">
-										<label>Specialization </label>
-										<input class="input-tags form-control" type="text" data-role="tagsinput" placeholder="Enter Specialization" name="specialist" value="Children Care,Dental Care" id="specialist">
-										<small class="form-text text-muted">Note : Type & Press  enter to add new specialization</small>
-									</div> 
-								</div>              
-							</div>
-							<!-- /Services and Specialization -->
 						 
-							<!-- Education -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Education</h4>
-									<div class="education-info">
-										<div class="row form-row education-cont">
-											<div class="col-12 col-md-10 col-lg-11">
-												<div class="row form-row">
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>Degree</label>
-															<input type="text" class="form-control">
-														</div> 
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="card">
+										<div class="card-body">
+											<h4 class="card-title">Schedule Timings</h4>
+											<div class="profile-box">
+												<div class="row">
+
+													<div class="col-lg-4">
+														<div class="form-group">               
+															<label>Timing Slot Duration</label>
+															<select class="select form-control">
+																<option>-</option>
+																<option>15 mins</option>
+																<option selected="selected">30 mins</option>  
+																<option>45 mins</option>
+																<option>1 Hour</option>
+															</select>
+														</div>
 													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>College/Institute</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>Year of Completion</label>
-															<input type="text" class="form-control">
-														</div> 
+
+												</div>     
+												<div class="row">
+													<div class="col-md-12">
+														<div class="card schedule-widget mb-0">
+														
+															<!-- Schedule Header -->
+															<div class="schedule-header">
+															
+																<!-- Schedule Nav -->
+																<div class="schedule-nav">
+																	<ul class="nav nav-tabs nav-justified">
+																		<li class="nav-item">
+																			<a class="nav-link" data-toggle="tab" href="#slot_sunday">Sunday</a>
+																		</li>
+																		<li class="nav-item">
+																			<a class="nav-link active" data-toggle="tab" href="#slot_monday">Monday</a>
+																		</li>
+																		<li class="nav-item">
+																			<a class="nav-link" data-toggle="tab" href="#slot_tuesday">Tuesday</a>
+																		</li>
+																		<li class="nav-item">
+																			<a class="nav-link" data-toggle="tab" href="#slot_wednesday">Wednesday</a>
+																		</li>
+																		<li class="nav-item">
+																			<a class="nav-link" data-toggle="tab" href="#slot_thursday">Thursday</a>
+																		</li>
+																		<li class="nav-item">
+																			<a class="nav-link" data-toggle="tab" href="#slot_friday">Friday</a>
+																		</li>
+																		<li class="nav-item">
+																			<a class="nav-link" data-toggle="tab" href="#slot_saturday">Saturday</a>
+																		</li>
+																	</ul>
+																</div>
+																<!-- /Schedule Nav -->
+																
+															</div>
+															<!-- /Schedule Header -->
+															
+															<!-- Schedule Content -->
+															<div class="tab-content schedule-cont">
+															
+																<!-- Sunday Slot -->
+																<div id="slot_sunday" class="tab-pane fade">
+																	<h4 class="card-title d-flex justify-content-between">
+																		<span>Time Slots</span> 
+																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>
+																	</h4>
+																	<p class="text-muted mb-0">Not Available</p>
+																</div>
+																<!-- /Sunday Slot -->
+
+																<!-- Monday Slot -->
+																<div id="slot_monday" class="tab-pane fade show active">
+																	<h4 class="card-title d-flex justify-content-between">
+																		<span>Time Slots</span> 
+																		<a class="edit-link" data-toggle="modal" href="#edit_time_slot"><i class="fa fa-edit mr-1"></i>Edit</a>
+																	</h4>
+																	
+																	<!-- Slot List -->
+																	<div class="doc-times">
+																		<div class="doc-slot-list">
+																			8:00 pm - 11:30 pm
+																			<a href="javascript:void(0)" class="delete_schedule">
+																				<i class="fa fa-times"></i>
+																			</a>
+																		</div>
+																		<div class="doc-slot-list">
+																			11:30 pm - 1:30 pm
+																			<a href="javascript:void(0)" class="delete_schedule">
+																				<i class="fa fa-times"></i>
+																			</a>
+																		</div>
+																		<div class="doc-slot-list">
+																			3:00 pm - 5:00 pm
+																			<a href="javascript:void(0)" class="delete_schedule">
+																				<i class="fa fa-times"></i>
+																			</a>
+																		</div>
+																		<div class="doc-slot-list">
+																			6:00 pm - 11:00 pm
+																			<a href="javascript:void(0)" class="delete_schedule">
+																				<i class="fa fa-times"></i>
+																			</a>
+																		</div>
+																	</div>
+																	<!-- /Slot List -->
+																	
+																</div>
+																<!-- /Monday Slot -->
+
+																<!-- Tuesday Slot -->
+																<div id="slot_tuesday" class="tab-pane fade">
+																	<h4 class="card-title d-flex justify-content-between">
+																		<span>Time Slots</span> 
+																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>
+																	</h4>
+																	<p class="text-muted mb-0">Not Available</p>
+																</div>
+																<!-- /Tuesday Slot -->
+
+																<!-- Wednesday Slot -->
+																<div id="slot_wednesday" class="tab-pane fade">
+																	<h4 class="card-title d-flex justify-content-between">
+																		<span>Time Slots</span> 
+																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>
+																	</h4>
+																	<p class="text-muted mb-0">Not Available</p>
+																</div>
+																<!-- /Wednesday Slot -->
+
+																<!-- Thursday Slot -->
+																<div id="slot_thursday" class="tab-pane fade">
+																	<h4 class="card-title d-flex justify-content-between">
+																		<span>Time Slots</span> 
+																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>
+																	</h4>
+																	<p class="text-muted mb-0">Not Available</p>
+																</div>
+																<!-- /Thursday Slot -->
+
+																<!-- Friday Slot -->
+																<div id="slot_friday" class="tab-pane fade">
+																	<h4 class="card-title d-flex justify-content-between">
+																		<span>Time Slots</span> 
+																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>
+																	</h4>
+																	<p class="text-muted mb-0">Not Available</p>
+																</div>
+																<!-- /Friday Slot -->
+
+																<!-- Saturday Slot -->
+																<div id="slot_saturday" class="tab-pane fade">
+																	<h4 class="card-title d-flex justify-content-between">
+																		<span>Time Slots</span> 
+																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>
+																	</h4>
+																	<p class="text-muted mb-0">Not Available</p>
+																</div>
+																<!-- /Saturday Slot -->
+
+															</div>
+															<!-- /Schedule Content -->
+															
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-education"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
 								</div>
 							</div>
-							<!-- /Education -->
-						
-							<!-- Experience -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Experience</h4>
-									<div class="experience-info">
-										<div class="row form-row experience-cont">
-											<div class="col-12 col-md-10 col-lg-11">
-												<div class="row form-row">
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>Hospital Name</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>From</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>To</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>Designation</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-experience"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Experience -->
-							
-							<!-- Awards -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Awards</h4>
-									<div class="awards-info">
-										<div class="row form-row awards-cont">
-											<div class="col-12 col-md-5">
-												<div class="form-group">
-													<label>Awards</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-											<div class="col-12 col-md-5">
-												<div class="form-group">
-													<label>Year</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-award"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Awards -->
-							
-							<!-- Memberships -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Memberships</h4>
-									<div class="membership-info">
-										<div class="row form-row membership-cont">
-											<div class="col-12 col-md-10 col-lg-5">
-												<div class="form-group">
-													<label>Memberships</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-membership"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Memberships -->
-							
-							<!-- Registrations -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Registrations</h4>
-									<div class="registrations-info">
-										<div class="row form-row reg-cont">
-											<div class="col-12 col-md-5">
-												<div class="form-group">
-													<label>Registrations</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-											<div class="col-12 col-md-5">
-												<div class="form-group">
-													<label>Year</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-reg"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Registrations -->
-							
-							<div class="submit-section submit-btn-bottom">
-								<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-							</div>
-							
+								
 						</div>
 					</div>
 
@@ -740,7 +533,7 @@
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="doctor-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -813,6 +606,187 @@
 		   
 		</div>
 		<!-- /Main Wrapper -->
+		
+		<!-- Add Time Slot Modal -->
+		<div class="modal fade custom-modal" id="add_time_slot">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Add Time Slots</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="hours-info">
+								<div class="row form-row hours-cont">
+									<div class="col-12 col-md-10">
+										<div class="row form-row">
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Start Time</label>
+													<select class="form-control">
+														<option>-</option>
+														<option>12.00 am</option>
+														<option>12.30 am</option>  
+														<option>1.00 am</option>
+														<option>1.30 am</option>
+													</select>
+												</div> 
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>End Time</label>
+													<select class="form-control">
+														<option>-</option>
+														<option>12.00 am</option>
+														<option>12.30 am</option>  
+														<option>1.00 am</option>
+														<option>1.30 am</option>
+													</select>
+												</div> 
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="add-more mb-3">
+								<a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i> Add More</a>
+							</div>
+							<div class="submit-section text-center">
+								<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Add Time Slot Modal -->
+		
+		<!-- Edit Time Slot Modal -->
+		<div class="modal fade custom-modal" id="edit_time_slot">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Edit Time Slots</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="hours-info">
+								<div class="row form-row hours-cont">
+									<div class="col-12 col-md-10">
+										<div class="row form-row">
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Start Time</label>
+													<select class="form-control">
+														<option>-</option>
+														<option selected>12.00 am</option>
+														<option>12.30 am</option>  
+														<option>1.00 am</option>
+														<option>1.30 am</option>
+													</select>
+												</div> 
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>End Time</label>
+													<select class="form-control">
+														<option>-</option>
+														<option>12.00 am</option>
+														<option selected>12.30 am</option>  
+														<option>1.00 am</option>
+														<option>1.30 am</option>
+													</select>
+												</div> 
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row form-row hours-cont">
+									<div class="col-12 col-md-10">
+										<div class="row form-row">
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Start Time</label>
+													<select class="form-control">
+														<option>-</option>
+														<option>12.00 am</option>
+														<option selected>12.30 am</option>
+														<option>1.00 am</option>
+														<option>1.30 am</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>End Time</label>
+													<select class="form-control">
+														<option>-</option>
+														<option>12.00 am</option>
+														<option>12.30 am</option>
+														<option selected>1.00 am</option>
+														<option>1.30 am</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-md-2"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>
+								</div>
+								
+								<div class="row form-row hours-cont">
+									<div class="col-12 col-md-10">
+										<div class="row form-row">
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Start Time</label>
+													<select class="form-control">
+														<option>-</option>
+														<option>12.00 am</option>
+														<option>12.30 am</option>
+														<option selected>1.00 am</option>
+														<option>1.30 am</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>End Time</label>
+													<select class="form-control">
+														<option>-</option>
+														<option>12.00 am</option>
+														<option>12.30 am</option>
+														<option>1.00 am</option>
+														<option selected>1.30 am</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-md-2"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>
+								</div>
+
+							</div>
+							
+							<div class="add-more mb-3">
+								<a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i> Add More</a>
+							</div>
+							<div class="submit-section text-center">
+								<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Edit Time Slot Modal -->
 	  
 		<!-- jQuery -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -828,19 +802,10 @@
 		<!-- Select2 JS -->
 		<script src="assets/plugins/select2/js/select2.min.js"></script>
 		
-		<!-- Dropzone JS -->
-		<script src="assets/plugins/dropzone/dropzone.min.js"></script>
-		
-		<!-- Bootstrap Tagsinput JS -->
-		<script src="assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
-		
-		<!-- Profile Settings JS -->
-		<script src="assets/js/profile-settings.js"></script>
-		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
 		
 	</body>
 
-<!-- doccure/doctor-client-profile-settings.jsp  30 Nov 2019 04:12:15 GMT -->
+<!-- doccure/schedule-timings.html  30 Nov 2019 04:12:09 GMT -->
 </html>

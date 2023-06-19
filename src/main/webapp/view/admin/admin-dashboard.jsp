@@ -39,11 +39,11 @@
 
 		<!-- Logo -->
 		<div class="header-left">
-			<a href="index.html" class="logo">
-				<img src="view/admin/assets/img/logo.png" alt="Logo">
+			<a href="home" class="logo">
+				<span class="text-primary">Clinic</span>-TATQ
 			</a>
-			<a href="index.html" class="logo logo-small">
-				<img src="view/admin/assets/img/logo-small.png" alt="Logo" width="30" height="30">
+			<a href="home" class="logo logo-small">
+				<span class="text-primary" width="50" height="50">Clinic</span>
 			</a>
 		</div>
 		<!-- /Logo -->
@@ -52,12 +52,12 @@
 			<i class="fe fe-text-align-left"></i>
 		</a>
 
-		<div class="top-nav-search">
-			<form>
-				<input type="text" class="form-control" placeholder="Search here">
-				<button class="btn" type="submit"><i class="fa fa-search"></i></button>
-			</form>
-		</div>
+<%--		<div class="top-nav-search">--%>
+<%--			<form>--%>
+<%--				<input type="text" class="form-control" placeholder="Search here">--%>
+<%--				<button class="btn" type="submit"><i class="fa fa-search"></i></button>--%>
+<%--			</form>--%>
+<%--		</div>--%>
 
 		<!-- Mobile Menu Toggle -->
 		<a class="mobile_btn" id="mobile_btn">
@@ -156,7 +156,7 @@
 							<p class="text-muted mb-0">Administrator</p>
 						</div>
 					</div>
-					<a class="dropdown-item" href="#">My Profile</a>
+					<a class="dropdown-item" href="admin_dashboard">My Profile</a>
 <%--					<a class="dropdown-item" href="settings.html">Settings</a>--%>
 					<a class="dropdown-item" href="login">Logout</a>
 				</div>
@@ -178,25 +178,25 @@
 						<span>Main</span>
 					</li>
 					<li class="active">
-						<a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+						<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 					</li>
 					<li>
-						<a href="appointment-list.html"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+						<a href="#"><i class="fe fe-layout"></i> <span>Appointments</span></a>
 					</li>
 					<li>
-						<a href="specialities.html"><i class="fe fe-users"></i> <span>Specialities</span></a>
+						<a href="#"><i class="fe fe-users"></i> <span>Specialities</span></a>
 					</li>
 					<li>
-						<a href="doctor-list.html"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+						<a href="#"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
 					</li>
 					<li>
-						<a href="patient-list.html"><i class="fe fe-user"></i> <span>Patients</span></a>
+						<a href="#"><i class="fe fe-user"></i> <span>Patients</span></a>
 					</li>
 					<li>
-						<a href="reviews.html"><i class="fe fe-star-o"></i> <span>Reviews</span></a>
+						<a href="#"><i class="fe fe-star-o"></i> <span>Reviews</span></a>
 					</li>
 					<li>
-						<a href="transactions-list.html"><i class="fe fe-activity"></i> <span>Transactions</span></a>
+						<a href="#"><i class="fe fe-activity"></i> <span>Transactions</span></a>
 					</li>
 <%--					<li>--%>
 <%--						<a href="settings.html"><i class="fe fe-vector"></i> <span>Settings</span></a>--%>
@@ -204,14 +204,14 @@
 					<li class="submenu">
 						<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 						<ul style="display: none;">
-							<li><a href="invoice-report.html">Invoice Reports</a></li>
+							<li><a href="#">Invoice Reports</a></li>
 						</ul>
 					</li>
 					<li class="menu-title">
 						<span>Pages</span>
 					</li>
 					<li>
-						<a href="profile.html"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+						<a href="#"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
 					</li>
 <%--					<li class="submenu">--%>
 <%--						<a href="#"><i class="fe fe-document"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>--%>
@@ -235,49 +235,49 @@
 <%--					<li class="menu-title">--%>
 <%--						<span>UI Interface</span>--%>
 <%--					</li>--%>
-					<li>
-						<a href="components.html"><i class="fe fe-vector"></i> <span>Components</span></a>
-					</li>
-					<li class="submenu">
-						<a href="#"><i class="fe fe-layout"></i> <span> Forms </span> <span class="menu-arrow"></span></a>
-						<ul style="display: none;">
-							<li><a href="form-basic-inputs.html">Basic Inputs </a></li>
-							<li><a href="form-input-groups.html">Input Groups </a></li>
-							<li><a href="form-horizontal.html">Horizontal Form </a></li>
-							<li><a href="form-vertical.html"> Vertical Form </a></li>
-							<li><a href="form-mask.html"> Form Mask </a></li>
-							<li><a href="form-validation.html"> Form Validation </a></li>
-						</ul>
-					</li>
-					<li class="submenu">
-						<a href="#"><i class="fe fe-table"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
-						<ul style="display: none;">
-							<li><a href="tables-basic.html">Basic Tables </a></li>
-							<li><a href="data-tables.html">Data Table </a></li>
-						</ul>
-					</li>
-					<li class="submenu">
-						<a href="javascript:void(0);"><i class="fe fe-code"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>
-						<ul style="display: none;">
-							<li class="submenu">
-								<a href="javascript:void(0);"> <span>Level 1</span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
-									<li><a href="javascript:void(0);"><span>Level 2</span></a></li>
-									<li class="submenu">
-										<a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>
-										<ul style="display: none;">
-											<li><a href="javascript:void(0);">Level 3</a></li>
-											<li><a href="javascript:void(0);">Level 3</a></li>
-										</ul>
-									</li>
-									<li><a href="javascript:void(0);"> <span>Level 2</span></a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:void(0);"> <span>Level 1</span></a>
-							</li>
-						</ul>
-					</li>
+<%--					<li>--%>
+<%--						<a href="components.jsp"><i class="fe fe-vector"></i> <span>Components</span></a>--%>
+<%--					</li>--%>
+<%--					<li class="submenu">--%>
+<%--						<a href="#"><i class="fe fe-layout"></i> <span> Forms </span> <span class="menu-arrow"></span></a>--%>
+<%--						<ul style="display: none;">--%>
+<%--							<li><a href="form-basic-inputs.html">Basic Inputs </a></li>--%>
+<%--							<li><a href="form-input-groups.html">Input Groups </a></li>--%>
+<%--							<li><a href="form-horizontal.html">Horizontal Form </a></li>--%>
+<%--							<li><a href="form-vertical.html"> Vertical Form </a></li>--%>
+<%--							<li><a href="form-mask.html"> Form Mask </a></li>--%>
+<%--							<li><a href="form-validation.html"> Form Validation </a></li>--%>
+<%--						</ul>--%>
+<%--					</li>--%>
+<%--					<li class="submenu">--%>
+<%--						<a href="#"><i class="fe fe-table"></i> <span> Tables </span> <span class="menu-arrow"></span></a>--%>
+<%--						<ul style="display: none;">--%>
+<%--							<li><a href="tables-basic.html">Basic Tables </a></li>--%>
+<%--							<li><a href="data-tables.html">Data Table </a></li>--%>
+<%--						</ul>--%>
+<%--					</li>--%>
+<%--					<li class="submenu">--%>
+<%--						<a href="javascript:void(0);"><i class="fe fe-code"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>--%>
+<%--						<ul style="display: none;">--%>
+<%--							<li class="submenu">--%>
+<%--								<a href="javascript:void(0);"> <span>Level 1</span> <span class="menu-arrow"></span></a>--%>
+<%--								<ul style="display: none;">--%>
+<%--									<li><a href="javascript:void(0);"><span>Level 2</span></a></li>--%>
+<%--									<li class="submenu">--%>
+<%--										<a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>--%>
+<%--										<ul style="display: none;">--%>
+<%--											<li><a href="javascript:void(0);">Level 3</a></li>--%>
+<%--											<li><a href="javascript:void(0);">Level 3</a></li>--%>
+<%--										</ul>--%>
+<%--									</li>--%>
+<%--									<li><a href="javascript:void(0);"> <span>Level 2</span></a></li>--%>
+<%--								</ul>--%>
+<%--							</li>--%>
+<%--							<li>--%>
+<%--								<a href="javascript:void(0);"> <span>Level 1</span></a>--%>
+<%--							</li>--%>
+<%--						</ul>--%>
+<%--					</li>--%>
 				</ul>
 			</div>
 		</div>
@@ -390,30 +390,30 @@
 			<div class="row">
 				<div class="col-md-12 col-lg-6">
 
-					<!-- Sales Chart -->
-					<div class="card card-chart">
-						<div class="card-header">
-							<h4 class="card-title">Revenue</h4>
-						</div>
-						<div class="card-body">
-							<div id="morrisArea"></div>
-						</div>
-					</div>
-					<!-- /Sales Chart -->
+<%--					<!-- Sales Chart -->--%>
+<%--					<div class="card card-chart">--%>
+<%--						<div class="card-header">--%>
+<%--							<h4 class="card-title">Revenue</h4>--%>
+<%--						</div>--%>
+<%--						<div class="card-body">--%>
+<%--							<div id="morrisArea"></div>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--					<!-- /Sales Chart -->--%>
 
 				</div>
 				<div class="col-md-12 col-lg-6">
 
-					<!-- Invoice Chart -->
-					<div class="card card-chart">
-						<div class="card-header">
-							<h4 class="card-title">Status</h4>
-						</div>
-						<div class="card-body">
-							<div id="morrisLine"></div>
-						</div>
-					</div>
-					<!-- /Invoice Chart -->
+<%--					<!-- Invoice Chart -->--%>
+<%--					<div class="card card-chart">--%>
+<%--						<div class="card-header">--%>
+<%--							<h4 class="card-title">Status</h4>--%>
+<%--						</div>--%>
+<%--						<div class="card-body">--%>
+<%--							<div id="morrisLine"></div>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--					<!-- /Invoice Chart -->--%>
 
 				</div>
 			</div>
@@ -440,8 +440,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Ruby Perrin</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Ruby Perrin</a>
 											</h2>
 										</td>
 										<td>Dental</td>
@@ -457,8 +457,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Darren Elder</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Darren Elder</a>
 											</h2>
 										</td>
 										<td>Dental</td>
@@ -474,8 +474,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-03.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Deborah Angel</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-03.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Deborah Angel</a>
 											</h2>
 										</td>
 										<td>Cardiology</td>
@@ -491,8 +491,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-04.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Sofia Brient</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-04.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Sofia Brient</a>
 											</h2>
 										</td>
 										<td>Urology</td>
@@ -508,8 +508,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-05.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Marvin Campbell</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-05.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Marvin Campbell</a>
 											</h2>
 										</td>
 										<td>Orthopaedics</td>
@@ -552,8 +552,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
-												<a href="profile.html">Charlene Reed </a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Charlene Reed </a>
 											</h2>
 										</td>
 										<td>8286329170</td>
@@ -563,8 +563,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient2.jpg" alt="User Image"></a>
-												<a href="profile.html">Travis Trimble </a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient2.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Travis Trimble </a>
 											</h2>
 										</td>
 										<td>2077299974</td>
@@ -574,8 +574,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient3.jpg" alt="User Image"></a>
-												<a href="profile.html">Carl Kelly</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient3.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Carl Kelly</a>
 											</h2>
 										</td>
 										<td>2607247769</td>
@@ -585,8 +585,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient4.jpg" alt="User Image"></a>
-												<a href="profile.html"> Michelle Fairfax</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient4.jpg" alt="User Image"></a>
+												<a href="profile.jsp"> Michelle Fairfax</a>
 											</h2>
 										</td>
 										<td>5043686874</td>
@@ -596,8 +596,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient5.jpg" alt="User Image"></a>
-												<a href="profile.html">Gina Moore</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient5.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Gina Moore</a>
 											</h2>
 										</td>
 										<td>9548207887</td>
@@ -638,15 +638,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Ruby Perrin</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Ruby Perrin</a>
 											</h2>
 										</td>
 										<td>Dental</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
-												<a href="profile.html">Charlene Reed </a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Charlene Reed </a>
 											</h2>
 										</td>
 										<td>9 Nov 2019 <span class="text-primary d-block">11.00 AM - 11.15 AM</span></td>
@@ -663,15 +663,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Darren Elder</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Darren Elder</a>
 											</h2>
 										</td>
 										<td>Dental</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient2.jpg" alt="User Image"></a>
-												<a href="profile.html">Travis Trimble </a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient2.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Travis Trimble </a>
 											</h2>
 										</td>
 
@@ -689,15 +689,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-03.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Deborah Angel</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-03.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Deborah Angel</a>
 											</h2>
 										</td>
 										<td>Cardiology</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient3.jpg" alt="User Image"></a>
-												<a href="profile.html">Carl Kelly</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient3.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Carl Kelly</a>
 											</h2>
 										</td>
 										<td>11 Nov 2019 <span class="text-primary d-block">12.00 PM - 12.15 PM</span></td>
@@ -714,15 +714,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-04.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Sofia Brient</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-04.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Sofia Brient</a>
 											</h2>
 										</td>
 										<td>Urology</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient4.jpg" alt="User Image"></a>
-												<a href="profile.html"> Michelle Fairfax</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient4.jpg" alt="User Image"></a>
+												<a href="profile.jsp"> Michelle Fairfax</a>
 											</h2>
 										</td>
 										<td>7 Nov 2019<span class="text-primary d-block">1.00 PM - 1.20 PM</span></td>
@@ -739,15 +739,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-05.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Marvin Campbell</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-05.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Marvin Campbell</a>
 											</h2>
 										</td>
 										<td>Orthopaedics</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient5.jpg" alt="User Image"></a>
-												<a href="profile.html">Gina Moore</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient5.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Gina Moore</a>
 											</h2>
 										</td>
 

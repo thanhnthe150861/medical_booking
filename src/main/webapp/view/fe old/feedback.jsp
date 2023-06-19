@@ -71,19 +71,19 @@
               <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="home.jsp">About Us</a>
+              <a class="nav-link" href="../home.jsp">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.jsp">Booking</a>
+              <a class="nav-link" href="../client/booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="login/login.jsp">Login / Register</a>
+              <a class="btn btn-primary ml-lg-3" href="login.html">Login / Register</a>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->
@@ -91,12 +91,13 @@
     </nav>
   </header>
 
+  
+
   <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
-        <a href="booking.jsp" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>
@@ -133,110 +134,70 @@
         </div>
       </div>
     </div> <!-- .page-section -->
-
-    <div class="page-section pb-0">
+    <div class="page-section">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 py-3 wow fadeInUp">
-            <h1>Welcome to Clinic TATQ <br></h1>
-            <p class="text-grey mb-4">The clinic is a place that provides basic medical services to people in the area. This is the place where you can go for health check-ups, cures and advice on health-related issues. The doctors and nurses in the clinic are professionally trained and experienced to provide quality medical services. In addition, the clinic also often has adequate medical and laboratory equipment to help diagnose and treat diseases. In some cases, the clinic may also partner with specialized hospitals and departments to provide more specialized medical services to patients. Having regular health checkups and seeking routine medical care from professionals are important to maintaining good health and detecting health problems early for the best treatment.</p>
-            <a href="booking.jsp" class="btn btn-primary">Booking</a>
-          </div>
-          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
-            <div class="img-place custom-img-1">
-              <img src="images/bg-doctor.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- .bg-light -->
-  </div> <!-- .bg-light -->
-
-  <div class="page-section">
-    <div class="container">
-      <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
-
-      <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_1.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Stein Albert</p>
-              <span class="text-sm text-grey">Cardiology</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_2.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-              <span class="text-sm text-grey">Dental</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
+        <h1 class="text-center wow fadeInUp">Medicak records</h1>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="feedback">Feedback:</label>
+          <textarea id="feedback" name="feedback" required></textarea>
+          <button type="submit"><a href="index.jsp" class=""><span></span> </a> Done</button>
+        </form>
       </div>
     </div>
-  </div>
-  </div> <!-- .page-section -->
 
+    <style>form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      display: block;
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    button[type="submit"] {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #3e8e41;
+    }</style>
+
+    <script>const form = document.querySelector('form');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const feedback = document.getElementById('feedback').value;
+        // Gửi dữ liệu đến server
+        // ...
+        // Hiển thị thông báo cho người dùng
+        alert('Cảm ơn bạn đã gửi phản hồi!');
+        // Reset form
+        form.reset();
+      });</script>
+    
+
+
+
+    
 
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">

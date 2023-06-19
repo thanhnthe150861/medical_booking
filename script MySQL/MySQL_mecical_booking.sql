@@ -37,6 +37,7 @@ CREATE TABLE role(
 CREATE TABLE client(
 	id int auto_increment,
 	username_account varchar(50) NOT NULL,
+	picture varchar(150) NULL,
 	name varchar(150) NOT NULL,
 	rank_id int NULL,
 	PRIMARY KEY  (id)
@@ -46,6 +47,7 @@ CREATE TABLE client(
 CREATE TABLE doctor(
 	id int auto_increment,
 	username_account varchar(50) NOT NULL,
+    picture varchar(150) NULL,
 	name varchar(150) NOT NULL,
 	specialty varchar(50) NOT NULL,
 	rank_id int NULL,
@@ -82,18 +84,6 @@ CREATE TABLE schedule(
 	PRIMARY KEY  (id)
 );
 
-CREATE TABLE schedule_client(
-	schedule_id int NOT NULL,
-	client_id int NOT NULL,
-	PRIMARY KEY  (client_id, schedule_id)
-);
-
-CREATE TABLE schedule_doctor(
-	schedule_id int NOT NULL,
-	doctor_id int NOT NULL,
-	PRIMARY KEY  (doctor_id,schedule_id)
-);
-
 CREATE TABLE slot(
 	id int NOT NULL,
 	name varchar(150) NOT NULL,
@@ -109,6 +99,8 @@ CREATE TABLE slot_booking(
 
 
 INSERT account (username, password, phone_number, email, isAdmin) VALUES (N'admin', N'123456', N'1234567890', N'thanh17042001@gmail.com', N'0');
+INSERT account (username, password, phone_number, email, isAdmin) VALUES (N'doctor', N'123456', N'1234567890', N'thanh17042001@gmail.com', N'1');
+INSERT account (username, password, phone_number, email, isAdmin) VALUES (N'client', N'123456', N'1234567890', N'thanh17042001@gmail.com', N'2');
 INSERT role (id, name) VALUES (0,N'Admin'),(1,N'Doctor'),(2,N'Client');
 INSERT rank_client (id, name) VALUES (1, N'Đồng'),(2, N'Bạc'),(3, N'Vàng'),(4, N'Kim Cương');
 select * from rank_client;

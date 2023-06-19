@@ -71,13 +71,13 @@
               <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="home.jsp">About Us</a>
+              <a class="nav-link" href="../home.jsp">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.jsp">Booking</a>
+              <a class="nav-link" href="../client/booking.jsp">Booking</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="vip.jsp">VIP</a>
@@ -96,7 +96,7 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
-        <a href="booking.jsp" class="btn btn-primary">Booking</a>
+        <a href="../client/booking.jsp" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>

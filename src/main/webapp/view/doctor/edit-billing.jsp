@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/doctor-client-change-password.jsp  30 Nov 2019 04:12:36 GMT -->
+<!-- doccure/edit-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -167,11 +167,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="home">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Change Password</li>
+									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Edit Billing</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Change Password</h2>
+							<h2 class="breadcrumb-title">Edit Billing</h2>
 						</div>
 					</div>
 				</div>
@@ -181,134 +181,142 @@
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container-fluid">
+
 					<div class="row">
 						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
 						
-							<!-- Profile Sidebar -->
-							<div class="profile-sidebar">
-								<div class="widget-profile pro-widget-content">
-									<div class="profile-info-widget">
-										<a href="#" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
-										</a>
-										<div class="profile-det-info">
-											<h3>Dr. Darren Elder</h3>
-											
-											<div class="patient-details">
-												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+							<!-- Profile Widget -->
+							<div class="card widget-profile pat-widget-profile">
+								<div class="card-body">
+									<div class="pro-widget-content">
+										<div class="profile-info-widget">
+											<a href="#" class="booking-doc-img">
+												<img src="assets/img/patients/patient.jpg" alt="User Image">
+											</a>
+											<div class="profile-det-info">
+												<h3><a href="patient-profile.html">Richard Wilson</a></h3>
+												<div class="patient-details">
+													<h5><b>Patient ID :</b> PT0016</h5>
+													<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="dashboard-widget">
-									<nav class="dashboard-menu">
+									<div class="patient-info">
 										<ul>
-											<li class="active">
-												<a href="doctor_dashboard">
-													<i class="fas fa-columns"></i>
-													<span>Dashboard</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-calendar-check"></i>
-													<span>Appointments</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-user-injured"></i>
-													<span>My Patients</span>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_schedule_timings">
-													<i class="fas fa-hourglass-start"></i>
-													<span>Schedule Timings</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-file-invoice"></i>
-													<span>Invoices</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-star"></i>
-													<span>Reviews</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-comments"></i>
-													<span>Message</span>
-													<small class="unread-msg">23</small>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_profile_settings">
-													<i class="fas fa-user-cog"></i>
-													<span>Profile Settings</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-share-alt"></i>
-													<span>Social Media</span>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_change_password">
-													<i class="fas fa-lock"></i>
-													<span>Change Password</span>
-												</a>
-											</li>
-											<li>
-												<a href="login">
-													<i class="fas fa-sign-out-alt"></i>
-													<span>Logout</span>
-												</a>
-											</li>
+											<li>Phone <span>+1 952 001 8563</span></li>
+											<li>Age <span>38 Years, Male</span></li>
+											<li>Blood Group <span>AB+</span></li>
 										</ul>
-									</nav>
+									</div>
 								</div>
 							</div>
-							<!-- /Profile Sidebar -->
+							<!-- /Profile Widget -->
 							
 						</div>
+
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title mb-0">Edit Billing</h4>
+								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-md-12 col-lg-6">
-										
-											<!-- Change Password Form -->
-											<form>
-												<div class="form-group">
-													<label>Old Password</label>
-													<input type="password" class="form-control">
-												</div>
-												<div class="form-group">
-													<label>New Password</label>
-													<input type="password" class="form-control">
-												</div>
-												<div class="form-group">
-													<label>Confirm Password</label>
-													<input type="password" class="form-control">
-												</div>
-												<div class="submit-section">
-													<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-												</div>
-											</form>
-											<!-- /Change Password Form -->
-											
+										<div class="col-sm-6">
+											<div class="biller-info">
+												<h4 class="d-block">Dr. Darren Elder</h4>
+												<span class="d-block text-sm text-muted">Dentist</span>
+												<span class="d-block text-sm text-muted">Newyork, United States</span>
+											</div>
+										</div>
+										<div class="col-sm-6 text-sm-right">
+											<div class="billing-info">
+												<h4 class="d-block">1 November 2019</h4>
+												<span class="d-block text-muted">#INV0001</span>
+											</div>
 										</div>
 									</div>
+									
+									<!-- Add Item -->
+									<div class="add-more-item text-right">
+										<a href="#"><i class="fa fa-plus-circle"></i> Add Item</a>
+									</div>
+									<!-- /Add Item -->
+									
+									<!-- Billing Item -->
+									<div class="card card-table">
+										<div class="card-body">
+											<div class="table-responsive">
+												<table class="table table-hover table-center">
+													<thead>
+														<tr>													
+															<th>Title</th>					
+															<th>Amount</th>		
+															<th style="width:80px;"></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>								
+															<td>	
+																<input type="text" class="form-control" value="Consulting Fee">
+															</td>
+															<td>
+																<input type="text" class="form-control" value="$330">
+															</td>							
+															<td>
+																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
+															</td>
+														</tr>
+														<tr>								
+															<td>	
+																<input type="text" class="form-control" value="Video Calling Appointment">
+															</td>
+															<td>
+																<input type="text" class="form-control" value="$100">
+															</td>							
+															<td>
+																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<!-- /Billing Item -->
+									
+									<!-- Signature -->
+									<div class="row">
+										<div class="col-md-12 text-right">
+											<div class="signature-wrap">
+												<div class="signature">
+													Click here to sign
+												</div>
+												<div class="sign-name">
+													<p class="mb-0">( Dr. Darren Elder )</p>
+													<span class="text-muted">Signature</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- /Signature -->
+									
+									<!-- Submit Section -->
+									<div class="row">
+										<div class="col-md-12">
+											<div class="submit-section">
+												<button type="submit" class="btn btn-primary submit-btn">Save</button>
+												<button type="reset" class="btn btn-secondary submit-btn">Clear</button>
+											</div>
+										</div>
+									</div>
+									<!-- /Submit Section -->
+									
 								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
 
 			</div>		
@@ -382,7 +390,7 @@
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="doctor-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -472,5 +480,5 @@
 		
 	</body>
 
-<!-- doccure/doctor-client-change-password.jsp  30 Nov 2019 04:12:36 GMT -->
+<!-- doccure/edit-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 </html>

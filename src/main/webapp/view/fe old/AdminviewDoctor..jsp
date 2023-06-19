@@ -71,19 +71,19 @@
               <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="home.jsp">About Us</a>
+              <a class="nav-link" href="../home.jsp">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.jsp">Booking</a>
+              <a class="nav-link" href="../client/booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="login.html">Login / Register</a>
+              <a class="btn btn-primary ml-lg-3" href="../login">Login / Register</a>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->
@@ -136,74 +136,101 @@
     <div class="page-section">
       <div class="container">
         <h1 class="text-center wow fadeInUp">Medicak records</h1>
-        <form>
-          <label for="patient-name">Tên bệnh nhân:</label>
-          <input type="text" id="patient-name" name="patient-name" required>
-           <label for="patient-age">Tuổi:</label>
-          <input type="number" id="patient-age" name="patient-age" required>
-           <label for="patient-gender">Giới tính:</label>
-           <input type="text" id="patient-gender" name="patient-gender" required>
-           <label for="patient-symptoms">Triệu chứng:</label>
-          <textarea id="patient-symptoms" name="patient-symptoms" required></textarea>
-           <label for="patient-diagnosis">Chuẩn đoán:</label>
-           <input type="text" id="patient-diagnosis" name="patient-diagnosis" required>
-           
-        </form>
+        
         
       </div>
     </div>
     
-<style>
-  form {
-  max-width: 500px;
-  margin: 0 auto;
+    <head>
+      <title>Chỉnh sửa thông tin nhân viên</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+      <div class="employee-form-container">
+        <h1>Chỉnh sửa thông tin nhân viên</h1>
+        <form>
+          <label for="employee-id">Mã nhân viên</label>
+          <input type="text" id="employee-id" name="employee-id" value="NV001" readonly>
+          <label for="employee-name">Tên nhân viên</label>
+          <input type="text" id="employee-name" name="employee-name" value="Nguyễn Văn A" required>
+          <label for="employee-age">Tuổi</label>
+          <input type="number" id="employee-age" name="employee-age" value="30" required>
+          <label for="employee-gender">Giới tính</label>
+          <select id="employee-gender" name="employee-gender" required>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+          </select>
+          <label for="employee-email">Email</label>
+          <input type="email" id="employee-email" name="employee-email" value="nguyenvana@gmail.com" required>
+          <label for="employee-phone">Số điện thoại</label>
+          <input type="tel" id="employee-phone" name="employee-phone" value="0987654321" required>
+          <input type="submit" value="Lưu">
+        </form>
+      </div>
+      <script src="script.js"></script>
+    </body>
+
+    <style>
+ body {
+	background-color: #f2f2f2;
+	font-family: Arial, sans-serif;
+}
+ .employee-form-container {
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	margin: 50px auto;
+	padding: 20px;
+	text-align: center;
+	width: 400px;
+}
+ h1 {
+	color: #333;
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+ form {
+	display: inline-block;
+	text-align: left;
 }
  label {
-  display: block;
-  margin-top: 10px;
+	display: block;
+	font-size: 14px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
 }
- input, select, textarea {
-  display: block;
-  width: 100%;
-  padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+ input[type="text"], input[type="number"], input[type="email"], input[type="tel"], select {
+	background-color: #f2f2f2;
+	border: none;
+	border-radius: 3px;
+	box-sizing: border-box;
+	display: block;
+	font-size: 16px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 100%;
 }
- button[type="submit"] {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+ input[type="submit"] {
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 10px;
+	width: 100%;
+	transition: all 0.3s ease;
 }
- button[type="submit"]:hover {
-  background-color: #3e8e41;
+ input[type="submit"]:hover {
+	background-color: #3e8e41;
 }
-</style>
+    </style>
 
-<script>
-  // Lấy dữ liệu từ cơ sở dữ liệu
-const patientData = {
-  name: "Nguyễn Văn A",
-  age: 30,
-  gender: "Nam",
-  symptoms: "Đau đầu, mệt mỏi",
-  diagnosis: "Mất ngủ"
-};
- // Điền dữ liệu vào các phần tử trong form
-document.getElementById("patient-name").value = patientData.name;
-document.getElementById("patient-age").value = patientData.age;
-document.getElementById("patient-gender").value = patientData.gender;
-document.getElementById("patient-symptoms").value = patientData.symptoms;
-document.getElementById("patient-diagnosis").value = patientData.diagnosis;
 
-</script>
-    
 
 
 

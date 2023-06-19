@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/doctor-client-change-password.jsp  30 Nov 2019 04:12:36 GMT -->
+<!-- doccure/booking.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -130,31 +130,9 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						
-						<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow logged-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
-								</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right">
-								<div class="user-header">
-									<div class="avatar avatar-sm">
-										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
-									</div>
-									<div class="user-text">
-										<h6>Darren Elder</h6>
-										<p class="text-muted mb-0">Doctor</p>
-									</div>
-								</div>
-								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-								<a class="dropdown-item" href="login">Logout</a>
-							</div>
+						<li class="nav-item">
+							<a class="nav-link header-login" href="loginl">login / Signup </a>
 						</li>
-						<!-- /User Menu -->
-						
 					</ul>
 				</nav>
 			</header>
@@ -168,10 +146,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="home">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Change Password</li>
+									<li class="breadcrumb-item active" aria-current="page">Booking</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Change Password</h2>
+							<h2 class="breadcrumb-title">Booking</h2>
 						</div>
 					</div>
 				</div>
@@ -180,133 +158,145 @@
 			
 			<!-- Page Content -->
 			<div class="content">
-				<div class="container-fluid">
+				<div class="container">
+				
 					<div class="row">
-						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+						<div class="col-12">
 						
-							<!-- Profile Sidebar -->
-							<div class="profile-sidebar">
-								<div class="widget-profile pro-widget-content">
-									<div class="profile-info-widget">
-										<a href="#" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
-										</a>
-										<div class="profile-det-info">
-											<h3>Dr. Darren Elder</h3>
-											
-											<div class="patient-details">
-												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="dashboard-widget">
-									<nav class="dashboard-menu">
-										<ul>
-											<li class="active">
-												<a href="doctor_dashboard">
-													<i class="fas fa-columns"></i>
-													<span>Dashboard</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-calendar-check"></i>
-													<span>Appointments</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-user-injured"></i>
-													<span>My Patients</span>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_schedule_timings">
-													<i class="fas fa-hourglass-start"></i>
-													<span>Schedule Timings</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-file-invoice"></i>
-													<span>Invoices</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-star"></i>
-													<span>Reviews</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-comments"></i>
-													<span>Message</span>
-													<small class="unread-msg">23</small>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_profile_settings">
-													<i class="fas fa-user-cog"></i>
-													<span>Profile Settings</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-share-alt"></i>
-													<span>Social Media</span>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_change_password">
-													<i class="fas fa-lock"></i>
-													<span>Change Password</span>
-												</a>
-											</li>
-											<li>
-												<a href="login">
-													<i class="fas fa-sign-out-alt"></i>
-													<span>Logout</span>
-												</a>
-											</li>
-										</ul>
-									</nav>
-								</div>
-							</div>
-							<!-- /Profile Sidebar -->
-							
-						</div>
-						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
 								<div class="card-body">
-									<div class="row">
-										<div class="col-md-12 col-lg-6">
-										
-											<!-- Change Password Form -->
-											<form>
-												<div class="form-group">
-													<label>Old Password</label>
-													<input type="password" class="form-control">
-												</div>
-												<div class="form-group">
-													<label>New Password</label>
-													<input type="password" class="form-control">
-												</div>
-												<div class="form-group">
-													<label>Confirm Password</label>
-													<input type="password" class="form-control">
-												</div>
-												<div class="submit-section">
-													<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-												</div>
-											</form>
-											<!-- /Change Password Form -->
-											
+									<div class="booking-doc-info">
+										<a href="doctor-profile.html" class="booking-doc-img">
+											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+										</a>
+										<div class="booking-info">
+											<h4><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
+											<div class="rating">
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star"></i>
+												<span class="d-inline-block average-rating">35</span>
+											</div>
+											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
 										</div>
 									</div>
 								</div>
 							</div>
+							
+							<!-- Schedule Widget -->
+							<div class="card booking-schedule schedule-widget">
+
+								<!-- Schedule Header -->
+								<div class="schedule-header">
+									<div class="row">
+										<div class="col-md-12">
+
+											<!-- Day Slot -->
+											<div class="day-slot">
+												<ul>
+													<!--													<li class="left-arrow">-->
+													<!--														<a href="#">-->
+													<!--															<i class="fa fa-chevron-left"></i>-->
+													<!--														</a>-->
+													<!--													</li>-->
+													<li>
+														<span><input type="date" id="datePicker"  name="datePicker" style="border: #42c0fb solid 2px; border-radius: 5px"></span>
+													</li>
+
+													<!--													<li>-->
+													<!--														<span>Mon</span>-->
+													<!--														<span class="slot-date">11 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Tue</span>-->
+													<!--														<span class="slot-date">12 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Wed</span>-->
+													<!--														<span class="slot-date">13 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Thu</span>-->
+													<!--														<span class="slot-date">14 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Fri</span>-->
+													<!--														<span class="slot-date">15 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Sat</span>-->
+													<!--														<span class="slot-date">16 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Sun</span>-->
+													<!--														<span class="slot-date">17 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li class="right-arrow">-->
+													<!--														<a href="#">-->
+													<!--															<i class="fa fa-chevron-right"></i>-->
+													<!--														</a>-->
+													<!--													</li>-->
+												</ul>
+											</div>
+											<!-- /Day Slot -->
+
+										</div>
+									</div>
+								</div>
+								<!-- /Schedule Header -->
+
+								<!-- Schedule Content -->
+								<div class="schedule-cont">
+									<div class="row">
+										<div class="col-md-12">
+
+											<!-- Time Slot -->
+											<div class="time-slot">
+												<ul class="clearfix d-flex align-items-center justify-content-center">
+													<!--													Morning-->
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>-</span><span>9:30</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>10:00</span> <span>-</span><span>10:30</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>11:00</span> <span>-</span><span>11:30</span> <span>AM</span>
+														</a>
+													</li>
+													<!--													Afternoon-->
+													<li>
+														<a class="timing" href="#">
+															<span>13:00</span> <span>-</span><span>13:30</span>  <span>PM</span>
+														</a>
+														<a class="timing selected" href="#">
+															<span>14:00</span> <span>-</span><span>14:30</span>  <span>PM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>15:00</span> <span>-</span><span>15:30</span>  <span>PM</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<!-- /Time Slot -->
+
+										</div>
+									</div>
+								</div>
+								<!-- /Schedule Content -->
+
+							</div>
+							<!-- /Schedule Widget -->
+							
+							<!-- Submit Section -->
+							<div class="submit-section proceed-btn text-right">
+								<a href="checkout" class="btn btn-primary submit-btn">Proceed to Pay</a>
+							</div>
+							<!-- /Submit Section -->
+							
 						</div>
 					</div>
 				</div>
@@ -364,7 +354,7 @@
 										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
+										<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Booking</a></li>
 										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
@@ -378,11 +368,11 @@
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For Doctors</h2>
 									<ul>
-										<li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+										<li><a href="appointments.html"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="doctor-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -463,14 +453,11 @@
 		<script src="assets/js/popper.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		
-		<!-- Sticky Sidebar JS -->
-        <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
-        <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
-		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
+		<script>document.getElementById('datePicker').valueAsDate = new Date();</script>
 		
 	</body>
 
-<!-- doccure/doctor-client-change-password.jsp  30 Nov 2019 04:12:36 GMT -->
+<!-- doccure/booking.jsp  30 Nov 2019 04:12:16 GMT -->
 </html>

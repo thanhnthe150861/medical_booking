@@ -43,14 +43,15 @@
 								<span></span>
 							</span>
 						</a>
-						<a href="index-2.html" class="navbar-brand logo">
-							<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+						<a href="home" class="navbar-brand logo">
+							<span class="text-primary">Clinic</span>-TATQ
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
-							<a href="index-2.html" class="menu-logo">
-								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+							<a href="home" class="menu-logo">
+<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
+										<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
 								<i class="fas fa-times"></i>
@@ -58,65 +59,65 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="index-2.html">Home</a>
+								<a href="home">Home</a>
 							</li>
-							<li class="has-submenu">
-								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
-									<li><a href="appointments.html">Appointments</a></li>
-									<li><a href="schedule-timings.html">Schedule Timing</a></li>
-									<li><a href="my-patients.html">Patients List</a></li>
-									<li><a href="client-profile.jsp">Patients Profile</a></li>
-									<li><a href="chat-doctor.html">Chat</a></li>
-									<li><a href="invoices.html">Invoices</a></li>
-									<li><a href="doctor-profile-settings.html">Profile Settings</a></li>
-									<li><a href="reviews.html">Reviews</a></li>
-									<li><a href="doctor-register.html">Doctor Register</a></li>
-								</ul>
-							</li>	
-							<li class="has-submenu active">
-								<a href="#">Patients <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><a href="search.html">Search Doctor</a></li>
-									<li><a href="doctor-profile.html">Doctor Profile</a></li>
-									<li><a href="booking.html">Booking</a></li>
-									<li><a href="checkout.html">Checkout</a></li>
-									<li><a href="booking-success.html">Booking Success</a></li>
-									<li class="active"><a href="client-dashboard.jsp">Patient Dashboard</a></li>
-									<li><a href="favourites.html">Favourites</a></li>
-									<li><a href="chat.html">Chat</a></li>
-									<li><a href="profile-settings.jsp">Profile Settings</a></li>
-									<li><a href="change-password.html">Change Password</a></li>
-								</ul>
-							</li>	
-							<li class="has-submenu">
-								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><a href="voice-call.html">Voice Call</a></li>
-									<li><a href="video-call.html">Video Call</a></li>
-									<li><a href="search.html">Search Doctors</a></li>
-									<li><a href="calendar.html">Calendar</a></li>
-									<li><a href="components.html">Components</a></li>
-									<li class="has-submenu">
-										<a href="invoices.html">Invoices</a>
-										<ul class="submenu">
-											<li><a href="invoices.html">Invoices</a></li>
-											<li><a href="invoice-view.html">Invoice View</a></li>
-										</ul>
-									</li>
-									<li><a href="blank-page.html">Starter Page</a></li>
-									<li><a href="login.html">Login</a></li>
-									<li><a href="register.html">Register</a></li>
-									<li><a href="forgot-password.html">Forgot Password</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="admin/index.html" target="_blank">Admin</a>
-							</li>
-							<li class="login-link">
-								<a href="login.html">Login / Signup</a>
-							</li>
+							<%--							<li class="has-submenu active">--%>
+							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
+							<%--								<ul class="submenu">--%>
+							<%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
+							<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
+							<%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
+							<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
+							<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
+							<%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
+							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
+							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
+							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
+							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
+							<%--								</ul>--%>
+							<%--							</li>	--%>
+							<%--							<li class="has-submenu">--%>
+							<%--								<a href="#">Patients <i class="fas fa-chevron-down"></i></a>--%>
+							<%--								<ul class="submenu">--%>
+							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
+							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
+							<%--									<li><a href="booking.html">Booking</a></li>--%>
+							<%--									<li><a href="checkout.html">Checkout</a></li>--%>
+							<%--									<li><a href="booking-success.html">Booking Success</a></li>--%>
+							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
+							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
+							<%--									<li><a href="chat.html">Chat</a></li>--%>
+							<%--									<li><a href="profile-settings.html">Profile Settings</a></li>--%>
+							<%--									<li><a href="change-password.html">Change Password</a></li>--%>
+							<%--								</ul>--%>
+							<%--							</li>	--%>
+							<%--							<li class="has-submenu">--%>
+							<%--								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>--%>
+							<%--								<ul class="submenu">--%>
+							<%--									<li><a href="voice-call.html">Voice Call</a></li>--%>
+							<%--									<li><a href="video-call.html">Video Call</a></li>--%>
+							<%--									<li><a href="search.html">Search Doctors</a></li>--%>
+							<%--									<li><a href="calendar.html">Calendar</a></li>--%>
+							<%--									<li><a href="components.jsp">Components</a></li>--%>
+							<%--									<li class="has-submenu">--%>
+							<%--										<a href="invoices.jsp">Invoices</a>--%>
+							<%--										<ul class="submenu">--%>
+							<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
+							<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
+							<%--										</ul>--%>
+							<%--									</li>--%>
+							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
+							<%--									<li><a href="login.html">Login</a></li>--%>
+							<%--									<li><a href="register.html">Register</a></li>--%>
+							<%--									<li><a href="forgot-password.html">Forgot Password</a></li>--%>
+							<%--								</ul>--%>
+							<%--							</li>--%>
+							<%--							<li>--%>
+							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
+							<%--							</li>--%>
+							<%--							<li class="login-link">--%>
+							<%--								<a href="login.html">Login / Signup</a>--%>
+							<%--							</li>--%>
 						</ul>
 					</div>		 
 					<ul class="nav header-navbar-rht">
@@ -147,9 +148,9 @@
 										<p class="text-muted mb-0">Patient</p>
 									</div>
 								</div>
-								<a class="dropdown-item" href="client-dashboard.jsp">Dashboard</a>
-								<a class="dropdown-item" href="profile-settings.jsp">Profile Settings</a>
-								<a class="dropdown-item" href="login.html">Logout</a>
+								<a class="dropdown-item" href="client_dashboard">Dashboard</a>
+								<a class="dropdown-item" href="client_profile_settings">Profile Settings</a>
+								<a class="dropdown-item" href="login">Logout</a>
 							</div>
 						</li>
 						<!-- /User Menu -->
@@ -193,10 +194,10 @@
 										</a>
 										<div class="profile-det-info">
 											<h3>Richard Wilson</h3>
-											<div class="patient-details">
-												<h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>
-												<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
-											</div>
+<%--											<div class="patient-details">--%>
+<%--												<h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>--%>
+<%--												<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>--%>
+<%--											</div>--%>
 										</div>
 									</div>
 								</div>
@@ -204,38 +205,38 @@
 									<nav class="dashboard-menu">
 										<ul>
 											<li class="active">
-												<a href="client-dashboard.jsp">
+												<a href="client_dashboard">
 													<i class="fas fa-columns"></i>
 													<span>Dashboard</span>
 												</a>
 											</li>
+<%--											<li>--%>
+<%--												<a href="favourites.html">--%>
+<%--													<i class="fas fa-bookmark"></i>--%>
+<%--													<span>Favourites</span>--%>
+<%--												</a>--%>
+<%--											</li>--%>
 											<li>
-												<a href="favourites.html">
-													<i class="fas fa-bookmark"></i>
-													<span>Favourites</span>
-												</a>
-											</li>
-											<li>
-												<a href="chat.html">
+												<a href="#">
 													<i class="fas fa-comments"></i>
 													<span>Message</span>
 													<small class="unread-msg">23</small>
 												</a>
 											</li>
 											<li>
-												<a href="profile-settings.jsp">
+												<a href="client_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Profile Settings</span>
 												</a>
 											</li>
 											<li>
-												<a href="change-password.html">
+												<a href="client_change_password">
 													<i class="fas fa-lock"></i>
 													<span>Change Password</span>
 												</a>
 											</li>
 											<li>
-												<a href="index-2.html">
+												<a href="login">
 													<i class="fas fa-sign-out-alt"></i>
 													<span>Logout</span>
 												</a>
