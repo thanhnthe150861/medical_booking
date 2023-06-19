@@ -32,5 +32,6 @@ public class register extends HttpServlet {
         account.setEmail(email_raw);
         account.setIsAdmin(2);
         adb.insertClient(account, name_raw);
+        resp.sendRedirect("home");
     }
 }

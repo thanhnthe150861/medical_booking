@@ -135,10 +135,10 @@
                                 <p><a href="admin_dashboard" class=""><span></span> Dashboard</a></p>
                             </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 1}">
-                                <p><a href="#" class=""><span></span> Dashboard</a></p>
+                                <p><a href="doctor_dashboard" class=""><span></span> Dashboard</a></p>
                             </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
-                                <p><a href="#" class=""><span></span> Dashboard</a></p>
+                                <p><a href="client_dashboard" class=""><span></span> Dashboard</a></p>
                             </c:if>
                         </c:if>
                     </div>
