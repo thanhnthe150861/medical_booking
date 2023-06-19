@@ -82,6 +82,18 @@ CREATE TABLE schedule(
 	PRIMARY KEY  (id)
 );
 
+CREATE TABLE schedule_client(
+                                schedule_id int NOT NULL,
+                                client_id int NOT NULL,
+                                PRIMARY KEY  (client_id, schedule_id)
+);
+
+CREATE TABLE schedule_doctor(
+                                schedule_id int NOT NULL,
+                                doctor_id int NOT NULL,
+                                PRIMARY KEY  (doctor_id,schedule_id)
+);
+
 CREATE TABLE slot(
 	id int NOT NULL,
 	name varchar(150) NOT NULL,
@@ -151,7 +163,71 @@ REFERENCES schedule (id);
 ALTER TABLE slot_booking  ADD  CONSTRAINT FOREIGN KEY(slot_id)
 REFERENCES slot (id);
 
-
+/*insert table account*/
+insert into account(username, password, phone_number, email, isAdmin)
+values ("ThanhNVTT", 123456, 1234567890, "thanhnvt.4work@gmail.com", 1);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("QuyetLBC", 123456, 1234567890, "thanhnvt.4work@gmail.com", 1);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("TuanNQ", 123456, 1234567890, "thanhnvt.4work@gmail.com", 1);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("AnhHL", 123456, 1234567890, "thanhnvt.4work@gmail.com", 1);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("ThanhNT", 123456, 1234567890, "thanhnvt.4work@gmail.com", 1);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer1", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer2", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer3", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer4", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer5", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer6", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer7", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer8", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer9", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer10", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+insert into account(username, password, phone_number, email, isAdmin)
+values ("Customer11", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2)
+     , ("Customer12", 123456, 1234567890, "thanhnvt.4work@gmail.com", 2);
+/*insert rank_doctor*/
+insert into rank_doctor values ("1","Bác sĩ"),
+                               ("2","Bác sĩ chuyên khoa 1"),
+                               ("3","Bác sĩ chuyên khoa 2");
+/*insert doctor */
+insert into doctor
+values("1","AnhHL", "Hoàng Lan Anh", "Mũi", "2");
+insert into doctor
+values("2","QuyetLBC", "Lê Bình Cương Quyết", "Tai", "2");
+insert into doctor
+values("3","ThanhNT", "Nguyễn Trường Thành", "Họng", "3");
+insert into doctor
+values("4","ThanhNVTT", "Nguyễn Văn Tuấn Thành", "Mũi", "1");
+insert into doctor
+values("5","TuanNQ", "Nguyễn Quang Tuấn", "Tai", "1");
+insert into doctor
+values("6","doctor", "Doctor1", "Mũi", "3");
+/*insert client*/
+insert into client values
+                       ("1", "Customer1", "Customer 1", "1"),
+                       ("2", "Customer2", "Customer 2", "2"),
+                       ("3", "Customer3", "Customer 3", "4"),
+                       ("4", "Customer4", "Customer 4", "2"),
+                       ("5", "Customer5", "Customer 5", "4"),
+                       ("6", "Customer6", "Customer 6", "3"),
+                       ("7", "Customer7", "Customer 7", "1"),
+                       ("8", "Customer8", "Customer 8", "1"),
+                       ("9", "Customer8", "Customer 9", "2"),
+                       ("10", "Customer10", "Customer 10", "2"),
+                       ("11", "Customer11", "Customer 11", "3"),
+                       ("12", "Customer12", "Customer 12", "1");
 
 
 
