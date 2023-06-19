@@ -71,13 +71,13 @@
               <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="home.jsp">About Us</a>
+              <a class="nav-link" href="../home.jsp">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.jsp">Booking</a>
+              <a class="nav-link" href="../booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>
@@ -91,7 +91,6 @@
     </nav>
   </header>
 
-  
 
   <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
     <div class="hero-section">
@@ -138,66 +137,74 @@
       <div class="container">
         <h1 class="text-center wow fadeInUp">Medicak records</h1>
         <form>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-          <label for="feedback">Feedback:</label>
-          <textarea id="feedback" name="feedback" required></textarea>
-          <button type="submit"><a href="index.jsp" class=""><span></span> </a> Done</button>
+          <label for="patient-name">Tên bệnh nhân:</label>
+          <input type="text" id="patient-name" name="patient-name" required>
+           <label for="patient-age">Tuổi:</label>
+          <input type="number" id="patient-age" name="patient-age" required>
+           <label for="patient-gender">Giới tính:</label>
+           <input type="text" id="patient-gender" name="patient-gender" required>
+           <label for="patient-symptoms">Triệu chứng:</label>
+          <textarea id="patient-symptoms" name="patient-symptoms" required></textarea>
+           <label for="patient-diagnosis">Chuẩn đoán:</label>
+           <input type="text" id="patient-diagnosis" name="patient-diagnosis" required>
+           
         </form>
+        
       </div>
     </div>
+    
+<style>
+  form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+ label {
+  display: block;
+  margin-top: 10px;
+}
+ input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+ button[type="submit"] {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+ button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+</style>
 
-    <style>form {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input, textarea {
-      display: block;
-      width: 100%;
-      padding: 5px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-    button[type="submit"] {
-      display: block;
-      margin: 10px auto;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: #fff;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    button[type="submit"]:hover {
-      background-color: #3e8e41;
-    }</style>
+<script>
+  // Lấy dữ liệu từ cơ sở dữ liệu
+const patientData = {
+  name: "Nguyễn Văn A",
+  age: 30,
+  gender: "Nam",
+  symptoms: "Đau đầu, mệt mỏi",
+  diagnosis: "Mất ngủ"
+};
+ // Điền dữ liệu vào các phần tử trong form
+document.getElementById("patient-name").value = patientData.name;
+document.getElementById("patient-age").value = patientData.age;
+document.getElementById("patient-gender").value = patientData.gender;
+document.getElementById("patient-symptoms").value = patientData.symptoms;
+document.getElementById("patient-diagnosis").value = patientData.diagnosis;
 
-    <script>const form = document.querySelector('form');
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const feedback = document.getElementById('feedback').value;
-        // Gửi dữ liệu đến server
-        // ...
-        // Hiển thị thông báo cho người dùng
-        alert('Cảm ơn bạn đã gửi phản hồi!');
-        // Reset form
-        form.reset();
-      });</script>
+</script>
     
 
-
-
-    
 
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">

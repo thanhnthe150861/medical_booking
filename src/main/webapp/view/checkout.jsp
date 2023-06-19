@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/booking.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/checkout.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -146,10 +146,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Booking</li>
+									<li class="breadcrumb-item active" aria-current="page">Checkout</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Booking</h2>
+							<h2 class="breadcrumb-title">Checkout</h2>
 						</div>
 					</div>
 				</div>
@@ -159,12 +159,137 @@
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container">
-				
+
 					<div class="row">
-						<div class="col-12">
-						
+						<div class="col-md-7 col-lg-8">
 							<div class="card">
 								<div class="card-body">
+								
+									<!-- Checkout Form -->
+<%--									<form action="https://dreamguys.co.in/demo/doccure/booking-success.html">--%>
+										<form action="checkout" method="post">
+										<!-- Personal Information -->
+										<div class="info-widget">
+											<h4 class="card-title">Personal Information</h4>
+											<div class="row">
+												<div class="col-md-6 col-sm-12">
+													<div class="form-group card-label">
+														<label>First Name</label>
+														<input class="form-control" type="text">
+													</div>
+												</div>
+												<div class="col-md-6 col-sm-12">
+													<div class="form-group card-label">
+														<label>Last Name</label>
+														<input class="form-control" type="text">
+													</div>
+												</div>
+												<div class="col-md-6 col-sm-12">
+													<div class="form-group card-label">
+														<label>Email</label>
+														<input class="form-control" type="email">
+													</div>
+												</div>
+												<div class="col-md-6 col-sm-12">
+													<div class="form-group card-label">
+														<label>Phone</label>
+														<input class="form-control" type="text">
+													</div>
+												</div>
+											</div>
+											<div class="exist-customer">Existing Customer? <a href="#">Click here to login</a></div>
+										</div>
+										<!-- /Personal Information -->
+										
+										<div class="payment-widget">
+											<h4 class="card-title">Payment Method</h4>
+											
+											<!-- Credit Card Payment -->
+											<div class="payment-list">
+												<label class="payment-radio credit-card-option">
+													<input type="radio" name="radio" checked>
+													<span class="checkmark"></span>
+													Credit card
+												</label>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group card-label">
+															<label for="card_name">Name on Card</label>
+															<input class="form-control" id="card_name" type="text">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group card-label">
+															<label for="card_number">Card Number</label>
+															<input class="form-control" id="card_number" placeholder="1234  5678  9876  5432" type="text">
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="form-group card-label">
+															<label for="expiry_month">Expiry Month</label>
+															<input class="form-control" id="expiry_month" placeholder="MM" type="text">
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="form-group card-label">
+															<label for="expiry_year">Expiry Year</label>
+															<input class="form-control" id="expiry_year" placeholder="YY" type="text">
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="form-group card-label">
+															<label for="cvv">CVV</label>
+															<input class="form-control" id="cvv" type="text">
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- /Credit Card Payment -->
+											
+											<!-- Paypal Payment -->
+											<div class="payment-list">
+												<label class="payment-radio paypal-option">
+													<input type="radio" name="radio">
+													<span class="checkmark"></span>
+													Paypal
+												</label>
+											</div>
+											<!-- /Paypal Payment -->
+											
+											<!-- Terms Accept -->
+											<div class="terms-accept">
+												<div class="custom-checkbox">
+												   <input type="checkbox" id="terms_accept">
+												   <label for="terms_accept">I have read and accept <a href="#">Terms &amp; Conditions</a></label>
+												</div>
+											</div>
+											<!-- /Terms Accept -->
+											
+											<!-- Submit Section -->
+											<div class="submit-section mt-4">
+												<button type="submit" class="btn btn-primary submit-btn">Confirm and Pay</button>
+											</div>
+											<!-- /Submit Section -->
+											
+										</div>
+									</form>
+									<!-- /Checkout Form -->
+									
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="col-md-5 col-lg-4 theiaStickySidebar">
+						
+							<!-- Booking Summary -->
+							<div class="card booking-card">
+								<div class="card-header">
+									<h4 class="card-title">Booking Summary</h4>
+								</div>
+								<div class="card-body">
+								
+									<!-- Booking Doctor Info -->
 									<div class="booking-doc-info">
 										<a href="doctor-profile.html" class="booking-doc-img">
 											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
@@ -179,126 +304,41 @@
 												<i class="fas fa-star"></i>
 												<span class="d-inline-block average-rating">35</span>
 											</div>
-											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Schedule Widget -->
-							<div class="card booking-schedule schedule-widget">
-
-								<!-- Schedule Header -->
-								<div class="schedule-header">
-									<div class="row">
-										<div class="col-md-12">
-
-											<!-- Day Slot -->
-											<div class="day-slot">
-												<ul>
-													<!--													<li class="left-arrow">-->
-													<!--														<a href="#">-->
-													<!--															<i class="fa fa-chevron-left"></i>-->
-													<!--														</a>-->
-													<!--													</li>-->
-													<li>
-														<span><input type="date" id="datePicker"  name="datePicker" style="border: #42c0fb solid 2px; border-radius: 5px"></span>
-													</li>
-
-													<!--													<li>-->
-													<!--														<span>Mon</span>-->
-													<!--														<span class="slot-date">11 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Tue</span>-->
-													<!--														<span class="slot-date">12 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Wed</span>-->
-													<!--														<span class="slot-date">13 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Thu</span>-->
-													<!--														<span class="slot-date">14 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Fri</span>-->
-													<!--														<span class="slot-date">15 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Sat</span>-->
-													<!--														<span class="slot-date">16 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Sun</span>-->
-													<!--														<span class="slot-date">17 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li class="right-arrow">-->
-													<!--														<a href="#">-->
-													<!--															<i class="fa fa-chevron-right"></i>-->
-													<!--														</a>-->
-													<!--													</li>-->
-												</ul>
+											<div class="clinic-details">
+												<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
 											</div>
-											<!-- /Day Slot -->
-
 										</div>
 									</div>
-								</div>
-								<!-- /Schedule Header -->
-
-								<!-- Schedule Content -->
-								<div class="schedule-cont">
-									<div class="row">
-										<div class="col-md-12">
-
-											<!-- Time Slot -->
-											<div class="time-slot">
-												<ul class="clearfix d-flex align-items-center justify-content-center">
-													<!--													Morning-->
+									<!-- Booking Doctor Info -->
+									
+									<div class="booking-summary">
+										<div class="booking-item-wrap">
+											<ul class="booking-date">
+												<li>Date <span>16 Nov 2019</span></li>
+												<li>Time <span>10:00 AM</span></li>
+											</ul>
+											<ul class="booking-fee">
+												<li>Consulting Fee <span>$100</span></li>
+												<li>Booking Fee <span>$10</span></li>
+												<li>Video Call <span>$50</span></li>
+											</ul>
+											<div class="booking-total">
+												<ul class="booking-total-list">
 													<li>
-														<a class="timing" href="#">
-															<span>9:00</span> <span>-</span><span>9:30</span> <span>AM</span>
-														</a>
-														<a class="timing" href="#">
-															<span>10:00</span> <span>-</span><span>10:30</span> <span>AM</span>
-														</a>
-														<a class="timing" href="#">
-															<span>11:00</span> <span>-</span><span>11:30</span> <span>AM</span>
-														</a>
-													</li>
-													<!--													Afternoon-->
-													<li>
-														<a class="timing" href="#">
-															<span>13:00</span> <span>-</span><span>13:30</span>  <span>PM</span>
-														</a>
-														<a class="timing selected" href="#">
-															<span>14:00</span> <span>-</span><span>14:30</span>  <span>PM</span>
-														</a>
-														<a class="timing" href="#">
-															<span>15:00</span> <span>-</span><span>15:30</span>  <span>PM</span>
-														</a>
+														<span>Total</span>
+														<span class="total-cost">$160</span>
 													</li>
 												</ul>
 											</div>
-											<!-- /Time Slot -->
-
 										</div>
 									</div>
 								</div>
-								<!-- /Schedule Content -->
-
 							</div>
-							<!-- /Schedule Widget -->
-							
-							<!-- Submit Section -->
-							<div class="submit-section proceed-btn text-right">
-								<a href="checkout" class="btn btn-primary submit-btn">Proceed to Pay</a>
-							</div>
-							<!-- /Submit Section -->
+							<!-- /Booking Summary -->
 							
 						</div>
 					</div>
+
 				</div>
 
 			</div>		
@@ -453,11 +493,14 @@
 		<script src="assets/js/popper.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		
+		<!-- Sticky Sidebar JS -->
+        <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
+        <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
+		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
-		<script>document.getElementById('datePicker').valueAsDate = new Date();</script>
 		
 	</body>
 
-<!-- doccure/booking.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/checkout.jsp  30 Nov 2019 04:12:16 GMT -->
 </html>

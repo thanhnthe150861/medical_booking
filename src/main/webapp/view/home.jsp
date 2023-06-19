@@ -108,10 +108,10 @@
                             <c:if test="${sessionScope.account.isAdmin eq 0}">
                                 <a class="nav-link" href="#">View Rank User</a>
                             </c:if>
-                            <c:if test="${sessionScope.account.isAdmin eq 1 || sessionScope.account.isAdmin eq 2}">
-                                <a class="nav-link" href="#">View Rank Doctor</a>
-                                <a class="nav-link" href="#">View Rank Client</a>
-                            </c:if>
+<%--                            <c:if test="${sessionScope.account.isAdmin eq 1 || sessionScope.account.isAdmin eq 2}">--%>
+<%--                                <a class="nav-link" href="#">View Rank Doctor</a>--%>
+<%--                                <a class="nav-link" href="#">View Rank Client</a>--%>
+<%--                            </c:if>--%>
                         </c:if>
                     </li>
                     <li class="nav-item">
@@ -145,11 +145,11 @@
             <span class="subhead">Let's make your life happier</span>
             <h1 class="display-4">Healthy Living</h1>
             <c:if test="${sessionScope.account eq null}">
-                <a href="register" class="btn btn-primary">Booking</a>
+                <a href="login" class="btn btn-primary">Booking</a>
             </c:if>
             <c:if test="${sessionScope.account ne null}">
                 <c:if test="${sessionScope.account.isAdmin eq 2}">
-                    <a href="#" class="btn btn-primary">Booking</a>
+                    <a href="booking" class="btn btn-primary">Booking</a>
                 </c:if>
             </c:if>
         </div>
@@ -157,53 +157,62 @@
 </div>
 
 <div class="bg-light">
-    <div class="page-section py-3 mt-md-n5 custom-index">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-4 py-3 py-md-0">
-                    <div class="card-service wow fadeInUp">
-                        <div class="circle-shape bg-secondary text-white">
-                            <span class="mai-"></span>
+    <c:if test="${sessionScope.account ne null}">
+        <div class="page-section py-3 mt-md-n5 custom-index">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card-service wow fadeInUp">
+                            <div class="circle-shape bg-secondary text-white">
+                                <span class="mai-logo-xbox"></span>
+                            </div>
+                                <c:if test="${sessionScope.account.isAdmin eq 0}">
+                                    <p><a href="admin_dashboard" class=""><span></span> Dashboard</a></p>
+                                </c:if>
+                                <c:if test="${sessionScope.account.isAdmin eq 1}">
+                                    <p><a href="doctor_dashboard" class=""><span></span> Dashboard</a></p>
+                                </c:if>
+                                <c:if test="${sessionScope.account.isAdmin eq 2}">
+                                    <p><a href="client_dashboard" class=""><span></span> Dashboard</a></p>
+                                </c:if>
                         </div>
-
-<%--                        <c:if test="${sessionScope.account eq null}">--%>
-<%--                            <a class="btn btn-primary ml-lg-3" href="login">Login / Register</a>--%>
-<%--                        </c:if>--%>
-                        <c:if test="${sessionScope.account eq null}">
-                            <p><a href="login" class=""><span></span> Dashboard</a></p>
-                        </c:if>
-                        <c:if test="${sessionScope.account ne null}">
+                    </div>
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card-service wow fadeInUp">
+                            <div class="circle-shape bg-primary text-white">
+                                <span class="mai-shield-checkmark"></span>
+                            </div>
                             <c:if test="${sessionScope.account.isAdmin eq 0}">
-                                <p><a href="admin_dashboard" class=""><span></span> Dashboard</a></p>
+                                <p><a href="#" class=""><span></span> Manager Doctor</a></p>
                             </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 1}">
-                                <p><a href="#" class=""><span></span> Dashboard</a></p>
+                                <p><a href="#" class=""><span></span> Medical Record</a></p>
                             </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
-                                <p><a href="#" class=""><span></span> Dashboard</a></p>
+                                <p><a href="#" class=""><span></span> Medical Record</a></p>
                             </c:if>
-                        </c:if>
-                    </div>
-                </div>
-                <div class="col-md-4 py-3 py-md-0">
-                    <div class="card-service wow fadeInUp">
-                        <div class="circle-shape bg-primary text-white">
-                            <span class="mai-shield-checkmark"></span>
                         </div>
-                        <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Record</a></p>
                     </div>
-                </div>
-                <div class="col-md-4 py-3 py-md-0">
-                    <div class="card-service wow fadeInUp">
-                        <div class="circle-shape bg-accent text-white">
-                            <span class="mai-basket"></span>
+                    <div class="col-md-4 py-3 py-md-0">
+                        <div class="card-service wow fadeInUp">
+                            <div class="circle-shape bg-accent text-white">
+                                <span class="mai-basket"></span>
+                            </div>
+                            <c:if test="${sessionScope.account.isAdmin eq 0}">
+                                <p><a href="#" class=""><span></span>Manager Client</a></p>
+                            </c:if>
+                            <c:if test="${sessionScope.account.isAdmin eq 1}">
+                                <p><a href="#" class=""><span></span> Booking List</a></p>
+                            </c:if>
+                            <c:if test="${sessionScope.account.isAdmin eq 2}">
+                                <p><a href="#" class=""><span></span> Booking List</a></p>
+                            </c:if>
                         </div>
-                        <p><a href="#" class=""><span></span> View Information</a></p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div> <!-- .page-section -->
+        </div> <!-- .page-section -->
+        </c:if>
 
     <div class="page-section">
         <div class="container">

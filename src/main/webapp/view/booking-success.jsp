@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/booking.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/booking-success.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -157,150 +157,29 @@
 			<!-- /Breadcrumb -->
 			
 			<!-- Page Content -->
-			<div class="content">
-				<div class="container">
+			<div class="content success-page-cont">
+				<div class="container-fluid">
 				
-					<div class="row">
-						<div class="col-12">
+					<div class="row justify-content-center">
+						<div class="col-lg-6">
 						
-							<div class="card">
+							<!-- Success Card -->
+							<div class="card success-card">
 								<div class="card-body">
-									<div class="booking-doc-info">
-										<a href="doctor-profile.html" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
-										</a>
-										<div class="booking-info">
-											<h4><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
-											<div class="rating">
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star"></i>
-												<span class="d-inline-block average-rating">35</span>
-											</div>
-											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
-										</div>
+									<div class="success-cont">
+										<i class="fas fa-check"></i>
+										<h3>Appointment booked Successfully!</h3>
+										<p>Appointment booked with <strong>Dr. Darren Elder</strong><br> on <strong>12 Nov 2019 5:00PM to 6:00PM</strong></p>
+										<a href="invoice-view.html" class="btn btn-primary view-inv-btn">View Invoice</a>
 									</div>
 								</div>
 							</div>
-							
-							<!-- Schedule Widget -->
-							<div class="card booking-schedule schedule-widget">
-
-								<!-- Schedule Header -->
-								<div class="schedule-header">
-									<div class="row">
-										<div class="col-md-12">
-
-											<!-- Day Slot -->
-											<div class="day-slot">
-												<ul>
-													<!--													<li class="left-arrow">-->
-													<!--														<a href="#">-->
-													<!--															<i class="fa fa-chevron-left"></i>-->
-													<!--														</a>-->
-													<!--													</li>-->
-													<li>
-														<span><input type="date" id="datePicker"  name="datePicker" style="border: #42c0fb solid 2px; border-radius: 5px"></span>
-													</li>
-
-													<!--													<li>-->
-													<!--														<span>Mon</span>-->
-													<!--														<span class="slot-date">11 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Tue</span>-->
-													<!--														<span class="slot-date">12 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Wed</span>-->
-													<!--														<span class="slot-date">13 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Thu</span>-->
-													<!--														<span class="slot-date">14 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Fri</span>-->
-													<!--														<span class="slot-date">15 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Sat</span>-->
-													<!--														<span class="slot-date">16 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li>-->
-													<!--														<span>Sun</span>-->
-													<!--														<span class="slot-date">17 Nov <small class="slot-year">2019</small></span>-->
-													<!--													</li>-->
-													<!--													<li class="right-arrow">-->
-													<!--														<a href="#">-->
-													<!--															<i class="fa fa-chevron-right"></i>-->
-													<!--														</a>-->
-													<!--													</li>-->
-												</ul>
-											</div>
-											<!-- /Day Slot -->
-
-										</div>
-									</div>
-								</div>
-								<!-- /Schedule Header -->
-
-								<!-- Schedule Content -->
-								<div class="schedule-cont">
-									<div class="row">
-										<div class="col-md-12">
-
-											<!-- Time Slot -->
-											<div class="time-slot">
-												<ul class="clearfix d-flex align-items-center justify-content-center">
-													<!--													Morning-->
-													<li>
-														<a class="timing" href="#">
-															<span>9:00</span> <span>-</span><span>9:30</span> <span>AM</span>
-														</a>
-														<a class="timing" href="#">
-															<span>10:00</span> <span>-</span><span>10:30</span> <span>AM</span>
-														</a>
-														<a class="timing" href="#">
-															<span>11:00</span> <span>-</span><span>11:30</span> <span>AM</span>
-														</a>
-													</li>
-													<!--													Afternoon-->
-													<li>
-														<a class="timing" href="#">
-															<span>13:00</span> <span>-</span><span>13:30</span>  <span>PM</span>
-														</a>
-														<a class="timing selected" href="#">
-															<span>14:00</span> <span>-</span><span>14:30</span>  <span>PM</span>
-														</a>
-														<a class="timing" href="#">
-															<span>15:00</span> <span>-</span><span>15:30</span>  <span>PM</span>
-														</a>
-													</li>
-												</ul>
-											</div>
-											<!-- /Time Slot -->
-
-										</div>
-									</div>
-								</div>
-								<!-- /Schedule Content -->
-
-							</div>
-							<!-- /Schedule Widget -->
-							
-							<!-- Submit Section -->
-							<div class="submit-section proceed-btn text-right">
-								<a href="checkout" class="btn btn-primary submit-btn">Proceed to Pay</a>
-							</div>
-							<!-- /Submit Section -->
+							<!-- /Success Card -->
 							
 						</div>
 					</div>
+					
 				</div>
-
 			</div>		
 			<!-- /Page Content -->
    
@@ -455,9 +334,8 @@
 		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
-		<script>document.getElementById('datePicker').valueAsDate = new Date();</script>
 		
 	</body>
 
-<!-- doccure/booking.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/booking-success.jsp  30 Nov 2019 04:12:16 GMT -->
 </html>

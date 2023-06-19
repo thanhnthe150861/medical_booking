@@ -71,19 +71,19 @@
               <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="home.jsp">About Us</a>
+              <a class="nav-link" href="../home.jsp">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking.jsp">Booking</a>
+              <a class="nav-link" href="../booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="login/login.jsp">Login / Register</a>
+              <a class="btn btn-primary ml-lg-3" href="../login">Login / Register</a>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->
@@ -91,12 +91,12 @@
     </nav>
   </header>
 
+
   <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
-        <a href="booking.jsp" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>
@@ -133,109 +133,104 @@
         </div>
       </div>
     </div> <!-- .page-section -->
-
-    <div class="page-section pb-0">
+    <div class="page-section">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 py-3 wow fadeInUp">
-            <h1>Welcome to Clinic TATQ <br></h1>
-            <p class="text-grey mb-4">The clinic is a place that provides basic medical services to people in the area. This is the place where you can go for health check-ups, cures and advice on health-related issues. The doctors and nurses in the clinic are professionally trained and experienced to provide quality medical services. In addition, the clinic also often has adequate medical and laboratory equipment to help diagnose and treat diseases. In some cases, the clinic may also partner with specialized hospitals and departments to provide more specialized medical services to patients. Having regular health checkups and seeking routine medical care from professionals are important to maintaining good health and detecting health problems early for the best treatment.</p>
-            <a href="booking.jsp" class="btn btn-primary">Booking</a>
-          </div>
-          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
-            <div class="img-place custom-img-1">
-              <img src="images/bg-doctor.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- .bg-light -->
-  </div> <!-- .bg-light -->
-
-  <div class="page-section">
-    <div class="container">
-      <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
-
-      <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_1.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Stein Albert</p>
-              <span class="text-sm text-grey">Cardiology</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_2.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-              <span class="text-sm text-grey">Dental</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="images/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
+        <h1 class="text-center wow fadeInUp">Medicak records</h1>
+        
+        
       </div>
     </div>
-  </div>
-  </div> <!-- .page-section -->
+    
+    <head>
+      <title>Chỉnh sửa thông tin nhân viên</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+      <div class="employee-form-container">
+        <h1>Chỉnh sửa thông tin nhân viên</h1>
+        <form>
+          <label for="employee-id">Mã nhân viên</label>
+          <input type="text" id="employee-id" name="employee-id" value="NV001" readonly>
+          <label for="employee-name">Tên nhân viên</label>
+          <input type="text" id="employee-name" name="employee-name" value="Nguyễn Văn A" required>
+          <label for="employee-age">Tuổi</label>
+          <input type="number" id="employee-age" name="employee-age" value="30" required>
+          <label for="employee-gender">Giới tính</label>
+          <select id="employee-gender" name="employee-gender" required>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+          </select>
+          <label for="employee-email">Email</label>
+          <input type="email" id="employee-email" name="employee-email" value="nguyenvana@gmail.com" required>
+          <label for="employee-phone">Số điện thoại</label>
+          <input type="tel" id="employee-phone" name="employee-phone" value="0987654321" required>
+          <input type="submit" value="Lưu">
+        </form>
+      </div>
+      <script src="script.js"></script>
+    </body>
+
+    <style>
+ body {
+	background-color: #f2f2f2;
+	font-family: Arial, sans-serif;
+}
+ .employee-form-container {
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	margin: 50px auto;
+	padding: 20px;
+	text-align: center;
+	width: 400px;
+}
+ h1 {
+	color: #333;
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+ form {
+	display: inline-block;
+	text-align: left;
+}
+ label {
+	display: block;
+	font-size: 14px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+ input[type="text"], input[type="number"], input[type="email"], input[type="tel"], select {
+	background-color: #f2f2f2;
+	border: none;
+	border-radius: 3px;
+	box-sizing: border-box;
+	display: block;
+	font-size: 16px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 100%;
+}
+ input[type="submit"] {
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 10px;
+	width: 100%;
+	transition: all 0.3s ease;
+}
+ input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+    </style>
+
+
 
 
 

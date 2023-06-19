@@ -52,12 +52,12 @@
 			<i class="fe fe-text-align-left"></i>
 		</a>
 
-		<div class="top-nav-search">
-			<form>
-				<input type="text" class="form-control" placeholder="Search here">
-				<button class="btn" type="submit"><i class="fa fa-search"></i></button>
-			</form>
-		</div>
+<%--		<div class="top-nav-search">--%>
+<%--			<form>--%>
+<%--				<input type="text" class="form-control" placeholder="Search here">--%>
+<%--				<button class="btn" type="submit"><i class="fa fa-search"></i></button>--%>
+<%--			</form>--%>
+<%--		</div>--%>
 
 		<!-- Mobile Menu Toggle -->
 		<a class="mobile_btn" id="mobile_btn">
@@ -178,25 +178,25 @@
 						<span>Main</span>
 					</li>
 					<li class="active">
-						<a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+						<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 					</li>
 					<li>
-						<a href="appointment-list.html"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+						<a href="#"><i class="fe fe-layout"></i> <span>Appointments</span></a>
 					</li>
 					<li>
-						<a href="specialities.html"><i class="fe fe-users"></i> <span>Specialities</span></a>
+						<a href="#"><i class="fe fe-users"></i> <span>Specialities</span></a>
 					</li>
 					<li>
-						<a href="doctor-list.html"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+						<a href="#"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
 					</li>
 					<li>
-						<a href="patient-list.html"><i class="fe fe-user"></i> <span>Patients</span></a>
+						<a href="#"><i class="fe fe-user"></i> <span>Patients</span></a>
 					</li>
 					<li>
-						<a href="reviews.html"><i class="fe fe-star-o"></i> <span>Reviews</span></a>
+						<a href="#"><i class="fe fe-star-o"></i> <span>Reviews</span></a>
 					</li>
 					<li>
-						<a href="transactions-list.html"><i class="fe fe-activity"></i> <span>Transactions</span></a>
+						<a href="#"><i class="fe fe-activity"></i> <span>Transactions</span></a>
 					</li>
 <%--					<li>--%>
 <%--						<a href="settings.html"><i class="fe fe-vector"></i> <span>Settings</span></a>--%>
@@ -204,14 +204,14 @@
 					<li class="submenu">
 						<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 						<ul style="display: none;">
-							<li><a href="invoice-report.html">Invoice Reports</a></li>
+							<li><a href="#">Invoice Reports</a></li>
 						</ul>
 					</li>
 					<li class="menu-title">
 						<span>Pages</span>
 					</li>
 					<li>
-						<a href="profile.html"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+						<a href="#"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
 					</li>
 <%--					<li class="submenu">--%>
 <%--						<a href="#"><i class="fe fe-document"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>--%>
@@ -235,49 +235,49 @@
 <%--					<li class="menu-title">--%>
 <%--						<span>UI Interface</span>--%>
 <%--					</li>--%>
-					<li>
-						<a href="components.html"><i class="fe fe-vector"></i> <span>Components</span></a>
-					</li>
-					<li class="submenu">
-						<a href="#"><i class="fe fe-layout"></i> <span> Forms </span> <span class="menu-arrow"></span></a>
-						<ul style="display: none;">
-							<li><a href="form-basic-inputs.html">Basic Inputs </a></li>
-							<li><a href="form-input-groups.html">Input Groups </a></li>
-							<li><a href="form-horizontal.html">Horizontal Form </a></li>
-							<li><a href="form-vertical.html"> Vertical Form </a></li>
-							<li><a href="form-mask.html"> Form Mask </a></li>
-							<li><a href="form-validation.html"> Form Validation </a></li>
-						</ul>
-					</li>
-					<li class="submenu">
-						<a href="#"><i class="fe fe-table"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
-						<ul style="display: none;">
-							<li><a href="tables-basic.html">Basic Tables </a></li>
-							<li><a href="data-tables.html">Data Table </a></li>
-						</ul>
-					</li>
-					<li class="submenu">
-						<a href="javascript:void(0);"><i class="fe fe-code"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>
-						<ul style="display: none;">
-							<li class="submenu">
-								<a href="javascript:void(0);"> <span>Level 1</span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
-									<li><a href="javascript:void(0);"><span>Level 2</span></a></li>
-									<li class="submenu">
-										<a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>
-										<ul style="display: none;">
-											<li><a href="javascript:void(0);">Level 3</a></li>
-											<li><a href="javascript:void(0);">Level 3</a></li>
-										</ul>
-									</li>
-									<li><a href="javascript:void(0);"> <span>Level 2</span></a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:void(0);"> <span>Level 1</span></a>
-							</li>
-						</ul>
-					</li>
+<%--					<li>--%>
+<%--						<a href="components.html"><i class="fe fe-vector"></i> <span>Components</span></a>--%>
+<%--					</li>--%>
+<%--					<li class="submenu">--%>
+<%--						<a href="#"><i class="fe fe-layout"></i> <span> Forms </span> <span class="menu-arrow"></span></a>--%>
+<%--						<ul style="display: none;">--%>
+<%--							<li><a href="form-basic-inputs.html">Basic Inputs </a></li>--%>
+<%--							<li><a href="form-input-groups.html">Input Groups </a></li>--%>
+<%--							<li><a href="form-horizontal.html">Horizontal Form </a></li>--%>
+<%--							<li><a href="form-vertical.html"> Vertical Form </a></li>--%>
+<%--							<li><a href="form-mask.html"> Form Mask </a></li>--%>
+<%--							<li><a href="form-validation.html"> Form Validation </a></li>--%>
+<%--						</ul>--%>
+<%--					</li>--%>
+<%--					<li class="submenu">--%>
+<%--						<a href="#"><i class="fe fe-table"></i> <span> Tables </span> <span class="menu-arrow"></span></a>--%>
+<%--						<ul style="display: none;">--%>
+<%--							<li><a href="tables-basic.html">Basic Tables </a></li>--%>
+<%--							<li><a href="data-tables.html">Data Table </a></li>--%>
+<%--						</ul>--%>
+<%--					</li>--%>
+<%--					<li class="submenu">--%>
+<%--						<a href="javascript:void(0);"><i class="fe fe-code"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>--%>
+<%--						<ul style="display: none;">--%>
+<%--							<li class="submenu">--%>
+<%--								<a href="javascript:void(0);"> <span>Level 1</span> <span class="menu-arrow"></span></a>--%>
+<%--								<ul style="display: none;">--%>
+<%--									<li><a href="javascript:void(0);"><span>Level 2</span></a></li>--%>
+<%--									<li class="submenu">--%>
+<%--										<a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>--%>
+<%--										<ul style="display: none;">--%>
+<%--											<li><a href="javascript:void(0);">Level 3</a></li>--%>
+<%--											<li><a href="javascript:void(0);">Level 3</a></li>--%>
+<%--										</ul>--%>
+<%--									</li>--%>
+<%--									<li><a href="javascript:void(0);"> <span>Level 2</span></a></li>--%>
+<%--								</ul>--%>
+<%--							</li>--%>
+<%--							<li>--%>
+<%--								<a href="javascript:void(0);"> <span>Level 1</span></a>--%>
+<%--							</li>--%>
+<%--						</ul>--%>
+<%--					</li>--%>
 				</ul>
 			</div>
 		</div>
@@ -390,30 +390,30 @@
 			<div class="row">
 				<div class="col-md-12 col-lg-6">
 
-					<!-- Sales Chart -->
-					<div class="card card-chart">
-						<div class="card-header">
-							<h4 class="card-title">Revenue</h4>
-						</div>
-						<div class="card-body">
-							<div id="morrisArea"></div>
-						</div>
-					</div>
-					<!-- /Sales Chart -->
+<%--					<!-- Sales Chart -->--%>
+<%--					<div class="card card-chart">--%>
+<%--						<div class="card-header">--%>
+<%--							<h4 class="card-title">Revenue</h4>--%>
+<%--						</div>--%>
+<%--						<div class="card-body">--%>
+<%--							<div id="morrisArea"></div>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--					<!-- /Sales Chart -->--%>
 
 				</div>
 				<div class="col-md-12 col-lg-6">
 
-					<!-- Invoice Chart -->
-					<div class="card card-chart">
-						<div class="card-header">
-							<h4 class="card-title">Status</h4>
-						</div>
-						<div class="card-body">
-							<div id="morrisLine"></div>
-						</div>
-					</div>
-					<!-- /Invoice Chart -->
+<%--					<!-- Invoice Chart -->--%>
+<%--					<div class="card card-chart">--%>
+<%--						<div class="card-header">--%>
+<%--							<h4 class="card-title">Status</h4>--%>
+<%--						</div>--%>
+<%--						<div class="card-body">--%>
+<%--							<div id="morrisLine"></div>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--					<!-- /Invoice Chart -->--%>
 
 				</div>
 			</div>
