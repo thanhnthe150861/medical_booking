@@ -37,6 +37,7 @@ CREATE TABLE role(
 CREATE TABLE client(
 	id int auto_increment,
 	username_account varchar(50) NOT NULL,
+	picture varchar(150) NULL,
 	name varchar(150) NOT NULL,
 	rank_id int NULL,
 	PRIMARY KEY  (id)
@@ -46,6 +47,7 @@ CREATE TABLE client(
 CREATE TABLE doctor(
 	id int auto_increment,
 	username_account varchar(50) NOT NULL,
+    picture varchar(150) NULL,
 	name varchar(150) NOT NULL,
 	specialty varchar(50) NOT NULL,
 	rank_id int NULL,

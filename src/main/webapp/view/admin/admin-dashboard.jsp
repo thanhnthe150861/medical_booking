@@ -156,7 +156,7 @@
 							<p class="text-muted mb-0">Administrator</p>
 						</div>
 					</div>
-					<a class="dropdown-item" href="#">My Profile</a>
+					<a class="dropdown-item" href="admin_dashboard">My Profile</a>
 <%--					<a class="dropdown-item" href="settings.html">Settings</a>--%>
 					<a class="dropdown-item" href="login">Logout</a>
 				</div>
@@ -236,7 +236,7 @@
 <%--						<span>UI Interface</span>--%>
 <%--					</li>--%>
 <%--					<li>--%>
-<%--						<a href="components.html"><i class="fe fe-vector"></i> <span>Components</span></a>--%>
+<%--						<a href="components.jsp"><i class="fe fe-vector"></i> <span>Components</span></a>--%>
 <%--					</li>--%>
 <%--					<li class="submenu">--%>
 <%--						<a href="#"><i class="fe fe-layout"></i> <span> Forms </span> <span class="menu-arrow"></span></a>--%>
@@ -440,8 +440,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Ruby Perrin</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Ruby Perrin</a>
 											</h2>
 										</td>
 										<td>Dental</td>
@@ -457,8 +457,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Darren Elder</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Darren Elder</a>
 											</h2>
 										</td>
 										<td>Dental</td>
@@ -474,8 +474,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-03.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Deborah Angel</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-03.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Deborah Angel</a>
 											</h2>
 										</td>
 										<td>Cardiology</td>
@@ -491,8 +491,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-04.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Sofia Brient</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-04.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Sofia Brient</a>
 											</h2>
 										</td>
 										<td>Urology</td>
@@ -508,8 +508,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-05.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Marvin Campbell</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-05.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Marvin Campbell</a>
 											</h2>
 										</td>
 										<td>Orthopaedics</td>
@@ -552,8 +552,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
-												<a href="profile.html">Charlene Reed </a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Charlene Reed </a>
 											</h2>
 										</td>
 										<td>8286329170</td>
@@ -563,8 +563,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient2.jpg" alt="User Image"></a>
-												<a href="profile.html">Travis Trimble </a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient2.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Travis Trimble </a>
 											</h2>
 										</td>
 										<td>2077299974</td>
@@ -574,8 +574,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient3.jpg" alt="User Image"></a>
-												<a href="profile.html">Carl Kelly</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient3.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Carl Kelly</a>
 											</h2>
 										</td>
 										<td>2607247769</td>
@@ -585,8 +585,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient4.jpg" alt="User Image"></a>
-												<a href="profile.html"> Michelle Fairfax</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient4.jpg" alt="User Image"></a>
+												<a href="profile.jsp"> Michelle Fairfax</a>
 											</h2>
 										</td>
 										<td>5043686874</td>
@@ -596,8 +596,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient5.jpg" alt="User Image"></a>
-												<a href="profile.html">Gina Moore</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient5.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Gina Moore</a>
 											</h2>
 										</td>
 										<td>9548207887</td>
@@ -638,15 +638,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Ruby Perrin</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Ruby Perrin</a>
 											</h2>
 										</td>
 										<td>Dental</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
-												<a href="profile.html">Charlene Reed </a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Charlene Reed </a>
 											</h2>
 										</td>
 										<td>9 Nov 2019 <span class="text-primary d-block">11.00 AM - 11.15 AM</span></td>
@@ -663,15 +663,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Darren Elder</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Darren Elder</a>
 											</h2>
 										</td>
 										<td>Dental</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient2.jpg" alt="User Image"></a>
-												<a href="profile.html">Travis Trimble </a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient2.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Travis Trimble </a>
 											</h2>
 										</td>
 
@@ -689,15 +689,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-03.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Deborah Angel</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-03.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Deborah Angel</a>
 											</h2>
 										</td>
 										<td>Cardiology</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient3.jpg" alt="User Image"></a>
-												<a href="profile.html">Carl Kelly</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient3.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Carl Kelly</a>
 											</h2>
 										</td>
 										<td>11 Nov 2019 <span class="text-primary d-block">12.00 PM - 12.15 PM</span></td>
@@ -714,15 +714,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-04.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Sofia Brient</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-04.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Sofia Brient</a>
 											</h2>
 										</td>
 										<td>Urology</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient4.jpg" alt="User Image"></a>
-												<a href="profile.html"> Michelle Fairfax</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient4.jpg" alt="User Image"></a>
+												<a href="profile.jsp"> Michelle Fairfax</a>
 											</h2>
 										</td>
 										<td>7 Nov 2019<span class="text-primary d-block">1.00 PM - 1.20 PM</span></td>
@@ -739,15 +739,15 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-05.jpg" alt="User Image"></a>
-												<a href="profile.html">Dr. Marvin Campbell</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-05.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Dr. Marvin Campbell</a>
 											</h2>
 										</td>
 										<td>Orthopaedics</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient5.jpg" alt="User Image"></a>
-												<a href="profile.html">Gina Moore</a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient5.jpg" alt="User Image"></a>
+												<a href="profile.jsp">Gina Moore</a>
 											</h2>
 										</td>
 

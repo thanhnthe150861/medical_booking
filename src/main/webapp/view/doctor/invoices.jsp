@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/doctor-client-profile-settings.jsp  30 Nov 2019 04:12:14 GMT -->
+<!-- doccure/invoices.jsp  30 Nov 2019 04:12:14 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -16,14 +16,6 @@
 		<!-- Fontawesome CSS -->
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-		
-		<!-- Select2 CSS -->
-		<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
-		
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
-		
-		<link rel="stylesheet" href="assets/plugins/dropzone/dropzone.min.css">
 		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="assets/css/style.css">
@@ -176,10 +168,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+									<li class="breadcrumb-item active" aria-current="page">Invoices</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Profile Settings</h2>
+							<h2 class="breadcrumb-title">Invoices</h2>
 						</div>
 					</div>
 				</div>
@@ -202,7 +194,7 @@
 										</a>
 										<div class="profile-det-info">
 											<h3>Dr. Darren Elder</h3>
-											
+
 											<div class="patient-details">
 												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
 											</div>
@@ -287,383 +279,279 @@
 							
 						</div>
 						<div class="col-md-7 col-lg-8 col-xl-9">
-						
-							<!-- Basic Information -->
-							<div class="card">
+							<div class="card card-table">
 								<div class="card-body">
-									<h4 class="card-title">Basic Information</h4>
-									<div class="row form-row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<div class="change-avatar">
-													<div class="profile-img">
-														<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
-													</div>
-													<div class="upload-img">
-														<div class="change-photo-btn">
-															<span><i class="fa fa-upload"></i> Upload Photo</span>
-															<input type="file" class="upload">
+								
+									<!-- Invoice Table -->
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+												<tr>
+													<th>Invoice No</th>
+													<th>Patient</th>
+													<th>Amount</th>
+													<th>Paid On</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0010</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Richard Wilson <span>#PT0016</span></a>
+														</h2>
+													</td>
+													<td>$450</td>
+													<td>14 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
 														</div>
-														<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Username <span class="text-danger">*</span></label>
-												<input type="text" class="form-control" readonly>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Email <span class="text-danger">*</span></label>
-												<input type="email" class="form-control" readonly>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>First Name <span class="text-danger">*</span></label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Last Name <span class="text-danger">*</span></label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Phone Number</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Gender</label>
-												<select class="form-control select">
-													<option>Select</option>
-													<option>Male</option>
-													<option>Female</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group mb-0">
-												<label>Date of Birth</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0009</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient1.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Charlene Reed <span>#PT0001</span></a>
+														</h2>
+													</td>
+													<td>$200</td>
+													<td>13 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0008</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient2.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Travis Trimble <span>#PT0002</span></a>
+														</h2>
+													</td>
+													<td>$100</td>
+													<td>12 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0007</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient3.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Carl Kelly <span>#PT0003</span></a>
+														</h2>
+													</td>
+													<td>$350</td>
+													<td>11 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0006</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient4.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Michelle Fairfax <span>#PT0004</span></a>
+														</h2>
+													</td>
+													<td>$275</td>
+													<td>10 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0005</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient5.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Gina Moore <span>#PT0005</span></a>
+														</h2>
+													</td>
+													<td>$600</td>
+													<td>9 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0004</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient6.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Elsie Gilley <span>#PT0006</span></a>
+														</h2>
+													</td>
+													<td>$50</td>
+													<td>8 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0003</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient7.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Joan Gardner <span>#PT0007</span></a>
+														</h2>
+													</td>
+													<td>$400</td>
+													<td>7 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0002</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient8.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Daniel Griffing <span>#PT0008</span></a>
+														</h2>
+													</td>
+													<td>$550</td>
+													<td>6 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<a href="invoice-view.jsp">#INV-0001</a>
+													</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="patient-profile.html" class="avatar avatar-sm mr-2">
+																<img class="avatar-img rounded-circle" src="assets/img/patients/patient9.jpg" alt="User Image">
+															</a>
+															<a href="patient-profile.html">Walter Roberson <span>#PT0009</span></a>
+														</h2>
+													</td>
+													<td>$100</td>
+													<td>5 Nov 2019</td>
+													<td class="text-right">
+														<div class="table-action">
+															<a href="invoice-view.jsp" class="btn btn-sm bg-info-light">
+																<i class="far fa-eye"></i> View
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
+																<i class="fas fa-print"></i> Print
+															</a>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
-								</div>
-							</div>
-							<!-- /Basic Information -->
-							
-							<!-- About Me -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">About Me</h4>
-									<div class="form-group mb-0">
-										<label>Biography</label>
-										<textarea class="form-control" rows="5"></textarea>
-									</div>
-								</div>
-							</div>
-							<!-- /About Me -->
-							
-							<!-- Clinic Info -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Clinic Info</h4>
-									<div class="row form-row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Clinic Name</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Clinic Address</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<div class="form-group">
-												<label>Clinic Images</label>
-												<form action="#" class="dropzone"></form>
-											</div>
-											<div class="upload-wrap">
-												<div class="upload-images">
-													<img src="assets/img/features/feature-01.jpg" alt="Upload Image">
-													<a href="javascript:void(0);" class="btn btn-icon btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
-												</div>
-												<div class="upload-images">
-													<img src="assets/img/features/feature-02.jpg" alt="Upload Image">
-													<a href="javascript:void(0);" class="btn btn-icon btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Clinic Info -->
-
-							<!-- Contact Details -->
-							<div class="card contact-card">
-								<div class="card-body">
-									<h4 class="card-title">Contact Details</h4>
-									<div class="row form-row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Address Line 1</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">Address Line 2</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">City</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">State / Province</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">Country</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label">Postal Code</label>
-												<input type="text" class="form-control">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Contact Details -->
-							
-							<!-- Pricing -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Pricing</h4>
+									<!-- /Invoice Table -->
 									
-									<div class="form-group mb-0">
-										<div id="pricing_select">
-											<div class="custom-control custom-radio custom-control-inline">
-												<input type="radio" id="price_free" name="rating_option" class="custom-control-input" value="price_free" checked>
-												<label class="custom-control-label" for="price_free">Free</label>
-											</div>
-											<div class="custom-control custom-radio custom-control-inline">
-												<input type="radio" id="price_custom" name="rating_option" value="custom_price" class="custom-control-input">
-												<label class="custom-control-label" for="price_custom">Custom Price (per hour)</label>
-											</div>
-										</div>
-
-									</div>
-									
-									<div class="row custom_price_cont" id="custom_price_cont" style="display: none;">
-										<div class="col-md-4">
-											<input type="text" class="form-control" id="custom_rating_input" name="custom_rating_count" value="" placeholder="20">
-											<small class="form-text text-muted">Custom price you can add</small>
-										</div>
-									</div>
-									
 								</div>
 							</div>
-							<!-- /Pricing -->
-							
-							<!-- Services and Specialization -->
-							<div class="card services-card">
-								<div class="card-body">
-									<h4 class="card-title">Services and Specialization</h4>
-									<div class="form-group">
-										<label>Services</label>
-										<input type="text" data-role="tagsinput" class="input-tags form-control" placeholder="Enter Services" name="services" value="Tooth cleaning " id="services">
-										<small class="form-text text-muted">Note : Type & Press enter to add new services</small>
-									</div> 
-									<div class="form-group mb-0">
-										<label>Specialization </label>
-										<input class="input-tags form-control" type="text" data-role="tagsinput" placeholder="Enter Specialization" name="specialist" value="Children Care,Dental Care" id="specialist">
-										<small class="form-text text-muted">Note : Type & Press  enter to add new specialization</small>
-									</div> 
-								</div>              
-							</div>
-							<!-- /Services and Specialization -->
-						 
-							<!-- Education -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Education</h4>
-									<div class="education-info">
-										<div class="row form-row education-cont">
-											<div class="col-12 col-md-10 col-lg-11">
-												<div class="row form-row">
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>Degree</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>College/Institute</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>Year of Completion</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-education"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Education -->
-						
-							<!-- Experience -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Experience</h4>
-									<div class="experience-info">
-										<div class="row form-row experience-cont">
-											<div class="col-12 col-md-10 col-lg-11">
-												<div class="row form-row">
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>Hospital Name</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>From</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>To</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-													<div class="col-12 col-md-6 col-lg-4">
-														<div class="form-group">
-															<label>Designation</label>
-															<input type="text" class="form-control">
-														</div> 
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-experience"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Experience -->
-							
-							<!-- Awards -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Awards</h4>
-									<div class="awards-info">
-										<div class="row form-row awards-cont">
-											<div class="col-12 col-md-5">
-												<div class="form-group">
-													<label>Awards</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-											<div class="col-12 col-md-5">
-												<div class="form-group">
-													<label>Year</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-award"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Awards -->
-							
-							<!-- Memberships -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Memberships</h4>
-									<div class="membership-info">
-										<div class="row form-row membership-cont">
-											<div class="col-12 col-md-10 col-lg-5">
-												<div class="form-group">
-													<label>Memberships</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-membership"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Memberships -->
-							
-							<!-- Registrations -->
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Registrations</h4>
-									<div class="registrations-info">
-										<div class="row form-row reg-cont">
-											<div class="col-12 col-md-5">
-												<div class="form-group">
-													<label>Registrations</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-											<div class="col-12 col-md-5">
-												<div class="form-group">
-													<label>Year</label>
-													<input type="text" class="form-control">
-												</div> 
-											</div>
-										</div>
-									</div>
-									<div class="add-more">
-										<a href="javascript:void(0);" class="add-reg"><i class="fa fa-plus-circle"></i> Add More</a>
-									</div>
-								</div>
-							</div>
-							<!-- /Registrations -->
-							
-							<div class="submit-section submit-btn-bottom">
-								<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-							</div>
-							
 						</div>
 					</div>
 
@@ -740,7 +628,7 @@
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="doctor-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -825,22 +713,10 @@
         <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
         <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
 		
-		<!-- Select2 JS -->
-		<script src="assets/plugins/select2/js/select2.min.js"></script>
-		
-		<!-- Dropzone JS -->
-		<script src="assets/plugins/dropzone/dropzone.min.js"></script>
-		
-		<!-- Bootstrap Tagsinput JS -->
-		<script src="assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
-		
-		<!-- Profile Settings JS -->
-		<script src="assets/js/profile-settings.js"></script>
-		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
 		
 	</body>
 
-<!-- doccure/doctor-client-profile-settings.jsp  30 Nov 2019 04:12:15 GMT -->
+<!-- doccure/invoices.jsp  30 Nov 2019 04:12:14 GMT -->
 </html>
