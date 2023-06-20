@@ -77,7 +77,11 @@
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
+<<<<<<< HEAD:src/main/webapp/view/doctors.jsp
               <a class="nav-link" href="booking.jsp">Booking</a>
+=======
+              <a class="nav-link" href="../booking.jsp">Booking</a>
+>>>>>>> parent of d641032 (update fe for role):src/main/webapp/view/fe old/doctors.jsp
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>

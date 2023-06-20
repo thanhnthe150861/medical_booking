@@ -77,7 +77,11 @@
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
+<<<<<<< HEAD:src/main/webapp/view/vip.jsp
               <a class="nav-link" href="booking.jsp">Booking</a>
+=======
+              <a class="nav-link" href="../booking.jsp">Booking</a>
+>>>>>>> parent of d641032 (update fe for role):src/main/webapp/view/fe old/vip.jsp
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="vip.jsp">VIP</a>
@@ -96,7 +100,11 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
+<<<<<<< HEAD:src/main/webapp/view/vip.jsp
         <a href="booking.jsp" class="btn btn-primary">Booking</a>
+=======
+        <a href="../booking.jsp" class="btn btn-primary">Booking</a>
+>>>>>>> parent of d641032 (update fe for role):src/main/webapp/view/fe old/vip.jsp
       </div>
     </div>
   </div>
