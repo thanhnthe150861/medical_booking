@@ -71,19 +71,19 @@
               <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../home.jsp">About Us</a>
+              <a class="nav-link" href="home.jsp">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../client/booking.jsp">Booking</a>
+              <a class="nav-link" href="booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="../login/login.jsp">Login / Register</a>
+              <a class="btn btn-primary ml-lg-3" href="login.html">Login / Register</a>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->
@@ -91,132 +91,106 @@
     </nav>
   </header>
 
-  <div class="page-banner overlay-dark bg-image" style="background-image: url(images/bg_image_1.jpg);">
-    <div class="banner-section">
-      <div class="container text-center wow fadeInUp">
-        <nav aria-label="Breadcrumb">
-          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-            <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Doctors</li>
-          </ol>
-        </nav>
-        <h1 class="font-weight-normal">Our Doctors</h1>
-      </div> <!-- .container -->
-    </div> <!-- .banner-section -->
-  </div> <!-- .page-banner -->
 
-  <div class="page-section bg-light">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
+  <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
+    <div class="hero-section">
+      <div class="container text-center wow zoomIn">
+        <span class="subhead">Let's make your life happier</span>
+        <h1 class="display-4">Healthy Living</h1>
+      </div>
+    </div>
+  </div>
 
-          <div class="row">
-            
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_1.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Stein Albert</p>
-                  <span class="text-sm text-grey">Cardiology</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_2.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-                  <span class="text-sm text-grey">Dental</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_3.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-                  <span class="text-sm text-grey">General Health</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_1.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Stein Albert</p>
-                  <span class="text-sm text-grey">Cardiology</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_2.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-                  <span class="text-sm text-grey">Dental</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="images/doctors/doctor_3.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-                  <span class="text-sm text-grey">General Health</span>
-                </div>
-              </div>
-            </div>
 
+  <div class="bg-light">
+    <div class="page-section py-3 mt-md-n5 custom-index">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-secondary text-white">
+                <span class="mai-chatbubbles-outline"></span>
+              </div>
+              <p><a href="feedback.jsp" class=""><span></span> Feedback</a></p>
+            </div>
           </div>
-
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-primary text-white">
+                <span class="mai-shield-checkmark"></span>
+              </div>
+              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Records</a></p>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-accent text-white">
+                <span class="mai-basket"></span>
+              </div>
+              <p><a href="informationcustomer.jsp" class=""><span></span> View Information</a></p>
+            </div>
+          </div>
         </div>
       </div>
-    </div> <!-- .container -->
-  </div> <!-- .page-section -->
+    </div> <!-- .page-section -->
+    <div class="page-section">
+      <div class="container">
+        <h1 class="text-center wow fadeInUp">Medicak records</h1>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Patient information</title>
+          <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+          <h1>Patient information</h1>
+          <div>
+            <label for="patient-name">Patient name:</label>
+            <span id="patient-name"></span>
+          </div>
+          <div>
+            <label for="patient-age">Age:</label>
+            <span id="patient-age"></span>
+          </div>
+          <div>
+            <label for="patient-gender">Gender:</label>
+            <span id="patient-gender"></span>
+          </div>
+          <div>
+            <label for="patient-symptoms">Symptom:</label>
+            <span id="patient-symptoms"></span>
+          </div>
+          <div>
+            <label for="patient-diagnosis">Diagnostic:</label>
+            <span id="patient-diagnosis"></span>
+          </div>
+          <script src="script.js"></script>
+        </body>
+        </html>
+      </div>
+    </div>
 
-  
-  
+    
+      <script>
+
+// Lấy thông tin của bệnh nhân bằng AJAX
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    const patientInfo = JSON.parse(this.responseText);
+    // Hiển thị thông tin của bệnh nhân trên trang web
+    document.getElementById("patient-name").textContent = patientInfo.name;
+    document.getElementById("patient-age").textContent = patientInfo.age;
+    document.getElementById("patient-gender").textContent = patientInfo.gender;
+    document.getElementById("patient-symptoms").textContent = patientInfo.symptoms;
+    document.getElementById("patient-diagnosis").textContent = patientInfo.diagnosis;
+  }
+};
+xhr.open("GET", "get_patient_info.php", true);
+xhr.send();
+      </script>
+
+
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
@@ -232,7 +206,6 @@
       </div>
     </div>
   </div> <!-- .banner-home -->
-
 
   <footer class="page-footer">
     <div class="container">

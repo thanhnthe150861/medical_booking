@@ -71,19 +71,19 @@
               <a class="nav-link" href="index.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../home.jsp">About Us</a>
+              <a class="nav-link" href="home.jsp">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../client/booking.jsp">Booking</a>
+              <a class="nav-link" href="booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="login.html">Login / Register</a>
+              <a class="btn btn-primary ml-lg-3" href="login/login.jsp">Login / Register</a>
             </li>
           </ul>
         </div> <!-- .navbar-collapse -->
@@ -91,16 +91,15 @@
     </nav>
   </header>
 
-
   <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
+        <a href="booking.jsp" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>
-
 
   <div class="bg-light">
     <div class="page-section py-3 mt-md-n5 custom-index">
@@ -119,7 +118,7 @@
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Records</a></p>
+              <p><a href="viewMedicalRecord.jsp" class=""><span></span> Medical Record</a></p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -133,64 +132,47 @@
         </div>
       </div>
     </div> <!-- .page-section -->
-    <div class="page-section">
-      <div class="container">
-        <h1 class="text-center wow fadeInUp">Medicak records</h1>
-        <html>
-        <head>
-          <meta charset="UTF-8">
-          <title>Patient information</title>
-          <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-          <h1>Patient information</h1>
-          <div>
-            <label for="patient-name">Patient name:</label>
-            <span id="patient-name"></span>
+
+  <div class="page-section">
+    <div class="container">
+      <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
+      <form class="main-form">
+        <div class="row mt-5 ">
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+            <input type="text" class="form-control" placeholder="Full name">
           </div>
-          <div>
-            <label for="patient-age">Age:</label>
-            <span id="patient-age"></span>
+          <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+            <select name="departement" id="departement" class="custom-select">
+              <option value="general">Male</option>
+              <option value="cardiology">Female</option>
+            </select>
           </div>
-          <div>
-            <label for="patient-gender">Gender:</label>
-            <span id="patient-gender"></span>
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+            <input type="date" class="form-control">
           </div>
-          <div>
-            <label for="patient-symptoms">Symptom:</label>
-            <span id="patient-symptoms"></span>
+
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+            <input type="text" class="form-control" placeholder="Address..">
           </div>
-          <div>
-            <label for="patient-diagnosis">Diagnostic:</label>
-            <span id="patient-diagnosis"></span>
+          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <select name="departement" id="departement" class="custom-select">
+              <option value="general">Ears</option>
+              <option value="cardiology">Throat</option>
+              <option value="cardiology">Nose</option>
+            </select>
           </div>
-          <script src="script.js"></script>
-        </body>
-        </html>
-      </div>
+          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+            <input type="text" class="form-control" placeholder="Numbers..">
+          </div>
+          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Submit</button>
+      </form>
     </div>
-
-    
-      <script>
-
-// Lấy thông tin của bệnh nhân bằng AJAX
-const xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    const patientInfo = JSON.parse(this.responseText);
-    // Hiển thị thông tin của bệnh nhân trên trang web
-    document.getElementById("patient-name").textContent = patientInfo.name;
-    document.getElementById("patient-age").textContent = patientInfo.age;
-    document.getElementById("patient-gender").textContent = patientInfo.gender;
-    document.getElementById("patient-symptoms").textContent = patientInfo.symptoms;
-    document.getElementById("patient-diagnosis").textContent = patientInfo.diagnosis;
-  }
-};
-xhr.open("GET", "get_patient_info.php", true);
-xhr.send();
-      </script>
-
-
+  </div> <!-- .page-section -->
 
   <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
@@ -256,8 +238,8 @@ xhr.send();
       <hr>
 
       <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
-    </div>
-  </footer>
+    </div> <!-- .container -->
+  </footer> <!-- .page-footer -->
 
 <script src="js/jquery-3.5.1.min.js"></script>
 
