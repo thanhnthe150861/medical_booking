@@ -12,22 +12,18 @@ public class DBContext {
 
     public DBContext() {
         try {
+//            String serverName = "database.cvuua3k5atka.ap-southeast-1.rds.amazonaws.com";
+            String serverName = "localhost";//đang kết nối với database localhost
             String dbName = "medical_booking";
             String portNumber = "3306";
 
-
-//            String serverName = "database.cvuua3k5atka.ap-southeast-1.rds.amazonaws.com";
-//            //Acc AWS DB
+            //Acc AWS DB
 //            String user = "admin";
 //            String pass = "12345678";
 
-
-            String serverName = "localhost";//đang kết nối với database localhost
             //Acc localhost
             String user = "root";           //Account mySQL
             String pass = "Tuan@3006";      //Password mySQL
-
-
             String url = "jdbc:mysql://"+serverName+":"+portNumber+"/"+dbName;
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, pass);
