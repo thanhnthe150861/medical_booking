@@ -2,25 +2,27 @@ package model;
 
 import java.sql.Date;
 
-public class Client {
+public class Doctor {
     private int id;
     private String userName;
     private String url;
     private String name;
     private  String gender;
     private Date dob;
+    private  String specialty;
     private int rankId;
 
-    public Client() {
+    public Doctor() {
     }
 
-    public Client(int id, String userName, String url, String name, String gender, Date dob, int rankId) {
+    public Doctor(int id, String userName, String url, String name, String gender, Date dob, String specialty, int rankId) {
         this.id = id;
         this.userName = userName;
         this.url = url;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
+        this.specialty = specialty;
         this.rankId = rankId;
     }
 
@@ -70,6 +72,14 @@ public class Client {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
     }
 
     public int getRankId() {
