@@ -284,18 +284,18 @@
 										<div class="col-md-12 col-lg-6">
 										
 											<!-- Change Password Form -->
-											<form>
+											<form action="doctor_change_password" method="post">
 												<div class="form-group">
 													<label>Old Password</label>
-													<input type="password" class="form-control">
+													<input type="password" class="form-control" name="old-password">
 												</div>
 												<div class="form-group">
 													<label>New Password</label>
-													<input type="password" class="form-control">
+													<input type="password" class="form-control" name="new-password">
 												</div>
 												<div class="form-group">
 													<label>Confirm Password</label>
-													<input type="password" class="form-control">
+													<input type="password" class="form-control" name="re-password">
 												</div>
 												<div class="submit-section">
 													<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
