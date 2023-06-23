@@ -1395,7 +1395,7 @@
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
 										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="client-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
+										<li><a href="../client/client-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->

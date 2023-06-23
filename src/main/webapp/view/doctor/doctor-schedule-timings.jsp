@@ -207,7 +207,7 @@
 								<div class="dashboard-widget">
 									<nav class="dashboard-menu">
 										<ul>
-											<li class="active">
+											<li>
 												<a href="doctor_dashboard">
 													<i class="fas fa-columns"></i>
 													<span>Dashboard</span>
@@ -225,7 +225,7 @@
 													<span>My Patients</span>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="doctor_schedule_timings">
 													<i class="fas fa-hourglass-start"></i>
 													<span>Schedule Timings</span>

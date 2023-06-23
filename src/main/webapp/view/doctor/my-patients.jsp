@@ -204,7 +204,7 @@
 								<div class="dashboard-widget">
 									<nav class="dashboard-menu">
 										<ul>
-											<li class="active">
+											<li>
 												<a href="doctor_dashboard">
 													<i class="fas fa-columns"></i>
 													<span>Dashboard</span>
@@ -216,7 +216,7 @@
 													<span>Appointments</span>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="#">
 													<i class="fas fa-user-injured"></i>
 													<span>My Patients</span>
@@ -294,7 +294,7 @@
 														
 														<div class="patient-details">
 															<h5><b>Patient ID :</b> P0016</h5>
-															<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Alabama, USA</h5>
+															<h5 class="mb-0"><i class="fas fa-map-marker-altx"></i> Alabama, USA</h5>
 														</div>
 													</div>
 												</div>

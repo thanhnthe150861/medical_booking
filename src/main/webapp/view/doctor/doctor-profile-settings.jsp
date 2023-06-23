@@ -154,7 +154,7 @@
 								<div class="dashboard-widget">
 									<nav class="dashboard-menu">
 										<ul>
-											<li class="active">
+											<li>
 												<a href="doctor_dashboard">
 													<i class="fas fa-columns"></i>
 													<span>Dashboard</span>
@@ -197,7 +197,7 @@
 													<small class="unread-msg">23</small>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="doctor_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Profile Settings</span>
