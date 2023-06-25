@@ -1,5 +1,6 @@
 package controller.doctor;
 
+import dal.DoctorDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,17 +8,21 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Account;
+import model.Doctor;
 
 import java.io.IOException;
 
-@WebServlet(name = "doctor_appointments", value = "/doctor_appointments")
-public class doctor_appointments extends HttpServlet {
+@WebServlet(name = "MyPatients", value = "/my_patients")
+public class MyPatients extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
+        DoctorDBContext doctorDBContext = new DoctorDBContext();
         if (account != null && account.getIsAdmin() == 1){
-            req.getRequestDispatcher("view/doctor/doctor-appointments.jsp").forward(req,resp);
+            Doctor doctor = doctorDBContext.getDoctor(account);
+            session.setAttribute("doctor", doctor);
+            req.getRequestDispatcher("view/doctor/my-patients.jsp").forward(req,resp);
         }
     }
 

@@ -1,22 +1,20 @@
-package controller.client;
+package controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-
-@WebServlet(name = "client_change_password", value = "/client_change_password")
-public class client_change_password  extends HttpServlet {
+@WebServlet(name = "Home", value = "/home")
+public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        Account account = (Account) session.getAttribute("account");
-//        if (account != null && account.getIsAdmin() == 1){
-        req.getRequestDispatcher("view/client/client-change-password.jsp").forward(req,resp);
-//        }
+        HttpSession session = req.getSession();
+        session.getAttribute("account");
+        req.getRequestDispatcher("view/home.jsp").forward(req,resp);
     }
 
     @Override

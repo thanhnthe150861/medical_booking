@@ -10,14 +10,14 @@ import model.Doctor;
 import java.io.IOException;
 import java.sql.Date;
 
-@WebServlet(name = "doctor_profile_settings", value = "/doctor_profile_settings")
-public class doctor_profile_settings  extends HttpServlet {
+@WebServlet(name = "DoctorProfileSettings", value = "/doctor_profile_settings")
+public class DoctorProfileSettings extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
+        DoctorDBContext doctorDBContext = new DoctorDBContext();
         if (account != null && account.getIsAdmin() == 1){
-            DoctorDBContext doctorDBContext = new DoctorDBContext();
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
             req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req,resp);

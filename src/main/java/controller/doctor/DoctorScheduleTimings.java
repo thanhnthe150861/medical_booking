@@ -10,22 +10,23 @@ import jakarta.servlet.http.HttpSession;
 import model.Account;
 import model.Booking;
 import model.Doctor;
+import model.Slot;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
-@WebServlet(name = "doctor_schedule_timings", value = "/doctor_schedule_timings")
-public class doctor_schedule_timings  extends HttpServlet {
+@WebServlet(name = "DoctorScheduleTimings", value = "/doctor_schedule_timings")
+public class DoctorScheduleTimings extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
+        DoctorDBContext doctorDBContext = new DoctorDBContext();
         if (account != null && account.getIsAdmin() == 1){
-            DoctorDBContext doctorDBContext = new DoctorDBContext();
             Doctor doctor = doctorDBContext.getDoctor(account);
-            List<Booking> bookingList = doctorDBContext.getSlotsTime(doctor);
+            session.setAttribute("doctor", doctor);
+            List<Booking> bookingList = doctorDBContext.getBooking(doctor, "Confirmed");
             req.setAttribute("bookingList", bookingList);
             //Lấy ngày hôm nay
             LocalDate today = LocalDate.now();
@@ -42,7 +43,7 @@ public class doctor_schedule_timings  extends HttpServlet {
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
         Doctor doctor = doctorDBContext.getDoctor(account);
-        List<Booking> bookingList = doctorDBContext.getSlotsTime(doctor);
+        List<Booking> bookingList = doctorDBContext.getBooking(doctor, "Confirmed");
         //
         session.removeAttribute("date");
         //Ngày chọn

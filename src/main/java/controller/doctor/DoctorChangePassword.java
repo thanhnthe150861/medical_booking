@@ -1,6 +1,7 @@
 package controller.doctor;
 
 import dal.AccountDB;
+import dal.DoctorDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -8,16 +9,20 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Account;
+import model.Doctor;
 
 import java.io.IOException;
 
-@WebServlet(name = "doctor_change_password", value = "/doctor_change_password")
-public class doctor_change_password  extends HttpServlet {
+@WebServlet(name = "DoctorChangePassword", value = "/doctor_change_password")
+public class DoctorChangePassword extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
+        DoctorDBContext doctorDBContext = new DoctorDBContext();
         if (account != null && account.getIsAdmin() == 1){
+            Doctor doctor = doctorDBContext.getDoctor(account);
+            session.setAttribute("doctor", doctor);
         req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req,resp);
         }
     }

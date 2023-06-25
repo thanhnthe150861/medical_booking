@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Doctor {
     private int id;
@@ -11,11 +13,12 @@ public class Doctor {
     private Date dob;
     private  String specialty;
     private int rankId;
+    private Rank ranks = new Rank();
 
     public Doctor() {
     }
 
-    public Doctor(int id, String userName, String url, String name, String gender, Date dob, String specialty, int rankId) {
+    public Doctor(int id, String userName, String url, String name, String gender, Date dob, String specialty, int rankId, Rank ranks) {
         this.id = id;
         this.userName = userName;
         this.url = url;
@@ -24,6 +27,15 @@ public class Doctor {
         this.dob = dob;
         this.specialty = specialty;
         this.rankId = rankId;
+        this.ranks = ranks;
+    }
+
+    public Rank getRanks() {
+        return ranks;
+    }
+
+    public void setRanks(Rank ranks) {
+        this.ranks = ranks;
     }
 
     public int getId() {

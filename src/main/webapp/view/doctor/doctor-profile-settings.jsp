@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- doccure/doctor-client-profile-settings.jsp  30 Nov 2019 04:12:14 GMT -->
+<!-- doccure/doctor-patient-profile-settings.jsp  30 Nov 2019 04:12:14 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -161,13 +161,13 @@
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="doctor_appointments">
 													<i class="fas fa-calendar-check"></i>
 													<span>Appointments</span>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="my_patients">
 													<i class="fas fa-user-injured"></i>
 													<span>My Patients</span>
 												</a>
@@ -201,12 +201,6 @@
 												<a href="doctor_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Profile Settings</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-share-alt"></i>
-													<span>Social Media</span>
 												</a>
 											</li>
 											<li>
@@ -472,5 +466,5 @@
 
 	</body>
 
-<!-- doccure/doctor-client-profile-settings.jsp  30 Nov 2019 04:12:15 GMT -->
+<!-- doccure/doctor-patient-profile-settings.jsp  30 Nov 2019 04:12:15 GMT -->
 </html>

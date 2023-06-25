@@ -1,4 +1,4 @@
-package controller.admin;
+package controller.client;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,19 +8,15 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "admin_dashboard", value = "/admin_dashboard")
-public class admin_dashboard extends HttpServlet {
+@WebServlet(name = "Booking", value = "/booking")
+public class Booking extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        Account account = (Account) session.getAttribute("account");
-//        if (account != null && account.getIsAdmin() == 0){
-            req.getRequestDispatcher("view/admin/admin-dashboard.jsp").forward(req,resp);
-//        }
+        req.getRequestDispatcher("view/patient/booking.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        resp.sendRedirect("check_out");
     }
 }

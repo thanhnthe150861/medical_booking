@@ -11,27 +11,28 @@ import model.Account;
 
 import java.io.IOException;
 
-@WebServlet(name = "reset", value = "/reset")
-public class resetpassword extends HttpServlet {
+@WebServlet(name = "Login", value = "/login")
+public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        session.getAttribute("account");
-        req.getRequestDispatcher("view/login/reset-password.jsp").forward(req,resp);
+        session.invalidate();
+        req.getRequestDispatcher("view/login/login.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        Account account = (Account) session.getAttribute("account");
+        String user_raw = req.getParameter("username");
+        String pass_raw = req.getParameter("password");
         AccountDB adb = new AccountDB();
-        String password = req.getParameter("password");
-        String rePassword = req.getParameter("repassword");
-        if(password.equals(rePassword)){
-            account.setPassword(password);
-            adb.UpdateAccount(account);
-            req.setAttribute("mess", "Successfully");
-            resp.sendRedirect("login");
+        Account account = adb.getAccount(user_raw, pass_raw);
+        HttpSession session = req.getSession();
+        if(account == null){
+            req.setAttribute("mess", "User or Password incorrect");
+            req.getRequestDispatcher("view/login/login.jsp").forward(req,resp);
+        }else{
+                session.setAttribute("account", account);
+                resp.sendRedirect("home");
         }
 
     }

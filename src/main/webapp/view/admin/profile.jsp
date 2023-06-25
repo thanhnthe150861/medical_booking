@@ -213,9 +213,9 @@
 							<%--					<li class="submenu">--%>
 							<%--						<a href="#"><i class="fe fe-document"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>--%>
 							<%--						<ul style="display: none;">--%>
-							<%--							<li><a href="login.html"> Login </a></li>--%>
-							<%--							<li><a href="register.html"> Register </a></li>--%>
-							<%--							<li><a href="forgot-password.html"> Forgot Password </a></li>--%>
+							<%--							<li><a href="Login.html"> Login </a></li>--%>
+							<%--							<li><a href="Register.html"> Register </a></li>--%>
+							<%--							<li><a href="Forgot-password.html"> Forgot Password </a></li>--%>
 							<%--							<li><a href="lock-screen.html"> Lock Screen </a></li>--%>
 							<%--						</ul>--%>
 							<%--					</li>--%>

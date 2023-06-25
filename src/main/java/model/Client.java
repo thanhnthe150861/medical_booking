@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client {
     private int id;
@@ -10,11 +12,12 @@ public class Client {
     private  String gender;
     private Date dob;
     private int rankId;
+    private Rank ranks = new Rank();
 
     public Client() {
     }
 
-    public Client(int id, String userName, String url, String name, String gender, Date dob, int rankId) {
+    public Client(int id, String userName, String url, String name, String gender, Date dob, int rankId, Rank ranks) {
         this.id = id;
         this.userName = userName;
         this.url = url;
@@ -22,6 +25,15 @@ public class Client {
         this.gender = gender;
         this.dob = dob;
         this.rankId = rankId;
+        this.ranks = ranks;
+    }
+
+    public Rank getRanks() {
+        return ranks;
+    }
+
+    public void setRanks(Rank ranks) {
+        this.ranks = ranks;
     }
 
     public int getId() {

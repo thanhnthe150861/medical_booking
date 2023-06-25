@@ -1,5 +1,6 @@
 package model;
 
+import javax.print.Doc;
 import java.sql.Date;
 
 public class Booking {
@@ -8,20 +9,58 @@ public class Booking {
     private int client_id;
     private String booking_reason;
     private Date date;
-    private String slot;
+    private int slot_id;
     private String status;
+    private Doctor doctor = new Doctor();
+    private Client client = new Client();
+    private Slot slots = new Slot();
 
     public Booking() {
     }
 
-    public Booking(int id, int doctor_id, int client_id, String booking_reason, Date date, String slot, String status) {
+    public Booking(int id, int doctor_id, int client_id, String booking_reason, Date date, int slot_id, String status, Doctor doctor, Client client, Slot slots) {
         this.id = id;
         this.doctor_id = doctor_id;
         this.client_id = client_id;
         this.booking_reason = booking_reason;
         this.date = date;
-        this.slot = slot;
+        this.slot_id = slot_id;
         this.status = status;
+        this.doctor = doctor;
+        this.client = client;
+        this.slots = slots;
+    }
+
+    public int getSlot_id() {
+        return slot_id;
+    }
+
+    public void setSlot_id(int slot_id) {
+        this.slot_id = slot_id;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Slot getSlots() {
+        return slots;
+    }
+
+    public void setSlots(Slot slots) {
+        this.slots = slots;
     }
 
     public int getId() {
@@ -62,14 +101,6 @@ public class Booking {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public String getSlot() {
-        return slot;
-    }
-
-    public void setSlot(String slot) {
-        this.slot = slot;
     }
 
     public String getStatus() {

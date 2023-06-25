@@ -8,14 +8,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "client_dashboard", value = "/client_dashboard")
-public class client_dashboard extends HttpServlet {
+@WebServlet(name = "PatientProfileSettings", value = "/patient_profile_settings")
+public class PatientProfileSettings extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        HttpSession session = req.getSession();
 //        Account account = (Account) session.getAttribute("account");
 //        if (account != null && account.getIsAdmin() == 2){
-        req.getRequestDispatcher("view/client/client-dashboard.jsp").forward(req,resp);
+        req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req,resp);
 //        }
     }
 

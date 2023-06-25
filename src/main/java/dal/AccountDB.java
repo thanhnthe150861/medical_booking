@@ -2,6 +2,7 @@ package dal;
 
 
 import model.Account;
+import model.Role;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,24 @@ import java.util.List;
 public class AccountDB extends DBContext{
     private static PreparedStatement stm = null;
     private static ResultSet rs = null;
+
+    public Role getRole(Account account){
+        try {
+            String sql = "SELECT * FROM Role WHERE id = ?;";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, account.getIsAdmin());
+            rs = stm.executeQuery();
+            if(rs.next()){
+                Role role = new Role();
+                role.setId(rs.getInt("id"));
+                role.setName(rs.getString("name"));
+                return role;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
     public Account getAccount(String user, String pass){
         try {
         String sql = "SELECT * FROM account WHERE username = ? AND password = ?";
@@ -23,7 +42,7 @@ public class AccountDB extends DBContext{
                 Account account = new Account();
                 account.setUsername(rs.getString("username"));
                 account.setPassword(rs.getString("password"));
-                account.setPhone(rs.getString("phone_number"));
+                account.setPhone(rs.getString("phone"));
                 account.setEmail(rs.getString("email"));
                 account.setIsAdmin(rs.getInt("isAdmin"));
                 return account;
@@ -45,7 +64,7 @@ public class AccountDB extends DBContext{
                 account = new Account();
                 account.setUsername(rs.getString("username"));
                 account.setPassword(rs.getString("password"));
-                account.setPhone(rs.getString("phone_number"));
+                account.setPhone(rs.getString("phone"));
                 account.setEmail(rs.getString("email"));
                 account.setIsAdmin(rs.getInt("isAdmin"));
                 accountList.add(account);
@@ -81,7 +100,7 @@ public class AccountDB extends DBContext{
                     account = new Account();
                     account.setUsername(rs.getString("username"));
                     account.setPassword(rs.getString("password"));
-                    account.setPhone(rs.getString("phone_number"));
+                    account.setPhone(rs.getString("phone"));
                     account.setEmail(rs.getString("email"));
                     account.setIsAdmin(rs.getInt("isAdmin"));
                 }
@@ -91,19 +110,11 @@ public class AccountDB extends DBContext{
             return account;
         }
 
-//    public static void main(String[] args) {
-//        AccountDB adb = new AccountDB();
-//        if (adb.checkAccountExist("abc") != null){
-//            System.out.println("true");
-//        }else {
-//            System.out.println("false");
-//        }
-//    }
 
     public void insertClient(Account account, String name){
         try {
             //Insert Account
-            String sql = "INSERT account (username, password, phone_number, email, isAdmin) " +
+            String sql = "INSERT account (username, password, phone, email, isAdmin) " +
                     "VALUES (?, ?, ?, ?, ?)";
             stm = connection.prepareStatement(sql);
             stm.setString(1, account.getUsername());
@@ -113,7 +124,7 @@ public class AccountDB extends DBContext{
             stm.setInt(5, account.getIsAdmin());
             stm.executeUpdate();
             //Insert Client
-            String sql1 = "INSERT client (username_account, name, rank_id)" +
+            String sql1 = "INSERT client (username, name, rank_id)" +
                     "VALUES (?, ?, ?)";
             PreparedStatement stm1 = connection.prepareStatement(sql1);
             stm1.setString(1, account.getUsername());

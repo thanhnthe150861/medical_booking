@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/booking-success.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/patient-change-password.jsp  30 Nov 2019 04:12:18 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -73,7 +73,7 @@
 							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
 							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
+							<%--									<li><a href="doctor-Register.html">Doctor Register</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>	--%>
 							<%--							<li class="has-submenu">--%>
@@ -81,9 +81,9 @@
 							<%--								<ul class="submenu">--%>
 							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
 							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="booking.html">Booking</a></li>--%>
-							<%--									<li><a href="checkout.html">Checkout</a></li>--%>
-							<%--									<li><a href="booking-success.html">Booking Success</a></li>--%>
+							<%--									<li><a href="Booking.html">Booking</a></li>--%>
+							<%--									<li><a href="CheckOut.html">Checkout</a></li>--%>
+							<%--									<li><a href="Booking-success.html">Booking Success</a></li>--%>
 							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
 							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
 							<%--									<li><a href="chat.html">Chat</a></li>--%>
@@ -107,16 +107,16 @@
 							<%--										</ul>--%>
 							<%--									</li>--%>
 							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="login.html">Login</a></li>--%>
-							<%--									<li><a href="register.html">Register</a></li>--%>
-							<%--									<li><a href="forgot-password.html">Forgot Password</a></li>--%>
+							<%--									<li><a href="Login.html">Login</a></li>--%>
+							<%--									<li><a href="Register.html">Register</a></li>--%>
+							<%--									<li><a href="Forgot-password.html">Forgot Password</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>--%>
 							<%--							<li>--%>
 							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
 							<%--							</li>--%>
-							<%--							<li class="login-link">--%>
-							<%--								<a href="login.html">Login / Signup</a>--%>
+							<%--							<li class="Login-link">--%>
+							<%--								<a href="Login.html">Login / Signup</a>--%>
 							<%--							</li>--%>
 						</ul>
 					</div>		 
@@ -130,9 +130,31 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link header-login" href="login.html">login / Signup </a>
+						
+						<!-- User Menu -->
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+									</div>
+									<div class="user-text">
+										<h6>Richard Wilson</h6>
+										<p class="text-muted mb-0">Patient</p>
+									</div>
+								</div>
+								<a class="dropdown-item" href="patient-dashboard.html">Dashboard</a>
+								<a class="dropdown-item" href="patient-profile-settings.jsp">Profile Settings</a>
+								<a class="dropdown-item" href="login.html">Logout</a>
+							</div>
 						</li>
+						<!-- /User Menu -->
+						
 					</ul>
 				</nav>
 			</header>
@@ -146,10 +168,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Booking</li>
+									<li class="breadcrumb-item active" aria-current="page">Change Password</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Booking</h2>
+							<h2 class="breadcrumb-title">Change Password</h2>
 						</div>
 					</div>
 				</div>
@@ -157,29 +179,110 @@
 			<!-- /Breadcrumb -->
 			
 			<!-- Page Content -->
-			<div class="content success-page-cont">
+			<div class="content">
 				<div class="container-fluid">
-				
-					<div class="row justify-content-center">
-						<div class="col-lg-6">
+					<div class="row">
+						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
 						
-							<!-- Success Card -->
-							<div class="card success-card">
+							<!-- Profile Sidebar -->
+							<div class="profile-sidebar">
+								<div class="widget-profile pro-widget-content">
+									<div class="profile-info-widget">
+										<a href="#" class="booking-doc-img">
+											<img src="assets/img/patients/patient.jpg" alt="User Image">
+										</a>
+										<div class="profile-det-info">
+											<h3>Richard Wilson</h3>
+											<div class="patient-details">
+<%--												<h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>--%>
+<%--												<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>--%>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dashboard-widget">
+									<nav class="dashboard-menu">
+										<ul>
+											<li class="active">
+												<a href="client_dashboard">
+													<i class="fas fa-columns"></i>
+													<span>Dashboard</span>
+												</a>
+											</li>
+											<%--											<li>--%>
+											<%--												<a href="favourites.html">--%>
+											<%--													<i class="fas fa-bookmark"></i>--%>
+											<%--													<span>Favourites</span>--%>
+											<%--												</a>--%>
+											<%--											</li>--%>
+											<li>
+												<a href="#">
+													<i class="fas fa-comments"></i>
+													<span>Message</span>
+													<small class="unread-msg">23</small>
+												</a>
+											</li>
+											<li>
+												<a href="client_profile_settings">
+													<i class="fas fa-user-cog"></i>
+													<span>Profile Settings</span>
+												</a>
+											</li>
+											<li>
+												<a href="client_change_password">
+													<i class="fas fa-lock"></i>
+													<span>Change Password</span>
+												</a>
+											</li>
+											<li>
+												<a href="login">
+													<i class="fas fa-sign-out-alt"></i>
+													<span>Logout</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+
+							</div>
+							<!-- /Profile Sidebar -->
+							
+						</div>
+						
+						<div class="col-md-7 col-lg-8 col-xl-9">
+							<div class="card">
 								<div class="card-body">
-									<div class="success-cont">
-										<i class="fas fa-check"></i>
-										<h3>Appointment booked Successfully!</h3>
-										<p>Appointment booked with <strong>Dr. Darren Elder</strong><br> on <strong>12 Nov 2019 5:00PM to 6:00PM</strong></p>
-										<a href="invoice-view.html" class="btn btn-primary view-inv-btn">View Invoice</a>
+									<div class="row">
+										<div class="col-md-12 col-lg-6">
+										
+											<!-- Change Password Form -->
+											<form>
+												<div class="form-group">
+													<label>Old Password</label>
+													<input type="password" class="form-control">
+												</div>
+												<div class="form-group">
+													<label>New Password</label>
+													<input type="password" class="form-control">
+												</div>
+												<div class="form-group">
+													<label>Confirm Password</label>
+													<input type="password" class="form-control">
+												</div>
+												<div class="submit-section">
+													<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+												</div>
+											</form>
+											<!-- /Change Password Form -->
+											
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- /Success Card -->
-							
 						</div>
 					</div>
-					
 				</div>
+
 			</div>		
 			<!-- /Page Content -->
    
@@ -233,7 +336,7 @@
 										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Booking</a></li>
+										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
 										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
@@ -332,10 +435,14 @@
 		<script src="assets/js/popper.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		
+		<!-- Sticky Sidebar JS -->
+        <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
+        <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
+		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
 		
 	</body>
 
-<!-- doccure/booking-success.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/patient-change-password.jsp  30 Nov 2019 04:12:18 GMT -->
 </html>

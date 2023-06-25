@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/checkout.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/patient-profile-settings.jsp  30 Nov 2019 04:12:18 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -16,6 +16,12 @@
 		<!-- Fontawesome CSS -->
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		
+		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
 		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="assets/css/style.css">
@@ -73,7 +79,7 @@
 							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
 							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
+							<%--									<li><a href="doctor-Register.html">Doctor Register</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>	--%>
 							<%--							<li class="has-submenu">--%>
@@ -81,9 +87,9 @@
 							<%--								<ul class="submenu">--%>
 							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
 							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="booking.html">Booking</a></li>--%>
-							<%--									<li><a href="checkout.html">Checkout</a></li>--%>
-							<%--									<li><a href="booking-success.html">Booking Success</a></li>--%>
+							<%--									<li><a href="Booking.html">Booking</a></li>--%>
+							<%--									<li><a href="CheckOut.html">Checkout</a></li>--%>
+							<%--									<li><a href="Booking-success.html">Booking Success</a></li>--%>
 							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
 							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
 							<%--									<li><a href="chat.html">Chat</a></li>--%>
@@ -107,16 +113,16 @@
 							<%--										</ul>--%>
 							<%--									</li>--%>
 							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="login.html">Login</a></li>--%>
-							<%--									<li><a href="register.html">Register</a></li>--%>
-							<%--									<li><a href="forgot-password.html">Forgot Password</a></li>--%>
+							<%--									<li><a href="Login.html">Login</a></li>--%>
+							<%--									<li><a href="Register.html">Register</a></li>--%>
+							<%--									<li><a href="Forgot-password.html">Forgot Password</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>--%>
 							<%--							<li>--%>
 							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
 							<%--							</li>--%>
-							<%--							<li class="login-link">--%>
-							<%--								<a href="login.html">Login / Signup</a>--%>
+							<%--							<li class="Login-link">--%>
+							<%--								<a href="Login.html">Login / Signup</a>--%>
 							<%--							</li>--%>
 						</ul>
 					</div>		 
@@ -130,9 +136,31 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link header-login" href="login.html">login / Signup </a>
+						
+						<!-- User Menu -->
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+									</div>
+									<div class="user-text">
+										<h6>Richard Wilson</h6>
+										<p class="text-muted mb-0">Patient</p>
+									</div>
+								</div>
+								<a class="dropdown-item" href="client_dashboard">Dashboard</a>
+								<a class="dropdown-item" href="client_profile_settings">Profile Settings</a>
+								<a class="dropdown-item" href="login">Logout</a>
+							</div>
 						</li>
+						<!-- /User Menu -->
+						
 					</ul>
 				</nav>
 			</header>
@@ -145,11 +173,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item"><a href="home">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Checkout</h2>
+							<h2 class="breadcrumb-title">Profile Settings</h2>
 						</div>
 					</div>
 				</div>
@@ -158,187 +186,185 @@
 			
 			<!-- Page Content -->
 			<div class="content">
-				<div class="container">
-
+				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-7 col-lg-8">
+					
+						<!-- Profile Sidebar -->
+						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+							<div class="profile-sidebar">
+								<div class="widget-profile pro-widget-content">
+									<div class="profile-info-widget">
+										<a href="#" class="booking-doc-img">
+											<img src="assets/img/patients/patient.jpg" alt="User Image">
+										</a>
+										<div class="profile-det-info">
+											<h3>Richard Wilson</h3>
+<%--											<div class="patient-details">--%>
+<%--												<h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>--%>
+<%--												<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>--%>
+<%--											</div>--%>
+										</div>
+									</div>
+								</div>
+								<div class="dashboard-widget">
+									<nav class="dashboard-menu">
+										<ul>
+											<li class="active">
+												<a href="client_dashboard">
+													<i class="fas fa-columns"></i>
+													<span>Dashboard</span>
+												</a>
+											</li>
+											<%--											<li>--%>
+											<%--												<a href="favourites.html">--%>
+											<%--													<i class="fas fa-bookmark"></i>--%>
+											<%--													<span>Favourites</span>--%>
+											<%--												</a>--%>
+											<%--											</li>--%>
+											<li>
+												<a href="#">
+													<i class="fas fa-comments"></i>
+													<span>Message</span>
+													<small class="unread-msg">23</small>
+												</a>
+											</li>
+											<li>
+												<a href="client_profile_settings">
+													<i class="fas fa-user-cog"></i>
+													<span>Profile Settings</span>
+												</a>
+											</li>
+											<li>
+												<a href="client_change_password">
+													<i class="fas fa-lock"></i>
+													<span>Change Password</span>
+												</a>
+											</li>
+											<li>
+												<a href="login">
+													<i class="fas fa-sign-out-alt"></i>
+													<span>Logout</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+
+							</div>
+						</div>
+						<!-- /Profile Sidebar -->
+						
+						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
 								<div class="card-body">
-								
-									<!-- Checkout Form -->
-<%--									<form action="https://dreamguys.co.in/demo/doccure/booking-success.html">--%>
-										<form action="checkout" method="post">
-										<!-- Personal Information -->
-										<div class="info-widget">
-											<h4 class="card-title">Personal Information</h4>
-											<div class="row">
-												<div class="col-md-6 col-sm-12">
-													<div class="form-group card-label">
-														<label>First Name</label>
-														<input class="form-control" type="text">
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12">
-													<div class="form-group card-label">
-														<label>Last Name</label>
-														<input class="form-control" type="text">
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12">
-													<div class="form-group card-label">
-														<label>Email</label>
-														<input class="form-control" type="email">
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12">
-													<div class="form-group card-label">
-														<label>Phone</label>
-														<input class="form-control" type="text">
+									
+									<!-- Profile Settings Form -->
+									<form>
+										<div class="row form-row">
+											<div class="col-12 col-md-12">
+												<div class="form-group">
+													<div class="change-avatar">
+														<div class="profile-img">
+															<img src="assets/img/patients/patient.jpg" alt="User Image">
+														</div>
+														<div class="upload-img">
+															<div class="change-photo-btn">
+																<span><i class="fa fa-upload"></i> Upload Photo</span>
+																<input type="file" class="upload">
+															</div>
+															<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+														</div>
 													</div>
 												</div>
 											</div>
-											<div class="exist-customer">Existing Customer? <a href="#">Click here to login</a></div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>First Name</label>
+													<input type="text" class="form-control" value="Richard">
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Last Name</label>
+													<input type="text" class="form-control" value="Wilson">
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Date of Birth</label>
+													<div class="cal-icon">
+														<input type="text" class="form-control datetimepicker" value="24-07-1983">
+													</div>
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Blood Group</label>
+													<select class="form-control select">
+														<option>A-</option>
+														<option>A+</option>
+														<option>B-</option>
+														<option>B+</option>
+														<option>AB-</option>
+														<option>AB+</option>
+														<option>O-</option>
+														<option>O+</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Email ID</label>
+													<input type="email" class="form-control" value="richard@example.com">
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Mobile</label>
+													<input type="text" value="+1 202-555-0125" class="form-control">
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group">
+												<label>Address</label>
+													<input type="text" class="form-control" value="806 Twin Willow Lane">
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>City</label>
+													<input type="text" class="form-control" value="Old Forge">
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>State</label>
+													<input type="text" class="form-control" value="Newyork">
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Zip Code</label>
+													<input type="text" class="form-control" value="13420">
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>Country</label>
+													<input type="text" class="form-control" value="United States">
+												</div>
+											</div>
 										</div>
-										<!-- /Personal Information -->
-										
-										<div class="payment-widget">
-											<h4 class="card-title">Payment Method</h4>
-											
-											<!-- Credit Card Payment -->
-											<div class="payment-list">
-												<label class="payment-radio credit-card-option">
-													<input type="radio" name="radio" checked>
-													<span class="checkmark"></span>
-													Credit card
-												</label>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group card-label">
-															<label for="card_name">Name on Card</label>
-															<input class="form-control" id="card_name" type="text">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group card-label">
-															<label for="card_number">Card Number</label>
-															<input class="form-control" id="card_number" placeholder="1234  5678  9876  5432" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="expiry_month">Expiry Month</label>
-															<input class="form-control" id="expiry_month" placeholder="MM" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="expiry_year">Expiry Year</label>
-															<input class="form-control" id="expiry_year" placeholder="YY" type="text">
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="form-group card-label">
-															<label for="cvv">CVV</label>
-															<input class="form-control" id="cvv" type="text">
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- /Credit Card Payment -->
-											
-											<!-- Paypal Payment -->
-											<div class="payment-list">
-												<label class="payment-radio paypal-option">
-													<input type="radio" name="radio">
-													<span class="checkmark"></span>
-													Paypal
-												</label>
-											</div>
-											<!-- /Paypal Payment -->
-											
-											<!-- Terms Accept -->
-											<div class="terms-accept">
-												<div class="custom-checkbox">
-												   <input type="checkbox" id="terms_accept">
-												   <label for="terms_accept">I have read and accept <a href="#">Terms &amp; Conditions</a></label>
-												</div>
-											</div>
-											<!-- /Terms Accept -->
-											
-											<!-- Submit Section -->
-											<div class="submit-section mt-4">
-												<button type="submit" class="btn btn-primary submit-btn">Confirm and Pay</button>
-											</div>
-											<!-- /Submit Section -->
-											
+										<div class="submit-section">
+											<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
 										</div>
 									</form>
-									<!-- /Checkout Form -->
+									<!-- /Profile Settings Form -->
 									
 								</div>
 							</div>
-							
-						</div>
-						
-						<div class="col-md-5 col-lg-4 theiaStickySidebar">
-						
-							<!-- Booking Summary -->
-							<div class="card booking-card">
-								<div class="card-header">
-									<h4 class="card-title">Booking Summary</h4>
-								</div>
-								<div class="card-body">
-								
-									<!-- Booking Doctor Info -->
-									<div class="booking-doc-info">
-										<a href="doctor-profile.html" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
-										</a>
-										<div class="booking-info">
-											<h4><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
-											<div class="rating">
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star"></i>
-												<span class="d-inline-block average-rating">35</span>
-											</div>
-											<div class="clinic-details">
-												<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
-											</div>
-										</div>
-									</div>
-									<!-- Booking Doctor Info -->
-									
-									<div class="booking-summary">
-										<div class="booking-item-wrap">
-											<ul class="booking-date">
-												<li>Date <span>16 Nov 2019</span></li>
-												<li>Time <span>10:00 AM</span></li>
-											</ul>
-											<ul class="booking-fee">
-												<li>Consulting Fee <span>$100</span></li>
-												<li>Booking Fee <span>$10</span></li>
-												<li>Video Call <span>$50</span></li>
-											</ul>
-											<div class="booking-total">
-												<ul class="booking-total-list">
-													<li>
-														<span>Total</span>
-														<span class="total-cost">$160</span>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /Booking Summary -->
-							
 						</div>
 					</div>
-
 				</div>
 
 			</div>		
@@ -394,8 +420,8 @@
 										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
+										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
+										<li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -493,6 +519,13 @@
 		<script src="assets/js/popper.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		
+		<!-- Select2 JS -->
+		<script src="assets/plugins/select2/js/select2.min.js"></script>
+		
+		<!-- Datetimepicker JS -->
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+		
 		<!-- Sticky Sidebar JS -->
         <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
         <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
@@ -502,5 +535,5 @@
 		
 	</body>
 
-<!-- doccure/checkout.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/patient-profile-settings.jsp  30 Nov 2019 04:12:18 GMT -->
 </html>

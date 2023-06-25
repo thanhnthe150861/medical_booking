@@ -8,19 +8,19 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "booking", value = "/booking")
-public class booking  extends HttpServlet {
+@WebServlet(name = "PatientChangePassword", value = "/patient_change_password")
+public class PatientChangePassword extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        HttpSession session = req.getSession();
 //        Account account = (Account) session.getAttribute("account");
 //        if (account != null && account.getIsAdmin() == 1){
-        req.getRequestDispatcher("view/client/booking.jsp").forward(req,resp);
+        req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req,resp);
 //        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("checkout");
+        super.doPost(req, resp);
     }
 }

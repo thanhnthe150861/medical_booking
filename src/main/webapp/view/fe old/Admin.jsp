@@ -123,7 +123,7 @@
         </div>
       </div>
     </div>
-  </div> <!-- .banner-home -->
+  </div> <!-- .banner-Home -->
 
   <footer class="page-footer">
     <div class="container">

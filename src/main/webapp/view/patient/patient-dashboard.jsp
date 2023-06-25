@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/client-dashboard.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/patient-dashboard.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -73,7 +73,7 @@
 							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
 							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
+							<%--									<li><a href="doctor-Register.html">Doctor Register</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>	--%>
 							<%--							<li class="has-submenu">--%>
@@ -81,9 +81,9 @@
 							<%--								<ul class="submenu">--%>
 							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
 							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="booking.html">Booking</a></li>--%>
-							<%--									<li><a href="checkout.html">Checkout</a></li>--%>
-							<%--									<li><a href="booking-success.html">Booking Success</a></li>--%>
+							<%--									<li><a href="Booking.html">Booking</a></li>--%>
+							<%--									<li><a href="CheckOut.html">Checkout</a></li>--%>
+							<%--									<li><a href="Booking-success.html">Booking Success</a></li>--%>
 							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
 							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
 							<%--									<li><a href="chat.html">Chat</a></li>--%>
@@ -107,16 +107,16 @@
 							<%--										</ul>--%>
 							<%--									</li>--%>
 							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="login.html">Login</a></li>--%>
-							<%--									<li><a href="register.html">Register</a></li>--%>
-							<%--									<li><a href="forgot-password.html">Forgot Password</a></li>--%>
+							<%--									<li><a href="Login.html">Login</a></li>--%>
+							<%--									<li><a href="Register.html">Register</a></li>--%>
+							<%--									<li><a href="Forgot-password.html">Forgot Password</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>--%>
 							<%--							<li>--%>
 							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
 							<%--							</li>--%>
-							<%--							<li class="login-link">--%>
-							<%--								<a href="login.html">Login / Signup</a>--%>
+							<%--							<li class="Login-link">--%>
+							<%--								<a href="Login.html">Login / Signup</a>--%>
 							<%--							</li>--%>
 						</ul>
 					</div>		 
@@ -1397,7 +1397,7 @@
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
 										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="client-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
+										<li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -1504,5 +1504,5 @@
 		
 	</body>
 
-<!-- doccure/client-dashboard.jsp  30 Nov 2019 04:12:16 GMT -->
+<!-- doccure/patient-dashboard.jsp  30 Nov 2019 04:12:16 GMT -->
 </html>

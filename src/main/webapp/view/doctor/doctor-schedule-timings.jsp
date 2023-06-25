@@ -77,7 +77,7 @@
 							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
 							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
+							<%--									<li><a href="doctor-Register.html">Doctor Register</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>	--%>
 							<%--							<li class="has-submenu">--%>
@@ -85,9 +85,9 @@
 							<%--								<ul class="submenu">--%>
 							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
 							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="booking.html">Booking</a></li>--%>
-							<%--									<li><a href="checkout.html">Checkout</a></li>--%>
-							<%--									<li><a href="booking-success.html">Booking Success</a></li>--%>
+							<%--									<li><a href="Booking.html">Booking</a></li>--%>
+							<%--									<li><a href="CheckOut.html">Checkout</a></li>--%>
+							<%--									<li><a href="Booking-success.html">Booking Success</a></li>--%>
 							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
 							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
 							<%--									<li><a href="chat.html">Chat</a></li>--%>
@@ -111,16 +111,16 @@
 							<%--										</ul>--%>
 							<%--									</li>--%>
 							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="login.html">Login</a></li>--%>
-							<%--									<li><a href="register.html">Register</a></li>--%>
-							<%--									<li><a href="forgot-password.html">Forgot Password</a></li>--%>
+							<%--									<li><a href="Login.html">Login</a></li>--%>
+							<%--									<li><a href="Register.html">Register</a></li>--%>
+							<%--									<li><a href="Forgot-password.html">Forgot Password</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>--%>
 							<%--							<li>--%>
 							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
 							<%--							</li>--%>
-							<%--							<li class="login-link">--%>
-							<%--								<a href="login.html">Login / Signup</a>--%>
+							<%--							<li class="Login-link">--%>
+							<%--								<a href="Login.html">Login / Signup</a>--%>
 							<%--							</li>--%>
 						</ul>
 					</div>		 
@@ -214,13 +214,13 @@
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="doctor_appointments">
 													<i class="fas fa-calendar-check"></i>
 													<span>Appointments</span>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="my_patients">
 													<i class="fas fa-user-injured"></i>
 													<span>My Patients</span>
 												</a>
@@ -254,12 +254,6 @@
 												<a href="doctor_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Profile Settings</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-share-alt"></i>
-													<span>Social Media</span>
 												</a>
 											</li>
 											<li>
@@ -305,53 +299,16 @@
 												<div class="row">
 													<div class="col-md-12">
 														<div class="card schedule-widget mb-0">
-														
+
 															<!-- Schedule Header -->
 															<div class="schedule-header">
-															
-<%--																<!-- Schedule Nav -->--%>
-<%--																<div class="schedule-nav">--%>
-<%--																	<ul class="nav nav-tabs nav-justified">--%>
-<%--																		<li class="nav-item">--%>
-<%--																			<a class="nav-link" data-toggle="tab" href="#slot_sunday">Sunday</a>--%>
-<%--																		</li>--%>
-<%--																		<li class="nav-item">--%>
-<%--																			<a class="nav-link active" data-toggle="tab" href="#slot_monday">Monday</a>--%>
-<%--																		</li>--%>
-<%--																		<li class="nav-item">--%>
-<%--																			<a class="nav-link" data-toggle="tab" href="#slot_tuesday">Tuesday</a>--%>
-<%--																		</li>--%>
-<%--																		<li class="nav-item">--%>
-<%--																			<a class="nav-link" data-toggle="tab" href="#slot_wednesday">Wednesday</a>--%>
-<%--																		</li>--%>
-<%--																		<li class="nav-item">--%>
-<%--																			<a class="nav-link" data-toggle="tab" href="#slot_thursday">Thursday</a>--%>
-<%--																		</li>--%>
-<%--																		<li class="nav-item">--%>
-<%--																			<a class="nav-link" data-toggle="tab" href="#slot_friday">Friday</a>--%>
-<%--																		</li>--%>
-<%--																		<li class="nav-item">--%>
-<%--																			<a class="nav-link" data-toggle="tab" href="#slot_saturday">Saturday</a>--%>
-<%--																		</li>--%>
-<%--																	</ul>--%>
-<%--																</div>--%>
-<%--																<!-- /Schedule Nav -->--%>
-																
+
+
 															</div>
 															<!-- /Schedule Header -->
 															
 															<!-- Schedule Content -->
 															<div class="tab-content schedule-cont">
-
-<%--																<!-- Sunday Slot -->--%>
-<%--																<div id="slot_sunday" class="tab-pane fade">--%>
-<%--																	<h4 class="card-title d-flex justify-content-between">--%>
-<%--																		<span>Time Slots</span>--%>
-<%--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--%>
-<%--																	</h4>--%>
-<%--																	<p class="text-muted mb-0">Not Available</p>--%>
-<%--																</div>--%>
-<%--																<!-- /Sunday Slot -->--%>
 
 																<!-- Monday Slot -->
 																<div id="slot_monday" class="tab-pane fade show active">
@@ -362,90 +319,16 @@
 
 																	<!-- Slot List -->
 																	<div class="doc-times">
-																			<c:forEach items="${requestScope.bookingList}" var="b">
+																		<c:forEach items="${requestScope.bookingList}" var="b">
 																				<c:if test="${b.date eq date}">
 																				<div class="doc-slot-list">
-																					<a href="#">${b.slot}</a>
+																					<a href="#">${b.slots.name}</a>
 																				</div>
 																				</c:if>
-																			</c:forEach>
-																			<c:if test="${empty requestScope.bookingList}">
-																				<p>No slots available for this date.</p>
-																			</c:if>
-<%--																		<div class="doc-slot-list">--%>
-<%--																			11:30 pm - 1:30 pm--%>
-<%--																			<a href="javascript:void(0)" class="delete_schedule">--%>
-<%--																				<i class="fa fa-times"></i>--%>
-<%--																			</a>--%>
-<%--																		</div>--%>
-<%--																		<div class="doc-slot-list">--%>
-<%--																			3:00 pm - 5:00 pm--%>
-<%--																			<a href="javascript:void(0)" class="delete_schedule">--%>
-<%--																				<i class="fa fa-times"></i>--%>
-<%--																			</a>--%>
-<%--																		</div>--%>
-<%--																		<div class="doc-slot-list">--%>
-<%--																			6:00 pm - 11:00 pm--%>
-<%--																			<a href="javascript:void(0)" class="delete_schedule">--%>
-<%--																				<i class="fa fa-times"></i>--%>
-<%--																			</a>--%>
-<%--																		</div>--%>
+																		</c:forEach>
 																	</div>
 																	<!-- /Slot List -->
-
 																</div>
-																<!-- /Monday Slot -->
-
-<%--																<!-- Tuesday Slot -->--%>
-<%--																<div id="slot_tuesday" class="tab-pane fade">--%>
-<%--																	<h4 class="card-title d-flex justify-content-between">--%>
-<%--																		<span>Time Slots</span> --%>
-<%--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--%>
-<%--																	</h4>--%>
-<%--																	<p class="text-muted mb-0">Not Available</p>--%>
-<%--																</div>--%>
-<%--																<!-- /Tuesday Slot -->--%>
-
-<%--																<!-- Wednesday Slot -->--%>
-<%--																<div id="slot_wednesday" class="tab-pane fade">--%>
-<%--																	<h4 class="card-title d-flex justify-content-between">--%>
-<%--																		<span>Time Slots</span> --%>
-<%--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--%>
-<%--																	</h4>--%>
-<%--																	<p class="text-muted mb-0">Not Available</p>--%>
-<%--																</div>--%>
-<%--																<!-- /Wednesday Slot -->--%>
-
-<%--																<!-- Thursday Slot -->--%>
-<%--																<div id="slot_thursday" class="tab-pane fade">--%>
-<%--																	<h4 class="card-title d-flex justify-content-between">--%>
-<%--																		<span>Time Slots</span> --%>
-<%--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--%>
-<%--																	</h4>--%>
-<%--																	<p class="text-muted mb-0">Not Available</p>--%>
-<%--																</div>--%>
-<%--																<!-- /Thursday Slot -->--%>
-
-<%--																<!-- Friday Slot -->--%>
-<%--																<div id="slot_friday" class="tab-pane fade">--%>
-<%--																	<h4 class="card-title d-flex justify-content-between">--%>
-<%--																		<span>Time Slots</span> --%>
-<%--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--%>
-<%--																	</h4>--%>
-<%--																	<p class="text-muted mb-0">Not Available</p>--%>
-<%--																</div>--%>
-<%--																<!-- /Friday Slot -->--%>
-
-<%--																<!-- Saturday Slot -->--%>
-<%--																<div id="slot_saturday" class="tab-pane fade">--%>
-<%--																	<h4 class="card-title d-flex justify-content-between">--%>
-<%--																		<span>Time Slots</span> --%>
-<%--																		<a class="edit-link" data-toggle="modal" href="#add_time_slot"><i class="fa fa-plus-circle"></i> Add Slot</a>--%>
-<%--																	</h4>--%>
-<%--																	<p class="text-muted mb-0">Not Available</p>--%>
-<%--																</div>--%>
-<%--																<!-- /Saturday Slot -->--%>
-
 															</div>
 															<!-- /Schedule Content -->
 															

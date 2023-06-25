@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/client-profile.jsp  30 Nov 2019 04:12:09 GMT -->
+<!-- doccure/patient-profile.jsp  30 Nov 2019 04:12:09 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -64,63 +64,6 @@
 							<li>
 								<a href="home">Home</a>
 							</li>
-							<%--							<li class="has-submenu active">--%>
-							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
-							<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
-							<%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
-							<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
-							<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
-							<%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
-							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
-							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
-							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>	--%>
-							<%--							<li class="has-submenu">--%>
-							<%--								<a href="#">Patients <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
-							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="booking.html">Booking</a></li>--%>
-							<%--									<li><a href="checkout.html">Checkout</a></li>--%>
-							<%--									<li><a href="booking-success.html">Booking Success</a></li>--%>
-							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
-							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
-							<%--									<li><a href="chat.html">Chat</a></li>--%>
-							<%--									<li><a href="profile-settings.html">Profile Settings</a></li>--%>
-							<%--									<li><a href="change-password.html">Change Password</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>	--%>
-							<%--							<li class="has-submenu">--%>
-							<%--								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li><a href="voice-call.html">Voice Call</a></li>--%>
-							<%--									<li><a href="video-call.html">Video Call</a></li>--%>
-							<%--									<li><a href="search.html">Search Doctors</a></li>--%>
-							<%--									<li><a href="calendar.html">Calendar</a></li>--%>
-							<%--									<li><a href="components.jsp">Components</a></li>--%>
-							<%--									<li class="has-submenu">--%>
-							<%--										<a href="invoices.jsp">Invoices</a>--%>
-							<%--										<ul class="submenu">--%>
-							<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
-							<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
-							<%--										</ul>--%>
-							<%--									</li>--%>
-							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="login.html">Login</a></li>--%>
-							<%--									<li><a href="register.html">Register</a></li>--%>
-							<%--									<li><a href="forgot-password.html">Forgot Password</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>--%>
-							<%--							<li>--%>
-							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
-							<%--							</li>--%>
-							<%--							<li class="login-link">--%>
-							<%--								<a href="login.html">Login / Signup</a>--%>
-							<%--							</li>--%>
 						</ul>
 					</div>		 
 					<ul class="nav header-navbar-rht">
@@ -1539,5 +1482,5 @@
 		
 	</body>
 
-<!-- doccure/client-profile.jsp  30 Nov 2019 04:12:13 GMT -->
+<!-- doccure/patient-profile.jsp  30 Nov 2019 04:12:13 GMT -->
 </html>

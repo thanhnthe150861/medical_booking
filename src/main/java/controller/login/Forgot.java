@@ -11,8 +11,8 @@ import model.Account;
 
 import java.io.IOException;
 
-@WebServlet(name = "forgot", value = "/forgot")
-public class forgot extends HttpServlet {
+@WebServlet(name = "Forgot", value = "/forgot")
+public class Forgot extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("view/login/forgot.jsp").forward(req,resp);
@@ -29,7 +29,7 @@ public class forgot extends HttpServlet {
         if (account != null){
             if (account.getEmail().equalsIgnoreCase(email) && account.getPhone().equalsIgnoreCase(phone)){
                 session.setAttribute("account", account);
-                resp.sendRedirect("reset");
+                resp.sendRedirect("reset_password");
             }
         }
         req.setAttribute("mess", "Phone or Email incorrect!!!");

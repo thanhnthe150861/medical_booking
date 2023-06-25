@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en">
 	
-<!-- doccure/client-profile-settings.jsp  30 Nov 2019 04:12:18 GMT -->
+<!-- doccure/Booking.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -16,12 +16,6 @@
 		<!-- Fontawesome CSS -->
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-		
-		<!-- Datetimepicker CSS -->
-		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-		
-		<!-- Select2 CSS -->
-		<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
 		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="assets/css/style.css">
@@ -79,7 +73,7 @@
 							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
 							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
 							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-register.html">Doctor Register</a></li>--%>
+							<%--									<li><a href="doctor-Register.html">Doctor Register</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>	--%>
 							<%--							<li class="has-submenu">--%>
@@ -87,9 +81,9 @@
 							<%--								<ul class="submenu">--%>
 							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
 							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="booking.html">Booking</a></li>--%>
-							<%--									<li><a href="checkout.html">Checkout</a></li>--%>
-							<%--									<li><a href="booking-success.html">Booking Success</a></li>--%>
+							<%--									<li><a href="Booking.html">Booking</a></li>--%>
+							<%--									<li><a href="CheckOut.html">Checkout</a></li>--%>
+							<%--									<li><a href="Booking-success.html">Booking Success</a></li>--%>
 							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
 							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
 							<%--									<li><a href="chat.html">Chat</a></li>--%>
@@ -113,16 +107,16 @@
 							<%--										</ul>--%>
 							<%--									</li>--%>
 							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="login.html">Login</a></li>--%>
-							<%--									<li><a href="register.html">Register</a></li>--%>
-							<%--									<li><a href="forgot-password.html">Forgot Password</a></li>--%>
+							<%--									<li><a href="Login.html">Login</a></li>--%>
+							<%--									<li><a href="Register.html">Register</a></li>--%>
+							<%--									<li><a href="Forgot-password.html">Forgot Password</a></li>--%>
 							<%--								</ul>--%>
 							<%--							</li>--%>
 							<%--							<li>--%>
 							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
 							<%--							</li>--%>
-							<%--							<li class="login-link">--%>
-							<%--								<a href="login.html">Login / Signup</a>--%>
+							<%--							<li class="Login-link">--%>
+							<%--								<a href="Login.html">Login / Signup</a>--%>
 							<%--							</li>--%>
 						</ul>
 					</div>		 
@@ -136,31 +130,9 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						
-						<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow logged-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
-								</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right">
-								<div class="user-header">
-									<div class="avatar avatar-sm">
-										<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
-									</div>
-									<div class="user-text">
-										<h6>Richard Wilson</h6>
-										<p class="text-muted mb-0">Patient</p>
-									</div>
-								</div>
-								<a class="dropdown-item" href="client_dashboard">Dashboard</a>
-								<a class="dropdown-item" href="client_profile_settings">Profile Settings</a>
-								<a class="dropdown-item" href="login">Logout</a>
-							</div>
+						<li class="nav-item">
+							<a class="nav-link header-login" href="loginl">login / Signup </a>
 						</li>
-						<!-- /User Menu -->
-						
 					</ul>
 				</nav>
 			</header>
@@ -174,10 +146,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="home">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+									<li class="breadcrumb-item active" aria-current="page">Booking</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Profile Settings</h2>
+							<h2 class="breadcrumb-title">Booking</h2>
 						</div>
 					</div>
 				</div>
@@ -186,183 +158,145 @@
 			
 			<!-- Page Content -->
 			<div class="content">
-				<div class="container-fluid">
+				<div class="container">
+				
 					<div class="row">
-					
-						<!-- Profile Sidebar -->
-						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
-							<div class="profile-sidebar">
-								<div class="widget-profile pro-widget-content">
-									<div class="profile-info-widget">
-										<a href="#" class="booking-doc-img">
-											<img src="assets/img/patients/patient.jpg" alt="User Image">
+						<div class="col-12">
+						
+							<div class="card">
+								<div class="card-body">
+									<div class="booking-doc-info">
+										<a href="doctor-profile.html" class="booking-doc-img">
+											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
 										</a>
-										<div class="profile-det-info">
-											<h3>Richard Wilson</h3>
-<%--											<div class="patient-details">--%>
-<%--												<h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>--%>
-<%--												<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>--%>
-<%--											</div>--%>
+										<div class="booking-info">
+											<h4><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
+											<div class="rating">
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star"></i>
+												<span class="d-inline-block average-rating">35</span>
+											</div>
+											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
 										</div>
 									</div>
 								</div>
-								<div class="dashboard-widget">
-									<nav class="dashboard-menu">
-										<ul>
-											<li class="active">
-												<a href="client_dashboard">
-													<i class="fas fa-columns"></i>
-													<span>Dashboard</span>
-												</a>
-											</li>
-											<%--											<li>--%>
-											<%--												<a href="favourites.html">--%>
-											<%--													<i class="fas fa-bookmark"></i>--%>
-											<%--													<span>Favourites</span>--%>
-											<%--												</a>--%>
-											<%--											</li>--%>
-											<li>
-												<a href="#">
-													<i class="fas fa-comments"></i>
-													<span>Message</span>
-													<small class="unread-msg">23</small>
-												</a>
-											</li>
-											<li>
-												<a href="client_profile_settings">
-													<i class="fas fa-user-cog"></i>
-													<span>Profile Settings</span>
-												</a>
-											</li>
-											<li>
-												<a href="client_change_password">
-													<i class="fas fa-lock"></i>
-													<span>Change Password</span>
-												</a>
-											</li>
-											<li>
-												<a href="login">
-													<i class="fas fa-sign-out-alt"></i>
-													<span>Logout</span>
-												</a>
-											</li>
-										</ul>
-									</nav>
+							</div>
+							
+							<!-- Schedule Widget -->
+							<div class="card booking-schedule schedule-widget">
+
+								<!-- Schedule Header -->
+								<div class="schedule-header">
+									<div class="row">
+										<div class="col-md-12">
+
+											<!-- Day Slot -->
+											<div class="day-slot">
+												<ul>
+													<!--													<li class="left-arrow">-->
+													<!--														<a href="#">-->
+													<!--															<i class="fa fa-chevron-left"></i>-->
+													<!--														</a>-->
+													<!--													</li>-->
+													<li>
+														<span><input type="date" id="datePicker"  name="datePicker" style="border: #42c0fb solid 2px; border-radius: 5px"></span>
+													</li>
+
+													<!--													<li>-->
+													<!--														<span>Mon</span>-->
+													<!--														<span class="slot-date">11 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Tue</span>-->
+													<!--														<span class="slot-date">12 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Wed</span>-->
+													<!--														<span class="slot-date">13 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Thu</span>-->
+													<!--														<span class="slot-date">14 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Fri</span>-->
+													<!--														<span class="slot-date">15 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Sat</span>-->
+													<!--														<span class="slot-date">16 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li>-->
+													<!--														<span>Sun</span>-->
+													<!--														<span class="slot-date">17 Nov <small class="slot-year">2019</small></span>-->
+													<!--													</li>-->
+													<!--													<li class="right-arrow">-->
+													<!--														<a href="#">-->
+													<!--															<i class="fa fa-chevron-right"></i>-->
+													<!--														</a>-->
+													<!--													</li>-->
+												</ul>
+											</div>
+											<!-- /Day Slot -->
+
+										</div>
+									</div>
 								</div>
+								<!-- /Schedule Header -->
+
+								<!-- Schedule Content -->
+								<div class="schedule-cont">
+									<div class="row">
+										<div class="col-md-12">
+
+											<!-- Time Slot -->
+											<div class="time-slot">
+												<ul class="clearfix d-flex align-items-center justify-content-center">
+													<!--													Morning-->
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>-</span><span>9:30</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>10:00</span> <span>-</span><span>10:30</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>11:00</span> <span>-</span><span>11:30</span> <span>AM</span>
+														</a>
+													</li>
+													<!--													Afternoon-->
+													<li>
+														<a class="timing" href="#">
+															<span>13:00</span> <span>-</span><span>13:30</span>  <span>PM</span>
+														</a>
+														<a class="timing selected" href="#">
+															<span>14:00</span> <span>-</span><span>14:30</span>  <span>PM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>15:00</span> <span>-</span><span>15:30</span>  <span>PM</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<!-- /Time Slot -->
+
+										</div>
+									</div>
+								</div>
+								<!-- /Schedule Content -->
 
 							</div>
-						</div>
-						<!-- /Profile Sidebar -->
-						
-						<div class="col-md-7 col-lg-8 col-xl-9">
-							<div class="card">
-								<div class="card-body">
-									
-									<!-- Profile Settings Form -->
-									<form>
-										<div class="row form-row">
-											<div class="col-12 col-md-12">
-												<div class="form-group">
-													<div class="change-avatar">
-														<div class="profile-img">
-															<img src="assets/img/patients/patient.jpg" alt="User Image">
-														</div>
-														<div class="upload-img">
-															<div class="change-photo-btn">
-																<span><i class="fa fa-upload"></i> Upload Photo</span>
-																<input type="file" class="upload">
-															</div>
-															<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>First Name</label>
-													<input type="text" class="form-control" value="Richard">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Last Name</label>
-													<input type="text" class="form-control" value="Wilson">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Date of Birth</label>
-													<div class="cal-icon">
-														<input type="text" class="form-control datetimepicker" value="24-07-1983">
-													</div>
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Blood Group</label>
-													<select class="form-control select">
-														<option>A-</option>
-														<option>A+</option>
-														<option>B-</option>
-														<option>B+</option>
-														<option>AB-</option>
-														<option>AB+</option>
-														<option>O-</option>
-														<option>O+</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Email ID</label>
-													<input type="email" class="form-control" value="richard@example.com">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Mobile</label>
-													<input type="text" value="+1 202-555-0125" class="form-control">
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="form-group">
-												<label>Address</label>
-													<input type="text" class="form-control" value="806 Twin Willow Lane">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>City</label>
-													<input type="text" class="form-control" value="Old Forge">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>State</label>
-													<input type="text" class="form-control" value="Newyork">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Zip Code</label>
-													<input type="text" class="form-control" value="13420">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Country</label>
-													<input type="text" class="form-control" value="United States">
-												</div>
-											</div>
-										</div>
-										<div class="submit-section">
-											<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-										</div>
-									</form>
-									<!-- /Profile Settings Form -->
-									
-								</div>
+							<!-- /Schedule Widget -->
+							
+							<!-- Submit Section -->
+							<div class="submit-section proceed-btn text-right">
+								<a href="check_out" class="btn btn-primary submit-btn">Proceed to Pay</a>
 							</div>
+							<!-- /Submit Section -->
+							
 						</div>
 					</div>
 				</div>
@@ -420,8 +354,8 @@
 										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="client-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
+										<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Booking</a></li>
+										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -519,21 +453,10 @@
 		<script src="assets/js/popper.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		
-		<!-- Select2 JS -->
-		<script src="assets/plugins/select2/js/select2.min.js"></script>
-		
-		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-		
-		<!-- Sticky Sidebar JS -->
-        <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
-        <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
-		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
 		
 	</body>
 
-<!-- doccure/client-profile-settings.jsp  30 Nov 2019 04:12:18 GMT -->
+<!-- doccure/Booking.jsp  30 Nov 2019 04:12:16 GMT -->
 </html>

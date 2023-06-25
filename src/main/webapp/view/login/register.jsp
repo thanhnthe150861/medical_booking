@@ -9,7 +9,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Login 10</title>
+    <title>Register</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -50,13 +50,6 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="email" placeholder="Email" required>
                         </div>
-<%--                        <div class="form-group">--%>
-<%--                            <select name="roleid" class="form-control">--%>
-<%--                                <option style="color: Blue" value="2">Client</option>--%>
-<%--                                <option style="color: Blue" value="1">Doctor</option>--%>
-<%--                                <option style="color: Blue" value="0">Admin</option>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
                         <div class="form-group">
                             <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
                         </div>
@@ -76,11 +69,6 @@
                             </div>
                         </div>
                     </form>
-                    <%--                    <p class="w-100 text-center">&mdash; Or Login With &mdash;</p>--%>
-                    <%--                    <div class="social d-flex text-center">--%>
-                    <%--                        <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>--%>
-                    <%--                        <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>--%>
-                    <%--                    </div>--%>
                 </div>
             </div>
         </div>
