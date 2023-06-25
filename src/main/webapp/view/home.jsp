@@ -110,7 +110,7 @@
                             </c:if>
 <%--                            <c:if test="${sessionScope.account.isAdmin eq 1 || sessionScope.account.isAdmin eq 2}">--%>
 <%--                                <a class="nav-link" href="#">View Rank Doctor</a>--%>
-<%--                                <a class="nav-link" href="#">View Rank Client</a>--%>
+<%--                                <a class="nav-link" href="#">View Rank Patient</a>--%>
 <%--                            </c:if>--%>
                         </c:if>
                     </li>

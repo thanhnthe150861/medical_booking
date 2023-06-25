@@ -77,7 +77,7 @@
               <a class="nav-link" href="doctors.jsp">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../client/booking.jsp">Booking</a>
+              <a class="nav-link" href="../patient/booking.jsp">Booking</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vip.jsp">VIP</a>
@@ -96,7 +96,7 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
-        <a href="../client/booking.jsp" class="btn btn-primary">Booking</a>
+        <a href="../patient/booking.jsp" class="btn btn-primary">Booking</a>
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@
           <div class="col-lg-6 py-3 wow fadeInUp">
             <h1>Welcome to Clinic TATQ <br></h1>
             <p class="text-grey mb-4">The clinic is a place that provides basic medical services to people in the area. This is the place where you can go for health check-ups, cures and advice on health-related issues. The doctors and nurses in the clinic are professionally trained and experienced to provide quality medical services. In addition, the clinic also often has adequate medical and laboratory equipment to help diagnose and treat diseases. In some cases, the clinic may also partner with specialized hospitals and departments to provide more specialized medical services to patients. Having regular health checkups and seeking routine medical care from professionals are important to maintaining good health and detecting health problems early for the best treatment.</p>
-            <a href="../client/booking.jsp" class="btn btn-primary">Booking</a>
+            <a href="../patient/booking.jsp" class="btn btn-primary">Booking</a>
           </div>
           <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
             <div class="img-place custom-img-1">

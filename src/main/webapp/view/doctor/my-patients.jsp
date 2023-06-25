@@ -1,4 +1,5 @@
-<!DOCTYPE html> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
 	
 <!-- doccure/my-patients.jsp  30 Nov 2019 04:12:09 GMT -->
@@ -276,6 +277,7 @@
 						
 							<div class="row row-grid">
 								<!-- -->
+								<c:forEach items="${requestScope.bookingList}" var="b">
 								<div class="col-md-6 col-lg-4 col-xl-3">
 									<div class="card widget-profile pat-widget-profile">
 										<div class="card-body">
@@ -285,21 +287,23 @@
 														<img src="assets/img/patients/patient.jpg" alt="User Image">
 													</a>
 													<div class="profile-det-info">
-														<h3><a href="#">Richard Wilson</a></h3>
+														<h3><a href="patient_profile?id=${b.patient.id}">${b.patient.name}</a></h3>
 														<div class="patient-details">
-															<h5><b>Patient ID :</b> P0016</h5>
+															<h5><b>Patient ID :</b> ${b.patient.id}</h5>
 														</div>
 													</div>
 												</div>
 											</div>
 											<div class="patient-info">
 												<ul>
-													<li>Age <span>38 Years, Male</span></li>
+													<li><i class="fas fa-${b.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i><span>${b.patient.gender}</span></li>
+													<li><i class="fas fa-birthday-cake"></i><span>${b.patient.dob}</span></li>
 												</ul>
 											</div>
 										</div>
 									</div>
 								</div>
+								</c:forEach>
 								<!-- -->
 							</div>
 						</div>

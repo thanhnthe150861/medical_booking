@@ -4,16 +4,36 @@ public class MedicalRecord {
     private  int id;
     private  int booking_id;
     private  String diagnosis;
-    private  String medication;
+    private  String prescription;
+    private Booking booking = new Booking();
+    private Bill bill = new Bill();
 
     public MedicalRecord() {
     }
 
-    public MedicalRecord(int id, int booking_id, String diagnosis, String medication) {
+    public MedicalRecord(int id, int booking_id, String diagnosis, String prescription, Booking booking, Bill bill) {
         this.id = id;
         this.booking_id = booking_id;
         this.diagnosis = diagnosis;
-        this.medication = medication;
+        this.prescription = prescription;
+        this.booking = booking;
+        this.bill = bill;
+    }
+
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(Bill bill) {
+        this.bill = bill;
+    }
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
     public int getId() {
@@ -40,11 +60,11 @@ public class MedicalRecord {
         this.diagnosis = diagnosis;
     }
 
-    public String getMedication() {
-        return medication;
+    public String getPrescription() {
+        return prescription;
     }
 
-    public void setMedication(String medication) {
-        this.medication = medication;
+    public void setPrescription(String prescription) {
+        this.prescription = prescription;
     }
 }

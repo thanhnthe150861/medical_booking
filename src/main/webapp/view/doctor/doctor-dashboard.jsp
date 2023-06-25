@@ -308,7 +308,7 @@
 																		<td>
 																			<h2 class="table-avatar">
 																				<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-																				<a href="#">${b.client.name}<span>Patient ID: ${b.client.id}</span></a>
+																				<a href="#">${b.patient.name}<span>Patient ID: ${b.patient.id}</span></a>
 																			</h2>
 																		</td>
 																		<td>${b.date}<span class="d-block text-info">${b.slots.name}</span></td>

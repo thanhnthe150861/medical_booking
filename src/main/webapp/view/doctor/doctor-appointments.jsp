@@ -228,11 +228,11 @@
 											<img src="assets/img/patients/patient11.jpg" alt="User Image">
 										</a>
 										<div class="profile-det-info">
-											<h3><a href="#">${b.client.name}</a></h3>
+											<h3><a href="#">${b.patient.name}</a></h3>
 											<div class="patient-details">
 												<h5><i class="far fa-clock"></i> ${b.date}, ${b.slots.name}</h5>
-												<h5><i class="fas fa-${b.client.gender eq 'Male' ? 'mars' : 'venus'}"></i>${b.client.gender}</h5>
-												<h5><i class="fas fa-birthday-cake"></i>${b.client.dob}</h5>
+												<h5><i class="fas fa-${b.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i>${b.patient.gender}</h5>
+												<h5><i class="fas fa-birthday-cake"></i>${b.patient.dob}</h5>
 												<h5><i class=""></i>${b.booking_reason}</h5>
 											</div>
 										</div>

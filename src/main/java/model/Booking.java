@@ -1,66 +1,41 @@
 package model;
 
-import javax.print.Doc;
 import java.sql.Date;
 
 public class Booking {
     private int id;
     private int doctor_id;
-    private int client_id;
+    private int patient_id;
     private String booking_reason;
     private Date date;
     private int slot_id;
     private String status;
     private Doctor doctor = new Doctor();
-    private Client client = new Client();
+    private Patient patient = new Patient();
     private Slot slots = new Slot();
 
     public Booking() {
     }
 
-    public Booking(int id, int doctor_id, int client_id, String booking_reason, Date date, int slot_id, String status, Doctor doctor, Client client, Slot slots) {
+    public Booking(int id, int doctor_id, int patient_id, String booking_reason, Date date, int slot_id, String status, Doctor doctor, Patient patient, Slot slots) {
         this.id = id;
         this.doctor_id = doctor_id;
-        this.client_id = client_id;
+        this.patient_id = patient_id;
         this.booking_reason = booking_reason;
         this.date = date;
         this.slot_id = slot_id;
         this.status = status;
         this.doctor = doctor;
-        this.client = client;
+        this.patient = patient;
         this.slots = slots;
     }
 
-    public int getSlot_id() {
-        return slot_id;
+    public int getPatient_id() {
+        return patient_id;
     }
 
-    public void setSlot_id(int slot_id) {
-        this.slot_id = slot_id;
-    }
-
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public Slot getSlots() {
-        return slots;
-    }
-
-    public void setSlots(Slot slots) {
-        this.slots = slots;
+    public void setPatient_id(int patient_id) {
+        this.patient_id = patient_id;
     }
 
     public int getId() {
@@ -78,14 +53,7 @@ public class Booking {
     public void setDoctor_id(int doctor_id) {
         this.doctor_id = doctor_id;
     }
-
-    public int getClient_id() {
-        return client_id;
-    }
-
-    public void setClient_id(int client_id) {
-        this.client_id = client_id;
-    }
+    
 
     public String getBooking_reason() {
         return booking_reason;
@@ -103,11 +71,43 @@ public class Booking {
         this.date = date;
     }
 
+    public int getSlot_id() {
+        return slot_id;
+    }
+
+    public void setSlot_id(int slot_id) {
+        this.slot_id = slot_id;
+    }
+
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Slot getSlots() {
+        return slots;
+    }
+
+    public void setSlots(Slot slots) {
+        this.slots = slots;
     }
 }
