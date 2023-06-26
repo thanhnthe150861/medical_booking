@@ -211,7 +211,7 @@
                                 <a href="#">${m.booking.doctor.name} <span>${m.booking.doctor.specialty}</span></a>
                               </h2>
                             </td>
-                            <td>$450</td>
+                            <td>${m.bill.price}</td>
                             <td>${m.booking.date}</td>
                             <td><span class="badge badge-pill bg-${m.bill.payment_status == 'Paid' ? 'success-light' : m.bill.payment_status == 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span></td>
                             <td class="text-right">
