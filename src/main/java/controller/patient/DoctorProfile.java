@@ -16,26 +16,19 @@ import model.Patient;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "PatientDashboard", value = "/patient_dashboard")
-public class PatientDashboard extends HttpServlet {
+@WebServlet(name = "DoctorProfile", value = "/doctor_profile")
+public class DoctorProfile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         PatientDBContext patientDBContext = new PatientDBContext();
         if (account != null && account.getIsAdmin() == 2){
-            Patient patient = patientDBContext.getPatient(account);
-            List<MedicalRecord> medicalRecordList = patientDBContext.getInforMyPatients(patient);
-            session.setAttribute("patient", patient);
-            session.setAttribute("medicalRecordList", medicalRecordList);
-            String bill = req.getParameter("bill");
-            String medical = req.getParameter("medical");
-            if(bill != null && bill.equals("true")){
-                req.getRequestDispatcher("view/patient/dashboard-bill.jsp").forward(req,resp);
-            } else if (medical != null && medical.equals("true")){
-                req.getRequestDispatcher("view/patient/dashboard-medical-record.jsp").forward(req,resp);
-            }
-            req.getRequestDispatcher("view/patient/patient-dashboard.jsp").forward(req,resp);
+            // Lấy giá trị của các tham số id từ liên kết
+            String id = req.getParameter("id");
+            Doctor doctor = patientDBContext.getDoctorByPatient(id);
+            session.setAttribute("doctor", doctor);
+            req.getRequestDispatcher("view/patient/doctor-profile.jsp").forward(req,resp);
         }
         resp.sendRedirect("login");
     }

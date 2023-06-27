@@ -27,7 +27,7 @@ public class Forgot extends HttpServlet {
         Account account = adb.checkAccountExist(user);
         HttpSession session = req.getSession();
         if (account != null){
-            if (account.getEmail().equalsIgnoreCase(email) && account.getPhone().equalsIgnoreCase(phone)){
+            if (account.getEmail().equals(email) && account.getPhone().equalsIgnoreCase(phone)){
                 session.setAttribute("account", account);
                 resp.sendRedirect("reset_password");
             }

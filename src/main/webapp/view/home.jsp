@@ -119,16 +119,8 @@
                             <a class="btn btn-primary ml-lg-3" href="login">Login / Register</a>
                         </c:if>
                         <c:if test="${sessionScope.account ne null}">
-                            <c:if test="${sessionScope.account.isAdmin eq 0}">
-                                <a class="btn btn-primary ml-lg-3" href="admin_dashboard">Admin</a>
-                                <a class="btn btn-primary ml-lg-3" href="login">Log out</a>
-                            </c:if>
-                            <c:if test="${sessionScope.account.isAdmin eq 1}">
-                                <a class="btn btn-primary ml-lg-3" href="doctor_dashboard">Doctor</a>
-                                <a class="btn btn-primary ml-lg-3" href="login">Log out</a>
-                            </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
-                                <a class="btn btn-primary ml-lg-3" href="client_dashboard">Client</a>
+                                <a class="btn btn-primary ml-lg-3" href="patient_dashboard">Patient</a>
                                 <a class="btn btn-primary ml-lg-3" href="login">Log out</a>
                             </c:if>
                         </c:if>
@@ -166,12 +158,6 @@
                             <div class="circle-shape bg-secondary text-white">
                                 <span class="mai-logo-xbox"></span>
                             </div>
-                                <c:if test="${sessionScope.account.isAdmin eq 0}">
-                                    <p><a href="admin_dashboard" class=""><span></span> Dashboard</a></p>
-                                </c:if>
-                                <c:if test="${sessionScope.account.isAdmin eq 1}">
-                                    <p><a href="doctor_dashboard" class=""><span></span> Dashboard</a></p>
-                                </c:if>
                                 <c:if test="${sessionScope.account.isAdmin eq 2}">
                                     <p><a href="client_dashboard" class=""><span></span> Dashboard</a></p>
                                 </c:if>
@@ -182,12 +168,6 @@
                             <div class="circle-shape bg-primary text-white">
                                 <span class="mai-shield-checkmark"></span>
                             </div>
-                            <c:if test="${sessionScope.account.isAdmin eq 0}">
-                                <p><a href="#" class=""><span></span> Manager Doctor</a></p>
-                            </c:if>
-                            <c:if test="${sessionScope.account.isAdmin eq 1}">
-                                <p><a href="#" class=""><span></span> Medical Record</a></p>
-                            </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
                                 <p><a href="#" class=""><span></span> Medical Record</a></p>
                             </c:if>
@@ -198,12 +178,6 @@
                             <div class="circle-shape bg-accent text-white">
                                 <span class="mai-basket"></span>
                             </div>
-                            <c:if test="${sessionScope.account.isAdmin eq 0}">
-                                <p><a href="#" class=""><span></span>Manager Client</a></p>
-                            </c:if>
-                            <c:if test="${sessionScope.account.isAdmin eq 1}">
-                                <p><a href="#" class=""><span></span> Booking List</a></p>
-                            </c:if>
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
                                 <p><a href="#" class=""><span></span> Booking List</a></p>
                             </c:if>
