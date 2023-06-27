@@ -31,8 +31,16 @@ public class Login extends HttpServlet {
             req.setAttribute("mess", "User or Password incorrect");
             req.getRequestDispatcher("view/login/login.jsp").forward(req,resp);
         }else{
+            if(account.getIsAdmin() == 0){
+                session.setAttribute("account", account);
+                resp.sendRedirect("admin_dashboard");
+            } else if (account.getIsAdmin() == 1){
+                session.setAttribute("account", account);
+                resp.sendRedirect("doctor_dashboard");
+            } else if (account.getIsAdmin() == 2){
                 session.setAttribute("account", account);
                 resp.sendRedirect("home");
+            }
         }
 
     }

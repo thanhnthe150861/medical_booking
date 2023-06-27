@@ -283,7 +283,7 @@
 										<div class="card-body">
 											<div class="pro-widget-content">
 												<div class="profile-info-widget">
-													<a href="#" class="booking-doc-img">
+													<a href="patient_profile?id=${b.patient.id}" class="booking-doc-img">
 														<img src="assets/img/patients/patient.jpg" alt="User Image">
 													</a>
 													<div class="profile-det-info">

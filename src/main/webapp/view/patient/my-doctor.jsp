@@ -1,7 +1,8 @@
-<!DOCTYPE html> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
 	
-<!-- doccure/patient-change-password.jsp  30 Nov 2019 04:12:18 GMT -->
+<!-- doccure/favourites.html  30 Nov 2019 04:12:16 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -64,7 +65,7 @@
 							<li>
 								<a href="booking">Booking</a>
 							</li>
-						</ul>
+						</ul>	 
 					</div>		 
 					<ul class="nav header-navbar-rht">
 						<li class="nav-item contact-item">
@@ -114,10 +115,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="home">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Change Password</li>
+									<li class="breadcrumb-item active" aria-current="page">Favourites</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Change Password</h2>
+							<h2 class="breadcrumb-title">Favourites</h2>
 						</div>
 					</div>
 				</div>
@@ -127,10 +128,7 @@
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container-fluid">
-
 					<div class="row">
-
-						<!-- Profile Sidebar -->
 						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
 							<div class="profile-sidebar">
 								<div class="widget-profile pro-widget-content">
@@ -156,7 +154,7 @@
 													<span>Dashboard</span>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="my_doctor">
 													<i class="fas fa-user-md"></i>
 													<span>My Doctor</span>
@@ -175,7 +173,7 @@
 													<span>Profile Settings</span>
 												</a>
 											</li>
-											<li class="active">
+											<li>
 												<a href="patient_change_password">
 													<i class="fas fa-lock"></i>
 													<span>Change Password</span>
@@ -193,40 +191,53 @@
 
 							</div>
 						</div>
-						<!-- / Profile Sidebar -->
 						<div class="col-md-7 col-lg-8 col-xl-9">
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-md-12 col-lg-6">
-											<!-- Change Password Form -->
-											<form action="patient_change_password" method="post">
-												<div class="form-group">
-													<label>Old Password</label>
-													<input type="password" class="form-control" name="old-password">
+							<div class="row row-grid">
+								<!--List Doctor-->
+								<c:forEach items="${sessionScope.bookingList}" var="b">
+								<div class="col-md-6 col-lg-4 col-xl-3">
+									<div class="profile-widget">
+										<div class="doc-img">
+											<a href="#">
+												<img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-01.jpg">
+											</a>
+										</div>
+										<div class="pro-content">
+											<h3 class="title">
+												<a href="doctor_profile?id=${b.doctor.id}">${b.doctor.name}</a>
+												<i class="fas fa-check-circle verified"></i>
+											</h3>
+											<p class="speciality">${b.doctor.specialty}</p>
+											<ul class="available-info">
+												<li>
+													<i class="fas fa-birthday-cake"></i>${b.doctor.dob}
+												</li>
+												<li>
+													<i class="fas fa-${b.doctor.gender eq 'Male' ? 'mars' : 'venus'}"></i>${b.doctor.gender}
+												</li>
+												<li>
+													<i class="fas fa-medal"></i>${b.doctor.ranks.name}
+												</li>
+											</ul>
+											<div class="row row-sm">
+												<div class="col-6">
+													<a href="doctor_profile?id=${b.doctor.id}" class="btn view-btn">View Profile</a>
 												</div>
-												<div class="form-group">
-													<label>New Password</label>
-													<input type="password" class="form-control" name="new-password">
+												<div class="col-6">
+													<a href="booking?id=${b.doctor.id}" class="btn book-btn">Book Now</a>
 												</div>
-												<div class="form-group">
-													<label>Confirm Password</label>
-													<input type="password" class="form-control" name="re-password">
-												</div>
-												<div class="submit-section">
-													<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-												</div>
-											</form>
-											<!-- /Change Password Form -->
+											</div>
 										</div>
 									</div>
 								</div>
+								</c:forEach>
+								<!--/List Doctor-->
 							</div>
 						</div>
 					</div>
 				</div>
 
-			</div>
+			</div>		
 			<!-- /Page Content -->
    
 			<!-- Footer -->
@@ -387,5 +398,5 @@
 		
 	</body>
 
-<!-- doccure/patient-change-password.jsp  30 Nov 2019 04:12:18 GMT -->
+<!-- doccure/favourites.html  30 Nov 2019 04:12:17 GMT -->
 </html>

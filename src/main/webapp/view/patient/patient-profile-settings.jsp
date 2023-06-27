@@ -67,63 +67,9 @@
 							<li>
 								<a href="home">Home</a>
 							</li>
-							<%--							<li class="has-submenu active">--%>
-							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
-							<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
-							<%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
-							<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
-							<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
-							<%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
-							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
-							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
-							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-Register.html">Doctor Register</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>	--%>
-							<%--							<li class="has-submenu">--%>
-							<%--								<a href="#">Patients <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
-							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="Booking.html">Booking</a></li>--%>
-							<%--									<li><a href="CheckOut.html">Checkout</a></li>--%>
-							<%--									<li><a href="Booking-success.html">Booking Success</a></li>--%>
-							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
-							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
-							<%--									<li><a href="chat.html">Chat</a></li>--%>
-							<%--									<li><a href="profile-settings.html">Profile Settings</a></li>--%>
-							<%--									<li><a href="change-password.html">Change Password</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>	--%>
-							<%--							<li class="has-submenu">--%>
-							<%--								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li><a href="voice-call.html">Voice Call</a></li>--%>
-							<%--									<li><a href="video-call.html">Video Call</a></li>--%>
-							<%--									<li><a href="search.html">Search Doctors</a></li>--%>
-							<%--									<li><a href="calendar.html">Calendar</a></li>--%>
-							<%--									<li><a href="components.jsp">Components</a></li>--%>
-							<%--									<li class="has-submenu">--%>
-							<%--										<a href="invoices.jsp">Invoices</a>--%>
-							<%--										<ul class="submenu">--%>
-							<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
-							<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
-							<%--										</ul>--%>
-							<%--									</li>--%>
-							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="Login.html">Login</a></li>--%>
-							<%--									<li><a href="Register.html">Register</a></li>--%>
-							<%--									<li><a href="Forgot-password.html">Forgot Password</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>--%>
-							<%--							<li>--%>
-							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
-							<%--							</li>--%>
-							<%--							<li class="Login-link">--%>
-							<%--								<a href="Login.html">Login / Signup</a>--%>
-							<%--							</li>--%>
+							<li>
+								<a href="booking">Booking</a>
+							</li>
 						</ul>
 					</div>		 
 					<ul class="nav header-navbar-rht">
@@ -150,12 +96,12 @@
 										<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>Richard Wilson</h6>
-										<p class="text-muted mb-0">Patient</p>
+										<h6>${sessionScope.patient.name}</h6>
+										<p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
 									</div>
 								</div>
-								<a class="dropdown-item" href="client_dashboard">Dashboard</a>
-								<a class="dropdown-item" href="client_profile_settings">Profile Settings</a>
+								<a class="dropdown-item" href="patient_dashboard">Dashboard</a>
+								<a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
 								<a class="dropdown-item" href="login">Logout</a>
 							</div>
 						</li>
@@ -198,29 +144,29 @@
 											<img src="assets/img/patients/patient.jpg" alt="User Image">
 										</a>
 										<div class="profile-det-info">
-											<h3>Richard Wilson</h3>
-<%--											<div class="patient-details">--%>
-<%--												<h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>--%>
-<%--												<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>--%>
-<%--											</div>--%>
+											<h3>${sessionScope.patient.name}</h3>
+											<div class="patient-details">
+												<h5><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
+												<h5><i class="fas fa-${sessionScope.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i>${sessionScope.patient.gender}</h5>
+											</div>
 										</div>
 									</div>
 								</div>
 								<div class="dashboard-widget">
 									<nav class="dashboard-menu">
 										<ul>
-											<li class="active">
-												<a href="client_dashboard">
+											<li>
+												<a href="patient_dashboard">
 													<i class="fas fa-columns"></i>
 													<span>Dashboard</span>
 												</a>
 											</li>
-											<%--											<li>--%>
-											<%--												<a href="favourites.html">--%>
-											<%--													<i class="fas fa-bookmark"></i>--%>
-											<%--													<span>Favourites</span>--%>
-											<%--												</a>--%>
-											<%--											</li>--%>
+											<li>
+												<a href="my_doctor">
+													<i class="fas fa-user-md"></i>
+													<span>My Doctor</span>
+												</a>
+											</li>
 											<li>
 												<a href="#">
 													<i class="fas fa-comments"></i>
@@ -228,14 +174,14 @@
 													<small class="unread-msg">23</small>
 												</a>
 											</li>
-											<li>
-												<a href="client_profile_settings">
+											<li class="active">
+												<a href="patient_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Profile Settings</span>
 												</a>
 											</li>
 											<li>
-												<a href="client_change_password">
+												<a href="patient_change_password">
 													<i class="fas fa-lock"></i>
 													<span>Change Password</span>
 												</a>
@@ -259,7 +205,7 @@
 								<div class="card-body">
 									
 									<!-- Profile Settings Form -->
-									<form>
+									<form action="patient_profile_settings" method="post">
 										<div class="row form-row">
 											<div class="col-12 col-md-12">
 												<div class="form-group">
@@ -270,7 +216,7 @@
 														<div class="upload-img">
 															<div class="change-photo-btn">
 																<span><i class="fa fa-upload"></i> Upload Photo</span>
-																<input type="file" class="upload">
+																<input type="file" class="upload" name="file">
 															</div>
 															<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
 														</div>
@@ -279,79 +225,36 @@
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>First Name</label>
-													<input type="text" class="form-control" value="Richard">
+													<label>Name</label>
+													<input type="text" class="form-control" name="name" value="${sessionScope.patient.name}">
 												</div>
 											</div>
 											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Last Name</label>
-													<input type="text" class="form-control" value="Wilson">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
+												<div class="form-group mb-0">
 													<label>Date of Birth</label>
-													<div class="cal-icon">
-														<input type="text" class="form-control datetimepicker" value="24-07-1983">
-													</div>
+													<input type="date" class="form-control" name="dob" value="${sessionScope.patient.dob}">
 												</div>
 											</div>
-											<div class="col-12 col-md-6">
+											<div class="col-md-6">
 												<div class="form-group">
-													<label>Blood Group</label>
-													<select class="form-control select">
-														<option>A-</option>
-														<option>A+</option>
-														<option>B-</option>
-														<option>B+</option>
-														<option>AB-</option>
-														<option>AB+</option>
-														<option>O-</option>
-														<option>O+</option>
+													<label>Gender</label>
+													<select class="form-control select" name="gender">
+														<option>Select</option>
+														<option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>Male</option>
+														<option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>Female</option>
 													</select>
 												</div>
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>Email ID</label>
-													<input type="email" class="form-control" value="richard@example.com">
+													<label>Email</label>
+													<input type="email" class="form-control" name="email" value="${sessionScope.account.email}">
 												</div>
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>Mobile</label>
-													<input type="text" value="+1 202-555-0125" class="form-control">
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="form-group">
-												<label>Address</label>
-													<input type="text" class="form-control" value="806 Twin Willow Lane">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>City</label>
-													<input type="text" class="form-control" value="Old Forge">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>State</label>
-													<input type="text" class="form-control" value="Newyork">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Zip Code</label>
-													<input type="text" class="form-control" value="13420">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Country</label>
-													<input type="text" class="form-control" value="United States">
+													<label>Phone</label>
+													<input type="text" value="${sessionScope.account.phone}" name="phone" class="form-control">
 												</div>
 											</div>
 										</div>

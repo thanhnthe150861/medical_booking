@@ -194,6 +194,7 @@
 																</tr>
 															</thead>
 															<tbody>
+															<c:if test="${requestScope.medicalRecordList ne null}">
 															<c:forEach items="${requestScope.medicalRecordList}" var="m">
 																<tr>
 																	<td>
@@ -232,6 +233,7 @@
 																	</td>
 																</tr>
 															</c:forEach>
+															</c:if>
 															</tbody>
 														</table>
 													</div>
