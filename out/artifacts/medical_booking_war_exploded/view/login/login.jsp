@@ -9,7 +9,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Login 10</title>
+    <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -32,7 +32,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
                     <h3 class="mb-4 text-center">Login</h3>
-                    <form action="" class="login-form" method="post">
+                    <form action="login" class="login-form" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username" name="username" required>
                         </div>
@@ -40,13 +40,6 @@
                             <input id="password-field" type="password" class="form-control" name="password" placeholder="Password" required>
                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
-<%--                        <div class="form-group">--%>
-<%--                            <select name="roleid" class="form-control">--%>
-<%--                                <option style="color: Blue" value="2">Client</option>--%>
-<%--                                <option style="color: Blue" value="1">Doctor</option>--%>
-<%--                                <option style="color: Blue" value="0">Admin</option>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
                         <div class="form-group">
                             <button type="submit" class="form-control btn btn-primary submit px-3">Login</button>
                         </div>
@@ -57,9 +50,6 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-<%--                            <div class="w-50 text-md-left">--%>
-<%--                                <a href="#" style="color: #fff">Register</a>--%>
-<%--                            </div>--%>
                             <div class="w-50 text-md-right">
                                 <a href="register" style="color: #fff">Register</a><br>
                                 <a href="forgot" style="color: #fff">Forgot Password</a>
