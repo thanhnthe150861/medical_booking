@@ -112,7 +112,16 @@ INSERT INTO rank_patient (id, name) VALUES (1, 'Đồng'),(2, 'Bạc'),(3, 'Vàn
 INSERT INTO rank_doctor (id, name) VALUES (1, 'Bác Sĩ Hạng 1'),(2, 'Bác Sĩ Hạng 2'),(3, 'Bác Sĩ Hạng 3'),(4, 'Bác Sĩ Hạng 4');
 INSERT INTO slot (id, name) VALUES (1, '9:00 - 9:30'),(2, '10:00 - 10:30'),(3, '11:00 - 11:30'),(4, '14:00 - 14:30'),(5, '15:00 - 15:30'),(6, '16:00 - 16:30');
 
-
+ INSERT INTO staff (username, url, name, gender, dob) 
+VALUES ('staff1', 'www.example.com/staff1', 'John Doe', 'Male', '1990-01-01'); 
+ INSERT INTO staff (username, url, name, gender, dob) 
+VALUES ('staff2', 'www.example.com/staff2', 'Jane Smith', 'Female', '1985-05-10'); 
+ INSERT INTO staff (username, url, name, gender, dob) 
+VALUES ('staff3', 'www.example.com/staff3', 'Michael Johnson', 'Male', '1982-11-15'); 
+ INSERT INTO staff (username, url, name, gender, dob) 
+VALUES ('staff4', 'www.example.com/staff4', 'Emily Davis', 'Female', '1993-07-20'); 
+ INSERT INTO staff (username, url, name, gender, dob) 
+VALUES ('staff5', 'www.example.com/staff5', 'Robert Wilson', 'Male', '1978-03-25'); 
 -- Account table INSERT statements
 INSERT INTO account (username, password, phone, email, isAdmin) VALUES ('admin', '123', '1234567890', 'thanh17042001@gmail.com', 0);
 INSERT INTO account (username, password, phone, email, isAdmin) VALUES ('doctor', '123', '0123548293', 'jaod01@gmail.com', 1);
@@ -123,6 +132,16 @@ INSERT INTO account (username, password, phone, email, isAdmin) VALUES ('patient
 INSERT INTO account (username, password, phone, email, isAdmin) VALUES ('patient1', '123', '0915568374', 'anokae@gmail.com', 2);
 INSERT INTO account (username, password, phone, email, isAdmin) VALUES ('patient2', '123', '0913826413', 'aizawwa@gmail.com', 2);
 INSERT INTO account (username, password, phone, email, isAdmin) VALUES ('patient3', '123', '0316281736', 'akdiwww@gmail.com', 2);
+ INSERT INTO account (username, password, phone, email, isAdmin) 
+VALUES ('staff1', 'password1', '1234567890', 'user1@example.com', 3); 
+ INSERT INTO account (username, password, phone, email, isAdmin) 
+VALUES ('staff2', 'password2', '0987654321', 'user2@example.com', 3); 
+ INSERT INTO account (username, password, phone, email, isAdmin) 
+VALUES ('staff3', 'password3', '9876543210', 'user3@example.com', 3); 
+ INSERT INTO account (username, password, phone, email, isAdmin) 
+VALUES ('staff4', 'password4', '0123456789', 'user4@example.com', 3); 
+ INSERT INTO account (username, password, phone, email, isAdmin) 
+VALUES ('staff5', 'password5', '5432109876', 'user5@example.com', 3); 
  -- patient table INSERT statements
 INSERT INTO patient (username, url, name, gender, dob, rank_id) VALUES ('patient', NULL, 'John Doe', 'Male', '1990-01-01', 1);
 INSERT INTO patient (username, url, name, gender, dob, rank_id) VALUES ('patient1', NULL, 'Sarah Lee', 'Female', '1985-05-05', 2);
