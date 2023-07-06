@@ -238,6 +238,7 @@
                           </thead>
                           <tbody>
                           <c:forEach items="${sessionScope.medicalRecordList}" var="m">
+                            <c:if test="${m.booking.status == 'Completed'}">
                             <tr>
                               <td>
                                 <a href="#">${m.bill.id}</a>
@@ -261,6 +262,7 @@
                                 </div>
                               </td>
                             </tr>
+                            </c:if>
                           </c:forEach>
                           </tbody>
                         </table>

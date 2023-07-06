@@ -242,10 +242,10 @@
 																<tr>
 																	<td>
 																		<h2 class="table-avatar">
-																			<a href="#" class="avatar avatar-sm mr-2">
+																			<a href="doctor_profile?id=${m.booking.doctor.id}" class="avatar avatar-sm mr-2">
 																				<img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
 																			</a>
-																			<a href="#">${m.booking.doctor.name} <span>${m.booking.doctor.specialty}</span></a>
+																			<a href="doctor_profile?id=${m.booking.doctor.id}">${m.booking.doctor.name} <span>${m.booking.doctor.specialty}</span></a>
 																		</h2>
 																	</td>
 																	<td></td>
@@ -263,7 +263,7 @@
 																				<i class="far fa-eye"></i> View
 																			</a>
 																			<c:if test="${m.booking.status == 'Pending'}">
-																				<a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
+																				<a href="patient_dashboard?id=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
 																					<i class="far fa-trash-alt"></i> Cancel
 																				</a>
 																			</c:if>
