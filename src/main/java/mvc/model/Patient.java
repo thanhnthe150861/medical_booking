@@ -10,12 +10,13 @@ public class Patient {
     private  String gender;
     private Date dob;
     private int rankId;
+    private  Account account = new Account();
     private Rank ranks = new Rank();
 
     public Patient() {
     }
 
-    public Patient(int id, String userName, String url, String name, String gender, Date dob, int rankId, Rank ranks) {
+    public Patient(int id, String userName, String url, String name, String gender, Date dob, int rankId, Account account, Rank ranks) {
         this.id = id;
         this.userName = userName;
         this.url = url;
@@ -23,7 +24,16 @@ public class Patient {
         this.gender = gender;
         this.dob = dob;
         this.rankId = rankId;
+        this.account = account;
         this.ranks = ranks;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public Rank getRanks() {

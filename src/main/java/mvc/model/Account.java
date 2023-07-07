@@ -7,15 +7,26 @@ public class Account {
     private String email;
     private int isAdmin;
 
+    private Boolean status;
+
     public Account() {
     }
 
-    public Account(String username, String password, String phone, String email, int isAdmin) {
+    public Account(String username, String password, String phone, String email, int isAdmin, Boolean status) {
         this.username = username;
         this.password = password;
         this.phone = phone;
         this.email = email;
         this.isAdmin = isAdmin;
+        this.status = status;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public int getIsAdmin() {

@@ -50,7 +50,7 @@ public class Register extends HttpServlet {
 //            account.setPhone(phone_raw);
             account.setEmail(email_raw);
             account.setIsAdmin(2);
-            adb.insertPatient(account, name_raw);
+            adb.Register(account, name_raw);
             req.setAttribute("messSuccess", "Tạo tài khoản thành công");
             req.getRequestDispatcher("view/login/register.jsp").forward(req,resp);
         } else {

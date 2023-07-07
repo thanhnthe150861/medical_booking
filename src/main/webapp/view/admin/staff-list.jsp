@@ -1,11 +1,10 @@
-<%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="mvc.dal.AdminDBContext" %>
-<%@ page import="java.util.List" %>
 <%@ page import="mvc.model.Staff" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
     
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/patient-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/doctor-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -74,7 +73,7 @@
 
 					
 					<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow">
+					<li class="nav-item dropdown has-arrow">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 							<span class="user-img"><img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
 						</a>
@@ -113,13 +112,13 @@
 							<li>
 								<a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
 							</li>
-							<li>
+							<li class="active">
 								<a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
 							</li>
 							<li>
 								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
 							</li>
-							<li  class="active">
+							<li>
 								<a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
 							</li>
 							<li>
@@ -151,14 +150,15 @@
 			<!-- Page Wrapper -->
             <div class="page-wrapper">
                 <div class="content container-fluid">
+				
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row">
 							<div class="col-sm-12">
-								<h3 class="page-title">List of Patient</h3>
+								<h3 class="page-title">List of Staff</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="admin_dashboard">Dashboard</a></li>
-									<li class="breadcrumb-item active">Patient</li>
+									<li class="breadcrumb-item active">Staff</li>
 								</ul>
 							</div>
 						</div>
@@ -166,72 +166,68 @@
 					<!-- /Page Header -->
 					<%
 						AdminDBContext adminDBContext = new AdminDBContext();
-						List<MedicalRecord> patientList = adminDBContext.patientList();
+						List<Staff> staffList = adminDBContext.staffList();
 					%>
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="card">
 								<div class="card-body">
 									<div class="table-responsive">
-										<div class="table-responsive">
-											<div class="actions text-md-right">
-												<a href="#" class="btn btn-sm bg-success-light mr-2">Add New Patient</a>
-											</div>
+										<div class="actions text-md-right">
+											<a href="#" class="btn btn-sm bg-success-light mr-2">Add New Staff</a>
+										</div>
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
-												<tr>
-													<th>Patient ID</th>
-													<th>Patient Name</th>
-													<th>Date Of Birth</th>
-													<th>Phone</th>
-													<th>Email</th>
-													<th>Last Visit</th>
-													<th>Paid</th>
-													<th  class="text-center">Status</th>
-													<th class="text-center">Action</th>
-												</tr>
+											<tr>
+												<th>Staff Name</th>
+												<th>Date Of Birth</th>
+												<th>Gender</th>
+												<th>Phone</th>
+												<th>Email</th>
+												<th class="text-center">Status</th>
+												<th class="text-center">Action</th>
+											</tr>
 											</thead>
 											<tbody>
-											<% for (MedicalRecord patient : patientList) { %>
-												<tr>
-													<td><%= patient.getBooking().getPatient().getId() %></td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient1.jpg" alt="User Image"></a>
-															<a href="#"><%= patient.getBooking().getPatient().getName() %></a>
-														</h2>
-													</td>
-													<td><%= patient.getBooking().getPatient().getDob() %></td>
-													<td><%= patient.getBooking().getPatient().getAccount().getPhone() %></td>
-													<td><%= patient.getBooking().getPatient().getAccount().getEmail() %></td>
-													<td><%= patient.getBooking().getDate() %></td>
-													<td>$<%= patient.getBill().getPrice() %></td>
-													<td class="text-center">
-														<% if (patient.getBooking().getPatient().getAccount().getStatus()) { %>
-														<span class="badge badge-pill bg-success inv-badge">Active</span>
-														<% } else { %>
-														<span class="badge badge-pill bg-danger inv-badge">Deactive</span>
-														<% } %>
-													</td>
-													<td class="text-center">
-														<div class="actions">
-															<a data-toggle="modal" href="#" class="btn btn-sm bg-success-light mr-2">
-																<i class="fe fe-pencil"></i> Edit
-															</a>
-															<a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
-																<i class="fe fe-trash"></i> Delete
-															</a>
-														</div>
-													</td>
-												</tr>
+											<% for (Staff staff : staffList) { %>
+											<tr>
+												<td>
+													<h2 class="table-avatar">
+														<a href="#" class="avatar avatar-sm mr-2">
+															<img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+														</a>
+														<a href="#"><%= staff.getName() %></a>
+													</h2>
+												</td>
+												<td><%= staff.getDob() %></td>
+												<td><%= staff.getGender() %></td>
+												<td><%= staff.getAccount().getPhone() %></td>
+												<td><%= staff.getAccount().getEmail() %></td>
+												<td class="text-center">
+													<% if (staff.getAccount().getStatus()) { %>
+													<span class="badge badge-pill bg-success inv-badge">Active</span>
+													<% } else { %>
+													<span class="badge badge-pill bg-danger inv-badge">Deactive</span>
+													<% } %>
+												</td>
+												<td class="text-center">
+													<div class="actions">
+														<a data-toggle="modal" href="#" class="btn btn-sm bg-success-light mr-2">
+															<i class="fe fe-pencil"></i> Edit
+														</a>
+														<a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
+															<i class="fe fe-trash"></i> Delete
+														</a>
+													</div>
+												</td>
+											</tr>
 											<% } %>
 											</tbody>
 										</table>
 									</div>
-									</div>
 								</div>
 							</div>
-						</div>			
+						</div>
 					</div>
 					
 				</div>			
@@ -260,5 +256,5 @@
 		
     </body>
 
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/patient-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:52 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/doctor-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
 </html>

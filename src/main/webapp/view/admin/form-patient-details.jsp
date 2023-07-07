@@ -1,11 +1,7 @@
-<%@ page import="mvc.model.MedicalRecord" %>
-<%@ page import="mvc.dal.AdminDBContext" %>
-<%@ page import="java.util.List" %>
-<%@ page import="mvc.model.Staff" %>
 <!DOCTYPE html>
 <html lang="en">
     
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/patient-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -56,13 +52,6 @@
 					<i class="fe fe-text-align-left"></i>
 				</a>
 				
-<%--				<div class="top-nav-search">--%>
-<%--					<form>--%>
-<%--						<input type="text" class="form-control" placeholder="Search here">--%>
-<%--						<button class="btn" type="submit"><i class="fa fa-search"></i></button>--%>
-<%--					</form>--%>
-<%--				</div>--%>
-				
 				<!-- Mobile Menu Toggle -->
 				<a class="mobile_btn" id="mobile_btn">
 					<i class="fa fa-bars"></i>
@@ -74,7 +63,7 @@
 
 					
 					<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow">
+					<li class="nav-item dropdown has-arrow">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 							<span class="user-img"><img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
 						</a>
@@ -84,7 +73,8 @@
 									<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
 								</div>
 								<div class="user-text">
-									<h6>Administrator</h6>
+									<h6>Ryan Taylor</h6>
+									<p class="text-muted mb-0">Administrator</p>
 								</div>
 							</div>
 							<a class="dropdown-item" href="admin_dashboard">My Profile</a>
@@ -99,7 +89,7 @@
             </div>
 			<!-- /Header -->
 			
-			<!-- Sidebar -->
+<!-- Sidebar -->
 			<div class="sidebar" id="sidebar">
 				<div class="sidebar-inner slimscroll">
 					<div id="sidebar-menu" class="sidebar-menu">
@@ -119,7 +109,7 @@
 							<li>
 								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
 							</li>
-							<li  class="active">
+							<li>
 								<a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
 							</li>
 							<li>
@@ -132,7 +122,7 @@
 								<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="form_details?str=doctor"> Add New Doctor </a></li>
-									<li><a href="form_details?str=patient"> Add New Patient </a></li>
+									<li class=" active"><a href="form_details?str=patient"> Add New Patient </a></li>
 									<li><a href="form_details?str=staff"> Add New Staff </a></li>
 								</ul>
 							</li>
@@ -148,117 +138,122 @@
 			</div>
 			<!-- /Sidebar -->
 			
+			
 			<!-- Page Wrapper -->
             <div class="page-wrapper">
                 <div class="content container-fluid">
+				
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row">
-							<div class="col-sm-12">
-								<h3 class="page-title">List of Patient</h3>
+							<div class="col">
+								<h3 class="page-title">Form Details</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="admin_dashboard">Dashboard</a></li>
-									<li class="breadcrumb-item active">Patient</li>
+									<li class="breadcrumb-item active">Form Details</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<!-- /Page Header -->
-					<%
-						AdminDBContext adminDBContext = new AdminDBContext();
-						List<MedicalRecord> patientList = adminDBContext.patientList();
-					%>
+					
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-lg-12">
 							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">ADD NEW PATIENT</h4>
+									<!-- Place this code where you want to display the error message -->
+									<% String errorMessage = (String) request.getAttribute("messError"); %>
+									<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+									<div class="alert alert-danger" role="alert">
+										<%= errorMessage %>
+									</div>
+									<% } %>
+								</div>
 								<div class="card-body">
-									<div class="table-responsive">
-										<div class="table-responsive">
-											<div class="actions text-md-right">
-												<a href="#" class="btn btn-sm bg-success-light mr-2">Add New Patient</a>
+									<form action="form_details" method="post">
+										<div class="form-group mb-0 row">
+											<label class="col-form-label col-md-2">Image</label>
+											<div class="col-md-10">
+												<input type="file" class="form-control" name="file">
 											</div>
-										<table class="datatable table table-hover table-center mb-0">
-											<thead>
-												<tr>
-													<th>Patient ID</th>
-													<th>Patient Name</th>
-													<th>Date Of Birth</th>
-													<th>Phone</th>
-													<th>Email</th>
-													<th>Last Visit</th>
-													<th>Paid</th>
-													<th  class="text-center">Status</th>
-													<th class="text-center">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-											<% for (MedicalRecord patient : patientList) { %>
-												<tr>
-													<td><%= patient.getBooking().getPatient().getId() %></td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient1.jpg" alt="User Image"></a>
-															<a href="#"><%= patient.getBooking().getPatient().getName() %></a>
-														</h2>
-													</td>
-													<td><%= patient.getBooking().getPatient().getDob() %></td>
-													<td><%= patient.getBooking().getPatient().getAccount().getPhone() %></td>
-													<td><%= patient.getBooking().getPatient().getAccount().getEmail() %></td>
-													<td><%= patient.getBooking().getDate() %></td>
-													<td>$<%= patient.getBill().getPrice() %></td>
-													<td class="text-center">
-														<% if (patient.getBooking().getPatient().getAccount().getStatus()) { %>
-														<span class="badge badge-pill bg-success inv-badge">Active</span>
-														<% } else { %>
-														<span class="badge badge-pill bg-danger inv-badge">Deactive</span>
-														<% } %>
-													</td>
-													<td class="text-center">
-														<div class="actions">
-															<a data-toggle="modal" href="#" class="btn btn-sm bg-success-light mr-2">
-																<i class="fe fe-pencil"></i> Edit
-															</a>
-															<a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
-																<i class="fe fe-trash"></i> Delete
-															</a>
-														</div>
-													</td>
-												</tr>
-											<% } %>
-											</tbody>
-										</table>
-									</div>
-									</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">User Name</label>
+											<div class="col-md-10">
+												<input type="text" class="form-control" name="username">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Password</label>
+											<div class="col-md-10">
+												<input type="password" class="form-control" name="password">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Name</label>
+											<div class="col-md-10">
+												<input type="text" class="form-control" name="name">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Phone</label>
+											<div class="col-md-10">
+												<input type="text" class="form-control" name="phone">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Email</label>
+											<div class="col-md-10">
+												<input type="text" class="form-control" name="email">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Date Of Birth</label>
+											<div class="col-md-10">
+												<input class="form-control" type="date" name="dob">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Gender</label>
+											<div class="col-md-10">
+												<select class="form-control select" name="gender">
+													<option>Select</option>
+													<option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>Male</option>
+													<option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>Female</option>
+												</select>
+											</div>
+										</div>
+										<div class="submit-section">
+											<button type="submit" class="btn btn-primary submit-btn">Save</button>
+										</div>
+									</form>
 								</div>
 							</div>
-						</div>			
+						</div>
 					</div>
-					
+				
 				</div>			
 			</div>
-			<!-- /Page Wrapper -->
+			<!-- /Main Wrapper -->
 		
         </div>
 		<!-- /Main Wrapper -->
 		
 		<!-- jQuery -->
-        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="view/admin/assets/js/jquery-3.2.1.min.js"></script>
 		
 		<!-- Bootstrap Core JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="view/admin/assets/js/popper.min.js"></script>
+        <script src="view/admin/assets/js/bootstrap.min.js"></script>
 		
 		<!-- Slimscroll JS -->
-        <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-		
-		<!-- Datatables JS -->
-		<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-		<script src="assets/plugins/datatables/datatables.min.js"></script>
+        <script src="view/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 		
 		<!-- Custom JS -->
-		<script  src="assets/js/script.js"></script>
+		<script  src="view/admin/assets/js/script.js"></script>
 		
     </body>
 
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/patient-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:52 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
 </html>
