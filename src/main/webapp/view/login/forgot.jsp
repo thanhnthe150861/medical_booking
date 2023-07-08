@@ -32,12 +32,15 @@
       <div class="col-md-6 col-lg-4">
         <div class="login-wrap p-0">
           <h3 class="mb-4 text-center">Forgot Password</h3>
+          <% String errorMessage = (String) request.getAttribute("messError"); %>
+          <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+          <div class="alert alert-danger" role="alert">
+            <%= errorMessage %>
+          </div>
+          <% } %>
           <form action="forgot" class="login-form" method="post">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Username" name="username" required>
-            </div>
-            <div class="form-group">
-              <input  type="text" class="form-control" name="phone" placeholder="Phone" required>
             </div>
             <div class="form-group">
               <input  type="text" class="form-control" name="email" placeholder="Email" required>

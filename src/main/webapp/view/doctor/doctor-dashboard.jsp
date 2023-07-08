@@ -44,13 +44,13 @@
 								<span></span>
 							</span>
 						</a>
-						<a href="home" class="navbar-brand logo">
+						<a href="doctor_dashboard" class="navbar-brand logo">
 							<span class="text-primary">Clinic</span>-TATQ
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
-							<a href="home" class="menu-logo">
+							<a href="doctor_dashboard" class="menu-logo">
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -59,7 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="home">Home</a>
+								<a href="doctor_dashboard">Home</a>
 							</li>
 						</ul>	 
 					</div>		 
@@ -87,8 +87,8 @@
 										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>Darren Elder</h6>
-										<p class="text-muted mb-0">Doctor</p>
+										<h6>${sessionScope.doctor.name}</h6>
+										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
 									</div>
 								</div>
 								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
@@ -110,7 +110,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
 								</ol>
 							</nav>
@@ -136,10 +136,10 @@
 											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
 										</a>
 										<div class="profile-det-info">
-											<h3>Dr. Darren Elder</h3>
-											
+											<h3> ${sessionScope.doctor.name}</h3>
+
 											<div class="patient-details">
-												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+												<h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
 											</div>
 										</div>
 									</div>
@@ -175,12 +175,6 @@
 												<a href="#">
 													<i class="fas fa-file-invoice"></i>
 													<span>Invoices</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-star"></i>
-													<span>Reviews</span>
 												</a>
 											</li>
 											<li>
@@ -237,7 +231,7 @@
 														</div>
 													</div>
 												</div>
-												
+
 												<div class="col-md-12 col-lg-4">
 													<div class="dash-widget dct-border-rht">
 														<div class="circle-bar circle-bar2">
@@ -307,8 +301,8 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-																				<a href="#">${b.patient.name}<span>Patient ID: ${b.patient.id}</span></a>
+																				<a href="patient_profile?id=${b.patient.id}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
+																				<a href="patient_profile?id=${b.patient.id}">${b.patient.name}<span>Patient ID: ${b.patient.id}</span></a>
 																			</h2>
 																		</td>
 																		<td>${b.date}<span class="d-block text-info">${b.slots.name}</span></td>
@@ -385,34 +379,14 @@
 								<!-- /Footer Widget -->
 								
 							</div>
-							
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Patients</h2>
-									<ul>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
-							
 							<div class="col-lg-3 col-md-6">
 							
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For Doctors</h2>
 									<ul>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
 										<li><a href="#"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-<%--										<li><a href="Login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>--%>
-<%--										<li><a href="doctor-Register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>--%>
 										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
 									</ul>
 								</div>

@@ -44,13 +44,13 @@
 								<span></span>
 							</span>
 						</a>
-						<a href="home" class="navbar-brand logo">
+						<a href="doctor_dashboard" class="navbar-brand logo">
 							<span class="text-primary">Clinic</span>-TATQ
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
-							<a href="home" class="menu-logo">
+							<a href="doctor_dashboard" class="menu-logo">
 								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
@@ -60,7 +60,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="home">Home</a>
+								<a href="doctor_dashboard">Home</a>
 							</li>
 						</ul>
 					</div>		 
@@ -88,8 +88,8 @@
 										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>Darren Elder</h6>
-										<p class="text-muted mb-0">Doctor</p>
+										<h6>${sessionScope.doctor.name}</h6>
+										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
 									</div>
 								</div>
 								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
@@ -111,7 +111,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="home">Home</a></li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Appointments</li>
 								</ol>
 							</nav>
@@ -137,10 +137,10 @@
 											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
 										</a>
 										<div class="profile-det-info">
-											<h3>Dr. Darren Elder</h3>
+											<h3> ${sessionScope.doctor.name}</h3>
 
 											<div class="patient-details">
-												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+												<h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
 											</div>
 										</div>
 									</div>
@@ -176,12 +176,6 @@
 												<a href="#">
 													<i class="fas fa-file-invoice"></i>
 													<span>Invoices</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-star"></i>
-													<span>Reviews</span>
 												</a>
 											</li>
 											<li>
@@ -224,11 +218,11 @@
 								<!-- Appointment List -->
 								<div class="appointment-list">
 									<div class="profile-info-widget">
-										<a href="#" class="booking-doc-img">
+										<a href="patient_profile?id=${b.patient.id}" class="booking-doc-img">
 											<img src="assets/img/patients/patient11.jpg" alt="User Image">
 										</a>
 										<div class="profile-det-info">
-											<h3><a href="#">${b.patient.name}</a></h3>
+											<h3><a href="patient_profile?id=${b.patient.id}">${b.patient.name}</a></h3>
 											<div class="patient-details">
 												<h5><i class="far fa-clock"></i> ${b.date}, ${b.slots.name}</h5>
 												<h5><i class="fas fa-${b.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i>${b.patient.gender}</h5>

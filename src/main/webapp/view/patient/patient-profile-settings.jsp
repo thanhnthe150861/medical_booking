@@ -222,6 +222,13 @@
 														</div>
 													</div>
 												</div>
+												<!-- Place this code where you want to display the error message -->
+												<% String errorMessage = (String) request.getAttribute("messError"); %>
+												<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+												<div class="alert alert-danger" role="alert">
+													<%= errorMessage %>
+												</div>
+												<% } %>
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
