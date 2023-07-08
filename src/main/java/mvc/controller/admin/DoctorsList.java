@@ -1,15 +1,15 @@
-package controller.admin;
+package mvc.controller.admin;
 
-import dal.DoctorDBContext;
+import mvc.dal.DoctorDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Account;
-import model.Booking;
-import model.Doctor;
+import mvc.model.Account;
+import mvc.model.Booking;
+import mvc.model.Doctor;
 
 import java.io.IOException;
 import java.util.List;
