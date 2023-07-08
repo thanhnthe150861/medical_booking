@@ -31,7 +31,7 @@ public class Register extends HttpServlet {
         account.setPhone(phone_raw);
         account.setEmail(email_raw);
         account.setIsAdmin(2);
-        adb.insertClient(account, name_raw);
+        adb.Register(account, name_raw);
         //
         req.getRequestDispatcher("view/login/register.jsp").forward(req,resp);
     }

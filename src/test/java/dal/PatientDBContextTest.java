@@ -102,7 +102,7 @@ class PatientDBContextTest {
         patient.setId(1);
         PatientDBContext patientDBContext = new PatientDBContext();
         // Mock other ResultSet methods
-        List<Booking> bookings = patientDBContext.getBooking(patient, "CONFIRMED");
+        List<Booking> bookings = patientDBContext.getBooking(patient, "Completed");
         assertEquals(1, bookings.size());
     }
     @Test
@@ -154,4 +154,5 @@ class PatientDBContextTest {
         assertNotNull(result);
         assertTrue(result.isEmpty());
     }
+
 }

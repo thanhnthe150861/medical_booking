@@ -111,20 +111,20 @@ public class AccountDB extends DBContext{
         }
 
 
-    public void insertClient(Account account, String name){
+    public void Register(Account account, String name){
         try {
             //Insert Account
-            String sql = "INSERT account (username, password, phone, email, isAdmin) " +
-                    "VALUES (?, ?, ?, ?, ?)";
-            stm = connection.prepareStatement(sql);
+            String sql = "INSERT account (username, password, email, isAdmin) " +
+                    "VALUES (?, ?, ?, ?)";
+            PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, account.getUsername());
             stm.setString(2, account.getPassword());
-            stm.setString(3, account.getPhone());
-            stm.setString(4, account.getEmail());
-            stm.setInt(5, account.getIsAdmin());
+//            stm.setString(3, account.getPhone());
+            stm.setString(3, account.getEmail());
+            stm.setInt(4, account.getIsAdmin());
             stm.executeUpdate();
             //Insert Patient
-            String sql1 = "INSERT patinet (username, name, rank_id)" +
+            String sql1 = "INSERT patient (username, name, rank_id)" +
                     "VALUES (?, ?, ?)";
             PreparedStatement stm1 = connection.prepareStatement(sql1);
             stm1.setString(1, account.getUsername());

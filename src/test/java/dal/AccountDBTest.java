@@ -113,6 +113,17 @@ class AccountDBTest {
         assertNotNull(account);
         assertFalse(account.getUsername().equals("admin@"));
     }
-
-
+    @Test
+    public void testRegister_Positive() {
+        // Create a mock Account object
+        Account account = new Account();
+        account.setUsername("testuser");
+        account.setPassword("testpassword");
+        account.setEmail("testemail@example.com");
+        account.setIsAdmin(1);
+        // Call the Register method
+        AccountDB accountDB = new AccountDB();
+        accountDB.Register(account, "Test User");
+        assertEquals(account.getUsername(), "Test User");
+    }
 }
