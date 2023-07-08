@@ -1,8 +1,6 @@
 package model;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Doctor {
     private int id;
@@ -29,6 +27,18 @@ public class Doctor {
         this.rankId = rankId;
         this.ranks = ranks;
     }
+    public Doctor(int id, String userName, String url, String name, String gender, Date dob, String specialty, int rankId) {
+        this.id = id;
+        this.userName = userName;
+        this.url = url;
+        this.name = name;
+        this.gender = gender;
+        this.dob = dob;
+        this.specialty = specialty;
+        this.rankId = rankId;
+
+    }
+
 
     public Rank getRanks() {
         return ranks;

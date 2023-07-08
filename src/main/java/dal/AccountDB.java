@@ -124,7 +124,7 @@ public class AccountDB extends DBContext{
             stm.setInt(5, account.getIsAdmin());
             stm.executeUpdate();
             //Insert Patient
-            String sql1 = "INSERT client (username, name, rank_id)" +
+            String sql1 = "INSERT patinet (username, name, rank_id)" +
                     "VALUES (?, ?, ?)";
             PreparedStatement stm1 = connection.prepareStatement(sql1);
             stm1.setString(1, account.getUsername());
