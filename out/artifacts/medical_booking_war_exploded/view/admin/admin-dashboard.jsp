@@ -113,7 +113,7 @@
 						<a href="#"><i class="fe fe-users"></i> <span>Specialities</span></a>
 					</li>
 					<li>
-						<a href="#"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+						<a href="doctors_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
 					</li>
 					<li>
 						<a href="#"><i class="fe fe-user"></i> <span>Patients</span></a>
