@@ -9,8 +9,6 @@ Q
 !src/test/java/model/BillTest.java,f\0\f0e867c664b58b189f3d52c594e2f1deb9620964
 T
 $src/test/java/model/BookingTest.java,9\9\997cb514204944c93d5a66e495104c02d333c0be
-P
- src/main/java/model/Patient.java,4\e\4e4a5d267ddfaeb230268c32ad9ec438bb1cff1c
 M
 src/main/java/model/Rank.java,0\a\0a5aaf91ce590b6360eb94f9f49fb1dce9dba7a0
 M

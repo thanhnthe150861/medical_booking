@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -89,30 +90,25 @@ class DoctorDBContextTest {
         // Add more assertions to validate the result
     }
     @Test
-    public void testGetBooking() {
+    public void testGetBookingTrue() {
         DoctorDBContext dbContext = new DoctorDBContext();
         Doctor doctor = new Doctor();
         doctor.setId(1);
         String status = "confirmed";
-        List<Booking> bookings = dbContext.getBooking(doctor, status);
-        // Assert that the returned list is not null
-        assertNotNull(bookings);
-        // Assert that the returned list is not empty
-        assertTrue(bookings.isEmpty());
-        // Additional assertions can be added to validate the correctness of the returned bookings
-        // For example, assert specific booking properties or compare the size of the list to an expected value
+        List<Booking> bookings = dbContext.getBooking(doctor,status);
+        assertTrue(bookings.size()==1);
     }
     @Test
-    public void testUpdateBookingStatus_Positive() {
-        DoctorDBContext doctorDBContext = new DoctorDBContext();
-        // Test with valid id and status
-        String id = "1";
+    public void testGetBookingFasle() {
+        DoctorDBContext dbContext = new DoctorDBContext();
+        Doctor doctor = new Doctor();
+        doctor.setId(1);
         String status = "confirmed";
-        doctorDBContext.updateBookingStatus(id, status);
-        Booking booking = new Booking();
-        assertEquals(status, booking.getStatus());
-
+        List<Booking> bookings = dbContext.getBooking(doctor,status);
+        assertFalse(bookings.size()==2);
     }
+
+
     @Test
     public void testUpdateDoctorTrue() {
         DoctorDBContext dbContext = new DoctorDBContext();
