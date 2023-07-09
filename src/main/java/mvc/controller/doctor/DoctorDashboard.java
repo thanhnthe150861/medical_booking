@@ -18,17 +18,21 @@ import java.util.List;
 public class DoctorDashboard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        Account account = (Account) session.getAttribute("account");
-        DoctorDBContext doctorDBContext = new DoctorDBContext();
-        if (account != null && account.getIsAdmin() == 1){
-            Doctor doctor = doctorDBContext.getDoctor(account);
-            session.setAttribute("doctor", doctor);
-            List<Booking> bookingList = doctorDBContext.getBooking(doctor, "Pending");
-            req.setAttribute("bookingList", bookingList);
-            req.getRequestDispatcher("view/doctor/doctor-dashboard.jsp").forward(req,resp);
+        try {
+            HttpSession session = req.getSession();
+            Account account = (Account) session.getAttribute("account");
+            DoctorDBContext doctorDBContext = new DoctorDBContext();
+            if (account != null && account.getIsAdmin() == 1) {
+                Doctor doctor = doctorDBContext.getDoctor(account);
+                session.setAttribute("doctor", doctor);
+                List<Booking> bookingList = doctorDBContext.getBooking(doctor, "Pending");
+                req.setAttribute("bookingList", bookingList);
+                req.getRequestDispatcher("view/doctor/doctor-dashboard.jsp").forward(req, resp);
+            }
+            req.getRequestDispatcher("login");
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        resp.sendRedirect("login");
     }
 
     @Override
