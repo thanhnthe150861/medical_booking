@@ -32,6 +32,19 @@
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
                     <h3 class="mb-4 text-center">Register</h3>
+                    <!-- Place this code where you want to display the error message -->
+                    <% String errorMessage = (String) request.getAttribute("messError"); %>
+                    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= errorMessage %>
+                    </div>
+                    <% } %>
+                    <% String successMessage = (String) request.getAttribute("messSuccess"); %>
+                    <% if (successMessage != null && !successMessage.isEmpty()) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= successMessage %>
+                    </div>
+                    <% } %>
                     <form action="register" class="login-form" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username" name="username" required>
@@ -44,22 +57,23 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="name" placeholder="Name" required>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="phone" placeholder="Phone" required>
-                        </div>
+<%--                        <div class="form-group">--%>
+<%--                            <input type="text" class="form-control" name="phone" placeholder="Phone" required>--%>
+<%--                        </div>--%>
                         <div class="form-group">
                             <input type="text" class="form-control" name="email" placeholder="Email" required>
                         </div>
+                        <!-- Existing form fields... -->
+                        <div class="form-group d-md-flex">
+                            <label class="checkbox">
+                            <input type="checkbox" name="agree" required>
+                            <label class="form-check-label">Tôi đồng ý với các <a href="#">điều khoản</a></label>
+                            </label>
+                        </div>
+                        <!-- Existing form fields... -->
                         <div class="form-group">
                             <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
                         </div>
-    <%--                        <div class="w-100">--%>
-    <%--                            <label class="checkbox-wrap checkbox-primary">tôi đồng ý với các <a href="" style="color: #3d49f0">điều--%>
-    <%--                                khoản</a>--%>
-    <%--                                <input type="checkbox" checked>--%>
-    <%--                                <span class="checkmark"></span>--%>
-    <%--                            </label>--%>
-    <%--                        </div>--%>
                         <div class="form-group d-md-flex">
                             <div class="w-50 text-md-left">
                                 <a href="login" style="color: #fff">Login</a>

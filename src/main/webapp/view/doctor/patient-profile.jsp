@@ -47,14 +47,13 @@
 								<span></span>
 							</span>
 						</a>
-						<a href="home" class="navbar-brand logo">
+						<a href="doctor_dashboard" class="navbar-brand logo">
 							<span class="text-primary">Clinic</span>-TATQ
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
-							<a href="home" class="menu-logo">
-								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
+							<a href="doctor_dashboard" class="menu-logo">
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -62,9 +61,6 @@
 							</a>
 						</div>
 						<ul class="main-nav">
-							<li>
-								<a href="home">Home</a>
-							</li>
 							<li>
 								<a href="doctor_dashboard">Dash Board</a>
 							</li>
@@ -94,8 +90,8 @@
 										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>Darren Elder</h6>
-										<p class="text-muted mb-0">Doctor</p>
+										<h6>${sessionScope.doctor.name}</h6>
+										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
 									</div>
 								</div>
 								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
@@ -117,7 +113,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="home">Home</a></li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Profile</li>
 								</ol>
 							</nav>
@@ -219,8 +215,19 @@
 																			<a href="javascript:void(0);" class="btn btn-sm bg-info-light">
 																				<i class="far fa-eye"></i> View
 																			</a>
+																			<c:if test="${m.booking.status == 'Confirmed'}">
+																				<a href="patient_profile?id=${requestScope.patient.id}&bid=${m.booking.id}&status=Completed" class="btn btn-sm bg-info-light">
+																					<i class="fas fa-check"></i> Completed
+																				</a>
+																				<a href="patient_profile?id=${requestScope.patient.id}&bid=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
+																					<i class="far fa-trash-alt"></i> Cancel
+																				</a>
+																			</c:if>
 																			<c:if test="${m.booking.status == 'Pending'}">
-																				<a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
+																				<a href="patient_profile?id=${requestScope.patient.id}&bid=${m.booking.id}&status=Confirmed" class="btn btn-sm bg-success-light">
+																					<i class="fas fa-check"></i> Confirmed
+																				</a>
+																				<a href="patient_profile?id=${requestScope.patient.id}&bid=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
 																					<i class="far fa-trash-alt"></i> Cancel
 																				</a>
 																			</c:if>

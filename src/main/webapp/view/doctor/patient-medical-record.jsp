@@ -47,13 +47,13 @@
 								<span></span>
 							</span>
         </a>
-        <a href="home" class="navbar-brand logo">
+        <a href="doctor_dashboard" class="navbar-brand logo">
           <span class="text-primary">Clinic</span>-TATQ
         </a>
       </div>
       <div class="main-menu-wrapper">
         <div class="menu-header">
-          <a href="home" class="menu-logo">
+          <a href="doctor_dashboard" class="menu-logo">
             <%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
             <span class="text-primary" width="50" height="50">Clinic</span>
           </a>
@@ -62,9 +62,6 @@
           </a>
         </div>
         <ul class="main-nav">
-          <li>
-            <a href="home">Home</a>
-          </li>
           <li>
             <a href="doctor_dashboard">Dash Board</a>
           </li>
@@ -94,8 +91,8 @@
                 <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
               </div>
               <div class="user-text">
-                <h6>Darren Elder</h6>
-                <p class="text-muted mb-0">Doctor</p>
+                <h6>${sessionScope.doctor.name}</h6>
+                <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
               </div>
             </div>
             <a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
@@ -117,7 +114,7 @@
         <div class="col-md-12 col-12">
           <nav aria-label="breadcrumb" class="page-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="home">Home</a></li>
+              <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">Profile</li>
             </ol>
           </nav>
@@ -198,6 +195,7 @@
                           </thead>
                           <tbody>
                           <c:forEach items="${requestScope.medicalRecordList}" var="m">
+                            <c:if test="${m.booking.status == 'Completed'}">
                           <tr>
                             <td><a href="javascript:void(0);">${m.id}</a></td>
                             <td>${m.booking.date}</td>
@@ -220,6 +218,7 @@
                               </div>
                             </td>
                           </tr>
+                            </c:if>
                           </c:forEach>
                           </tbody>
                         </table>
