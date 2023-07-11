@@ -1,6 +1,7 @@
 package dal;
 
 import model.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ class DoctorDBContextTest {
         Account account = new Account();
         account.setUsername("doctor1");
         Doctor doctor = dbContext.getDoctor(account);
-        assertEquals( 2, doctor.getId());
+        assertEquals(2, doctor.getId());
         assertEquals("doctor1", doctor.getUserName());
     }
     @Test
@@ -94,7 +95,7 @@ class DoctorDBContextTest {
         DoctorDBContext dbContext = new DoctorDBContext();
         Doctor doctor = new Doctor();
         doctor.setId(1);
-        String status = "confirmed";
+        String status = "Pending";
         List<Booking> bookings = dbContext.getBooking(doctor,status);
         assertTrue(bookings.size()==1);
     }

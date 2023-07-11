@@ -1,6 +1,8 @@
 package model;
 
+
 import java.sql.Date;
+
 
 public class Doctor {
     private int id;
