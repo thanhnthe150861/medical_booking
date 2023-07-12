@@ -87,33 +87,6 @@ public class PatientDBContext extends  DBContext{
         }
         return null;
     }
-    public List<Doctor> getAllDoctor(){
-        List<Doctor> doctorList = new ArrayList<>();
-        try {
-            String sql = "SELECT doctor.id, doctor.url, doctor.name, doctor.gender, doctor.dob, doctor.specialty, doctor.rank_id, rank_doctor.name AS rank_name\n" +
-                    "FROM doctor\n" +
-                    "LEFT JOIN rank_doctor ON doctor.rank_id = rank_doctor.id\n";
-            stm = connection.prepareStatement(sql);
-            rs = stm.executeQuery();
-            if (rs.next()){
-                Doctor doctor = new Doctor();
-                doctor.setId(rs.getInt("id"));
-                doctor.setUrl(rs.getString("url"));
-                doctor.setName(rs.getString("name"));
-                doctor.setGender(rs.getString("gender"));
-                doctor.setDob(rs.getDate("dob"));
-                doctor.setSpecialty(rs.getString("specialty"));
-                Rank rank = new Rank();
-                rank.setId(rs.getInt("rank_id"));
-                rank.setName(rs.getString("rank_name"));
-                doctor.setRanks(rank);
-                doctorList.add(doctor);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return doctorList;
-    }
     public List<MedicalRecord> getInforMyPatients(Patient patients){
         List<MedicalRecord> medicalRecordList = new ArrayList<>();
         try {
@@ -233,15 +206,15 @@ public class PatientDBContext extends  DBContext{
         }
         return bookingList;
     }
-    public void UpdatePatient(Account account, Patient patient) {
+    public void UpdatePatient(Patient patient) {
         try {
             // Update the account's information
             String accountSql = "UPDATE account SET password = ?, email = ?, phone = ? WHERE username = ?";
             stm = connection.prepareStatement(accountSql);
-            stm.setString(1, account.getPassword());
-            stm.setString(2, account.getEmail());
-            stm.setString(3, account.getPhone());
-            stm.setString(4, account.getUsername());
+            stm.setString(1, patient.getAccount().getPassword());
+            stm.setString(2, patient.getAccount().getEmail());
+            stm.setString(3, patient.getAccount().getPhone());
+            stm.setString(4, patient.getAccount().getUsername());
             stm.executeUpdate();
             // Update the patient's information
             String patientSql = "UPDATE patient SET url = ?, name = ?, gender = ?, dob = ?, rank_id = ? WHERE username = ?";

@@ -65,8 +65,9 @@ public class PatientProfileSettings extends HttpServlet {
         patient.setGender(gender);
         account.setPhone(phone);
         account.setEmail(email);
+        patient.setAccount(account);
         PatientDBContext patientDBContext = new PatientDBContext();
-        patientDBContext.UpdatePatient(account, patient);
+        patientDBContext.UpdatePatient(patient);
         resp.sendRedirect("patient_profile_settings");
     }
 }

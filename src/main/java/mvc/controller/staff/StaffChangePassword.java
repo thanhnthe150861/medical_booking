@@ -19,13 +19,9 @@ public class StaffChangePassword extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
-        if (account != null && account.getIsAdmin() == 2){
-            PatientDBContext patientDBContext = new PatientDBContext();
-            Patient patient = patientDBContext.getPatient(account);
-            session.setAttribute("patient", patient);
-            req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req,resp);
+        if (account != null && account.getIsAdmin() == 3){
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

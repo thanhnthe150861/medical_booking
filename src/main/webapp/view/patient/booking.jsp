@@ -1,3 +1,5 @@
+<%@ page import="mvc.model.Booking" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -128,29 +130,29 @@
 
             <div class="row">
                 <div class="col-12">
-
-                    <%--							<div class="card">--%>
-                    <%--								<div class="card-body">--%>
-                    <%--									<div class="booking-doc-info">--%>
-                    <%--										<a href="doctor-profile.html" class="booking-doc-img">--%>
-                    <%--											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">--%>
-                    <%--										</a>--%>
-                    <%--										<div class="booking-info">--%>
-                    <%--											<h4><a href="doctor-profile.html">Dr. Darren Elder</a></h4>--%>
-                    <%--											<div class="rating">--%>
-                    <%--												<i class="fas fa-star filled"></i>--%>
-                    <%--												<i class="fas fa-star filled"></i>--%>
-                    <%--												<i class="fas fa-star filled"></i>--%>
-                    <%--												<i class="fas fa-star filled"></i>--%>
-                    <%--												<i class="fas fa-star"></i>--%>
-                    <%--												<span class="d-inline-block average-rating">35</span>--%>
-                    <%--											</div>--%>
-                    <%--											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>--%>
-                    <%--										</div>--%>
-                    <%--									</div>--%>
-                    <%--								</div>--%>
-                    <%--							</div>--%>
-                    <form action="booking" method="post">
+<c:if test="${sessionScope.doctor ne null}">
+                    							<div class="card">
+                    								<div class="card-body">
+                    									<div class="booking-doc-info">
+                    										<a href="doctor-profile.html" class="booking-doc-img">
+                    											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                    										</a>
+                    										<div class="booking-info">
+                    											<h4><a href="#">${sessionScope.doctor.name}</a></h4>
+                    											<div class="rating">
+                    												<i class="fas fa-star filled"></i>
+                    												<i class="fas fa-star filled"></i>
+                    												<i class="fas fa-star filled"></i>
+                    												<i class="fas fa-star filled"></i>
+                    												<i class="fas fa-star"></i>
+                    												<span class="d-inline-block average-rating">35</span>
+                    											</div>
+                    											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
+                    										</div>
+                    									</div>
+                    								</div>
+                    							</div>
+</c:if>
                         <!-- Schedule Widget -->
                         <div class="card booking-schedule schedule-widget">
                             <!-- Schedule Header -->
@@ -167,9 +169,12 @@
                                         <div class="day-slot">
                                             <ul>
                                                 <li>
-                                                    <span><input type="date" id="datePicker"
-                                                                 value="${sessionScope.date}" name="datePicker"
-                                                                 style="border: #42c0fb solid 2px; border-radius: 5px"></span>
+                                                    <form action="booking" method="GET">
+                                                    <div style="display: flex; align-items: center;">
+                                                        <input type="date" id="datePicker" value="${sessionScope.date}" name="datePicker" style="border: 2px solid #42c0fb; border-radius: 5px; padding: 5px;">
+                                                        <input type="submit" value="Select Date" style="border: 2px solid #42c0fb; border-radius: 5px; padding: 5px; margin-left: 10px">
+                                                    </div>
+                                                    </form>
                                                 </li>
                                             </ul>
                                         </div>
@@ -184,7 +189,7 @@
                             <div class="schedule-cont">
                                 <div class="row">
                                     <div class="col-md-12">
-
+                                        <form action="booking" method="post">
                                         <!-- Time Slot -->
                                         <div class="time-slot">
                                             <ul class="clearfix d-flex align-items-center justify-content-center">
@@ -192,10 +197,21 @@
                                                 <li>
                                                     <c:forEach items="${sessionScope.slotList}" var="sl">
                                                         <c:if test="${sl.id lt 4}">
-                                                            <a class="timing <c:if test="${sessionScope.selectedSlot eq sl.id}">selected</c:if>"
-                                                               href="booking?selectedSlot=${sl.id}">
-                                                                <span>${sl.name}</span>
-                                                            </a>
+                                                            <c:forEach items="${sessionScope.bookingList}" var="bl">
+                                                                <c:if test="${bl.slot_id == sl.id}">
+                                                                    <span class="timing" style="background-color: red;color: white">
+                                                                        ${sl.name}
+                                                                    </span>
+                                                                </c:if>
+                                                            <c:if test="${bl.slot_id != sl.id}">
+                                                                <c:if test="${bl.slot_id == sl.id}">
+                                                                    <a class="timing <c:if test="${sessionScope.selectedSlot eq sl.id}">selected</c:if>"
+                                                                       href="booking?datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                        <span>${sl.name}</span>
+                                                                    </a>
+                                                                </c:if>
+                                                            </c:if>
+                                                            </c:forEach>
                                                         </c:if>
                                                     </c:forEach>
                                                 </li>
@@ -204,7 +220,7 @@
                                                     <c:forEach items="${sessionScope.slotList}" var="sl">
                                                         <c:if test="${sl.id gt 3}">
                                                             <a class="timing <c:if test="${sessionScope.selectedSlot eq sl.id}">selected</c:if>"
-                                                               href="booking?selectedSlot=${sl.id}">
+                                                               href="booking?datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
                                                                 <span>${sl.name}</span>
                                                             </a>
                                                         </c:if>
@@ -224,6 +240,7 @@
                                             </div>
                                         </div>
                                         <%----%>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +254,6 @@
                             <button class="btn btn-primary submit-btn">Booking</button>
                         </div>
                         <!-- /Submit Section -->
-                    </form>
                 </div>
             </div>
         </div>

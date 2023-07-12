@@ -5,19 +5,30 @@ public class MedicalRecord {
     private  int booking_id;
     private  String diagnosis;
     private  String prescription;
+
+    private  String url;
     private Booking booking = new Booking();
     private Bill bill = new Bill();
 
     public MedicalRecord() {
     }
 
-    public MedicalRecord(int id, int booking_id, String diagnosis, String prescription, Booking booking, Bill bill) {
+    public MedicalRecord(int id, int booking_id, String diagnosis, String prescription, String url, Booking booking, Bill bill) {
         this.id = id;
         this.booking_id = booking_id;
         this.diagnosis = diagnosis;
         this.prescription = prescription;
+        this.url = url;
         this.booking = booking;
         this.bill = bill;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Bill getBill() {

@@ -55,8 +55,9 @@ public class DoctorProfileSettings extends HttpServlet {
         doctor.setDob(dob);
         doctor.setGender(gender);
         account.setPhone(phone);
+        doctor.setAccount(account);
         DoctorDBContext doctorDBContext = new DoctorDBContext();
-        doctorDBContext.updateDoctor(account, doctor);
+        doctorDBContext.updateDoctor(doctor);
         resp.sendRedirect("doctor_profile_settings");
     }
 }

@@ -25,6 +25,7 @@ public class DoctorChangePassword extends HttpServlet {
             session.setAttribute("doctor", doctor);
         req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req,resp);
         }
+        resp.sendRedirect("login");
     }
 
     @Override

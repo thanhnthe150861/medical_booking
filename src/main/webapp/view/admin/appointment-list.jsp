@@ -133,9 +133,9 @@
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="form_details?str=doctor"> Add New Doctor </a></li>
-									<li><a href="form_details?str=patient"> Add New Patient </a></li>
-									<li><a href="form_details?str=staff"> Add New Staff </a></li>
+									<li><a href="form_details?str=doctor">Doctor</a></li>
+									<li><a href="form_details?str=patient">Patient</a></li>
+									<li><a href="form_details?str=staff">Staff</a></li>
 								</ul>
 							</li>
 							<li>

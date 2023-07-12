@@ -2,6 +2,7 @@ package mvc.dal;
 
 import mvc.model.*;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -185,15 +186,15 @@ public class DoctorDBContext extends  DBContext{
         }
     }
 
-    public void updateDoctor(Account account, Doctor doctor) {
+    public void updateDoctor(Doctor doctor) {
         try {
             // Update the account's information
             String accountSql = "UPDATE account SET password = ?, email = ?, phone = ? WHERE username = ?";
             stm = connection.prepareStatement(accountSql);
-            stm.setString(1, account.getPassword());
-            stm.setString(2, account.getEmail());
-            stm.setString(3, account.getPhone());
-            stm.setString(4, account.getUsername());
+            stm.setString(1, doctor.getAccount().getPassword());
+            stm.setString(2, doctor.getAccount().getEmail());
+            stm.setString(3, doctor.getAccount().getPhone());
+            stm.setString(4, doctor.getAccount().getUsername());
             stm.executeUpdate();
             // Update the doctor's information
             String doctorSql = "UPDATE doctor SET url = ?, name = ?, gender = ?, dob = ?, specialty = ?, rank_id = ? WHERE username = ?";
@@ -238,5 +239,27 @@ public class DoctorDBContext extends  DBContext{
             throw new RuntimeException(e);
         }
         return patientList;
+    }
+
+    public  List<Booking> checkBookingMyDoctor(Doctor Doctor, String date){
+        List<Booking> checkSlotToDay = new ArrayList<>();
+        try {
+            String sql = "SELECT *\n" +
+                    "FROM booking\n" +
+                    "WHERE date = ?\n" +
+                    "AND doctor_id = ?;";
+            stm = connection.prepareStatement(sql);
+            stm.setDate(1, Date.valueOf(date));
+            stm.setInt(2, Doctor.getId());
+            rs = stm.executeQuery();
+            while (rs.next()){
+                Booking booking = new Booking();
+                booking.setSlot_id(rs.getInt("slot_id"));
+                checkSlotToDay.add(booking);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return checkSlotToDay;
     }
 }
