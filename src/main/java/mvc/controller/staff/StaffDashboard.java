@@ -15,14 +15,14 @@ import mvc.model.Patient;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "PatientDashboard", value = "/patient_dashboard")
+@WebServlet(name = "StaffDashboard", value = "/staff_dashboard")
 public class StaffDashboard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         PatientDBContext patientDBContext = new PatientDBContext();
-        if (account != null && account.getIsAdmin() == 2){
+        if (account != null && account.getIsAdmin() == 3){
             String id = req.getParameter("id");
             String status = req.getParameter("status");
             // Kiểm tra xem các tham số có tồn tại hay không

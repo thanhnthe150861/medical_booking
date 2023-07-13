@@ -13,7 +13,17 @@ public class DBContext {
         try {
             String url = "jdbc:mysql://localhost:3306/medical_booking";//đang kết nối với database
             String user = "root";
-            String pass = "Thanh1742001.";
+            String pass = "Tuan@3006";
+
+//            String dbName = "medical_booking";
+//            String portNumber = "3306";
+//            String serverName = "database.cvuua3k5atka.ap-southeast-1.rds.amazonaws.com"; //kết nối với database cloud
+//            //Acc AWS DB
+//            String user = "admin";
+//            String pass = "12345678";
+//            String url = "jdbc:mysql://"+serverName+":"+portNumber+"/"+dbName;
+
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException ex) {
