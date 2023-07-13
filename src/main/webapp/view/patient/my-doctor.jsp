@@ -224,7 +224,7 @@
 													<a href="doctor_profile?id=${b.id}" class="btn view-btn">View Profile</a>
 												</div>
 												<div class="col-6">
-													<a href="booking?id=${b.id}" class="btn book-btn">Book Now</a>
+													<a href="booking_again?did=${b.id}" class="btn book-btn">Book Now</a>
 												</div>
 											</div>
 										</div>

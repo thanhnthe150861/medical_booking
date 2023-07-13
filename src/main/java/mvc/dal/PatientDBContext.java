@@ -150,6 +150,7 @@ public class PatientDBContext extends  DBContext{
         }
         return medicalRecordList;
     }
+
     public List<Booking> getBooking(Patient patient, String status){
         List<Booking> bookingList = new ArrayList<>();
         try {

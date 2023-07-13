@@ -167,14 +167,5 @@ INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff3', 'www.exam
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff4', 'www.example.com/staff4', 'Emily Davis', 'Female', '1993-07-20'); 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff5', 'www.example.com/staff5', 'Robert Wilson', 'Male', '1978-03-25');
 
-use medical_booking;
-SELECT * FROM account;
-SELECT * FROM patient;
-SELECT * FROM doctor;
-SELECT * FROM staff;
-SELECT * FROM booking;
-SELECT * FROM medical_record;
-SELECT * FROM bill;
-
 
 

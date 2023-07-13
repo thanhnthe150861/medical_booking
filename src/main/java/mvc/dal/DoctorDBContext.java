@@ -244,10 +244,7 @@ public class DoctorDBContext extends  DBContext{
     public  List<Booking> checkBookingMyDoctor(Doctor Doctor, String date){
         List<Booking> checkSlotToDay = new ArrayList<>();
         try {
-            String sql = "SELECT *\n" +
-                    "FROM booking\n" +
-                    "WHERE date = ?\n" +
-                    "AND doctor_id = ?;";
+            String sql = "SELECT slot_id FROM booking WHERE date = ? and doctor_id = ?;";
             stm = connection.prepareStatement(sql);
             stm.setDate(1, Date.valueOf(date));
             stm.setInt(2, Doctor.getId());
@@ -261,5 +258,14 @@ public class DoctorDBContext extends  DBContext{
             throw new RuntimeException(e);
         }
         return checkSlotToDay;
+    }
+    public static void main(String[] args) {
+        PatientDBContext pdb = new PatientDBContext();
+        Doctor doctor = pdb.getDoctorByPatient("1");
+        DoctorDBContext ddb = new DoctorDBContext();
+        List<Booking> booking = ddb.checkBookingMyDoctor(doctor, "2023-06-22");
+        for (Booking b: booking) {
+            System.out.println(b.getSlot_id());
+        }
     }
 }

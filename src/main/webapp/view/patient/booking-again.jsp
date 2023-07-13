@@ -128,8 +128,25 @@
     <!-- Page Content -->
     <div class="content">
         <div class="container">
+
             <div class="row">
                 <div class="col-12">
+                    <c:if test="${requestScope.doctor ne null}">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="booking-doc-info">
+                                    <a href="#" class="booking-doc-img">
+                                        <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                                    </a>
+                                    <div class="booking-info">
+                                        <h4><a href="#">${requestScope.doctor.name}</a></h4>
+                                        <p class="text-muted mb-0"> ${requestScope.doctor.specialty}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
                     <!-- Schedule Widget -->
                     <div class="card booking-schedule schedule-widget">
                         <!-- Schedule Header -->
@@ -146,7 +163,7 @@
                                     <div class="day-slot">
                                         <ul>
                                             <li>
-                                                <form action="booking" method="GET">
+                                                <form action="booking_again" method="GET">
                                                     <div style="display: flex; align-items: center;">
                                                         <input type="date" id="datePicker" value="${sessionScope.date}"
                                                                name="datePicker"
@@ -168,19 +185,27 @@
                         <div class="schedule-cont">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form action="booking" method="post">
+                                    <form action="booking_again" method="post">
                                         <!-- Time Slot -->
                                         <div class="time-slot">
                                             <ul class="clearfix d-flex align-items-center justify-content-center">
                                                 <!-- Morning -->
                                                 <li>
+                                                    <c:forEach items="${sessionScope.bookingList}" var="bl">
                                                     <c:forEach items="${sessionScope.slotList}" var="sl">
-                                                        <c:if test="${sl.id lt 4}">
-                                                            <a class="timing <c:if test='${sessionScope.selectedSlot eq sl.id}'>selected</c:if>"
-                                                               href="booking?datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
-                                                                <span>${sl.name}</span>
-                                                            </a>
-                                                        </c:if>
+                                                            <c:if test="${sl.id lt 4 && sl.id != bl.slot_id}">
+                                                                <a class="timing <c:if test='${sessionScope.selectedSlot eq sl.id}'>selected</c:if>"
+                                                                   href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                    <span>${sl.name}</span>
+                                                                </a>
+                                                            </c:if>
+                                                            <c:if test="${sl.id lt 4 && sl.id == bl.slot_id}">
+                                                                <a class="timing" style="background-color: red; color: white"
+                                                                   href="#">
+                                                                    <span>${sl.name}</span>
+                                                                </a>
+                                                            </c:if>
+                                                        </c:forEach>
                                                     </c:forEach>
                                                 </li>
                                                 <!-- Afternoon -->
@@ -188,7 +213,7 @@
                                                     <c:forEach items="${sessionScope.slotList}" var="sl">
                                                         <c:if test="${sl.id gt 3}">
                                                             <a class="timing <c:if test="${sessionScope.selectedSlot eq sl.id}">selected</c:if>"
-                                                               href="booking?datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                               href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
                                                                 <span>${sl.name}</span>
                                                             </a>
                                                         </c:if>

@@ -36,14 +36,6 @@ public class Booking extends HttpServlet {
                 session.removeAttribute("date");
                 session.setAttribute("date", selectedDate);
             }
-            String id = req.getParameter("id");
-            if(id != null) {
-                DoctorDBContext dbContext = new DoctorDBContext();
-                Doctor doctor = patientDBContext.getDoctorByPatient(id);
-                session.setAttribute("doctor", doctor);
-                List<mvc.model.Booking> bookingList = dbContext.checkBookingMyDoctor(doctor, selectedDate);
-                session.setAttribute("bookingList", bookingList);
-            }
             List<Slot> slotList = patientDBContext.getAllSlots();
             session.setAttribute("slotList", slotList);
             String selectedSlot = req.getParameter("selectedSlot");
