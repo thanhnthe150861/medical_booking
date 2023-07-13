@@ -21,7 +21,11 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="assets/css/style.css">
 		
-
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
 	
 	</head>
 	<body>
@@ -475,10 +479,6 @@
 		<script src="assets/js/script.js"></script>
 		
 	</body>
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-<script src="assets/js/html5shiv.min.js"></script>
-<script src="assets/js/respond.min.js"></script>
-<![endif]-->
+
 <!-- doccure/doctor-dashboard.jsp  30 Nov 2019 04:12:09 GMT -->
 </html>

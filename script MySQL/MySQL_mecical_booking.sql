@@ -21,7 +21,7 @@ ALTER DATABASE medical_booking CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 	CREATE TABLE patient (
 		id int auto_increment,
 		username varchar(50) NOT NULL,
-        url varchar(max),
+        url varchar(500),
 		name varchar(150) NOT NULL,
 		gender varchar(10),
 		dob date,
@@ -31,7 +31,7 @@ ALTER DATABASE medical_booking CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 	 CREATE TABLE doctor (
 		id int auto_increment,
 		username varchar(50) NOT NULL,
-        url varchar(max),
+        url varchar(500),
 		name varchar(150) NOT NULL,
 		gender varchar(10),
 		dob date,
@@ -42,7 +42,7 @@ ALTER DATABASE medical_booking CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 	CREATE TABLE staff (
 		id int auto_increment,
 		username varchar(50) NOT NULL,
-        url varchar(max),
+        url varchar(500),
 		name varchar(150) NOT NULL,
 		gender varchar(10),
 		dob date,
@@ -64,7 +64,7 @@ ALTER DATABASE medical_booking CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 		booking_id int NOT NULL,
 		diagnosis varchar(100) NOT NULL,
 		prescription varchar(100) NULL,
-        url varchar(max),
+        url varchar(500),
 		PRIMARY KEY  (id)
 	);
 
@@ -135,9 +135,9 @@ INSERT INTO patient (username, url, name, gender, dob, rank_id) VALUES ('patient
 INSERT INTO patient (username, url, name, gender, dob, rank_id) VALUES ('patient3', NULL, 'Ngân', 'Female', '1992-02-02', 2);
 -- Add more patients as needed
  -- Doctor table INSERT statements
-INSERT INTO doctor (username, url, name, gender, dob, specialty, rank_id) VALUES ('doctor', NULL, 'Dr Smith', 'Male', '1980-03-03', 'Bác Sĩ Chuyên Khoa Mũi Họng', 1);
-INSERT INTO doctor (username, url, name, gender, dob, specialty, rank_id) VALUES ('doctor1', NULL, 'Dr Park', 'Female', '1975-07-07', 'Bác Sĩ Chuyên Khoa Mũi', 2);
-INSERT INTO doctor (username, url, name, gender, dob, specialty, rank_id) VALUES ('doctor2', NULL, 'Dr Lee', 'Male', '1969-08-08', 'Bác Sĩ Chuyên Khoa Tai', 3);
+INSERT INTO doctor (username, url, name, gender, dob, specialty, rank_id) VALUES ('doctor', NULL, 'Dr. Smith', 'Male', '1980-03-03', 'Bác Sĩ Chuyên Khoa Mũi Họng', 1);
+INSERT INTO doctor (username, url, name, gender, dob, specialty, rank_id) VALUES ('doctor1', NULL, 'Dr. Park', 'Female', '1975-07-07', 'Bác Sĩ Chuyên Khoa Mũi', 2);
+INSERT INTO doctor (username, url, name, gender, dob, specialty, rank_id) VALUES ('doctor2', NULL, 'Dr. Lee', 'Male', '1969-08-08', 'Bác Sĩ Chuyên Khoa Tai', 3);
 INSERT INTO doctor (username, url, name, gender, dob, specialty, rank_id) VALUES ('doctor3', NULL, 'Thành', 'Female', '1982-04-04', 'Bác Sĩ Chuyên Khoa Tai Họng', 2);
 -- Add more doctors as needed
  -- Booking table INSERT statements
@@ -165,3 +165,6 @@ INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff2', 'www.exam
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff3', 'www.example.com/staff3', 'Michael Johnson', 'Male', '1982-11-15'); 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff4', 'www.example.com/staff4', 'Emily Davis', 'Female', '1993-07-20'); 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff5', 'www.example.com/staff5', 'Robert Wilson', 'Male', '1978-03-25');
+
+
+
