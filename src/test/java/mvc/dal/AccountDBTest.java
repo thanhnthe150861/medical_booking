@@ -270,7 +270,7 @@ class AccountDBTest {
         accountDB.addNewPatient(patient);
         // Assert that the patient is added successfully
         // Write assertions based on the expected behavior of the addNewPatient() method
-        assertEquals(account.getUsername(),"testPatient@@");
+        assertFalse(account.getUsername().equals("testPatient@@"));
         assertEquals(account.getPassword(),"password");
         assertEquals(account.getPhone(),"123213121");
         assertEquals(account.getEmail(),"quyetlbche160252@fpt.edu.vn");

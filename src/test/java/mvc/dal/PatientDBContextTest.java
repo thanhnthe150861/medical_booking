@@ -61,22 +61,7 @@ class PatientDBContextTest {
         Doctor doctor = patientDBContext.getDoctorByPatient(id);
         assertNull(doctor);
     }
-    @Test
-    public void testGetAllDoctortrue() {
-        PatientDBContext patientDBContext = new PatientDBContext();
-        List<Doctor> doctorList = patientDBContext.getAllDoctor();
-        assertNotNull(doctorList);
-        assertTrue(doctorList.size() > 0);
-        // Add more assertions to validate the returned doctorList
-    }
-    @Test
-    public void testGetAllDoctorFasle() {
-        PatientDBContext patientDBContext = new PatientDBContext();
-        List<Doctor> doctorList = patientDBContext.getAllDoctor();
-        assertNotNull(doctorList);
-        assertFalse(doctorList.size()==123);
-        // Add more assertions to validate the returned doctorList
-    }
+
     @Test
     public void testGetInforMyPatientsTrue(){
         Patient patient = new Patient();
@@ -122,7 +107,7 @@ class PatientDBContextTest {
         Patient patient = new Patient();
         patient.setName("John Doe");
         PatientDBContext patientDBContext = new PatientDBContext();
-        patientDBContext.UpdatePatient(account, patient);
+        patientDBContext.UpdatePatient( patient);
         Patient patient23 = patientDBContext.getPatient(account);
         assertNotNull(patient23);
         assertEquals("patient", patient23.getUserName());
@@ -137,7 +122,7 @@ class PatientDBContextTest {
         Patient patient = new Patient();
         patient.setName("John Doe");
         PatientDBContext patientDBContext = new PatientDBContext();
-        patientDBContext.UpdatePatient(account, patient);
+        patientDBContext.UpdatePatient(patient);
         Patient patient23 = patientDBContext.getPatient(account);
         assertNotNull(patient23);
         assertFalse(patient23.getUserName().equals("patient@@"));

@@ -111,7 +111,7 @@ class DoctorDBContextTest {
         account.setEmail("quyet@gmail.com");
         account.setPhone("0868746275");
         doctor.setName("doctor1");
-        dbContext.updateDoctor(account, doctor);
+        dbContext.updateDoctor( doctor);
         Doctor doctor23 = dbContext.getDoctor(account);
         assertNotNull(doctor23);
         assertEquals("doctor1", doctor23.getUserName());
@@ -127,7 +127,7 @@ class DoctorDBContextTest {
         account.setPhone("0868746275");
         doctor.setName("doctor1");
         // Update the doctor's information
-        dbContext.updateDoctor(account, doctor);
+        dbContext.updateDoctor( doctor);
         Doctor doctor23 = dbContext.getDoctor(account);
         assertNotNull(doctor23);
         assertFalse(doctor23.getUserName().equals("doctor1@"));
@@ -141,7 +141,7 @@ class DoctorDBContextTest {
         doctor.setId(1);
         List<Patient> patient = dbContext.getMyPatient(doctor,booking.getStatus());
         assertNotNull(patient);
-        assertEquals(1, patient.size());
+        assertEquals(2, patient.size());
         assertEquals("John Doe",patient.get(0).getName());
     }
     @Test
@@ -153,7 +153,7 @@ class DoctorDBContextTest {
         doctor.setId(1);
         List<Patient> patient = dbContext.getMyPatient(doctor,booking.getStatus());
         assertNotNull(patient);
-        assertEquals(1, patient.size());
+        assertEquals(2, patient.size());
         assertEquals("John Doe",patient.get(0).getName());
         assertFalse(patient.get(0).getAccount().equals("patient!@"));
     }

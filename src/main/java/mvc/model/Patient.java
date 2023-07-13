@@ -35,7 +35,7 @@ public class Patient {
         this.gender = gender;
         this.dob = dob;
         this.rankId = rankId;
-
+    }
     public Account getAccount() {
         return account;
     }

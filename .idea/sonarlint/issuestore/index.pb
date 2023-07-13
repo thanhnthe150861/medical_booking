@@ -13,8 +13,6 @@ M
 src/main/java/model/Role.java,c\3\c3e2752fa9c2c03f43e68ba90ad21fe7df941672
 M
 src/main/java/model/Slot.java,6\2\6208af43549943c4d5a560c4d8d9219e7322ad07
-Z
-*src/test/java/model/MedicalRecordTest.java,d\f\dfae059cc253cd1a070fdc9c67cbb61450af909b
 V
 &src/main/java/model/MedicalRecord.java,c\f\cf01a0d250305869229c9ee27f588ad38fe6da93
 P
