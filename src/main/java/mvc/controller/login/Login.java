@@ -40,6 +40,9 @@ public class Login extends HttpServlet {
             } else if (account.getIsAdmin() == 1){
                 session.setAttribute("account", account);
                 resp.sendRedirect("doctor_dashboard");
+            } else if (account.getIsAdmin() == 3){
+                session.setAttribute("account", account);
+                resp.sendRedirect("staff_dashboard");
             } else if (account.getIsAdmin() == 2){
                 session.setAttribute("account", account);
                 PatientDBContext patientDBContext = new PatientDBContext();

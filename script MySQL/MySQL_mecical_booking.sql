@@ -59,7 +59,6 @@ ALTER DATABASE medical_booking CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 		PRIMARY KEY (id)
 	);
 
-
 	CREATE TABLE medical_record(
 		id int auto_increment,
 		booking_id int NOT NULL,
@@ -149,10 +148,10 @@ INSERT INTO booking (doctor_id, patient_id, slot_id, booking_reason, date, statu
 INSERT INTO booking (doctor_id, patient_id, slot_id, booking_reason, date, status) VALUES (1, 2, 3, 'Annual check-up', '2023-06-23', 'Pending');
 -- Add more bookings as needed
  -- Medical_record table INSERT statements
-INSERT INTO medical_record (booking_id, diagnosis, prescription) VALUES (1, 'Healthy', NULL);
-INSERT INTO medical_record (booking_id, diagnosis, prescription) VALUES (2, 'Allergic reaction', 'Antihistamine');
-INSERT INTO medical_record (booking_id, diagnosis, prescription) VALUES (3, 'Healthy', NULL);
-INSERT INTO medical_record (booking_id, diagnosis, prescription) VALUES (4, 'Cancer', 'Chemotherapy');
+INSERT INTO medical_record (booking_id, diagnosis, url, prescription) VALUES (1, 'Healthy', NULL, NULL);
+INSERT INTO medical_record (booking_id, diagnosis, url, prescription) VALUES (2, 'Allergic reaction', NULL, 'Antihistamine');
+INSERT INTO medical_record (booking_id, diagnosis, url, prescription) VALUES (3, 'Healthy', NULL, NULL);
+INSERT INTO medical_record (booking_id, diagnosis, url, prescription) VALUES (4, 'Cancer', NULL, 'Chemotherapy');
 -- Add more medical records as needed
  -- Bill table INSERT statements
 INSERT INTO bill (medical_record_id, payment_status, price) VALUES (1, 'Paid', 100.50);
@@ -166,6 +165,3 @@ INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff2', 'www.exam
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff3', 'www.example.com/staff3', 'Michael Johnson', 'Male', '1982-11-15'); 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff4', 'www.example.com/staff4', 'Emily Davis', 'Female', '1993-07-20'); 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff5', 'www.example.com/staff5', 'Robert Wilson', 'Male', '1978-03-25');
-
-
-
