@@ -28,7 +28,7 @@ public class Forgot extends HttpServlet {
         if (account != null){
             if (account.getEmail().equals(email)){
                 session.setAttribute("account", account);
-                resp.sendRedirect("reset_password");
+                req.getRequestDispatcher("reset_password");
             }else {
                 req.setAttribute("messError", "Email không đúng");
                 req.getRequestDispatcher("view/login/forgot.jsp").forward(req,resp);

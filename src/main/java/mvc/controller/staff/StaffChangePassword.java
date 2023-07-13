@@ -25,7 +25,7 @@ public class StaffChangePassword extends HttpServlet {
             session.setAttribute("patient", patient);
             req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

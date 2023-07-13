@@ -1,5 +1,6 @@
 package mvc.controller.patient;
 
+import mvc.dal.DoctorDBContext;
 import mvc.dal.PatientDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -26,24 +27,15 @@ public class Booking extends HttpServlet {
         Account account = (Account) session.getAttribute("account");
         PatientDBContext patientDBContext = new PatientDBContext();
         if (account != null && account.getIsAdmin() == 2) {
-//            // Lấy giá trị của các tham số id từ liên kết
-//            String id = req.getParameter("id");
-//            if(id != null){
-//                Doctor doctor = patientDBContext.getDoctorByPatient(id);
-//                //Lấy ngày hôm nay
-//                LocalDate today = LocalDate.now();
-//                String date = today.toString();
-//                session.setAttribute("date", date);
-//                session.setAttribute("doctor", doctor);
-//                req.getRequestDispatcher("view/patient/booking.jsp").forward(req,resp);
-//            }
-//            }
-
-
             //Lấy ngày hôm nay
             LocalDate today = LocalDate.now();
             String date = today.toString();
             session.setAttribute("date", date);
+            String selectedDate = req.getParameter("datePicker");
+            if (selectedDate != null){
+                session.removeAttribute("date");
+                session.setAttribute("date", selectedDate);
+            }
             List<Slot> slotList = patientDBContext.getAllSlots();
             session.setAttribute("slotList", slotList);
             String selectedSlot = req.getParameter("selectedSlot");
@@ -53,6 +45,7 @@ public class Booking extends HttpServlet {
         resp.sendRedirect("login");
     }
 
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -60,7 +53,7 @@ public class Booking extends HttpServlet {
         Account account = (Account) session.getAttribute("account");
         Patient patient = patientDBContext.getPatient(account);
         //Ngày và Slot được chọn
-        String selectedDate = req.getParameter("datePicker");
+        String selectedDate = (String) session.getAttribute("date");
         String selectedSlot = (String) session.getAttribute("selectedSlot");
         String textReason = req.getParameter("textReason");
         String status = "Cancelled";

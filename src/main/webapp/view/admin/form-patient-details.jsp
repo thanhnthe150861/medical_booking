@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -121,9 +122,9 @@
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="form_details?str=doctor"> Add New Doctor </a></li>
-									<li class=" active"><a href="form_details?str=patient"> Add New Patient </a></li>
-									<li><a href="form_details?str=staff"> Add New Staff </a></li>
+									<li><a href="form_details?str=doctor">Doctor</a></li>
+									<li class="active"><a href="form_details?str=patient">Patient</a></li>
+									<li><a href="form_details?str=staff">Staff</a></li>
 								</ul>
 							</li>
 							<li>
@@ -169,6 +170,12 @@
 										<%= errorMessage %>
 									</div>
 									<% } %>
+									<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+									<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+									<div class="alert alert-success" role="alert">
+										<%= messSuccess %>
+									</div>
+									<% } %>
 								</div>
 								<div class="card-body">
 									<form action="form_details" method="post">
@@ -181,49 +188,59 @@
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">User Name</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="username">
+												<input type="text" class="form-control" name="username" required <c:if test="${sessionScope.patient ne null}"> readonly="readonly" value="${sessionScope.patient.account.username}"</c:if>>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Password</label>
 											<div class="col-md-10">
-												<input type="password" class="form-control" name="password">
+												<input type="text" class="form-control" name="password" required value="${sessionScope.patient.account.password}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Name</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="name">
+												<input type="text" class="form-control" name="name" required value="${sessionScope.patient.name}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Phone</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="phone">
+												<input type="text" class="form-control" name="phone" required value="${sessionScope.patient.account.phone}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Email</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="email">
+												<input type="text" class="form-control" name="email" required value="${sessionScope.patient.account.email}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Date Of Birth</label>
 											<div class="col-md-10">
-												<input class="form-control" type="date" name="dob">
+												<input class="form-control" type="date" name="dob" required value="${sessionScope.patient.dob}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Gender</label>
 											<div class="col-md-10">
-												<select class="form-control select" name="gender">
+												<select class="form-control select" name="gender" required>
 													<option>Select</option>
-													<option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>Male</option>
-													<option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>Female</option>
+													<option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>Male</option>
+													<option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>Female</option>
 												</select>
 											</div>
 										</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-2">Status</label>
+												<div class="col-md-10">
+													<select class="form-control select" name="status" required>
+														<c:forEach items="${sessionScope.rankListPatient}" var="rld">
+															<option value="${rld.id}" ${sessionScope.patient.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
+														</c:forEach>
+													</select>
+												</div>
+											</div>
 										<div class="submit-section">
 											<button type="submit" class="btn btn-primary submit-btn">Save</button>
 										</div>

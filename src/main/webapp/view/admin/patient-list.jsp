@@ -2,6 +2,7 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="java.util.List" %>
 <%@ page import="mvc.model.Staff" %>
+<%@ page import="mvc.dal.AccountDB" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -131,9 +132,9 @@
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="form_details?str=doctor"> Add New Doctor </a></li>
-									<li><a href="form_details?str=patient"> Add New Patient </a></li>
-									<li><a href="form_details?str=staff"> Add New Staff </a></li>
+									<li><a href="form_details?str=doctor">Doctor</a></li>
+									<li><a href="form_details?str=patient">Patient</a></li>
+									<li><a href="form_details?str=staff">Staff</a></li>
 								</ul>
 							</li>
 							<li>
@@ -215,11 +216,8 @@
 													</td>
 													<td class="text-center">
 														<div class="actions">
-															<a data-toggle="modal" href="#" class="btn btn-sm bg-success-light mr-2">
+															<a data-toggle="modal" href="form_details?pid=<%= patient.getBooking().getPatient().getId() %>" class="btn btn-sm bg-success-light mr-2">
 																<i class="fe fe-pencil"></i> Edit
-															</a>
-															<a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
-																<i class="fe fe-trash"></i> Delete
 															</a>
 														</div>
 													</td>

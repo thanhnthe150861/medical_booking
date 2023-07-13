@@ -158,7 +158,7 @@
 										</ul>
 									</div>
 									<div class="clinic-booking">
-										<a class="apt-btn" href="booking?id=${sessionScope.doctor.id}">Book Appointment</a>
+										<a class="apt-btn" href="booking_again?did=${sessionScope.doctor.id}">Book Appointment</a>
 									</div>
 								</div>
 							</div>

@@ -92,7 +92,8 @@
                         </c:if>
                         <c:if test="${sessionScope.account ne null}">
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
-                                <a class="btn btn-primary ml-lg-3" href="patient_dashboard">${sessionScope.patient.name}</a>
+                                <a class="btn btn-primary ml-lg-3"
+                                   href="patient_dashboard">${sessionScope.patient.name}</a>
                                 <a class="btn btn-primary ml-lg-3" href="login">Log out</a>
                             </c:if>
                         </c:if>
@@ -122,23 +123,23 @@
 
 <div class="bg-light">
     <c:if test="${sessionScope.account ne null}">
-        <div class="page-section py-3 mt-md-n5 custom-index">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-4 py-3 py-md-0">
-                        <div class="card-service wow fadeInUp">
-                            <div class="circle-shape bg-secondary text-white">
-                                <span class="mai-logo-xbox"></span>
-                            </div>
-                                <c:if test="${sessionScope.account.isAdmin eq 2}">
-                                    <p><a href="patient_dashboard" class=""><span></span> Dashboard</a></p>
-                                </c:if>
+    <div class="page-section py-3 mt-md-n5 custom-index">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 py-3 py-md-0">
+                    <div class="card-service wow fadeInUp">
+                        <div class="circle-shape bg-secondary text-white">
+                            <span class="mai-logo-xbox"></span>
                         </div>
+                        <c:if test="${sessionScope.account.isAdmin eq 2}">
+                            <p><a href="patient_dashboard" class=""><span></span> Dashboard</a></p>
+                        </c:if>
                     </div>
                 </div>
             </div>
-        </div> <!-- .page-section -->
-        </c:if>
+        </div>
+    </div> <!-- .page-section -->
+    </c:if>
 
     <div class="page-section">
         <div class="container">

@@ -17,12 +17,12 @@ import java.util.List;
 public class AdminDashboard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        Account account = (Account) session.getAttribute("account");
-//        if (account != null && account.getIsAdmin() == 0){
+        HttpSession session = req.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account != null && account.getIsAdmin() == 0){
         req.getRequestDispatcher("view/admin/admin-dashboard.jsp").forward(req,resp);
-//        }
-//        resp.sendRedirect("login");
+        }
+        resp.sendRedirect("login");
     }
 
     @Override

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -121,9 +122,9 @@
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li class=" active"><a href="form_details?str=doctor"> Add New Doctor </a></li>
-									<li><a href="form_details?str=patient"> Add New Patient </a></li>
-									<li><a href="form_details?str=staff"> Add New Staff </a></li>
+									<li class="active"><a href="form_details?str=doctor">Doctor</a></li>
+									<li><a href="form_details?str=patient">Patient</a></li>
+									<li><a href="form_details?str=staff">Staff</a></li>
 								</ul>
 							</li>
 							<li>
@@ -161,12 +162,18 @@
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">ADD NEW DOCTOR</h4>
+									<h4 class="card-title"><c:if test="${sessionScope.doctor eq null}">ADD NEW</c:if><c:if test="${sessionScope.doctor ne null}">UPDATE</c:if> DOCTOR</h4>
 									<!-- Place this code where you want to display the error message -->
 									<% String errorMessage = (String) request.getAttribute("messError"); %>
 									<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
 									<div class="alert alert-danger" role="alert">
 										<%= errorMessage %>
+									</div>
+									<% } %>
+									<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+									<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+									<div class="alert alert-success" role="alert">
+										<%= messSuccess %>
 									</div>
 									<% } %>
 								</div>
@@ -181,43 +188,43 @@
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">User Name</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="username">
+												<input type="text" class="form-control" name="username" required <c:if test="${sessionScope.doctor ne null}"> readonly="readonly" value="${sessionScope.doctor.account.username}"</c:if>>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Password</label>
 											<div class="col-md-10">
-												<input type="password" class="form-control" name="password">
+												<input type="text" class="form-control" name="password" required value="${sessionScope.doctor.account.password}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Name</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="name">
+												<input type="text" class="form-control" name="name" required value="${sessionScope.doctor.name}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Phone</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="phone">
+												<input type="text" class="form-control" name="phone" required value="${sessionScope.doctor.account.phone}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Email</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="email">
+												<input type="text" class="form-control" name="email" required value="${sessionScope.doctor.account.email}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Date Of Birth</label>
 											<div class="col-md-10">
-												<input class="form-control" type="date" name="dob">
+												<input class="form-control" type="date" name="dob" required value="${sessionScope.doctor.dob}">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Gender</label>
 											<div class="col-md-10">
-												<select class="form-control select" name="gender">
+												<select class="form-control select" name="gender" required>
 													<option>Select</option>
 													<option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>Male</option>
 													<option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>Female</option>
@@ -227,7 +234,26 @@
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Speciality</label>
 											<div class="col-md-10">
-												<input class="form-control" type="text" name="speciality">
+												<input class="form-control" type="text" name="speciality" required value="${sessionScope.doctor.specialty}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Status</label>
+											<div class="col-md-10">
+												<select class="form-control select" name="status" required>
+													<option value="true" ${sessionScope.doctor.account.status == true ? "selected" : ""}>Active</option>
+													<option value="false" ${sessionScope.doctor.account.status == false ? "selected" : ""}>Deactive</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Rank</label>
+											<div class="col-md-10">
+												<select class="form-control select" name="rank" required>
+													<c:forEach items="${sessionScope.rankListDoctor}" var="rld">
+														<option value="${rld.id}" ${sessionScope.doctor.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
+													</c:forEach>
+												</select>
 											</div>
 										</div>
 										<div class="submit-section">

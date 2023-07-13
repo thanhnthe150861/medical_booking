@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import mvc.model.Account;
 import mvc.model.Patient;
+import mvc.model.Staff;
 
 import java.io.IOException;
 
@@ -44,6 +45,12 @@ public class Login extends HttpServlet {
                 PatientDBContext patientDBContext = new PatientDBContext();
                 Patient patient = patientDBContext.getPatient(account);
                 session.setAttribute("patient", patient);
+                resp.sendRedirect("home");
+            }else if (account.getIsAdmin() == 3){
+                session.setAttribute("account", account);
+
+                Staff staff = null;
+                session.setAttribute("staff", staff);
                 resp.sendRedirect("home");
             }
         }
