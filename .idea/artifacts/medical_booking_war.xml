@@ -1,7 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="war" name="medical_booking:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/medical_booking_war</output-path>
-    <root id="archive" name="medical_booking_war.war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>medical_booking</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="medical_booking-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="medical_booking:war exploded" />
     </root>
   </artifact>

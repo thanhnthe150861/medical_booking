@@ -29,7 +29,7 @@ public class DoctorDashboard extends HttpServlet {
                 req.setAttribute("bookingList", bookingList);
                 req.getRequestDispatcher("view/doctor/doctor-dashboard.jsp").forward(req, resp);
             }
-            req.getRequestDispatcher("login");
+            resp.sendRedirect("login");
         }catch (Exception e){
             e.printStackTrace();
         }
