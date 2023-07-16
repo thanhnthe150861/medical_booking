@@ -16,14 +16,11 @@ public class DoctorList extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
-        if (account != null && account.getIsAdmin() == 0){
-        req.getRequestDispatcher("view/admin/doctor-list.jsp").forward(req,resp);
+        if (account != null) {
+            if (account.getIsAdmin() == 0 || account.getIsAdmin() == 3) {
+                req.getRequestDispatcher("view/admin/doctor-list.jsp").forward(req, resp);
+            }
         }
         resp.sendRedirect("login");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
     }
 }
