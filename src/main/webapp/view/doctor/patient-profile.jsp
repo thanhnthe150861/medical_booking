@@ -216,18 +216,18 @@
 																				<i class="far fa-eye"></i> View
 																			</a>
 																			<c:if test="${m.booking.status == 'Confirmed'}">
-																				<a href="patient_profile?id=${requestScope.patient.id}&bid=${m.booking.id}&status=Completed" class="btn btn-sm bg-info-light">
+																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Completed" class="btn btn-sm bg-info-light">
 																					<i class="fas fa-check"></i> Completed
 																				</a>
-																				<a href="patient_profile?id=${requestScope.patient.id}&bid=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
+																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
 																					<i class="far fa-trash-alt"></i> Cancel
 																				</a>
 																			</c:if>
 																			<c:if test="${m.booking.status == 'Pending'}">
-																				<a href="patient_profile?id=${requestScope.patient.id}&bid=${m.booking.id}&status=Confirmed" class="btn btn-sm bg-success-light">
+																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Confirmed" class="btn btn-sm bg-success-light">
 																					<i class="fas fa-check"></i> Confirmed
 																				</a>
-																				<a href="patient_profile?id=${requestScope.patient.id}&bid=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
+																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
 																					<i class="far fa-trash-alt"></i> Cancel
 																				</a>
 																			</c:if>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="mvc.model.MedicalRecord" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -172,8 +173,28 @@
 										</div>
 										<div class="col-sm-6 text-sm-right">
 											<div class="billing-info">
-												<h4 class="d-block">${sessionScope.medicalRecord.booking.date}${sessionScope.booking.date}</h4>
-												<span class="d-block text-muted">Booking ID: ${sessionScope.medicalRecord.booking_id}${sessionScope.booking.id}</span>
+												<h4 class="d-block">
+													<c:if test="${empty sessionScope.medicalRecord.booking.date}">
+														<p>Booking Date: ${sessionScope.booking.date}</p>
+													</c:if>
+													<c:if test="${empty sessionScope.booking.date}">
+														<p>Booking Date: ${sessionScope.medicalRecord.booking.date}</p>
+													</c:if>
+													<c:if test="${not empty sessionScope.booking.date && not empty sessionScope.medicalRecord.booking.date}">
+														<p>Booking Date: ${sessionScope.booking.date}</p>
+													</c:if>
+												</h4>
+												<span class="d-block text-muted">
+													<c:if test="${empty sessionScope.medicalRecord.booking_id}">
+														<p>Booking ID: ${sessionScope.booking.id}</p>
+													</c:if>
+													<c:if test="${empty sessionScope.booking.id}">
+														<p>Booking ID: ${sessionScope.medicalRecord.booking_id}</p>
+													</c:if>
+													<c:if test="${not empty sessionScope.medicalRecord.booking_id && not empty sessionScope.booking.id}">
+														<p>Booking ID: ${sessionScope.booking.id}</p>
+													</c:if>
+												</span>
 											</div>
 										</div>
 									</div>
@@ -191,8 +212,10 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr>								
-															<td>	
+														<tr>
+															<input type="text" hidden="hidden" class="form-control" name="mid" value="${sessionScope.medicalRecord.id}">
+															<input type="text" hidden="hidden" class="form-control" name="bid" value="${sessionScope.booking.id}">
+															<td>
 																<input type="text" class="form-control" name="diagnosis" value="${sessionScope.medicalRecord.diagnosis}">
 															</td>
 															<td>

@@ -285,11 +285,10 @@ public class DoctorDBContext extends  DBContext{
     }
     public MedicalRecord getMedicalRecord(String id){
         try {
-            String sql = "SELECT * \n" +
-                    "FROM medical_record m\n" +
-                    "JOIN booking b\n" +
-                    "ON m.booking_id = b.id \n" +
-                    "WHERE m.id = ?;";
+            String sql = "select m.id, m.diagnosis, m.prescription, m.url, m.booking_id, b.date from medical_record m\n" +
+                    "join booking b\n" +
+                    "on b.id = m.booking_id\n" +
+                    "where m.id = ?;";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, Integer.parseInt(id));
             rs = stm.executeQuery();
@@ -329,10 +328,10 @@ public class DoctorDBContext extends  DBContext{
                     "SET diagnosis = ?, url = ?, prescription = ?\n" +
                     "WHERE id = ?;";
             stm = connection.prepareStatement(sql);
-            stm.setInt(4, medicalRecord.getId());
             stm.setString(1, medicalRecord.getDiagnosis());
             stm.setString(2, medicalRecord.getUrl());
             stm.setString(3, medicalRecord.getPrescription());
+            stm.setInt(4, medicalRecord.getId());
             stm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -352,6 +351,7 @@ public class DoctorDBContext extends  DBContext{
             throw new RuntimeException(e);
         }
     }
+
     public void UpdateBill(Bill bill){
         try {
             String sql = "UPDATE bill\n" +

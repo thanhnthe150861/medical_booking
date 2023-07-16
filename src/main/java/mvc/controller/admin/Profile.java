@@ -35,13 +35,13 @@ public class Profile extends HttpServlet {
             if (newpassword.equals(repassword)) {
                 account.setPassword(newpassword);
                 adb.UpdateAccount(account);
-                req.setAttribute("mess", "Update successful");
+                req.setAttribute("messSuccess", "Update successful");
                 req.getRequestDispatcher("view/admin/profile.jsp").forward(req,resp);
             }else {
-                req.setAttribute("mess", "Confirm password incorrect");
+                req.setAttribute("errorMessage", "Confirm password incorrect");
             }
         }else {
-            req.setAttribute("mess", "Password incorrect");
+            req.setAttribute("errorMessage", "Password incorrect");
         }
     }
 }

@@ -178,6 +178,19 @@
 								<!-- Change Password Tab -->
 									<div class="card">
 										<div class="card-body">
+											<!-- Place this code where you want to display the error message -->
+											<% String errorMessage = (String) request.getAttribute("messError"); %>
+											<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+											<div class="alert alert-danger" role="alert">
+												<%= errorMessage %>
+											</div>
+											<% } %>
+											<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+											<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+											<div class="alert alert-success" role="alert">
+												<%= messSuccess %>
+											</div>
+											<% } %>
 											<h5 class="card-title">Change Password</h5>
 											<div class="row">
 												<div class="col-md-10 col-lg-6">
