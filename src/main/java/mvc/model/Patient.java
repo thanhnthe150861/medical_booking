@@ -27,7 +27,15 @@ public class Patient {
         this.account = account;
         this.ranks = ranks;
     }
-
+    public Patient(int id, String userName, String url, String name, String gender, Date dob, int rankId) {
+        this.id = id;
+        this.userName = userName;
+        this.url = url;
+        this.name = name;
+        this.gender = gender;
+        this.dob = dob;
+        this.rankId = rankId;
+    }
     public Account getAccount() {
         return account;
     }

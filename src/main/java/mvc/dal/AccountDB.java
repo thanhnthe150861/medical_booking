@@ -117,6 +117,7 @@ public class AccountDB extends DBContext{
 //            stm.setString(3, account.getPhone());
             stm.setString(3, account.getEmail());
             stm.setInt(4, account.getIsAdmin());
+//            stm.setBoolean(6, account.getStatus());
             stm.executeUpdate();
             //Insert Patient
             String sql1 = "INSERT patient (username, name, rank_id)" +

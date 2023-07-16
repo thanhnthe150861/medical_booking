@@ -1,0 +1,88 @@
+
+`	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112Y"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112g"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112u"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112ƒ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112“"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112¢"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112Ï"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112û"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112¦"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112Ä"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112è"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`
+java:S1192ã"IDefine a constant instead of duplicating this literal "password" 3 times.(ñàÊÈ
+g
+java:S1192)"QDefine a constant instead of duplicating this literal "total_bill_price" 4 times.(»…£¶
+^
+java:S1192æ"HDefine a constant instead of duplicating this literal "isAdmin" 3 times.(¢ĞÑ
+
+\
+java:S1192å"FDefine a constant instead of duplicating this literal "phone" 3 times.(ù êp
+^
+java:S1192Å"GDefine a constant instead of duplicating this literal "status" 4 times.(¾¢…¤
+d
+java:S1192î"HDefine a constant instead of duplicating this literal "rank_id" 3 times.(”§µ¦ûÿÿÿÿ
+]
+java:S1192#"GDefine a constant instead of duplicating this literal "gender" 6 times.(¥ ‘
+b
+java:S1192ä"FDefine a constant instead of duplicating this literal "email" 3 times.(†á½áÿÿÿÿÿ
+s
+java:S1488c"]Immediately return this expression instead of assigning it to the temporary variable "count".(ä§Äñ
+s
+java:S1488q"]Immediately return this expression instead of assigning it to the temporary variable "count".(ÃÚú¾
+s
+java:S1488"]Immediately return this expression instead of assigning it to the temporary variable "count".(ò¥èß
+y
+java:S1488"]Immediately return this expression instead of assigning it to the temporary variable "count".(ôş‹¥ûÿÿÿÿ
+y
+java:S1488"]Immediately return this expression instead of assigning it to the temporary variable "count".(‹“•–øÿÿÿÿ
+L
+java:S2696"6Make the enclosing method "static" or remove this set.(–À°ø
+Q
+java:S2696"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+L
+java:S2696B"6Make the enclosing method "static" or remove this set.(–À°ø
+Q
+java:S2696C"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+L
+java:S2696`"6Make the enclosing method "static" or remove this set.(–À°ø
+Q
+java:S2696a"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+L
+java:S2696n"6Make the enclosing method "static" or remove this set.(–À°ø
+Q
+java:S2696o"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+L
+java:S2696|"6Make the enclosing method "static" or remove this set.(–À°ø
+Q
+java:S2696}"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+M
+java:S2696Œ"6Make the enclosing method "static" or remove this set.(–À°ø
+R
+java:S2696"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+M
+java:S2696›"6Make the enclosing method "static" or remove this set.(–À°ø
+R
+java:S2696œ"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+M
+java:S2696²"6Make the enclosing method "static" or remove this set.(–À°ø
+R
+java:S2696³"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+M
+java:S2696Ş"6Make the enclosing method "static" or remove this set.(–À°ø
+R
+java:S2696ß"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+M
+java:S2696‰"6Make the enclosing method "static" or remove this set.(–À°ø
+R
+java:S2696Š"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+M
+java:S2696°"6Make the enclosing method "static" or remove this set.(–À°ø
+R
+java:S2696±"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ
+M
+java:S2696Ğ"6Make the enclosing method "static" or remove this set.(–À°ø
+R
+java:S2696Ñ"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ

@@ -13,7 +13,7 @@ public class DBContext {
         try {
             String url = "jdbc:mysql://localhost:3306/medical_booking";//đang kết nối với database
             String user = "root";
-            String pass = "Thanh1742001.";
+            String pass = "123456";
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException ex) {
@@ -22,5 +22,6 @@ public class DBContext {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 
 }

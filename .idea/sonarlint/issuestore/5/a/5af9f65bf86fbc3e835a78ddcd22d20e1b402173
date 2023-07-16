@@ -1,0 +1,23 @@
+
+r
+java:S14882"]Immediately return this expression instead of assigning it to the temporary variable "bytes".(–‚Ì
+W
+java:S1854"<Remove this useless assignment to local variable "response".(•ì™‰˘ˇˇˇˇ
+H
+java:S1481"-Remove this unused "response" local variable.(•ì™‰˘ˇˇˇˇ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(•ªè±
+S	java:S106 "9Replace this use of System.out or System.err by a logger.(œå÷’¸ˇˇˇˇ
+I
+java:S1905%"3Remove this unnecessary cast to "PutObjectRequest".(‚ßŸÓ
+N
+java:S1905+"3Remove this unnecessary cast to "PutObjectRequest".(ªì‚∆˘ˇˇˇˇ
+K
+java:S19051"0Remove this unnecessary cast to "ResponseBytes".(Â¡ííˇˇˇˇˇ
+N
+java:S19051"3Remove this unnecessary cast to "GetObjectRequest".(Â¡ííˇˇˇˇˇ
+D
+java:S1144$".Remove this unused private "putObject" method.(Àˆ⁄
+D
+java:S1144*".Remove this unused private "putObject" method.(¸ò›‰
+I
+java:S11440".Remove this unused private "getObject" method.(–‡å¡˙ˇˇˇˇ
