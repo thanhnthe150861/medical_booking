@@ -86,9 +86,9 @@
                     </li>
                     <li class="nav-item">
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="myB">
                         <c:if test="${sessionScope.account eq null}">
-                            <a class="btn btn-primary ml-lg-3" href="login">Login / Register</a>
+                            <a  class="btn btn-primary ml-lg-3" href="login">Login / Register</a>
                         </c:if>
                         <c:if test="${sessionScope.account ne null}">
                             <c:if test="${sessionScope.account.isAdmin eq 2}">

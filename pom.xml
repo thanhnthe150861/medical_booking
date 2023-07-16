@@ -88,6 +88,16 @@
           <version>2.0.7</version>
           <scope>test</scope>
       </dependency>
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi</artifactId>
+          <version>5.1.0</version> <!-- Phiên bản có thể thay đổi -->
+      </dependency>
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml</artifactId>
+          <version>5.1.0</version> <!-- Phiên bản có thể thay đổi -->
+      </dependency>
 
   </dependencies>
 
