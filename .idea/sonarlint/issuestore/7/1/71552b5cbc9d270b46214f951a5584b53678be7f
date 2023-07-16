@@ -1,0 +1,85 @@
+
+
+java:S1192s"rDefine a constant instead of duplicating this literal "^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$" 6 times.(è¸ğÈşÿÿÿÿ
+{
+java:S1192/"eDefine a constant instead of duplicating this literal "view/admin/form-patient-details.jsp" 12 times.(Õ’¿ì
+]
+java:S1192X"GDefine a constant instead of duplicating this literal "gender" 6 times.(Ôõ¨
+b
+java:S1192‡"LDefine a constant instead of duplicating this literal "messSuccess" 6 times.(íû—M
+z
+java:S1192*"dDefine a constant instead of duplicating this literal "view/admin/form-doctor-details.jsp" 14 times.(ÒŸê‡
+l
+java:S1192a"WDefine a constant instead of duplicating this literal "^[a-zA-Z0-9_\\p{L} ]*$" 8 times.(ÖŸé
+_
+java:S1192U"IDefine a constant instead of duplicating this literal "password" 6 times.(Ç÷¹¾
+f
+java:S1192b"KDefine a constant instead of duplicating this literal "messError" 26 times.(¼®çıÿÿÿÿ
+c
+java:S1192#"HDefine a constant instead of duplicating this literal "patient" 5 times.(òáó³øÿÿÿÿ
+Š
+java:S1192÷"sDefine a constant instead of duplicating this literal "User khÃ´ng Ä‘Æ°á»£c chá»©a kÃ½ tá»± Ä‘áº·c biá»‡t" 3 times.(Ó²ò­
+\
+java:S1192\"FDefine a constant instead of duplicating this literal "email" 6 times.(×Áâ¹
+t
+java:S1192t"YDefine a constant instead of duplicating this literal "Email sai Ä‘á»‹nh dáº¡ng" 6 times.(†é­êûÿÿÿÿ
+\
+java:S1192$"FDefine a constant instead of duplicating this literal "staff" 5 times.(„ââĞ
+b
+java:S1192""GDefine a constant instead of duplicating this literal "doctor" 5 times.(±ù¯çùÿÿÿÿ
+g
+java:S1192m"LDefine a constant instead of duplicating this literal "^[0-9]{10}$" 6 times.(Ô‡Ö³úÿÿÿÿ
+a
+java:S1192["FDefine a constant instead of duplicating this literal "phone" 6 times.(¼ÛçÅÿÿÿÿÿ
+~
+java:S11924"cDefine a constant instead of duplicating this literal "view/admin/form-staff-details.jsp" 12 times.(ø±¢ùÿÿÿÿ
+g
+java:S1192ö"PDefine a constant instead of duplicating this literal "^[a-zA-Z0-9_]*$" 3 times.(¤¹éş
+o
+java:S1192n"YDefine a constant instead of duplicating this literal "Phone sai Ä‘á»‹nh dáº¡ng" 6 times.(×İ¥å
+r
+java:S1192©"VDefine a constant instead of duplicating this literal "User Ä‘Ã£ tá»“n táº¡i" 3 times.(şä›áÿÿÿÿÿ
+
+java:S1192b"sDefine a constant instead of duplicating this literal "Name khÃ´ng Ä‘Æ°á»£c chá»©a kÃ½ tá»± Ä‘áº·c biá»‡t" 6 times.(¼®çıÿÿÿÿ
+p
+java:S1192‡"ZDefine a constant instead of duplicating this literal "Cáº­p nháº­t thÃ nh cÃ´ng" 3 times.(íû—M
+w
+java:S1192¦"`Define a constant instead of duplicating this literal "Táº¡o tÃ i khoáº£n thÃ nh cÃ´ng" 3 times.(îâ‰Ø
+_
+java:S1192ì"IDefine a constant instead of duplicating this literal "username" 3 times.(ì´
+b
+java:S1192^"GDefine a constant instead of duplicating this literal "status" 3 times.(õ²·—øÿÿÿÿ
+[
+java:S2583"DChange this condition so that it does not always evaluate to "false"(ªØòÉ
+h
+java:S3776N"RRefactor this method to reduce its Cognitive Complexity from 62 to the 15 allowed.(üª¼í
+W
+java:S6353m"<Use concise character class syntax '\\d' instead of '[0-9]'.(Ô‡Ö³úÿÿÿÿ
+g
+java:S5998s"LRefactor this repetition that can lead to a stack overflow for large inputs.(è¸ğÈşÿÿÿÿ
+X
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(Ô‡Ö³úÿÿÿÿ
+h
+java:S5998¤"LRefactor this repetition that can lead to a stack overflow for large inputs.(è¸ğÈşÿÿÿÿ
+X
+java:S6353Ì"<Use concise character class syntax '\\d' instead of '[0-9]'.(Ô‡Ö³úÿÿÿÿ
+h
+java:S5998Ò"LRefactor this repetition that can lead to a stack overflow for large inputs.(è¸ğÈşÿÿÿÿ
+Z
+java:S6353ö"CUse concise character class syntax '\\w' instead of '[a-zA-Z0-9_]'.(¤¹éş
+X
+java:S6353ˆ"<Use concise character class syntax '\\d' instead of '[0-9]'.(Ô‡Ö³úÿÿÿÿ
+h
+java:S5998"LRefactor this repetition that can lead to a stack overflow for large inputs.(è¸ğÈşÿÿÿÿ
+Z
+java:S6353¶"CUse concise character class syntax '\\w' instead of '[a-zA-Z0-9_]'.(¤¹éş
+X
+java:S6353Â"<Use concise character class syntax '\\d' instead of '[0-9]'.(Ô‡Ö³úÿÿÿÿ
+h
+java:S5998È"LRefactor this repetition that can lead to a stack overflow for large inputs.(è¸ğÈşÿÿÿÿ
+Z
+java:S6353ï"CUse concise character class syntax '\\w' instead of '[a-zA-Z0-9_]'.(¤¹éş
+X
+java:S6353û"<Use concise character class syntax '\\d' instead of '[0-9]'.(Ô‡Ö³úÿÿÿÿ
+h
+java:S5998"LRefactor this repetition that can lead to a stack overflow for large inputs.(è¸ğÈşÿÿÿÿ

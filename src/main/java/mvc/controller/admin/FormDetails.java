@@ -25,6 +25,7 @@ public class FormDetails  extends HttpServlet {
             List<Rank> rankListPatient = adb.getRankPatient();
             session.setAttribute("rankListDoctor",rankListDoctor);
             session.setAttribute("rankListPatient",rankListPatient);
+
             //lấy id để update
             String did = req.getParameter("did");
             String pid = req.getParameter("pid");

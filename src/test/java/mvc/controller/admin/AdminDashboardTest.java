@@ -22,19 +22,17 @@ class AdminDashboardTest {
     private HttpSession session;
     @Mock
     private RequestDispatcher requestDispatcher;
-    private AdminDashboard adminDashboard;
     @Test
     public void testDoGetTrue() throws Exception {
         MockitoAnnotations.initMocks(this);
-        AdminDashboard adminDashboard = new AdminDashboard();
+        DoctorList doctorList = new DoctorList();
         Account account = new Account();
         account.setIsAdmin(0);
         account.setUsername("Admin");
         when(request.getSession()).thenReturn(session);
         when(session.getAttribute("account")).thenReturn(account);
-        when(request.getRequestDispatcher("view/admin/admin-dashboard.jsp")).thenReturn(requestDispatcher);
-        adminDashboard.doGet(request, response);
+        when(request.getRequestDispatcher("view/admin/doctor-list.jsp")).thenReturn(requestDispatcher);
+        doctorList.doGet(request, response);
         verify(requestDispatcher).forward(request, response);
-
     }
 }

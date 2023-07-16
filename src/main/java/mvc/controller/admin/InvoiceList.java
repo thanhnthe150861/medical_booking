@@ -17,7 +17,7 @@ public class InvoiceList extends HttpServlet {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         if (account != null && account.getIsAdmin() == 0){
-        req.getRequestDispatcher("view/admin/invoice-report.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/admin/invoice-report.jsp").forward(req,resp);
         }
         resp.sendRedirect("login");
     }
