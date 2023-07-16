@@ -214,7 +214,7 @@
 														<% } %>
 													</td>
 													<td class="text-left">
-														$<%= appointment.getBill().getTotalPrice() %>
+														$<%= appointment.getBill().getPrice() %>
 													</td>
 												</tr>
 											<% } %>
