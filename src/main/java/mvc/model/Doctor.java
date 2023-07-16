@@ -1,5 +1,6 @@
 package mvc.model;
 
+
 import java.sql.Date;
 
 public class Doctor {
@@ -30,6 +31,18 @@ public class Doctor {
         this.account = account;
         this.ranks = ranks;
     }
+    public Doctor(int id, String userName, String url, String name, String gender, Date dob, String specialty, int rankId) {
+        this.id = id;
+        this.userName = userName;
+        this.url = url;
+        this.name = name;
+        this.gender = gender;
+        this.dob = dob;
+        this.specialty = specialty;
+        this.rankId = rankId;
+
+    }
+
 
     public Account getAccount() {
         return account;

@@ -141,11 +141,11 @@
                     <img src="assets/img/patients/patient.jpg" alt="User Image">
                   </a>
                   <div class="profile-det-info">
-                    <h3>${requestScope.patient.name}</h3>
+                    <h3>${sessionScope.patient.name}</h3>
 
                     <div class="patient-details">
-                      <h5><b>Patient ID :</b> ${requestScope.patient.id}</h5>
-                      <h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${requestScope.patient.dob}</h5>
+                      <h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
+                      <h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
                     </div>
                   </div>
                 </div>
@@ -162,13 +162,13 @@
               <div class="user-tabs">
                 <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                   <li class="nav-item">
-                    <a class="nav-link" href="patient_profile?id=${requestScope.patient.id}">Appointments</a>
+                    <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}">Appointments</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="patient_profile?id=${requestScope.patient.id}&medical=true"><span class="med-records">Medical Records</span></a>
+                    <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&medical=true"><span class="med-records">Medical Records</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="patient_profile?id=${requestScope.patient.id}&bill=true"><span>Billing</span></a>
+                    <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}&bill=true"><span>Billing</span></a>
                   </li>
                 </ul>
               </div>
@@ -176,13 +176,9 @@
 
                 <!-- Billing Tab -->
                 <div class="tab-pane fade show active" id="billing">
-                  <div class="text-right">
-                    <a class="add-new-btn" href="#">Add Billing</a>
-                  </div>
                   <div class="card card-table mb-0">
                     <div class="card-body">
                       <div class="table-responsive">
-
                         <table class="table table-hover table-center mb-0">
                           <thead>
                           <tr>
@@ -196,7 +192,7 @@
                           </thead>
                           <tbody>
                           <c:forEach items="${requestScope.medicalRecordList}" var="m">
-                            <c:if test="${m.booking.status == 'Completed'}">
+                            <c:if test="${m.booking.status == 'Completed' && m.id != 0}">
                           <tr>
                             <td>
                               <a href="#">${m.bill.id}</a>
@@ -209,14 +205,26 @@
                                 <a href="#">${m.booking.doctor.name} <span>${m.booking.doctor.specialty}</span></a>
                               </h2>
                             </td>
-                            <td>${m.bill.price}</td>
+                            <td>${m.bill.totalPrice}</td>
                             <td>${m.booking.date}</td>
                             <td><span class="badge badge-pill bg-${m.bill.payment_status == 'Paid' ? 'success-light' : m.bill.payment_status == 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span></td>
                             <td class="text-right">
                               <div class="table-action">
-                                <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                                  <i class="far fa-eye"></i> View
-                                </a>
+                                <div class="table-action">
+                                  <c:if test="${m.bill.id eq 0}">
+                                    <a href="bill_details?mid=${m.id}" class="btn btn-sm bg-success-light">
+                                      <i class="far fa-eye"></i> Edit
+                                    </a>
+                                  </c:if>
+                                  <c:if test="${m.bill.id ne 0}">
+                                    <a href="bill_details?bid=${m.bill.id}" class="btn btn-sm bg-success-light">
+                                      <i class="far fa-eye"></i> Edit
+                                    </a>
+                                  </c:if>
+                                  <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                                    <i class="far fa-eye"></i> View
+                                  </a>
+                                </div>
                               </div>
                             </td>
                           </tr>

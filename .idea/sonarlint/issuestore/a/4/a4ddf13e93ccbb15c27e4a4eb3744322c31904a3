@@ -1,0 +1,113 @@
+
+ƒ
+java:S5826"aAnnotate this method with JUnit5 '@org.junit.jupiter.api.BeforeEach' instead of JUnit4 '@Before'.(•¨ó­úÿÿÿÿ8ûŒ¿ƒ•1
+;
+java:S5786"Remove this 'public' modifier.(¿’»ğ8ûŒ¿ƒ•1
+@
+java:S5786"Remove this 'public' modifier.(–¢¯–üÿÿÿÿ8ûŒ¿ƒ•1
+;
+java:S5786("Remove this 'public' modifier.(†¿µà8ûŒ¿ƒ•1
+@
+java:S57862"Remove this 'public' modifier.(¡‘Âøşÿÿÿÿ8ûŒ¿ƒ•1
+;
+java:S5786<"Remove this 'public' modifier.(­’Ş8ûŒ¿ƒ•1
+@
+java:S5786D"Remove this 'public' modifier.(ä“£âøÿÿÿÿ8ûŒ¿ƒ•1
+;
+java:S5786L"Remove this 'public' modifier.(ºê›æ8ûŒ¿ƒ•1
+;
+java:S5786X"Remove this 'public' modifier.(…Ñ¹ê8ûŒ¿ƒ•1
+@
+java:S5786d"Remove this 'public' modifier.(æíÜïøÿÿÿÿ8ûŒ¿ƒ•1
+@
+java:S5786l"Remove this 'public' modifier.(Ù ÙÀÿÿÿÿÿ8ûŒ¿ƒ•1
+@
+java:S5786t"Remove this 'public' modifier.(Ä©Ğ€ıÿÿÿÿ8ûŒ¿ƒ•1
+<
+java:S5786ƒ"Remove this 'public' modifier.(è¬¾ë8ûŒ¿ƒ•1
+A
+java:S5786’"Remove this 'public' modifier.(åµ­£şÿÿÿÿ8ûŒ¿ƒ•1
+<
+java:S5786µ"Remove this 'public' modifier.(ú½°Ï8ûŒ¿ƒ•1
+A
+java:S5786Ø"Remove this 'public' modifier.(¢ƒâàøÿÿÿÿ8ûŒ¿ƒ•1
+A
+java:S5786ø"Remove this 'public' modifier.(—É¸Çüÿÿÿÿ8ûŒ¿ƒ•1
+A
+java:S5786˜"Remove this 'public' modifier.(¶éûøÿÿÿÿ8ûŒ¿ƒ•1
+A
+java:S5786·"Remove this 'public' modifier.(¤É”™şÿÿÿÿ8ûŒ¿ƒ•1
+>
+java:S5785$"Use assertNotEquals instead.(¡ªš×ıÿÿÿÿ8üŒ¿ƒ•1
+>
+java:S57858"Use assertNotEquals instead.(ÎÔ‚çıÿÿÿÿ8üŒ¿ƒ•1
+>
+java:S5785I"Use assertNotEquals instead.(Ûíˆ³ıÿÿÿÿ8üŒ¿ƒ•1
+9
+java:S5785a"Use assertNotEquals instead.(ÓˆÑÂ8ıŒ¿ƒ•1
+>
+java:S5785q"Use assertNotEquals instead.(ÎÔ‚çıÿÿÿÿ8ıŒ¿ƒ•1
+y
+java:S3415€"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¶Ÿ¶øüÿÿÿÿ8ıŒ¿ƒ•1
+?
+java:S5785"Use assertNotEquals instead.(´›ßŒûÿÿÿÿ8ıŒ¿ƒ•1
+t
+java:S3415®"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÈŠ§­8ıŒ¿ƒ•1
+s
+java:S3415¯"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¦£’m8ıŒ¿ƒ•1
+s
+java:S3415°"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÏÙ½S8ıŒ¿ƒ•1
+y
+java:S3415±"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(şøáûûÿÿÿÿ8ıŒ¿ƒ•1
+t
+java:S3415²"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¼ÛÓ’8ıŒ¿ƒ•1
+t
+java:S3415Ñ"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÈŠ§­8ıŒ¿ƒ•1
+s
+java:S3415Ò"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¦£’m8ıŒ¿ƒ•1
+s
+java:S3415Ó"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÏÙ½S8şŒ¿ƒ•1
+y
+java:S3415Ô"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(şøáûûÿÿÿÿ8şŒ¿ƒ•1
+:
+java:S5785Õ"Use assertNotEquals instead.(Ï»“8şŒ¿ƒ•1
+t
+java:S3415ñ"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¸ÿ“‚8şŒ¿ƒ•1
+s
+java:S3415ò"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¦£’m8şŒ¿ƒ•1
+s
+java:S3415ó"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÏÙ½S8şŒ¿ƒ•1
+y
+java:S3415ô"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(şøáûûÿÿÿÿ8şŒ¿ƒ•1
+y
+java:S3415õ"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ì›‚×ıÿÿÿÿ8şŒ¿ƒ•1
+?
+java:S5785‘"Use assertNotEquals instead.(Ñ¬×ˆüÿÿÿÿ8€¿ƒ•1
+s
+java:S3415’"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¦£’m8€¿ƒ•1
+s
+java:S3415“"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÏÙ½S8€¿ƒ•1
+y
+java:S3415”"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(şøáûûÿÿÿÿ8€¿ƒ•1
+y
+java:S3415•"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ì›‚×ıÿÿÿÿ8€¿ƒ•1
+s
+java:S3415°"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ü¬D8€¿ƒ•1
+s
+java:S3415±"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¦£’m8€¿ƒ•1
+s
+java:S3415²"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÏÙ½S8€¿ƒ•1
+y
+java:S3415³"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(şøáûûÿÿÿÿ8€¿ƒ•1
+t
+java:S3415´"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¼ÛÓ’8€¿ƒ•1
+:
+java:S5785Î"Use assertNotEquals instead.(ú‡ÿ©8¿ƒ•1
+s
+java:S3415Ï"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¦£’m8¿ƒ•1
+s
+java:S3415Ğ"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÏÙ½S8¿ƒ•1
+y
+java:S3415Ñ"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(şøáûûÿÿÿÿ8¿ƒ•1
+:
+java:S5785Ò"Use assertNotEquals instead.(Ï»“8¿ƒ•1

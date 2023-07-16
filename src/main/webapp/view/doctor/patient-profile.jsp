@@ -140,11 +140,11 @@
 												<img src="assets/img/patients/patient.jpg" alt="User Image">
 											</a>
 											<div class="profile-det-info">
-												<h3>${requestScope.patient.name}</h3>
+												<h3>${sessionScope.patient.name}</h3>
 												
 												<div class="patient-details">
-													<h5><b>Patient ID :</b> ${requestScope.patient.id}</h5>
-													<h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${requestScope.patient.dob}</h5>
+													<h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
+													<h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
 												</div>
 											</div>
 										</div>
@@ -161,13 +161,13 @@
 									<div class="user-tabs">
 										<ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
 											<li class="nav-item">
-												<a class="nav-link active" href="patient_profile?id=${requestScope.patient.id}">Appointments</a>
+												<a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Appointments</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="patient_profile?id=${requestScope.patient.id}&medical=true" ><span class="med-records">Medical Records</span></a>
+												<a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&medical=true" ><span class="med-records">Medical Records</span></a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="patient_profile?id=${requestScope.patient.id}&bill=true" ><span>Billing</span></a>
+												<a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&bill=true" ><span>Billing</span></a>
 											</li>
 										</ul>
 									</div>

@@ -1,0 +1,58 @@
+
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+`	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+`	java:S112V"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+a	java:S112•"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+a	java:S112Ξ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+a	java:S112η"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+a	java:S112‡"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+a	java:S112—"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+h	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8€οƒ•1
+h	java:S112Κ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8€οƒ•1
+e
+java:S1192N"JDefine a constant instead of duplicating this literal "specialty" 4 times.(†Ώϊÿÿÿÿ
+e
+java:S11925"JDefine a constant instead of duplicating this literal "rank_name" 3 times.(²›οÿÿÿÿÿ
+^
+java:S11924"HDefine a constant instead of duplicating this literal "rank_id" 3 times.(ÿΘ¶ΰ
+b
+java:S11921"GDefine a constant instead of duplicating this literal "gender" 4 times.(ÿΐ‘λύÿÿÿÿ
+L
+java:S2696"6Make the enclosing method "static" or remove this set.(–ΐ°ψ
+Q
+java:S2696"6Make the enclosing method "static" or remove this set.(ν’ζϊÿÿÿÿ
+L
+java:S2696("6Make the enclosing method "static" or remove this set.(–ΐ°ψ
+Q
+java:S2696*"6Make the enclosing method "static" or remove this set.(ν’ζϊÿÿÿÿ
+L
+java:S2696D"6Make the enclosing method "static" or remove this set.(–ΐ°ψ
+Q
+java:S2696F"6Make the enclosing method "static" or remove this set.(ν’ζϊÿÿÿÿ
+L
+java:S2696l"6Make the enclosing method "static" or remove this set.(–ΐ°ψ
+Q
+java:S2696n"6Make the enclosing method "static" or remove this set.(ν’ζϊÿÿÿÿ
+M
+java:S2696±"6Make the enclosing method "static" or remove this set.(–ΐ°ψ
+R
+java:S2696΄"6Make the enclosing method "static" or remove this set.(ν’ζϊÿÿÿÿ
+k	java:S100Ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§«£¤8ϋοƒ•1
+R
+java:S2696Φ"6Make the enclosing method "static" or remove this set.(α‘¨—ϊÿÿÿÿ
+R
+java:S2696ή"6Make the enclosing method "static" or remove this set.(Ί›ϋΥϊÿÿÿÿ
+M
+java:S2696φ"6Make the enclosing method "static" or remove this set.(–ΐ°ψ
+R
+java:S2696ϊ"6Make the enclosing method "static" or remove this set.(ν’ζϊÿÿÿÿ
+T
+java:S2696"6Make the enclosing method "static" or remove this set.(–ΐ°ψ8„πƒ•1
+T
+java:S2696΅"6Make the enclosing method "static" or remove this set.(–ΐ°ψ8†πƒ•1
+Y
+java:S2696¥"6Make the enclosing method "static" or remove this set.(ν’ζϊÿÿÿÿ8‡πƒ•1
+T
+java:S2696Έ"6Make the enclosing method "static" or remove this set.(–ΐ°ψ8‰πƒ•1
+Y
+java:S2696»"6Make the enclosing method "static" or remove this set.(ν’ζϊÿÿÿÿ8πƒ•1

@@ -3,7 +3,6 @@ package mvc.dal;
 
 import mvc.model.*;
 
-import javax.print.Doc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,10 +31,10 @@ public class AccountDB extends DBContext{
     public Account getAccount(String user, String pass){
         try {
         String sql = "SELECT * FROM account WHERE username = ? AND password = ?";
-            PreparedStatement stm = connection.prepareStatement(sql);
+        PreparedStatement stm = connection.prepareStatement(sql);
         stm.setString(1, user);
         stm.setString(2, pass);
-            ResultSet rs = stm.executeQuery();
+        ResultSet rs = stm.executeQuery();
             if(rs.next()){
                 Account account = new Account();
                 account.setUsername(rs.getString("username"));
@@ -51,27 +50,7 @@ public class AccountDB extends DBContext{
         }
     return null;
     }
-    public List<Account> getAllAccount(){
-        List<Account> accountList = new ArrayList<>();
-        Account account = null;
-        try {
-            String sql = "SELECT * FROM account";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
-            while (rs.next()){
-                account = new Account();
-                account.setUsername(rs.getString("username"));
-                account.setPassword(rs.getString("password"));
-                account.setPhone(rs.getString("phone"));
-                account.setEmail(rs.getString("email"));
-                account.setIsAdmin(rs.getInt("isAdmin"));
-                accountList.add(account);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return accountList;
-    }
+
     public void UpdateAccount(Account account){
         try {
             String sql = "UPDATE account\n" +
@@ -117,6 +96,7 @@ public class AccountDB extends DBContext{
 //            stm.setString(3, account.getPhone());
             stm.setString(3, account.getEmail());
             stm.setInt(4, account.getIsAdmin());
+//            stm.setBoolean(6, account.getStatus());
             stm.executeUpdate();
             //Insert Patient
             String sql1 = "INSERT patient (username, name, rank_id)" +

@@ -141,11 +141,11 @@
                     <img src="assets/img/patients/patient.jpg" alt="User Image">
                   </a>
                   <div class="profile-det-info">
-                    <h3>${requestScope.patient.name}</h3>
+                    <h3>${sessionScope.patient.name}</h3>
 
                     <div class="patient-details">
-                      <h5><b>Patient ID :</b> ${requestScope.patient.id}</h5>
-                      <h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${requestScope.patient.dob}</h5>
+                      <h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
+                      <h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
                     </div>
                   </div>
                 </div>
@@ -153,7 +153,6 @@
             </div>
           </div>
           <!-- /Profile Widget -->
-
         </div>
 
         <div class="col-md-7 col-lg-8 col-xl-9 dct-appoinment">
@@ -162,22 +161,19 @@
               <div class="user-tabs">
                 <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                   <li class="nav-item">
-                    <a class="nav-link" href="patient_profile?id=${requestScope.patient.id}">Appointments</a>
+                    <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}">Appointments</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="patient_profile?id=${requestScope.patient.id}&medical=true"><span class="med-records">Medical Records</span></a>
+                    <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}&medical=true"><span class="med-records">Medical Records</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="patient_profile?id=${requestScope.patient.id}&bill=true"><span>Billing</span></a>
+                    <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&bill=true"><span>Billing</span></a>
                   </li>
                 </ul>
               </div>
               <div class="tab-content">
                 <!-- Medical Records Tab -->
                 <div class="tab-pane fade show active" id="medical">
-                  <div class="text-right">
-                    <a href="#" class="add-new-btn" data-target="#add_medical_records">Add Medical Records</a>
-                  </div>
                   <div class="card card-table mb-0">
                     <div class="card-body">
                       <div class="table-responsive">
@@ -212,6 +208,16 @@
                             </td>
                             <td class="text-right">
                               <div class="table-action">
+                                <c:if test="${m.bill.id eq 0}">
+                                  <a href="medical_record_details?bid=${m.booking.id}" class="btn btn-sm bg-success-light">
+                                    <i class="far fa-eye"></i> Edit
+                                  </a>
+                                </c:if>
+                                <c:if test="${m.bill.id ne 0}">
+                                  <a href="medical_record_details?mid=${m.id}" class="btn btn-sm bg-success-light">
+                                    <i class="far fa-eye"></i> Edit
+                                  </a>
+                                </c:if>
                                 <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
                                   <i class="far fa-eye"></i> View
                                 </a>

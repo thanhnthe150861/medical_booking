@@ -37,16 +37,16 @@ public class Login extends HttpServlet {
             if(account.getIsAdmin() == 0){
                 session.setAttribute("account", account);
                 resp.sendRedirect("admin_dashboard");
-            } else if (account.getIsAdmin() == 1){
+            } else if (account.getIsAdmin() == 1 && account.getStatus()){
                 session.setAttribute("account", account);
                 resp.sendRedirect("doctor_dashboard");
-            } else if (account.getIsAdmin() == 2){
+            } else if (account.getIsAdmin() == 2 && account.getStatus()){
                 session.setAttribute("account", account);
                 PatientDBContext patientDBContext = new PatientDBContext();
                 Patient patient = patientDBContext.getPatient(account);
                 session.setAttribute("patient", patient);
                 resp.sendRedirect("home");
-            }else if (account.getIsAdmin() == 3){
+            }else if (account.getIsAdmin() == 3 && account.getStatus()){
                 session.setAttribute("account", account);
 
                 Staff staff = null;

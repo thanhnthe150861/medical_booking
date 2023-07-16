@@ -146,12 +146,12 @@
                                     <div class="day-slot">
                                         <ul>
                                             <li>
-                                                <form action="booking" method="GET">
+                                                <form action="booking" method="GET" id="get">
                                                     <div style="display: flex; align-items: center;">
                                                         <input type="date" id="datePicker" value="${sessionScope.date}"
                                                                name="datePicker"
                                                                style="border: 2px solid #42c0fb; border-radius: 5px; padding: 5px;">
-                                                        <input type="submit" value="Select Date"
+                                                        <input type="submit" form="get" value="Select Date"
                                                                style="border: 2px solid #42c0fb; border-radius: 5px; padding: 5px; margin-left: 10px">
                                                     </div>
                                                 </form>
@@ -164,11 +164,11 @@
                             </div>
                         </div>
                         <!-- /Schedule Header -->
+                        <form action="booking" method="post">
                         <!-- Schedule Content -->
                         <div class="schedule-cont">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form action="booking" method="post">
                                         <!-- Time Slot -->
                                         <div class="time-slot">
                                             <ul class="clearfix d-flex align-items-center justify-content-center">
@@ -208,20 +208,18 @@
                                             </div>
                                         </div>
                                         <%----%>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                         <!-- /Schedule Content -->
-
+                            <!-- Submit Section -->
+                            <div class="submit-section proceed-btn text-right">
+                                <button class="btn btn-primary submit-btn">Booking</button>
+                            </div>
+                            <!-- /Submit Section -->
+                        </form>
                     </div>
                     <!-- /Schedule Widget -->
-
-                    <!-- Submit Section -->
-                    <div class="submit-section proceed-btn text-right">
-                        <button class="btn btn-primary submit-btn">Booking</button>
-                    </div>
-                    <!-- /Submit Section -->
                 </div>
             </div>
         </div>

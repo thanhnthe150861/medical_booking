@@ -4,11 +4,25 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/admin-dashboard.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/admin_dashboarh.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/admin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/appointment-list.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/doctor-list.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/form-doctor-details.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/form-patient-details.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/form-staff-details.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/invoice-report.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/patient-list.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/profile.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/admin/staff-list.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/doctor/add-billing.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/doctor/add-medical-record.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/doctor/doctor-profile-settings.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/doctor" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/doctor/patient-bill.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/login.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/patient/booking.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/patient" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/resetpassword.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view" />
+        <entry key="mock:///add-billing.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
   </component>
