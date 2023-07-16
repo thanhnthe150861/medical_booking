@@ -5,7 +5,6 @@ public class MedicalRecord {
     private  int booking_id;
     private  String diagnosis;
     private  String prescription;
-
     private  String url;
     private Booking booking = new Booking();
     private Bill bill = new Bill();

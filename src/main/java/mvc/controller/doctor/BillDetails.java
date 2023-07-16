@@ -45,28 +45,35 @@ public class BillDetails extends HttpServlet {
         HttpSession session = req.getSession();
         String mid = req.getParameter("mid");
         if(!mid.isEmpty()){
-//            String diagnosis = req.getParameter("priceMedical");
-//            String prescription = req.getParameter("pricePrescription");
-//        String totalPrice = req.getParameter("totalPrice");
-            float totalPrice = Float.parseFloat(req.getParameter("totalPrice"));
+            String priceMedical = req.getParameter("priceMedical");
+            String pricePrescription = req.getParameter("pricePrescription");
+            String totalPrice = req.getParameter("totalPrice");
             String status = req.getParameter("status");
             Bill bill = new Bill();
             bill.setMedical_record_id(Integer.parseInt(mid));
-            bill.setPrice(totalPrice);
+            bill.setPriceMedical(Float.parseFloat(priceMedical));
+            bill.setPricePrescription(Float.parseFloat(pricePrescription));
+            bill.setTotalPrice(Float.parseFloat(totalPrice));
             bill.setPayment_status(status);
             DoctorDBContext dbContext = new DoctorDBContext();
             dbContext.addBill(bill);
+
+            MedicalRecord bills = dbContext.getMedicalRecord(mid);
+            String id = Integer.toString(bills.getBooking_id());
+            MedicalRecord currentBill = dbContext.getBill(id);
+            session.setAttribute("bills", currentBill);
         }
         String bid = req.getParameter("bid");
         if(!bid.isEmpty()){
-//            String diagnosis = req.getParameter("priceMedical");
-//            String prescription = req.getParameter("pricePrescription");
-//        String totalPrice = req.getParameter("totalPrice");
-            float totalPrice = Float.parseFloat(req.getParameter("totalPrice"));
+            String priceMedical = req.getParameter("priceMedical");
+            String pricePrescription = req.getParameter("pricePrescription");
+            float totalPrice = Float.parseFloat(pricePrescription) + Float.parseFloat(priceMedical);
             String status = req.getParameter("status");
             Bill bill = new Bill();
             bill.setId(Integer.parseInt(bid));
-            bill.setPrice(totalPrice);
+            bill.setPriceMedical(Float.parseFloat(priceMedical));
+            bill.setPricePrescription(Float.parseFloat(pricePrescription));
+            bill.setTotalPrice(totalPrice);
             bill.setPayment_status(status);
             DoctorDBContext dbContext = new DoctorDBContext();
             dbContext.UpdateBill(bill);

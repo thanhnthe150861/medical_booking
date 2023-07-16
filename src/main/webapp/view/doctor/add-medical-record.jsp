@@ -153,7 +153,7 @@
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title mb-0">Medical Record</h4>
+									<h4 class="card-title mb-0">Medical Record Details</h4>
 								</div>
 								<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
 								<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
@@ -165,15 +165,15 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="biller-info">
-												<h4 class="d-block">${requestScope.doctor.name}</h4>
-												<span class="d-block text-sm text-muted">${requestScope.doctor.specialty}</span>
-												<span class="d-block text-sm text-muted">${requestScope.doctor.ranks.name}</span>
+												<h4 class="d-block">${sessionScope.doctor.name}</h4>
+												<span class="d-block text-sm text-muted">${sessionScope.doctor.specialty}</span>
+												<span class="d-block text-sm text-muted">${sessionScope.doctor.ranks.name}</span>
 											</div>
 										</div>
 										<div class="col-sm-6 text-sm-right">
 											<div class="billing-info">
-												<h4 class="d-block">${sessionScope.booking.date}</h4>
-												<span class="d-block text-muted">Booking ID: ${sessionScope.booking.id}</span>
+												<h4 class="d-block">${sessionScope.medicalRecord.booking.date}${sessionScope.booking.date}</h4>
+												<span class="d-block text-muted">Booking ID: ${sessionScope.medicalRecord.booking_id}${sessionScope.booking.id}</span>
 											</div>
 										</div>
 									</div>
@@ -193,13 +193,13 @@
 													<tbody>
 														<tr>								
 															<td>	
-																<input type="text" class="form-control" name="diagnosis">
+																<input type="text" class="form-control" name="diagnosis" value="${sessionScope.medicalRecord.diagnosis}">
 															</td>
 															<td>
-																<input type="file" class="form-control" name="url">
+																<input type="file" class="form-control" name="url" value="${sessionScope.medicalRecord.url}">
 															</td>							
 															<td>
-																<input type="text" class="form-control" name="prescription">
+																<input type="text" class="form-control" name="prescription" value="${sessionScope.medicalRecord.prescription}">
 															</td>
 														</tr>
 													</tbody>
@@ -388,5 +388,4 @@
 		
 	</body>
 
-<!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 </html>
