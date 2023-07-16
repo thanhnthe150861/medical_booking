@@ -167,16 +167,3 @@ INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff2', 'www.exam
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff3', 'www.example.com/staff3', 'Michael Johnson', 'Male', '1982-11-15'); 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff4', 'www.example.com/staff4', 'Emily Davis', 'Female', '1993-07-20'); 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff5', 'www.example.com/staff5', 'Robert Wilson', 'Male', '1978-03-25');
-
-SELECT P.id, P.url, P.name, P.gender, P.dob, RP.name AS rank_name, SUM(B.totalPrice) AS total_revenue, MAX(BK.date) AS latest_booking_date 
-FROM patient P 
-JOIN booking BK ON P.id = BK.patient_id 
-JOIN medical_record MR ON BK.id = MR.booking_id 
-JOIN bill B ON MR.id = B.medical_record_id 
-JOIN rank_patient RP ON P.rank_id = RP.id 
-WHERE B.payment_status = 'Paid' AND BK.status = 'Completed' 
-GROUP BY P.id
-ORDER BY total_revenue DESC 
-LIMIT 5;
-
-select * from bill
