@@ -1,6 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="medical_booking:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/medical_booking_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/medical_booking-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>medical_booking</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -403,6 +410,9 @@
           <element id="library" level="project" name="Maven: com.amazonaws:aws-java-sdk-models:1.12.504" />
           <element id="library" level="project" name="Maven: com.amazonaws:aws-java-sdk-swf-libraries:1.11.22" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/medical_booking-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="medical_booking/web/Web" />
     </root>
