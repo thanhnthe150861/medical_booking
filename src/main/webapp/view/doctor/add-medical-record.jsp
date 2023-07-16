@@ -1,7 +1,7 @@
-<!DOCTYPE html> 
+<%@ page import="mvc.model.MedicalRecord" %>
+<!DOCTYPE html>
 <html lang="en">
-	
-<!-- doccure/edit-billing.jsp  30 Nov 2019 04:12:37 GMT -->
+
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -61,7 +61,7 @@
 								<a href="doctor_dashboard">Home</a>
 							</li>
 						</ul>
-					</div>		 
+					</div>
 					<ul class="nav header-navbar-rht">
 						<li class="nav-item contact-item">
 							<div class="header-contact-img">
@@ -110,10 +110,10 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Edit Billing</li>
+									<li class="breadcrumb-item active" aria-current="page">Medical Record Details</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Edit Billing</h2>
+							<h2 class="breadcrumb-title">Medical Record Details</h2>
 						</div>
 					</div>
 				</div>
@@ -136,20 +136,13 @@
 												<img src="assets/img/patients/patient.jpg" alt="User Image">
 											</a>
 											<div class="profile-det-info">
-												<h3><a href="patient-profile.html">Richard Wilson</a></h3>
+												<h3><a href="patient_profile?${sessionScope.patient.id}">${sessionScope.patient.name}</a></h3>
 												<div class="patient-details">
-													<h5><b>Patient ID :</b> PT0016</h5>
-													<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
+													<h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
+													<h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
 												</div>
 											</div>
 										</div>
-									</div>
-									<div class="patient-info">
-										<ul>
-											<li>Phone <span>+1 952 001 8563</span></li>
-											<li>Age <span>38 Years, Male</span></li>
-											<li>Blood Group <span>AB+</span></li>
-										</ul>
 									</div>
 								</div>
 							</div>
@@ -160,64 +153,53 @@
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title mb-0">Edit Billing</h4>
+									<h4 class="card-title mb-0">Medical Record</h4>
 								</div>
+								<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+								<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+								<div class="alert alert-success" role="alert">
+									<%= messSuccess %>
+								</div>
+								<% } %>
 								<div class="card-body">
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="biller-info">
-												<h4 class="d-block">Dr. Darren Elder</h4>
-												<span class="d-block text-sm text-muted">Dentist</span>
-												<span class="d-block text-sm text-muted">Newyork, United States</span>
+												<h4 class="d-block">${requestScope.doctor.name}</h4>
+												<span class="d-block text-sm text-muted">${requestScope.doctor.specialty}</span>
+												<span class="d-block text-sm text-muted">${requestScope.doctor.ranks.name}</span>
 											</div>
 										</div>
 										<div class="col-sm-6 text-sm-right">
 											<div class="billing-info">
-												<h4 class="d-block">1 November 2019</h4>
-												<span class="d-block text-muted">#INV0001</span>
+												<h4 class="d-block">${sessionScope.booking.date}</h4>
+												<span class="d-block text-muted">Booking ID: ${sessionScope.booking.id}</span>
 											</div>
 										</div>
 									</div>
-									
-									<!-- Add Item -->
-									<div class="add-more-item text-right">
-										<a href="#"><i class="fa fa-plus-circle"></i> Add Item</a>
-									</div>
-									<!-- /Add Item -->
-									
-									<!-- Billing Item -->
+									<form action="medical_record_details" method="post">
+									<!-- Item -->
 									<div class="card card-table">
 										<div class="card-body">
 											<div class="table-responsive">
 												<table class="table table-hover table-center">
 													<thead>
 														<tr>													
-															<th>Title</th>					
-															<th>Amount</th>		
-															<th style="width:80px;"></th>
+															<th style="min-width:175px;">Diagnosis</th>
+															<th style="min-width:100px;">Attachment</th>
+															<th style="min-width:175px;">Prescription</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>								
 															<td>	
-																<input type="text" class="form-control" value="Consulting Fee">
+																<input type="text" class="form-control" name="diagnosis">
 															</td>
 															<td>
-																<input type="text" class="form-control" value="$330">
+																<input type="file" class="form-control" name="url">
 															</td>							
 															<td>
-																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
-															</td>
-														</tr>
-														<tr>								
-															<td>	
-																<input type="text" class="form-control" value="Video Calling Appointment">
-															</td>
-															<td>
-																<input type="text" class="form-control" value="$100">
-															</td>							
-															<td>
-																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
+																<input type="text" class="form-control" name="prescription">
 															</td>
 														</tr>
 													</tbody>
@@ -226,23 +208,7 @@
 										</div>
 									</div>
 									<!-- /Billing Item -->
-									
-									<!-- Signature -->
-									<div class="row">
-										<div class="col-md-12 text-right">
-											<div class="signature-wrap">
-												<div class="signature">
-													Click here to sign
-												</div>
-												<div class="sign-name">
-													<p class="mb-0">( Dr. Darren Elder )</p>
-													<span class="text-muted">Signature</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- /Signature -->
-									
+
 									<!-- Submit Section -->
 									<div class="row">
 										<div class="col-md-12">
@@ -253,7 +219,7 @@
 										</div>
 									</div>
 									<!-- /Submit Section -->
-									
+									</form>
 								</div>
 							</div>
 						</div>
@@ -422,5 +388,5 @@
 		
 	</body>
 
-<!-- doccure/edit-billing.jsp  30 Nov 2019 04:12:37 GMT -->
+<!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 </html>

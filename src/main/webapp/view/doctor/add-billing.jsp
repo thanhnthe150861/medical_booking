@@ -25,6 +25,7 @@
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+	<script src="js/script.js" defer></script>
 	
 	</head>
 	<body>
@@ -126,7 +127,7 @@
 
 					<div class="row">
 						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
-						
+
 							<!-- Profile Widget -->
 							<div class="card widget-profile pat-widget-profile">
 								<div class="card-body">
@@ -136,20 +137,14 @@
 												<img src="assets/img/patients/patient.jpg" alt="User Image">
 											</a>
 											<div class="profile-det-info">
-												<h3><a href="patient-profile.html">Richard Wilson</a></h3>
+												<h3>${sessionScope.patient.name}</h3>
+
 												<div class="patient-details">
-													<h5><b>Patient ID :</b> PT0016</h5>
-													<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
+													<h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
+													<h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
 												</div>
 											</div>
 										</div>
-									</div>
-									<div class="patient-info">
-										<ul>
-											<li>Phone <span>+1 952 001 8563</span></li>
-											<li>Age <span>38 Years, Male</span></li>
-											<li>Blood Group <span>AB+</span></li>
-										</ul>
 									</div>
 								</div>
 							</div>
@@ -163,27 +158,22 @@
 									<h4 class="card-title mb-0">Add Billing</h4>
 								</div>
 								<div class="card-body">
+									<form action="bill_details" method="post">
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="biller-info">
-												<h4 class="d-block">Dr. Darren Elder</h4>
-												<span class="d-block text-sm text-muted">Dentist</span>
-												<span class="d-block text-sm text-muted">Newyork, United States</span>
+												<h4 class="d-block">${sessionScope.doctor.name}</h4>
+												<span class="d-block text-sm text-muted">${sessionScope.doctor.specialty}</span>
+												<span class="d-block text-sm text-muted">${sessionScope.doctor.ranks.name}</span>
 											</div>
 										</div>
 										<div class="col-sm-6 text-sm-right">
 											<div class="billing-info">
-												<h4 class="d-block">1 November 2019</h4>
-												<span class="d-block text-muted">#INV0001</span>
+												<h4 class="d-block">${sessionScope.medicalRecord.booking.date}${sessionScope.bills.booking.date}</h4>
+												<span class="d-block text-muted">Booking ID: ${sessionScope.medicalRecord.booking_id}${sessionScope.bills.booking_id}</span>
 											</div>
 										</div>
 									</div>
-									
-									<!-- Add Item -->
-									<div class="add-more-item text-right">
-										<a href="javascript:void(0);"><i class="fas fa-plus-circle"></i> Add Item</a>
-									</div>
-									<!-- /Add Item -->
 									
 									<!-- Billing Item -->
 									<div class="card card-table">
@@ -191,57 +181,39 @@
 											<div class="table-responsive">
 												<table class="table table-hover table-center">
 													<thead>
-														<tr>													
-															<th style="min-width:200px;">Title</th>					
-															<th style="min-width:200px;">Amount</th>		
-															<th style="width:80px;"></th>
+														<tr>
+															<th style="min-width:150px;">Price Medical</th>
+															<th style="min-width:150px;">Price Prescription (if any)</th>
+															<th style="min-width:100px;">Total</th>
+															<th style="min-width:50px;">Status</th>
 														</tr>
 													</thead>
 													<tbody>
-														<tr>								
-															<td>	
-																<input type="text" class="form-control">
+														<tr>
+															<input type="text" hidden="hidden" class="form-control" name="mid" value="${sessionScope.medicalRecord.id}">
+															<input type="text" hidden="hidden" class="form-control" name="bid" value="${sessionScope.bills.bill.id}">
+															<td>
+																<input type="number" min="0" class="form-control" name="priceMedical" id="priceMedical">
 															</td>
 															<td>
-																<input type="text" class="form-control">
-															</td>							
-															<td>
-																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
-															</td>
-														</tr>
-														<tr>								
-															<td>	
-																<input type="text" class="form-control">
+																<input type="number" min="0" class="form-control" name="pricePrescription" id="pricePrescription">
 															</td>
 															<td>
-																<input type="text" class="form-control">
-															</td>							
-															<td>
-																<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>															
+																<input type="number" min="0" class="form-control" name="totalPrice" id="totalPrice" value="${sessionScope.bills.bill.price}">
 															</td>
-														</tr>
+														<td class="text-center">
+															<select name="status">
+																<option ${sessionScope.bills.bill.payment_status == "Paid" ? "selected" : ""} value="Paid">Paid</option>
+																<option ${sessionScope.bills.bill.payment_status == "Unpaid" ? "selected" : ""} value="Unpaid">Unpaid</option>
+															</select>
+														</td>
+													</tr>
 													</tbody>
 												</table>
 											</div>
 										</div>
 									</div>
 									<!-- /Billing Item -->
-									
-									<!-- Signature -->
-									<div class="row">
-										<div class="col-md-12 text-right">
-											<div class="signature-wrap">
-												<div class="signature">
-													Click here to sign
-												</div>
-												<div class="sign-name">
-													<p class="mb-0">( Dr. Darren Elder )</p>
-													<span class="text-muted">Signature</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- /Signature -->
 									
 									<!-- Submit Section -->
 									<div class="row">
@@ -253,7 +225,7 @@
 										</div>
 									</div>
 									<!-- /Submit Section -->
-									
+								</form>
 								</div>
 							</div>
 						</div>
@@ -419,6 +391,7 @@
 		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
+
 		
 	</body>
 
