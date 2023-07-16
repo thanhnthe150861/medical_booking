@@ -1,6 +1,8 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
+<%@ page import="mvc.dal.StaffDBContext" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -34,8 +36,8 @@
 </head>
     <body>
 	<%
-		AdminDBContext adminDBContext = new AdminDBContext();
-		List<MedicalRecord> appointmentList = adminDBContext.getInforTotalAppoinment();
+		StaffDBContext staffDBContext = new StaffDBContext();
+		List<MedicalRecord> appointmentList = staffDBContext.getInforTotalAppoinment();
 	%>
 		<!-- Main Wrapper -->
         <div class="main-wrapper">
@@ -160,7 +162,7 @@
 							<div class="col-sm-12">
 								<h3 class="page-title">Appointments</h3>
 								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+									<li class="breadcrumb-item"><a href="view/home.jsp">Dashboard</a></li>
 									<li class="breadcrumb-item active">Appointments</li>
 								</ul>
 							</div>
