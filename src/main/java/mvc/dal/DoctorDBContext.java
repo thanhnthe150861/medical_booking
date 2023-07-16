@@ -81,7 +81,7 @@ public class DoctorDBContext extends  DBContext{
                     "       patient.dob AS patient_dob, patient.rank_id AS patient_rank_id,  \n" +
                     "       slot.name AS slot_name,  \n" +
                     "       medical_record.id AS medical_record_id, medical_record.diagnosis, medical_record.prescription,  \n" +
-                    "       bill.id AS bill_id, bill.price, bill.payment_status  \n" +
+                    "       bill.id AS bill_id, bill.pricePrescription, bill.priceMedical, bill.totalPrice, bill.payment_status  \n" +
                     "FROM booking  \n" +
                     "LEFT JOIN doctor ON booking.doctor_id = doctor.id  \n" +
                     "LEFT JOIN patient ON booking.patient_id = patient.id  \n" +
@@ -121,7 +121,9 @@ public class DoctorDBContext extends  DBContext{
                 booking.setSlots(slot);
                 Bill bill = new Bill();
                 bill.setId(rs.getInt("bill_id"));
-                bill.setPrice(rs.getFloat("price"));
+                bill.setTotalPrice(rs.getFloat("totalPrice"));
+                bill.setPriceMedical(rs.getFloat("priceMedical"));
+                bill.setPricePrescription(rs.getFloat("pricePrescription"));
                 bill.setPayment_status(rs.getString("payment_status"));
                 MedicalRecord medicalRecord = new MedicalRecord();
                 medicalRecord.setId(rs.getInt("medical_record_id"));
@@ -338,11 +340,13 @@ public class DoctorDBContext extends  DBContext{
     }
     public void addBill(Bill bill){
         try {
-            String sql = "INSERT INTO bill (medical_record_id, payment_status, price) VALUES (?, ?, ?);";
+            String sql = "INSERT INTO bill (medical_record_id, payment_status, pricePrescription, priceMedical, totalPrice) VALUES (?, ?, ?, ?, ?);";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, bill.getMedical_record_id());
             stm.setString(2, bill.getPayment_status());
-            stm.setInt(3, (int) bill.getPrice());
+            stm.setInt(3, (int) bill.getPricePrescription());
+            stm.setInt(4, (int) bill.getPriceMedical());
+            stm.setInt(5, (int) bill.getTotalPrice());
             stm.executeUpdate();
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -351,12 +355,14 @@ public class DoctorDBContext extends  DBContext{
     public void UpdateBill(Bill bill){
         try {
             String sql = "UPDATE bill\n" +
-                    "SET price = ?, payment_status = ?\n" +
+                    "SET payment_status = ?, pricePrescription = ?, priceMedical = ?, totalPrice = ?\n" +
                     "WHERE id = ?;";
             stm = connection.prepareStatement(sql);
-            stm.setInt(1, (int) bill.getPrice());
-            stm.setString(2, bill.getPayment_status());
-            stm.setInt(3, bill.getId());
+            stm.setString(1, bill.getPayment_status());
+            stm.setInt(2, (int) bill.getPricePrescription());
+            stm.setInt(3, (int) bill.getPriceMedical());
+            stm.setInt(4, (int) bill.getTotalPrice());
+            stm.setInt(5, bill.getId());
             stm.executeUpdate();
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -364,7 +370,7 @@ public class DoctorDBContext extends  DBContext{
     }
     public MedicalRecord getBill(String id){
         try {
-            String sql = "SELECT b.id AS bill_id, b.price, b.payment_status,\n" +
+            String sql = "SELECT b.id AS bill_id, b.pricePrescription, b.priceMedical, b.totalPrice, b.payment_status,\n" +
                     "       bk.id AS booking_id, bk.date\n" +
                     "FROM bill AS b\n" +
                     "JOIN medical_record AS mr ON b.medical_record_id = mr.id\n" +
@@ -378,7 +384,9 @@ public class DoctorDBContext extends  DBContext{
                 booking.setDate(rs.getDate("date"));
                 Bill bill = new Bill();
                 bill.setId(rs.getInt("bill_id"));
-                bill.setPrice(rs.getInt("price"));
+                bill.setPriceMedical(rs.getInt("priceMedical"));
+                bill.setPricePrescription(rs.getInt("pricePrescription"));
+                bill.setTotalPrice(rs.getInt("totalPrice"));
                 bill.setPayment_status(rs.getString("payment_status"));
                 MedicalRecord medicalRecord = new MedicalRecord();
                 medicalRecord.setBooking_id(rs.getInt("booking_id"));

@@ -70,9 +70,11 @@ ALTER DATABASE medical_booking CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 	CREATE TABLE bill(
 		id int auto_increment,
-		medical_record_id int NOT NULL,
-		price float NOT NULL,
-		payment_status varchar(20) NOT NULL,
+		medical_record_id int,
+        priceMedical float,
+        pricePrescription float,
+		totalPrice float,
+		payment_status varchar(20),
 		PRIMARY KEY (id)
 	);
 
@@ -154,10 +156,10 @@ INSERT INTO medical_record (booking_id, diagnosis, url, prescription) VALUES (3,
 INSERT INTO medical_record (booking_id, diagnosis, url, prescription) VALUES (4, 'Cancer', NULL, 'Chemotherapy');
 -- Add more medical records as needed
  -- Bill table INSERT statements
-INSERT INTO bill (medical_record_id, payment_status, price) VALUES (1, 'Paid', 100.50);
-INSERT INTO bill (medical_record_id, payment_status, price) VALUES (2, 'Unpaid', 50.25);
-INSERT INTO bill (medical_record_id, payment_status, price) VALUES (3, 'Unpaid', 75.00);
-INSERT INTO bill (medical_record_id, payment_status, price) VALUES (4, 'Paid', 80.75);
+INSERT INTO bill (medical_record_id, payment_status, pricePrescription, priceMedical, totalPrice) VALUES (1, 'Paid', 100.0, 120.0, 220.0);
+INSERT INTO bill (medical_record_id, payment_status, pricePrescription, priceMedical, totalPrice) VALUES (2, 'Unpaid', 120.0, 120.0, 240.0);
+INSERT INTO bill (medical_record_id, payment_status, pricePrescription, priceMedical, totalPrice) VALUES (3, 'Unpaid', 150.0, 0.0, 150.0);
+INSERT INTO bill (medical_record_id, payment_status, pricePrescription, priceMedical, totalPrice) VALUES (4, 'Paid', 100.0, 120.0, 220.0);
 -- Add more bills as needed
 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff1', 'www.example.com/staff1', 'John Doe', 'Male', '1990-01-01'); 
@@ -166,5 +168,15 @@ INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff3', 'www.exam
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff4', 'www.example.com/staff4', 'Emily Davis', 'Female', '1993-07-20'); 
 INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff5', 'www.example.com/staff5', 'Robert Wilson', 'Male', '1978-03-25');
 
+SELECT P.id, P.url, P.name, P.gender, P.dob, RP.name AS rank_name, SUM(B.totalPrice) AS total_revenue, MAX(BK.date) AS latest_booking_date 
+FROM patient P 
+JOIN booking BK ON P.id = BK.patient_id 
+JOIN medical_record MR ON BK.id = MR.booking_id 
+JOIN bill B ON MR.id = B.medical_record_id 
+JOIN rank_patient RP ON P.rank_id = RP.id 
+WHERE B.payment_status = 'Paid' AND BK.status = 'Completed' 
+GROUP BY P.id
+ORDER BY total_revenue DESC 
+LIMIT 5;
 
-
+select * from bill

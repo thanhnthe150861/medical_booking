@@ -97,7 +97,7 @@ public class PatientDBContext extends  DBContext{
                     "       patient.dob AS patient_dob, patient.rank_id AS patient_rank_id,  \n" +
                     "       slot.name AS slot_name,  \n" +
                     "       medical_record.id AS medical_record_id, medical_record.diagnosis, medical_record.prescription,  \n" +
-                    "       bill.id AS bill_id, bill.price, bill.payment_status  \n" +
+                    "       bill.id AS bill_id, bill.pricePrescription, bill.priceMedical, bill.totalPrice, bill.payment_status  \n" +
                     "FROM booking  \n" +
                     "LEFT JOIN doctor ON booking.doctor_id = doctor.id  \n" +
                     "LEFT JOIN patient ON booking.patient_id = patient.id  \n" +
@@ -135,7 +135,9 @@ public class PatientDBContext extends  DBContext{
                 booking.setSlots(slot);
                 Bill bill = new Bill();
                 bill.setId(rs.getInt("bill_id"));
-                bill.setPrice(rs.getFloat("price"));
+                bill.setPriceMedical(rs.getInt("priceMedical"));
+                bill.setPricePrescription(rs.getInt("pricePrescription"));
+                bill.setTotalPrice(rs.getInt("totalPrice"));
                 bill.setPayment_status(rs.getString("payment_status"));
                 MedicalRecord medicalRecord = new MedicalRecord();
                 medicalRecord.setId(rs.getInt("medical_record_id"));

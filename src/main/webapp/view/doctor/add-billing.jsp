@@ -111,7 +111,7 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Add Billing</li>
+									<li class="breadcrumb-item active" aria-current="page">Bill Details</li>
 								</ol>
 							</nav>
 							<h2 class="breadcrumb-title">Add Billing</h2>
@@ -193,13 +193,13 @@
 															<input type="text" hidden="hidden" class="form-control" name="mid" value="${sessionScope.medicalRecord.id}">
 															<input type="text" hidden="hidden" class="form-control" name="bid" value="${sessionScope.bills.bill.id}">
 															<td>
-																<input type="number" min="0" class="form-control" name="priceMedical" id="priceMedical">
+																<input type="number" min="0" class="form-control" name="priceMedical" id="priceMedical" value="${sessionScope.bills.bill.priceMedical}" >
 															</td>
 															<td>
-																<input type="number" min="0" class="form-control" name="pricePrescription" id="pricePrescription">
+																<input type="number" min="0" class="form-control" name="pricePrescription" id="pricePrescription" value="${sessionScope.bills.bill.pricePrescription}">
 															</td>
 															<td>
-																<input type="number" min="0" class="form-control" name="totalPrice" id="totalPrice" value="${sessionScope.bills.bill.price}">
+																<input type="number" min="0" class="form-control" name="totalPrice" id="totalPrice" value="${sessionScope.bills.bill.priceMedical + sessionScope.bills.bill.pricePrescription}" readonly>
 															</td>
 														<td class="text-center">
 															<select name="status">

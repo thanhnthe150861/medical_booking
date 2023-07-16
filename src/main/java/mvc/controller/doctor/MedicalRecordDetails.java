@@ -21,12 +21,22 @@ public class MedicalRecordDetails extends HttpServlet {
         DoctorDBContext doctorDBContext = new DoctorDBContext();
         if (account != null && account.getIsAdmin() == 1) {
             Doctor doctor = doctorDBContext.getDoctor(account);
-            req.setAttribute("doctor", doctor);
-            String bid = req.getParameter("id");
-            Patient patient = (Patient) session.getAttribute("patient");
-            Booking booking = doctorDBContext.getBooking(bid);
-            req.setAttribute("patient", patient);
-            session.setAttribute("booking", booking);
+            session.setAttribute("doctor", doctor);
+            String mid = req.getParameter("mid");
+            if(mid != null){
+                Patient patient = (Patient) session.getAttribute("patient");
+                MedicalRecord medicalRecord = doctorDBContext.getMedicalRecord(mid);
+                req.setAttribute("patient", patient);
+                session.setAttribute("medicalRecord", medicalRecord);
+            }
+            String bid = req.getParameter("bid");
+            if(bid != null){
+                Patient patient = (Patient) session.getAttribute("patient");
+                Booking booking = doctorDBContext.getBooking(bid);
+                req.setAttribute("patient", patient);
+                session.setAttribute("booking", booking);
+            }
+            //
             req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
         }
         resp.sendRedirect("login");
