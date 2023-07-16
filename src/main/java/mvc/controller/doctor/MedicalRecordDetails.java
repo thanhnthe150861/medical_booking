@@ -20,6 +20,7 @@ public class MedicalRecordDetails extends HttpServlet {
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
         if (account != null && account.getIsAdmin() == 1) {
+            session.removeAttribute("medicalRecord");
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
             String mid = req.getParameter("mid");
@@ -45,19 +46,31 @@ public class MedicalRecordDetails extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Booking booking = (Booking)session.getAttribute("booking");
-        int bid = booking.getId();
+        DoctorDBContext doctorDBContext = new DoctorDBContext();
         String diagnosis = req.getParameter("diagnosis");
         String url = req.getParameter("url");
         String prescription = req.getParameter("prescription");
-        MedicalRecord record = new MedicalRecord();
-        record.setBooking_id(bid);
-        record.setDiagnosis(diagnosis);
-        record.setPrescription(prescription);
-        record.setUrl(url);
-        DoctorDBContext dbContext = new DoctorDBContext();
-        dbContext.addMedical(record);
-        req.setAttribute("messSuccess", "Thêm mới thành công");
+        String mid = req.getParameter("mid");
+        if(!mid.isEmpty()){
+            MedicalRecord medicalRecord = doctorDBContext.getMedicalRecord(mid);
+            medicalRecord.setDiagnosis(diagnosis);
+            medicalRecord.setPrescription(prescription);
+            medicalRecord.setUrl(url);
+            doctorDBContext.UpdateMedical(medicalRecord);
+            session.setAttribute("medicalRecord", medicalRecord);
+        }
+        String bid = req.getParameter("bid");
+        if(!bid.isEmpty()){
+            MedicalRecord record = new MedicalRecord();
+            record.setBooking_id(Integer.parseInt(bid));
+            record.setDiagnosis(diagnosis);
+            record.setPrescription(prescription);
+            record.setUrl(url);
+            DoctorDBContext dbContext = new DoctorDBContext();
+            dbContext.addMedical(record);
+            session.setAttribute("medicalRecord", record);
+        }
+        req.setAttribute("messSuccess", "Cập nhật thành công");
         req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
     }
 }

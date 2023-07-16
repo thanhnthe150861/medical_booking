@@ -162,7 +162,7 @@
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">ADD NEW PATIENT</h4>
+									<h4 class="card-title"><c:if test="${sessionScope.patient eq null}">ADD NEW</c:if><c:if test="${sessionScope.patient ne null}">UPDATE</c:if> PATIENT</h4>
 									<!-- Place this code where you want to display the error message -->
 									<% String errorMessage = (String) request.getAttribute("messError"); %>
 									<% if (errorMessage != null && !errorMessage.isEmpty()) { %>

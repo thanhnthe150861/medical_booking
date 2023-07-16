@@ -189,7 +189,7 @@
 															<a href="#"><%= invoice.getBooking().getPatient().getName() %></a>
 														</h2>
 													</td>
-													<td>$<%= invoice.getBill().getPrice() %></td>
+													<td>$<%= invoice.getBill().getTotalPrice() %></td>
 													<td><%= invoice.getBooking().getDate() %></td>
 													<td class="text-center">
 														<span class="badge badge-pill bg-success inv-badge">Paid</span>
@@ -217,7 +217,7 @@
 				</div>			
 			</div>
 			<!-- /Page Wrapper -->
-			
+
 			<!-- Edit Details Modal -->
 			<div class="modal fade" id="edit_invoice_report" aria-hidden="true" role="dialog">
 				<div class="modal-dialog modal-dialog-centered" role="document" >
@@ -267,7 +267,7 @@
 											<input type="text"  class="form-control" value="29th Oct 2019">
 										</div>
 									</div>
-									
+
 								</div>
 								<button type="submit" class="btn btn-primary btn-block">Save Changes</button>
 							</form>
@@ -276,7 +276,7 @@
 				</div>
 			</div>
 			<!-- /Edit Details Modal -->
-		
+
 			<!-- Delete Modal -->
 			<div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
 				<div class="modal-dialog modal-dialog-centered" role="document" >

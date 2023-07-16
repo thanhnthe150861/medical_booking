@@ -1,4 +1,5 @@
-<!DOCTYPE html> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
 	
 <!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
@@ -169,8 +170,27 @@
 										</div>
 										<div class="col-sm-6 text-sm-right">
 											<div class="billing-info">
-												<h4 class="d-block">${sessionScope.medicalRecord.booking.date}${sessionScope.bills.booking.date}</h4>
-												<span class="d-block text-muted">Booking ID: ${sessionScope.medicalRecord.booking_id}${sessionScope.bills.booking_id}</span>
+												<h4 class="d-block">
+													<c:if test="${empty sessionScope.medicalRecord.booking.date}">
+														<p>Booking Date: ${sessionScope.bills.booking.date}</p>
+													</c:if>
+													<c:if test="${empty sessionScope.bills.booking.date}">
+														<p>Booking Date: ${sessionScope.medicalRecord.booking.date}</p>
+													</c:if>
+													<c:if test="${not empty sessionScope.bills.booking.date && not empty sessionScope.medicalRecord.booking.date}">
+														<p>Booking Date: ${sessionScope.bills.booking.date}</p>
+													</c:if>
+												</h4>
+												<span class="d-block text-muted">
+													<c:if test="${empty sessionScope.medicalRecord.booking_id}">
+														<p>Booking ID: ${sessionScope.bills.booking_id}</p>
+													</c:if>
+													<c:if test="${empty sessionScope.bills.booking_id}">
+														<p>Booking ID: ${sessionScope.medicalRecord.booking_id}</p>
+													</c:if>
+													<c:if test="${not empty sessionScope.medicalRecord.booking_id && not empty sessionScope.bills.booking_id}">
+														<p>Booking ID: ${sessionScope.bills.booking_id}</p>
+													</c:if>
 											</div>
 										</div>
 									</div>

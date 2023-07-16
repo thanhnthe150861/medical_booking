@@ -199,7 +199,7 @@
 												</td>
 												<td><%= doctor.getBooking().getDoctor().getSpecialty() %></td>
 												<td><%= doctor.getBooking().getDoctor().getDob() %></td>
-												<td>$<%= doctor.getBill().getPrice() %></td>
+												<td>$<%= doctor.getBill().getTotalPrice() %></td>
 												<td class="text-center">
 													<% if (doctor.getBooking().getDoctor().getAccount().getStatus()) { %>
 													<span class="badge badge-pill bg-success inv-badge">Active</span>
