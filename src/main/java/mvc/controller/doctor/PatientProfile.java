@@ -35,7 +35,7 @@ public class PatientProfile extends HttpServlet {
             String id = req.getParameter("id");
             Patient patient = doctorDBContext.getPatientByDoctor(id);
             List<MedicalRecord> medicalRecordList = doctorDBContext.getInforMyPatients(doctor, id);
-            req.setAttribute("patient", patient);
+            session.setAttribute("patient", patient);
             req.setAttribute("medicalRecordList", medicalRecordList);
             String bill = req.getParameter("bill");
             String medical = req.getParameter("medical");
