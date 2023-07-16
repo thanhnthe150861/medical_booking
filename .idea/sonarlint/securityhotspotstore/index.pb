@@ -113,15 +113,3 @@ f
 6src/test/java/mvc/controller/patient/MyDoctorTest.java,2\5\259269031312aecba98773affa435133ffca1311
 k
 ;src/test/java/mvc/controller/patient/DoctorProfileTest.java,a\c\ac4aa70be756b5db710ee53db95de22e529f7fe4
-a
-1src/main/java/mvc/controller/patient/Booking.java,2\2\224e73ee77d4d46ffe39d9a1074d074b7a6e6bec
-f
-6src/main/java/mvc/controller/patient/BookingAgain.java,5\d\5d59219e9723ade229560e5992fbc47be75b3520
-g
-7src/main/java/mvc/controller/patient/DoctorProfile.java,3\a\3ab153450a68ae77b6fb1e3d025bd784e68fb8e2
-o
-?src/main/java/mvc/controller/patient/PatientChangePassword.java,7\f\7fb6fb4e5a272c9fc46e39dbce8599bcdb57f1a5
-j
-:src/main/java/mvc/controller/patient/PatientDashboard.java,f\4\f49b5221139356d563eff6e57293d0715106e48e
-p
-@src/main/java/mvc/controller/patient/PatientProfileSettings.java,4\9\49aee247550e004a6aeb43284a08dff8059efe29
