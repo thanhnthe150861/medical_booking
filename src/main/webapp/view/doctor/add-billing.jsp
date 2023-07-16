@@ -189,7 +189,7 @@
 														<p>Booking ID: ${sessionScope.medicalRecord.booking_id}</p>
 													</c:if>
 													<c:if test="${not empty sessionScope.medicalRecord.booking_id && not empty sessionScope.bills.booking_id}">
-														<p>Booking ID: ${sessionScope.bills.booking_id}</p>
+														<p>Booking ID: ${sessionScope.medicalRecord.booking_id}</p>
 													</c:if>
 											</div>
 										</div>
