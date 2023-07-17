@@ -22,8 +22,13 @@ public class BillDetails extends HttpServlet {
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
             String mid = req.getParameter("mid");
+            Patient patient = (Patient) session.getAttribute("patient");
+            if(patient == null){
+                String pid = req.getParameter("pid");
+                patient = doctorDBContext.getPatientByDoctor(pid);
+                session.setAttribute("patient", patient);
+            }
             if(mid != null){
-                Patient patient = (Patient) session.getAttribute("patient");
                 MedicalRecord medicalRecord = doctorDBContext.getMedicalRecord(mid);
                 req.setAttribute("patient", patient);
                 session.removeAttribute("bills");
@@ -32,7 +37,6 @@ public class BillDetails extends HttpServlet {
             }
             String bid = req.getParameter("bid");
             if(bid != null){
-                Patient patient = (Patient) session.getAttribute("patient");
                 MedicalRecord bills = doctorDBContext.getBillByID(bid);
                 req.setAttribute("patient", patient);
                 session.removeAttribute("medicalRecord");

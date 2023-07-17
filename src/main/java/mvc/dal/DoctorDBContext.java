@@ -310,7 +310,6 @@ public class DoctorDBContext extends  DBContext{
         }
         return null;
     }
-
     public void addMedical(MedicalRecord medicalRecord){
         try {
             String sql = "INSERT INTO medical_record (booking_id, diagnosis, url, prescription) VALUES (?, ?, ?, ?);";
@@ -373,7 +372,7 @@ public class DoctorDBContext extends  DBContext{
     public MedicalRecord getBillByID(String id){
         try {
             String sql = "SELECT b.id AS bill_id, b.pricePrescription, b.priceMedical, b.totalPrice, b.payment_status,\n" +
-                    "       bk.id AS booking_id, bk.date\n" +
+                    "       bk.id AS booking_id, bk.date, bk.patient_id\n" +
                     "FROM bill AS b\n" +
                     "JOIN medical_record AS mr ON b.medical_record_id = mr.id\n" +
                     "JOIN booking AS bk ON mr.booking_id = bk.id\n" +
@@ -383,6 +382,7 @@ public class DoctorDBContext extends  DBContext{
             rs = stm.executeQuery();
             if (rs.next()){
                 Booking booking = new Booking();
+                booking.setPatient_id(rs.getInt("patient_id"));
                 booking.setDate(rs.getDate("date"));
                 Bill bill = new Bill();
                 bill.setId(rs.getInt("bill_id"));
@@ -431,5 +431,44 @@ public class DoctorDBContext extends  DBContext{
             throw new RuntimeException(e);
         }
         return null;
+    }
+    public  List<MedicalRecord> invoiceList (Doctor doctor){
+        List<MedicalRecord> getInvoiceList = new ArrayList<>();
+        try {
+            String sql = "SELECT b.id AS bill_id, b.totalPrice, b.payment_status, bd.id AS booking, bd.date, p.*\n" +
+                    "FROM bill b\n" +
+                    "JOIN medical_record mr ON b.medical_record_id = mr.id\n" +
+                    "JOIN booking bd ON mr.booking_id = bd.id\n" +
+                    "JOIN patient p ON bd.patient_id = p.id\n" +
+                    "JOIN doctor d ON d.id = bd.doctor_id\n" +
+                    "WHERE d.id = ? and b.payment_status = 'Paid';";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, doctor.getId());
+            rs = stm.executeQuery();
+            while (rs.next()){
+                Patient patient = new Patient();
+                patient.setId(rs.getInt("id"));
+                patient.setUrl(rs.getString("url"));
+                patient.setName(rs.getString("name"));
+                patient.setGender(rs.getString("gender"));
+                patient.setDob(rs.getDate("dob"));
+                patient.setRankId(rs.getInt("rank_id"));
+                Bill bill = new Bill();
+                bill.setId(rs.getInt("bill_id"));
+                bill.setTotalPrice(rs.getFloat("totalPrice"));
+                bill.setPayment_status(rs.getString("payment_status"));
+                Booking booking = new Booking();
+                booking.setId(rs.getInt("booking"));
+                booking.setDate(rs.getDate("date"));
+                booking.setPatient(patient);
+                MedicalRecord medicalRecord = new MedicalRecord();
+                medicalRecord.setBooking(booking);
+                medicalRecord.setBill(bill);
+                getInvoiceList.add(medicalRecord);
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return getInvoiceList;
     }
 }

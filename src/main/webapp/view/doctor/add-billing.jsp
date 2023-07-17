@@ -115,7 +115,7 @@
 									<li class="breadcrumb-item active" aria-current="page">Bill Details</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Add Billing</h2>
+							<h2 class="breadcrumb-title">Bill Details</h2>
 						</div>
 					</div>
 				</div>
@@ -156,8 +156,14 @@
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title mb-0">Add Billing</h4>
+									<h4 class="card-title mb-0">Bill Details</h4>
 								</div>
+								<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+								<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+								<div class="alert alert-success" role="alert">
+									<%= messSuccess %>
+								</div>
+								<% } %>
 								<div class="card-body">
 									<form action="bill_details" method="post">
 									<div class="row">

@@ -220,10 +220,10 @@
                                     <a href="bill_details?bid=${m.bill.id}" class="btn btn-sm bg-success-light">
                                       <i class="far fa-eye"></i> Edit
                                     </a>
+                                    <a href="invoice_view?bid=${m.bill.id}" class="btn btn-sm bg-info-light">
+                                      <i class="far fa-eye"></i> View
+                                    </a>
                                   </c:if>
-                                  <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                                    <i class="far fa-eye"></i> View
-                                  </a>
                                 </div>
                               </div>
                             </td>
