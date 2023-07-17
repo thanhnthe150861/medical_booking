@@ -22,25 +22,29 @@ public class BillDetails extends HttpServlet {
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
             String mid = req.getParameter("mid");
-            Patient patient = (Patient) session.getAttribute("patient");
-            if(patient == null){
-                String pid = req.getParameter("pid");
-                patient = doctorDBContext.getPatientByDoctor(pid);
-                session.setAttribute("patient", patient);
-            }
+//            Patient patient = (Patient) session.getAttribute("patient");
+//            if(patient == null){
+//                String pid = req.getParameter("pid");
+//                patient = doctorDBContext.getPatientByDoctor(pid);
+//                session.setAttribute("patient", patient);
+//            }
             if(mid != null){
-                MedicalRecord medicalRecord = doctorDBContext.getMedicalRecord(mid);
-                req.setAttribute("patient", patient);
-                session.removeAttribute("bills");
-                session.removeAttribute("medicalRecord");
-                session.setAttribute("medicalRecord", medicalRecord);
+                session.removeAttribute("bid");
+                session.setAttribute("mid", mid);
+                MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
+//                req.setAttribute("patient", patient);
+//                session.removeAttribute("bills");
+//                session.removeAttribute("medicalRecord");
+                session.setAttribute("bills", medicalRecord);
             }
             String bid = req.getParameter("bid");
             if(bid != null){
-                MedicalRecord bills = doctorDBContext.getBillByID(bid);
-                req.setAttribute("patient", patient);
-                session.removeAttribute("medicalRecord");
-                session.removeAttribute("bills");
+                session.removeAttribute("mid");
+                session.setAttribute("bid", bid);
+                MedicalRecord bills = doctorDBContext.getTTByBillID(bid);
+//                req.setAttribute("patient", patient);
+//                session.removeAttribute("medicalRecord");
+//                session.removeAttribute("bills");
                 session.setAttribute("bills", bills);
             }
             req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
@@ -66,9 +70,9 @@ public class BillDetails extends HttpServlet {
             DoctorDBContext dbContext = new DoctorDBContext();
             dbContext.addBill(bill);
 
-            MedicalRecord bills = dbContext.getBillByMedicalID(mid);
-            session.removeAttribute("medicalRecord");
-            session.removeAttribute("bills");
+            MedicalRecord bills = dbContext.getTTByMedicalID(mid);
+//            session.removeAttribute("medicalRecord");
+//            session.removeAttribute("bills");
             session.setAttribute("bills", bills);
         }
         String bid = req.getParameter("bid");
@@ -82,9 +86,9 @@ public class BillDetails extends HttpServlet {
             DoctorDBContext dbContext = new DoctorDBContext();
             dbContext.UpdateBill(bill);
 
-            MedicalRecord bills = dbContext.getBillByID(bid);
-            session.removeAttribute("medicalRecord");
-            session.removeAttribute("bills");
+            MedicalRecord bills = dbContext.getTTByBillID(bid);
+//            session.removeAttribute("medicalRecord");
+//            session.removeAttribute("bills");
             session.setAttribute("bills", bills);
         }
         req.setAttribute("messSuccess", "Cập nhật thành công");

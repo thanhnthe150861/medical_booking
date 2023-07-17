@@ -88,8 +88,8 @@
 										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>${sessionScope.doctor.name}</h6>
-										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
+										<h6>${sessionScope.bills.booking.doctor.name}</h6>
+										<p class="text-muted mb-0">${sessionScope.bills.booking.doctor.ranks.name}</p>
 									</div>
 								</div>
 								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
@@ -138,11 +138,11 @@
 												<img src="assets/img/patients/patient.jpg" alt="User Image">
 											</a>
 											<div class="profile-det-info">
-												<h3>${sessionScope.patient.name}</h3>
+												<h3>${sessionScope.bills.booking.patient.name}</h3>
 
 												<div class="patient-details">
-													<h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
-													<h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
+													<h5><b>Patient ID :</b> ${sessionScope.bills.booking.patient.id}</h5>
+													<h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.bills.booking.patient.dob}</h5>
 												</div>
 											</div>
 										</div>
@@ -169,34 +169,19 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="biller-info">
-												<h4 class="d-block">${sessionScope.doctor.name}</h4>
-												<span class="d-block text-sm text-muted">${sessionScope.doctor.specialty}</span>
-												<span class="d-block text-sm text-muted">${sessionScope.doctor.ranks.name}</span>
+												<h4 class="d-block">${sessionScope.bills.booking.doctor.name}</h4>
+												<span class="d-block text-sm text-muted">${sessionScope.bills.booking.doctor.specialty}</span>
+												<span class="d-block text-sm text-muted">${sessionScope.bills.booking.doctor.ranks.name}</span>
 											</div>
 										</div>
 										<div class="col-sm-6 text-sm-right">
 											<div class="billing-info">
 												<h4 class="d-block">
-													<c:if test="${empty sessionScope.medicalRecord.booking.date}">
 														<p>Booking Date: ${sessionScope.bills.booking.date}</p>
-													</c:if>
-													<c:if test="${empty sessionScope.bills.booking.date}">
-														<p>Booking Date: ${sessionScope.medicalRecord.booking.date}</p>
-													</c:if>
-													<c:if test="${not empty sessionScope.bills.booking.date && not empty sessionScope.medicalRecord.booking.date}">
-														<p>Booking Date: ${sessionScope.bills.booking.date}</p>
-													</c:if>
 												</h4>
 												<span class="d-block text-muted">
-													<c:if test="${empty sessionScope.medicalRecord.booking_id}">
-														<p>Booking ID: ${sessionScope.bills.booking_id}</p>
-													</c:if>
-													<c:if test="${empty sessionScope.bills.booking_id}">
-														<p>Booking ID: ${sessionScope.medicalRecord.booking_id}</p>
-													</c:if>
-													<c:if test="${not empty sessionScope.medicalRecord.booking_id && not empty sessionScope.bills.booking_id}">
-														<p>Booking ID: ${sessionScope.medicalRecord.booking_id}</p>
-													</c:if>
+														<p>Booking ID: ${sessionScope.bills.booking.id}</p>
+													</span>
 											</div>
 										</div>
 									</div>
@@ -216,8 +201,8 @@
 													</thead>
 													<tbody>
 														<tr>
-															<input type="text" hidden="hidden" class="form-control" name="mid" value="${sessionScope.medicalRecord.id}">
-															<input type="text" hidden="hidden" class="form-control" name="bid" value="${sessionScope.bills.bill.id}">
+															<input type="text" hidden="hidden" class="form-control" name="mid" value="${sessionScope.mid}">
+															<input type="text" hidden="hidden" class="form-control" name="bid" value="${sessionScope.pid}">
 															<td>
 																<input type="number" min="0" class="form-control" name="priceMedical" id="priceMedical" value="${sessionScope.bills.bill.priceMedical}" >
 															</td>

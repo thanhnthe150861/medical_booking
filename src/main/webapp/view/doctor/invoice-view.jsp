@@ -58,7 +58,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="home">Home</a>
+								<a href="#">Home</a>
 							</li>
 						</ul>
 					</div>		 
@@ -107,7 +107,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="home">Home</a></li>
+									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Invoice View</li>
 								</ol>
 							</nav>
@@ -134,7 +134,7 @@
 										</div>
 										<div class="col-md-6">
 											<p class="invoice-details">
-												<strong>Order:</strong> ${requestScope.bill.bill.id} <br>
+												<strong>Order:</strong> ${requestScope.bill.bill.id}<br>
 												<strong>Issued:</strong> ${requestScope.bill.booking.date}
 											</p>
 										</div>
@@ -148,9 +148,8 @@
 											<div class="invoice-info">
 												<strong class="customer-text">Invoice From</strong>
 												<p class="invoice-details invoice-details-two">
-													${requestScope.doctor.name} <br>
-														${requestScope.doctor.specialty} <br>
-														${requestScope.doctor.ranks.name}<br>
+													${requestScope.bill.booking.doctor.name} <br>
+														${requestScope.bill.booking.doctor.specialty} <br>
 												</p>
 											</div>
 										</div>
@@ -158,8 +157,7 @@
 											<div class="invoice-info invoice-info2">
 												<strong class="customer-text">Invoice To</strong>
 												<p class="invoice-details">
-													${requestScope.patient.name} <br>
-													${requestScope.patient.ranks.name}<br>
+													${requestScope.bill.booking.patient.name} <br>
 												</p>
 											</div>
 										</div>

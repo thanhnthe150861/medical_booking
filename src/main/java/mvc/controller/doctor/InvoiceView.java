@@ -10,7 +10,6 @@ import mvc.dal.DoctorDBContext;
 import mvc.model.Account;
 import mvc.model.Doctor;
 import mvc.model.MedicalRecord;
-import mvc.model.Patient;
 
 import java.io.IOException;
 @WebServlet(name = "InvoiceView", value = "/invoice_view")
@@ -20,15 +19,17 @@ public class InvoiceView extends HttpServlet {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
+        String bid = req.getParameter("bid");
+        if (account != null && account.getIsAdmin() == 0){
+            MedicalRecord bill = doctorDBContext.getTTByBillID(bid);
+            req.setAttribute("bill", bill);
+            req.getRequestDispatcher("view/doctor/invoice-view.jsp").forward(req,resp);
+        }
         if (account != null && account.getIsAdmin() == 1){
             Doctor doctor = doctorDBContext.getDoctor(account);
             req.setAttribute("doctor", doctor);
-            String bid = req.getParameter("bid");
-            MedicalRecord bill = doctorDBContext.getBillByID(bid);
+            MedicalRecord bill = doctorDBContext.getTTByBillID(bid);
             req.setAttribute("bill", bill);
-            String pid = String.valueOf(bill.getBooking().getPatient_id());
-            Patient patient = doctorDBContext.getPatientByDoctor(pid);
-            req.setAttribute("patient", patient);
             req.getRequestDispatcher("view/doctor/invoice-view.jsp").forward(req,resp);
         }
         resp.sendRedirect("login");
