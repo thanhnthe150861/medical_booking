@@ -66,7 +66,7 @@ public class FormDetails  extends HttpServlet {
                 session.setAttribute("str", str);
                 req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
             } else {
-                resp.sendRedirect("admin_dashboard");
+                req.getRequestDispatcher("admin_dashboard");
             }
         }else {
             req.getRequestDispatcher("login");

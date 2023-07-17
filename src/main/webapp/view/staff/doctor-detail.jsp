@@ -1,13 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html lang="en">
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Dashboard</title>
+    <title>Doccure - Edit Doctor</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -41,10 +40,10 @@
 
         <!-- Logo -->
         <div class="header-left">
-            <a href="admin_dashboard" class="logo">
+            <a href="staff_dashboard" class="logo">
                 <span class="text-primary">Clinic</span>-TATQ
             </a>
-            <a href="admin_dashboard" class="logo logo-small">
+            <a href="staff_dashboard" class="logo logo-small">
                 <span class="text-primary" width="50" height="50">Clinic</span>
             </a>
         </div>
@@ -68,21 +67,21 @@
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
-                                                src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                                                src="images/staff/staff1.jpg" width="31"
+                                                alt="Swift Taylor"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="images/staff/staff1.jpg" alt="User Image"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Ryan Taylor</h6>
-                            <p class="text-muted mb-0">Administrator</p>
+                            <h6>Swift Taylor</h6>
+                            <p class="text-muted mb-0">Staff</p>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
+                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
                     <a class="dropdown-item" href="login">Logout</a>
                 </div>
             </li>
@@ -103,33 +102,29 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                     </li>
                     <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Doctors</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
-                    </li>
-                    <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
                     </li>
                     <li class="submenu">
                         <a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Doctor</a></li>
-                            <li class="active"><a href="form_details?str=patient">Patient</a></li>
-                            <li><a href="form_details?str=staff">Staff</a></li>
+                            <li class="active"><a href="edit_detail?str=doctor">Doctor</a></li>
+                            <li><a href="edit_detail?str=patient">Patient</a></li>
                         </ul>
                     </li>
                     <li>
@@ -155,7 +150,7 @@
                     <div class="col">
                         <h3 class="page-title">Form Details</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="admin_dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="staff_dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">Form Details</li>
                         </ul>
                     </div>
@@ -167,8 +162,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><c:if test="${sessionScope.patient eq null}">ADD NEW</c:if><c:if
-                                    test="${sessionScope.patient ne null}">UPDATE</c:if> PATIENT</h4>
+                            <h4 class="card-title"><c:if test="${sessionScope.doctor eq null}">ADD NEW</c:if><c:if
+                                    test="${sessionScope.doctor ne null}">UPDATE</c:if> DOCTOR</h4>
                             <!-- Place this code where you want to display the error message -->
                             <% String errorMessage = (String) request.getAttribute("messError"); %>
                             <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
@@ -184,7 +179,7 @@
                             <% } %>
                         </div>
                         <div class="card-body">
-                            <form action="form_details" method="post">
+                            <form action="edit_detail" method="post">
                                 <div class="form-group mb-0 row">
                                     <label class="col-form-label col-md-2">Image</label>
                                     <div class="col-md-10">
@@ -195,43 +190,43 @@
                                     <label class="col-form-label col-md-2">User Name</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="username" required <c:if
-                                                test="${sessionScope.patient ne null}"> readonly="readonly"
-                                               value="${sessionScope.patient.account.username}"</c:if>>
+                                                test="${sessionScope.doctor ne null}"> readonly="readonly"
+                                               value="${sessionScope.doctor.account.username}"</c:if>>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Password</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="password" required
-                                               value="${sessionScope.patient.account.password}">
+                                               value="${sessionScope.doctor.account.password}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Name</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="name" required
-                                               value="${sessionScope.patient.name}">
+                                               value="${sessionScope.doctor.name}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Phone</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="phone" required
-                                               value="${sessionScope.patient.account.phone}">
+                                               value="${sessionScope.doctor.account.phone}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Email</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="email" required
-                                               value="${sessionScope.patient.account.email}">
+                                               value="${sessionScope.doctor.account.email}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Date Of Birth</label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="date" name="dob" required
-                                               value="${sessionScope.patient.dob}">
+                                               value="${sessionScope.doctor.dob}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -239,21 +234,41 @@
                                     <div class="col-md-10">
                                         <select class="form-control select" name="gender" required>
                                             <option>Select</option>
-                                            <option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>
+                                            <option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>
                                                 Male
                                             </option>
-                                            <option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>
+                                            <option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>
                                                 Female
                                             </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Speciality</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="speciality" required
+                                               value="${sessionScope.doctor.specialty}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-form-label col-md-2">Status</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="status" required>
-                                            <c:forEach items="${sessionScope.rankListPatient}" var="rld">
-                                                <option value="${rld.id}" ${sessionScope.patient.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
+                                            <option value="true" ${sessionScope.doctor.account.status == true ? "selected" : ""}>
+                                                Active
+                                            </option>
+                                            <option value="false" ${sessionScope.doctor.account.status == false ? "selected" : ""}>
+                                                Deactive
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Rank</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control select" name="rank" required>
+                                            <c:forEach items="${sessionScope.rankListDoctor}" var="rld">
+                                                <option value="${rld.id}" ${sessionScope.doctor.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -266,7 +281,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- /Main Wrapper -->
