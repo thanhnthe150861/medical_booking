@@ -30,7 +30,6 @@ public class RunLogin {
     @Test
     public void testRunlogin() throws InterruptedException {
         webDriver.get("http://13.250.120.40:8090/");
-
         setup.clickElement(login);
         setup.waitForPageloaded();
         webDriver.findElement(By.name("username")).sendKeys("doctor");
