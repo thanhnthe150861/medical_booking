@@ -36,7 +36,7 @@ public class DoctorAppointments extends HttpServlet {
             req.setAttribute("bookingList", bookingList);
             req.getRequestDispatcher("view/doctor/doctor-appointments.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

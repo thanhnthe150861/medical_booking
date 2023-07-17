@@ -33,7 +33,7 @@ public class DoctorScheduleTimings extends HttpServlet {
             session.setAttribute("date", date);
             req.getRequestDispatcher("view/doctor/doctor-schedule-timings.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

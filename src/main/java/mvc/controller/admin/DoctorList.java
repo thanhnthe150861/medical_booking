@@ -21,6 +21,6 @@ public class DoctorList extends HttpServlet {
                 req.getRequestDispatcher("view/admin/doctor-list.jsp").forward(req, resp);
             }
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 }

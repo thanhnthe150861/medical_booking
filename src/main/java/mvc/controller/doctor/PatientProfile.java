@@ -46,7 +46,7 @@ public class PatientProfile extends HttpServlet {
             }
             req.getRequestDispatcher("view/doctor/patient-profile.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

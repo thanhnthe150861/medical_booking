@@ -50,7 +50,7 @@
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="home" class="menu-logo">
-                        <%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
+                        <%-- <img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
                         <span class="text-primary" width="50" height="50">Clinic</span>
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -166,13 +166,13 @@
                                             <span>My Doctor</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-comments"></i>
-                                            <span>Message</span>
-                                            <small class="unread-msg">23</small>
-                                        </a>
-                                    </li>
+<%--                                    <li>--%>
+<%--                                        <a href="#">--%>
+<%--                                            <i class="fas fa-comments"></i>--%>
+<%--                                            <span>Message</span>--%>
+<%--                                            <small class="unread-msg">23</small>--%>
+<%--                                        </a>--%>
+<%--                                    </li>--%>
                                     <li>
                                         <a href="patient_profile_settings">
                                             <i class="fas fa-user-cog"></i>
@@ -203,6 +203,20 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 col-lg-6">
+
+                                    <% String errorMessage = (String) request.getAttribute("messError"); %>
+                                    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%= errorMessage %>
+                                    </div>
+                                    <% } %>
+                                    <% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+                                    <% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+                                    <div class="alert alert-success" role="alert">
+                                        <%= messSuccess %>
+                                    </div>
+                                    <% } %>
+
                                     <!-- Change Password Form -->
                                     <form action="patient_change_password" method="post">
                                         <div class="form-group">
