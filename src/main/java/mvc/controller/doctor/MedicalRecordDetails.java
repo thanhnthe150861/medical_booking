@@ -20,25 +20,22 @@ public class MedicalRecordDetails extends HttpServlet {
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
         if (account != null && account.getIsAdmin() == 1) {
-            session.removeAttribute("medicalRecord");
-            Doctor doctor = doctorDBContext.getDoctor(account);
-            session.setAttribute("doctor", doctor);
             String mid = req.getParameter("mid");
             if(mid != null){
-                Patient patient = (Patient) session.getAttribute("patient");
-                MedicalRecord medicalRecord = doctorDBContext.getMedicalRecord(mid);
-                req.setAttribute("patient", patient);
+                session.removeAttribute("bid");
+                session.setAttribute("mid", mid);
+                MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
                 session.setAttribute("medicalRecord", medicalRecord);
+                req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
             }
             String bid = req.getParameter("bid");
             if(bid != null){
-                Patient patient = (Patient) session.getAttribute("patient");
-                Booking booking = doctorDBContext.getBooking(bid);
-                req.setAttribute("patient", patient);
-                session.setAttribute("booking", booking);
+                session.removeAttribute("mid");
+                session.setAttribute("bid", bid);
+                MedicalRecord medicalRecord = doctorDBContext.getTTByBookingID(bid);
+                session.setAttribute("medicalRecord", medicalRecord);
+                req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
             }
-            //
-            req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
         }
         resp.sendRedirect("login");
     }
@@ -52,25 +49,31 @@ public class MedicalRecordDetails extends HttpServlet {
         String prescription = req.getParameter("prescription");
         String mid = req.getParameter("mid");
         if(!mid.isEmpty()){
-            MedicalRecord medicalRecord = doctorDBContext.getMedicalRecord(mid);
+            MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
             medicalRecord.setDiagnosis(diagnosis);
             medicalRecord.setPrescription(prescription);
             medicalRecord.setUrl(url);
             doctorDBContext.UpdateMedical(medicalRecord);
+
             session.setAttribute("medicalRecord", medicalRecord);
+            req.setAttribute("messSuccess", "Cập nhật thành công");
+            req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
         }
         String bid = req.getParameter("bid");
         if(!bid.isEmpty()){
-            MedicalRecord record = new MedicalRecord();
-            record.setBooking_id(Integer.parseInt(bid));
-            record.setDiagnosis(diagnosis);
-            record.setPrescription(prescription);
-            record.setUrl(url);
-            DoctorDBContext dbContext = new DoctorDBContext();
-            dbContext.addMedical(record);
-            session.setAttribute("medicalRecord", record);
+            MedicalRecord medicalRecord = doctorDBContext.getTTByBookingID(bid);
+            medicalRecord.setDiagnosis(diagnosis);
+            medicalRecord.setPrescription(prescription);
+            medicalRecord.setUrl(url);
+            if(medicalRecord.getId() == 0){
+                doctorDBContext.addMedical(medicalRecord);
+            }else{
+                doctorDBContext.UpdateMedical(medicalRecord);
+            }
+
+            session.setAttribute("medicalRecord", medicalRecord);
+            req.setAttribute("messSuccess", "Cập nhật thành công");
+            req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
         }
-        req.setAttribute("messSuccess", "Cập nhật thành công");
-        req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
     }
 }

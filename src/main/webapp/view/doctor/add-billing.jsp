@@ -1,8 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-	
-<!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
+
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -202,7 +201,7 @@
 													<tbody>
 														<tr>
 															<input type="text" hidden="hidden" class="form-control" name="mid" value="${sessionScope.mid}">
-															<input type="text" hidden="hidden" class="form-control" name="bid" value="${sessionScope.pid}">
+															<input type="text" hidden="hidden" class="form-control" name="bid" value="${sessionScope.bid}">
 															<td>
 																<input type="number" min="0" class="form-control" name="priceMedical" id="priceMedical" value="${sessionScope.bills.bill.priceMedical}" >
 															</td>

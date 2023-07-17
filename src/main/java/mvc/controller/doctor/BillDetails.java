@@ -22,32 +22,21 @@ public class BillDetails extends HttpServlet {
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
             String mid = req.getParameter("mid");
-//            Patient patient = (Patient) session.getAttribute("patient");
-//            if(patient == null){
-//                String pid = req.getParameter("pid");
-//                patient = doctorDBContext.getPatientByDoctor(pid);
-//                session.setAttribute("patient", patient);
-//            }
             if(mid != null){
                 session.removeAttribute("bid");
                 session.setAttribute("mid", mid);
                 MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
-//                req.setAttribute("patient", patient);
-//                session.removeAttribute("bills");
-//                session.removeAttribute("medicalRecord");
                 session.setAttribute("bills", medicalRecord);
+                req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
             }
             String bid = req.getParameter("bid");
             if(bid != null){
                 session.removeAttribute("mid");
                 session.setAttribute("bid", bid);
                 MedicalRecord bills = doctorDBContext.getTTByBillID(bid);
-//                req.setAttribute("patient", patient);
-//                session.removeAttribute("medicalRecord");
-//                session.removeAttribute("bills");
                 session.setAttribute("bills", bills);
+                req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
             }
-            req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
         }
         resp.sendRedirect("login");
     }
@@ -55,25 +44,33 @@ public class BillDetails extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        DoctorDBContext dbContext = new DoctorDBContext();
         String priceMedical = req.getParameter("priceMedical");
         String pricePrescription = req.getParameter("pricePrescription");
         float totalPrice = Float.parseFloat(pricePrescription) + Float.parseFloat(priceMedical);
         String status = req.getParameter("status");
         String mid = req.getParameter("mid");
         if(!mid.isEmpty()){
+            MedicalRecord bills = dbContext.getTTByMedicalID(mid);
             Bill bill = new Bill();
             bill.setMedical_record_id(Integer.parseInt(mid));
             bill.setPriceMedical(Float.parseFloat(priceMedical));
             bill.setPricePrescription(Float.parseFloat(pricePrescription));
             bill.setTotalPrice(totalPrice);
             bill.setPayment_status(status);
-            DoctorDBContext dbContext = new DoctorDBContext();
-            dbContext.addBill(bill);
-
-            MedicalRecord bills = dbContext.getTTByMedicalID(mid);
-//            session.removeAttribute("medicalRecord");
-//            session.removeAttribute("bills");
+            if(bills.getBill().getId() == 0){
+                dbContext.addBill(bill);
+            }else {
+                bill.setId(bills.getBill().getId());
+                dbContext.UpdateBill(bill);
+            }
+            bills.getBill().setPriceMedical(Float.parseFloat(priceMedical));
+            bills.getBill().setPricePrescription(Float.parseFloat(pricePrescription));
+            bills.getBill().setTotalPrice(totalPrice);
+            bills.getBill().setPayment_status(status);
             session.setAttribute("bills", bills);
+            req.setAttribute("messSuccess", "Cập nhật thành công");
+            req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
         }
         String bid = req.getParameter("bid");
         if(!bid.isEmpty()){
@@ -83,15 +80,12 @@ public class BillDetails extends HttpServlet {
             bill.setPricePrescription(Float.parseFloat(pricePrescription));
             bill.setTotalPrice(totalPrice);
             bill.setPayment_status(status);
-            DoctorDBContext dbContext = new DoctorDBContext();
             dbContext.UpdateBill(bill);
 
             MedicalRecord bills = dbContext.getTTByBillID(bid);
-//            session.removeAttribute("medicalRecord");
-//            session.removeAttribute("bills");
             session.setAttribute("bills", bills);
+            req.setAttribute("messSuccess", "Cập nhật thành công");
+            req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
         }
-        req.setAttribute("messSuccess", "Cập nhật thành công");
-        req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
     }
 }

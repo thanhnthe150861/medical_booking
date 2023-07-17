@@ -240,23 +240,25 @@ public class DoctorDBContext extends  DBContext{
         }
         return patientList;
     }
-    public  List<Booking> checkBookingMyDoctor(Doctor Doctor, String date){
-        List<Booking> checkSlotToDay = new ArrayList<>();
+    public  List<Slot> checkSlotExist(String did, String date){
+        List<Slot> slotExist = new ArrayList<>();
         try {
-            String sql = "SELECT slot_id FROM booking WHERE date = ? and doctor_id = ?;";
+            String sql = "SELECT slot_id\n" +
+                    "FROM booking\n" +
+                    "WHERE doctor_id = ? AND date = ?";
             stm = connection.prepareStatement(sql);
-            stm.setDate(1, Date.valueOf(date));
-            stm.setInt(2, Doctor.getId());
+            stm.setInt(1, Integer.parseInt(did));
+            stm.setDate(2, Date.valueOf(date));
             rs = stm.executeQuery();
             while (rs.next()){
-                Booking booking = new Booking();
-                booking.setSlot_id(rs.getInt("slot_id"));
-                checkSlotToDay.add(booking);
+                Slot slot = new Slot();
+                slot.setId(rs.getInt("slot_id"));
+                slotExist.add(slot);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return checkSlotToDay;
+        return slotExist;
     }
     public Booking getBooking(String id){
         try {
@@ -269,32 +271,6 @@ public class DoctorDBContext extends  DBContext{
                 booking.setId(rs.getInt("id"));
                 booking.setDate(rs.getDate("date"));
                 return booking;
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
-    public MedicalRecord getMedicalRecord(String id){
-        try {
-            String sql = "select m.id, m.diagnosis, m.prescription, m.url, m.booking_id, b.date from medical_record m\n" +
-                    "join booking b\n" +
-                    "on b.id = m.booking_id\n" +
-                    "where m.id = ?;";
-            stm = connection.prepareStatement(sql);
-            stm.setInt(1, Integer.parseInt(id));
-            rs = stm.executeQuery();
-            if (rs.next()){
-                Booking booking = new Booking();
-                booking.setDate(rs.getDate("date"));
-                MedicalRecord medicalRecord = new MedicalRecord();
-                medicalRecord.setId(rs.getInt("id"));
-                medicalRecord.setBooking_id(rs.getInt("booking_id"));
-                medicalRecord.setDiagnosis(rs.getString("diagnosis"));
-                medicalRecord.setPrescription(rs.getString("prescription"));
-                medicalRecord.setUrl(rs.getString("url"));
-                medicalRecord.setBooking(booking);
-                return medicalRecord;
             }
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -343,7 +319,6 @@ public class DoctorDBContext extends  DBContext{
             throw new RuntimeException(e);
         }
     }
-
     public void UpdateBill(Bill bill){
         try {
             String sql = "UPDATE bill\n" +
@@ -359,56 +334,6 @@ public class DoctorDBContext extends  DBContext{
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
-    }
-    public MedicalRecord getBillByID(String id){
-        try {
-            String sql = "SELECT \n" +
-                    "    d.id AS doctor_id,\n" +
-                    "    d.name AS doctor_name,\n" +
-                    "    d.specialty AS doctor_specialty,\n" +
-                    "    p.id AS patient_id,\n" +
-                    "    p.name AS patient_name, \n" +
-                    "    b.id AS booking_id, \n" +
-                    "    b.date AS booking_date, \n" +
-                    "    bill.id AS bill_id, \n" +
-                    "    bill.priceMedical AS medical_price, \n" +
-                    "    bill.pricePrescription AS prescription_price, \n" +
-                    "    bill.totalPrice AS total_price, \n" +
-                    "    bill.payment_status AS payment_status\n" +
-                    "FROM \n" +
-                    "    doctor AS d \n" +
-                    "JOIN \n" +
-                    "    booking AS b ON d.id = b.doctor_id \n" +
-                    "JOIN \n" +
-                    "    patient AS p ON b.patient_id = p.id \n" +
-                    "JOIN \n" +
-                    "    medical_record AS mr ON b.id = mr.booking_id \n" +
-                    "JOIN \n" +
-                    "    bill ON mr.id = bill.medical_record_id\n" +
-                    "    Where bill.id = ? ;";
-            stm = connection.prepareStatement(sql);
-            stm.setInt(1, Integer.parseInt(id));
-            rs = stm.executeQuery();
-            if (rs.next()){
-                Booking booking = new Booking();
-                booking.setPatient_id(rs.getInt("patient_id"));
-                booking.setDate(rs.getDate("date"));
-                Bill bill = new Bill();
-                bill.setId(rs.getInt("bill_id"));
-                bill.setPriceMedical(rs.getInt("priceMedical"));
-                bill.setPricePrescription(rs.getInt("pricePrescription"));
-                bill.setTotalPrice(rs.getInt("totalPrice"));
-                bill.setPayment_status(rs.getString("payment_status"));
-                MedicalRecord medicalRecord = new MedicalRecord();
-                medicalRecord.setBooking_id(rs.getInt("booking_id"));
-                medicalRecord.setBooking(booking);
-                medicalRecord.setBill(bill);
-                return medicalRecord;
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return null;
     }
     public MedicalRecord getTTByBillID(String bid){
         try {
@@ -429,15 +354,15 @@ public class DoctorDBContext extends  DBContext{
                     "    bill.payment_status AS payment_status\n" +
                     "FROM \n" +
                     "    doctor AS d \n" +
-                    "JOIN \n" +
+                    "LEFT JOIN \n" +
                     "    rank_doctor AS rd ON rd.id = d.rank_id \n" +
-                    "JOIN \n" +
+                    "LEFT JOIN \n" +
                     "    booking AS b ON d.id = b.doctor_id \n" +
-                    "JOIN \n" +
+                    "LEFT JOIN \n" +
                     "    patient AS p ON b.patient_id = p.id \n" +
-                    "JOIN \n" +
+                    "LEFT JOIN \n" +
                     "    medical_record AS mr ON b.id = mr.booking_id \n" +
-                    "JOIN \n" +
+                    "LEFT JOIN \n" +
                     "    bill ON mr.id = bill.medical_record_id\n" +
                     "    Where bill.id = ? ;";
             stm = connection.prepareStatement(sql);
@@ -492,18 +417,22 @@ public class DoctorDBContext extends  DBContext{
                     "    bill.priceMedical AS medical_price, \n" +
                     "    bill.pricePrescription AS prescription_price, \n" +
                     "    bill.totalPrice AS total_price, \n" +
-                    "    bill.payment_status AS payment_status\n" +
+                    "    bill.payment_status AS payment_status,\n" +
+                    "    mr.id AS medical_record_id,\n" +
+                    "    mr.diagnosis AS medical_record_diagnosis,\n" +
+                    "    mr.url AS medical_record_url,\n" +
+                    "    mr.prescription AS medical_record_prescription\n" +
                     "FROM \n" +
                     "    doctor AS d \n" +
-                    "JOIN \n" +
-                    "    rank_doctor AS rd ON rd.id = d.rank_id \n" +
-                    "JOIN \n" +
-                    "    booking AS b ON d.id = b.doctor_id \n" +
-                    "JOIN \n" +
-                    "    patient AS p ON b.patient_id = p.id \n" +
-                    "JOIN \n" +
-                    "    medical_record AS mr ON b.id = mr.booking_id \n" +
-                    "JOIN \n" +
+                    "LEFT JOIN \n" +
+                    "    rank_doctor AS rd ON rd.id = d.rank_id\n" +
+                    "LEFT JOIN \n" +
+                    "    booking AS b ON d.id = b.doctor_id\n" +
+                    "LEFT JOIN \n" +
+                    "    patient AS p ON b.patient_id = p.id\n" +
+                    "LEFT JOIN \n" +
+                    "    medical_record AS mr ON b.id = mr.booking_id\n" +
+                    "LEFT JOIN \n" +
                     "    bill ON mr.id = bill.medical_record_id\n" +
                     "    Where mr.id = ? ;";
             stm = connection.prepareStatement(sql);
@@ -533,6 +462,10 @@ public class DoctorDBContext extends  DBContext{
                 bill.setTotalPrice(rs.getInt("total_price"));
                 bill.setPayment_status(rs.getString("payment_status"));
                 MedicalRecord medicalRecord = new MedicalRecord();
+                medicalRecord.setId(rs.getInt("medical_record_id"));
+                medicalRecord.setUrl(rs.getString("medical_record_url"));
+                medicalRecord.setPrescription(rs.getString("medical_record_prescription"));
+                medicalRecord.setDiagnosis(rs.getString("medical_record_diagnosis"));
                 medicalRecord.setBill(bill);
                 medicalRecord.setBooking(booking);
                 return medicalRecord;
@@ -542,33 +475,88 @@ public class DoctorDBContext extends  DBContext{
         }
         return null;
     }
-    public MedicalRecord getBillByMedicalID(String id){
+
+    public static void main(String[] args) {
+        DoctorDBContext d = new DoctorDBContext();
+        List<Slot> slot = d.checkSlotExist("1", "2022-06-22");
+        for (Slot s: slot
+             ) {
+            System.out.println(s.getId());
+
+        }
+    }
+    public MedicalRecord getTTByBookingID(String bid){
         try {
-            String sql = "SELECT b.id AS bill_id, b.pricePrescription, b.priceMedical, b.totalPrice, b.payment_status,\n" +
-                    "       bk.id AS booking_id, bk.date\n" +
-                    "FROM bill AS b\n" +
-                    "JOIN medical_record AS mr ON b.medical_record_id = mr.id\n" +
-                    "JOIN booking AS bk ON mr.booking_id = bk.id\n" +
-                    "WHERE mr.id = ?;";
+            String sql = "SELECT \n" +
+                    "    d.id AS doctor_id,\n" +
+                    "    d.name AS doctor_name,\n" +
+                    "    d.specialty AS doctor_specialty,\n" +
+                    "    rd.name AS rank_doctor,\n" +
+                    "    p.id AS patient_id,\n" +
+                    "    p.name AS patient_name, \n" +
+                    "    p.dob AS patient_date, \n" +
+                    "    b.id AS booking_id, \n" +
+                    "    b.date AS booking_date, \n" +
+                    "    bill.id AS bill_id, \n" +
+                    "    bill.priceMedical AS medical_price, \n" +
+                    "    bill.pricePrescription AS prescription_price, \n" +
+                    "    bill.totalPrice AS total_price, \n" +
+                    "    bill.payment_status AS payment_status,\n" +
+                    "    mr.id AS medical_record_id,\n" +
+                    "    mr.diagnosis AS medical_record_diagnosis,\n" +
+                    "\tmr.url AS medical_record_url,\n" +
+                    "    mr.prescription AS medical_record_prescription\n" +
+                    "FROM \n" +
+                    "    doctor AS d \n" +
+                    "LEFT JOIN \n" +
+                    "    rank_doctor AS rd ON rd.id = d.rank_id\n" +
+                    "LEFT JOIN \n" +
+                    "    booking AS b ON d.id = b.doctor_id\n" +
+                    "LEFT JOIN \n" +
+                    "    patient AS p ON b.patient_id = p.id\n" +
+                    "LEFT JOIN \n" +
+                    "    medical_record AS mr ON b.id = mr.booking_id\n" +
+                    "LEFT JOIN \n" +
+                    "    bill ON mr.id = bill.medical_record_id\n" +
+                    "WHERE \n" +
+                    "    b.id = ?;";
             stm = connection.prepareStatement(sql);
-            stm.setInt(1, Integer.parseInt(id));
+            stm.setInt(1, Integer.parseInt(bid));
             rs = stm.executeQuery();
             if (rs.next()){
+                Rank rank = new Rank();
+                rank.setName(rs.getString("rank_doctor"));
+                Doctor doctor = new Doctor();
+                doctor.setId(rs.getInt("doctor_id"));
+                doctor.setName(rs.getString("doctor_name"));
+                doctor.setSpecialty(rs.getString("doctor_specialty"));
+                doctor.setRanks(rank);
+                Patient patient = new Patient();
+                patient.setId(rs.getInt("patient_id"));
+                patient.setName(rs.getString("patient_name"));
+                patient.setDob(rs.getDate("patient_date"));
                 Booking booking = new Booking();
-                booking.setDate(rs.getDate("date"));
+                booking.setId(rs.getInt("booking_id"));
+                booking.setDate(rs.getDate("booking_date"));
+                booking.setDoctor(doctor);
+                booking.setPatient(patient);
                 Bill bill = new Bill();
                 bill.setId(rs.getInt("bill_id"));
-                bill.setPriceMedical(rs.getInt("priceMedical"));
-                bill.setPricePrescription(rs.getInt("pricePrescription"));
-                bill.setTotalPrice(rs.getInt("totalPrice"));
+                bill.setPricePrescription(rs.getInt("prescription_price"));
+                bill.setPriceMedical(rs.getInt("medical_price"));
+                bill.setTotalPrice(rs.getInt("total_price"));
                 bill.setPayment_status(rs.getString("payment_status"));
                 MedicalRecord medicalRecord = new MedicalRecord();
                 medicalRecord.setBooking_id(rs.getInt("booking_id"));
-                medicalRecord.setBooking(booking);
+                medicalRecord.setId(rs.getInt("medical_record_id"));
+                medicalRecord.setUrl(rs.getString("medical_record_url"));
+                medicalRecord.setPrescription(rs.getString("medical_record_prescription"));
+                medicalRecord.setDiagnosis(rs.getString("medical_record_diagnosis"));
                 medicalRecord.setBill(bill);
+                medicalRecord.setBooking(booking);
                 return medicalRecord;
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return null;

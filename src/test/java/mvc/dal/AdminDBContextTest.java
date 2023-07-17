@@ -25,7 +25,7 @@ class AdminDBContextTest {
         Booking booking = new Booking();
         booking.setDoctor(doctor);
         Bill bill = new Bill();
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         MedicalRecord medicalRecord = new MedicalRecord();
         medicalRecord.setBooking(booking);
         medicalRecord.setBill(bill);
@@ -53,7 +53,7 @@ class AdminDBContextTest {
         Booking booking = new Booking();
         booking.setDoctor(doctor);
         Bill bill = new Bill();
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         MedicalRecord medicalRecord = new MedicalRecord();
         medicalRecord.setBooking(booking);
         medicalRecord.setBill(bill);
@@ -79,7 +79,7 @@ class AdminDBContextTest {
         patient.setGender("Male");
         patient.setDob(new Date(1990-01-01));
         patient.setRanks(rank);
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         Booking booking = new Booking();
         booking.setPatient(patient);
         MedicalRecord medicalRecord = new MedicalRecord();
@@ -108,7 +108,7 @@ class AdminDBContextTest {
         patient.setGender("Male");
         patient.setDob(new Date(1990-01-01));
         patient.setRanks(rank);
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         Booking booking = new Booking();
         booking.setPatient(patient);
         MedicalRecord medicalRecord = new MedicalRecord();
@@ -217,7 +217,7 @@ class AdminDBContextTest {
         slot.setName("9:00 - 9:30");
         Bill bill = new Bill();
         bill.setPayment_status("Paid");
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         Booking booking = new Booking();
         booking.setDate(new Date(2023-06-22));
         booking.setStatus("Completed");
@@ -260,7 +260,7 @@ class AdminDBContextTest {
         slot.setName("9:00 - 9:30");
         Bill bill = new Bill();
         bill.setPayment_status("Paid");
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         Booking booking = new Booking();
         booking.setDate(new Date(2023-06-22));
         booking.setStatus("Completed");
@@ -297,7 +297,7 @@ class AdminDBContextTest {
         doctors.setSpecialty("Bác Sĩ Chuyên Khoa Mũi Họng");
         doctors.setAccount(account);
         Bill bill = new Bill();
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         Booking booking = new Booking();
         booking.setDoctor(doctors);
         MedicalRecord medicalRecord = new MedicalRecord();
@@ -332,7 +332,7 @@ class AdminDBContextTest {
         doctors.setSpecialty("Bác Sĩ Chuyên Khoa Mũi Họng");
         doctors.setAccount(account);
         Bill bill = new Bill();
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         Booking booking = new Booking();
         booking.setDoctor(doctors);
         MedicalRecord medicalRecord = new MedicalRecord();
@@ -367,7 +367,7 @@ class AdminDBContextTest {
         patient.setRankId(1);
         patient.setAccount(account);
         Bill bill = new Bill();
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         Booking booking = new Booking();
         booking.setDate(new Date(2023-06-22));
         booking.setPatient(patient);
@@ -403,7 +403,7 @@ class AdminDBContextTest {
         patient.setRankId(1);
         patient.setAccount(account);
         Bill bill = new Bill();
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         Booking booking = new Booking();
         booking.setDate(new Date(2023-06-22));
         booking.setPatient(patient);
@@ -479,7 +479,7 @@ class AdminDBContextTest {
         patient.setRankId(1);
         Bill bill = new Bill();
         bill.setId(1);
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         bill.setPayment_status("Paid");
         Booking booking = new Booking();
         booking.setId(1);
@@ -506,7 +506,7 @@ class AdminDBContextTest {
         patient.setRankId(1);
         Bill bill = new Bill();
         bill.setId(1);
-        bill.setPrice(100.5f);
+        bill.setTotalPrice(100.5f);
         bill.setPayment_status("Paid");
         Booking booking = new Booking();
         booking.setId(1);

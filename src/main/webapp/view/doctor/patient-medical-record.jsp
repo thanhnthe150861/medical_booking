@@ -217,10 +217,10 @@
                                   <a href="medical_record_details?mid=${m.id}" class="btn btn-sm bg-success-light">
                                     <i class="far fa-eye"></i> Edit
                                   </a>
+                                  <a href="medical_record_details?mid=${m.id}" class="btn btn-sm bg-info-light">
+                                    <i class="far fa-eye"></i> View
+                                  </a>
                                 </c:if>
-                                <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                                  <i class="far fa-eye"></i> View
-                                </a>
                               </div>
                             </td>
                           </tr>

@@ -26,29 +26,26 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user_raw = req.getParameter("username");
-        String pass_raw = req.getParameter("password");
+        String userRaw = req.getParameter("username");
+        String passRaw = req.getParameter("password");
         AccountDB adb = new AccountDB();
-        Account account = adb.getAccount(user_raw, pass_raw);
+        Account account = adb.getAccount(userRaw, passRaw);
         HttpSession session = req.getSession();
         if(account == null){
             req.setAttribute("messError", "Tài khoản hoặc mật khẩu sai");
             req.getRequestDispatcher("view/login/login.jsp").forward(req,resp);
         }else{
+            session.setAttribute("account", account);
             if(account.getIsAdmin() == 0){
-                session.setAttribute("account", account);
                 resp.sendRedirect("admin_dashboard");
             } else if (account.getIsAdmin() == 1 && account.getStatus()){
-                session.setAttribute("account", account);
                 resp.sendRedirect("doctor_dashboard");
             } else if (account.getIsAdmin() == 2 && account.getStatus()){
-                session.setAttribute("account", account);
                 PatientDBContext patientDBContext = new PatientDBContext();
                 Patient patient = patientDBContext.getPatient(account);
                 session.setAttribute("patient", patient);
                 resp.sendRedirect("home");
             }else if (account.getIsAdmin() == 3 && account.getStatus()){
-                session.setAttribute("account", account);
                 StaffDBContext staffDBContext = new StaffDBContext();
                 Staff staff = staffDBContext.getStaff(account);
                 session.setAttribute("staff", staff);
