@@ -206,7 +206,7 @@
 													<td><%= patient.getBooking().getPatient().getAccount().getPhone() %></td>
 													<td><%= patient.getBooking().getPatient().getAccount().getEmail() %></td>
 													<td><%= patient.getBooking().getDate() %></td>
-													<td>$<%= patient.getBill().getPrice() %></td>
+													<td>$<%= patient.getBill().getTotalPrice() %></td>
 													<td class="text-center">
 														<% if (patient.getBooking().getPatient().getAccount().getStatus()) { %>
 														<span class="badge badge-pill bg-success inv-badge">Active</span>

@@ -1,4 +1,5 @@
-<!DOCTYPE html> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
 	
 <!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
@@ -114,7 +115,7 @@
 									<li class="breadcrumb-item active" aria-current="page">Bill Details</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Add Billing</h2>
+							<h2 class="breadcrumb-title">Bill Details</h2>
 						</div>
 					</div>
 				</div>
@@ -155,8 +156,14 @@
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title mb-0">Add Billing</h4>
+									<h4 class="card-title mb-0">Bill Details</h4>
 								</div>
+								<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+								<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+								<div class="alert alert-success" role="alert">
+									<%= messSuccess %>
+								</div>
+								<% } %>
 								<div class="card-body">
 									<form action="bill_details" method="post">
 									<div class="row">
@@ -169,8 +176,27 @@
 										</div>
 										<div class="col-sm-6 text-sm-right">
 											<div class="billing-info">
-												<h4 class="d-block">${sessionScope.medicalRecord.booking.date}${sessionScope.bills.booking.date}</h4>
-												<span class="d-block text-muted">Booking ID: ${sessionScope.medicalRecord.booking_id}${sessionScope.bills.booking_id}</span>
+												<h4 class="d-block">
+													<c:if test="${empty sessionScope.medicalRecord.booking.date}">
+														<p>Booking Date: ${sessionScope.bills.booking.date}</p>
+													</c:if>
+													<c:if test="${empty sessionScope.bills.booking.date}">
+														<p>Booking Date: ${sessionScope.medicalRecord.booking.date}</p>
+													</c:if>
+													<c:if test="${not empty sessionScope.bills.booking.date && not empty sessionScope.medicalRecord.booking.date}">
+														<p>Booking Date: ${sessionScope.bills.booking.date}</p>
+													</c:if>
+												</h4>
+												<span class="d-block text-muted">
+													<c:if test="${empty sessionScope.medicalRecord.booking_id}">
+														<p>Booking ID: ${sessionScope.bills.booking_id}</p>
+													</c:if>
+													<c:if test="${empty sessionScope.bills.booking_id}">
+														<p>Booking ID: ${sessionScope.medicalRecord.booking_id}</p>
+													</c:if>
+													<c:if test="${not empty sessionScope.medicalRecord.booking_id && not empty sessionScope.bills.booking_id}">
+														<p>Booking ID: ${sessionScope.medicalRecord.booking_id}</p>
+													</c:if>
 											</div>
 										</div>
 									</div>

@@ -50,7 +50,6 @@
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
 							<a href="home" class="menu-logo">
-								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -61,63 +60,6 @@
 							<li>
 								<a href="home">Home</a>
 							</li>
-							<%--							<li class="has-submenu active">--%>
-							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
-							<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
-							<%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
-							<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
-							<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
-							<%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
-							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
-							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
-							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-Register.html">Doctor Register</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>	--%>
-							<%--							<li class="has-submenu">--%>
-							<%--								<a href="#">Patients <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
-							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="Booking.html">Booking</a></li>--%>
-							<%--									<li><a href="CheckOut.html">Checkout</a></li>--%>
-							<%--									<li><a href="Booking-success.html">Booking Success</a></li>--%>
-							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
-							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
-							<%--									<li><a href="chat.html">Chat</a></li>--%>
-							<%--									<li><a href="profile-settings.html">Profile Settings</a></li>--%>
-							<%--									<li><a href="change-password.html">Change Password</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>	--%>
-							<%--							<li class="has-submenu">--%>
-							<%--								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li><a href="voice-call.html">Voice Call</a></li>--%>
-							<%--									<li><a href="video-call.html">Video Call</a></li>--%>
-							<%--									<li><a href="search.html">Search Doctors</a></li>--%>
-							<%--									<li><a href="calendar.html">Calendar</a></li>--%>
-							<%--									<li><a href="components.jsp">Components</a></li>--%>
-							<%--									<li class="has-submenu">--%>
-							<%--										<a href="invoices.jsp">Invoices</a>--%>
-							<%--										<ul class="submenu">--%>
-							<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
-							<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
-							<%--										</ul>--%>
-							<%--									</li>--%>
-							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="Login.html">Login</a></li>--%>
-							<%--									<li><a href="Register.html">Register</a></li>--%>
-							<%--									<li><a href="Forgot-password.html">Forgot Password</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>--%>
-							<%--							<li>--%>
-							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
-							<%--							</li>--%>
-							<%--							<li class="Login-link">--%>
-							<%--								<a href="Login.html">Login / Signup</a>--%>
-							<%--							</li>--%>
 						</ul>
 					</div>		 
 					<ul class="nav header-navbar-rht">
@@ -130,9 +72,29 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link header-login" href="login">login / Signup </a>
+						<!-- User Menu -->
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+									</div>
+									<div class="user-text">
+										<h6>${sessionScope.doctor.name}</h6>
+										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
+									</div>
+								</div>
+								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+								<a class="dropdown-item" href="login">Logout</a>
+							</div>
 						</li>
+						<!-- /User Menu -->
 					</ul>
 				</nav>
 			</header>
@@ -167,13 +129,13 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="invoice-logo">
-												<img src="assets/img/logo.png" alt="logo">
+												<span style="font-size: 40px" class="text-primary">Clinic</span><span style="font-size: 40px">-TATQ</span>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<p class="invoice-details">
-												<strong>Order:</strong> #00124 <br>
-												<strong>Issued:</strong> 20/07/2019
+												<strong>Order:</strong> ${requestScope.bill.bill.id} <br>
+												<strong>Issued:</strong> ${requestScope.bill.booking.date}
 											</p>
 										</div>
 									</div>
@@ -186,9 +148,9 @@
 											<div class="invoice-info">
 												<strong class="customer-text">Invoice From</strong>
 												<p class="invoice-details invoice-details-two">
-													Dr. Darren Elder <br>
-													806  Twin Willow Lane, Old Forge,<br>
-													Newyork, USA <br>
+													${requestScope.doctor.name} <br>
+														${requestScope.doctor.specialty} <br>
+														${requestScope.doctor.ranks.name}<br>
 												</p>
 											</div>
 										</div>
@@ -196,26 +158,8 @@
 											<div class="invoice-info invoice-info2">
 												<strong class="customer-text">Invoice To</strong>
 												<p class="invoice-details">
-													Walter Roberson <br>
-													299 Star Trek Drive, Panama City, <br>
-													Florida, 32405, USA <br>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- /Invoice Item -->
-								
-								<!-- Invoice Item -->
-								<div class="invoice-item">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="invoice-info">
-												<strong class="customer-text">Payment Method</strong>
-												<p class="invoice-details invoice-details-two">
-													Debit Card <br>
-													XXXXXXXXXXXX-2541 <br>
-													HDFC Bank<br>
+													${requestScope.patient.name} <br>
+													${requestScope.patient.ranks.name}<br>
 												</p>
 											</div>
 										</div>
@@ -232,23 +176,23 @@
 													<thead>
 														<tr>
 															<th>Description</th>
-															<th class="text-center">Quantity</th>
+															<th class="text-center"></th>
 															<th class="text-center">VAT</th>
 															<th class="text-right">Total</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<td>General Consultation</td>
-															<td class="text-center">1</td>
+															<td>Price Medical</td>
+															<td class="text-center"></td>
 															<td class="text-center">$0</td>
-															<td class="text-right">$100</td>
+															<td class="text-right">$${requestScope.bill.bill.priceMedical}</td>
 														</tr>
 														<tr>
-															<td>Video Call Booking</td>
-															<td class="text-center">1</td>
+															<td>Price Prescription (if any)</td>
+															<td class="text-center"></td>
 															<td class="text-center">$0</td>
-															<td class="text-right">$250</td>
+															<td class="text-right">$${requestScope.bill.bill.pricePrescription}</td>
 														</tr>
 													</tbody>
 												</table>
@@ -260,15 +204,15 @@
 													<tbody>
 													<tr>
 														<th>Subtotal:</th>
-														<td><span>$350</span></td>
+														<td><span>$${requestScope.bill.bill.totalPrice}</span></td>
 													</tr>
 													<tr>
 														<th>Discount:</th>
-														<td><span>-10%</span></td>
+														<td><span>-0%</span></td>
 													</tr>
 													<tr>
 														<th>Total Amount:</th>
-														<td><span>$315</span></td>
+														<td><span>$${requestScope.bill.bill.totalPrice}</span></td>
 													</tr>
 													</tbody>
 												</table>
@@ -277,13 +221,6 @@
 									</div>
 								</div>
 								<!-- /Invoice Item -->
-								
-								<!-- Invoice Information -->
-								<div class="other-info">
-									<h4>Other information</h4>
-									<p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed dictum ligula, cursus blandit risus. Maecenas eget metus non tellus dignissim aliquam ut a ex. Maecenas sed vehicula dui, ac suscipit lacus. Sed finibus leo vitae lorem interdum, eu scelerisque tellus fermentum. Curabitur sit amet lacinia lorem. Nullam finibus pellentesque libero.</p>
-								</div>
-								<!-- /Invoice Information -->
 								
 							</div>
 						</div>
@@ -305,9 +242,9 @@
 							
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-about">
-									<div class="footer-logo">
-										<img src="assets/img/footer-logo.png" alt="logo">
-									</div>
+									<a href="home" class="navbar-brand logo">
+										<span class="text-primary">Clinic</span>-TATQ
+									</a>
 									<div class="footer-about-content">
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 										<div class="social-icon">

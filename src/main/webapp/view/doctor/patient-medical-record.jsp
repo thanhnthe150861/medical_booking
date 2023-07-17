@@ -208,12 +208,12 @@
                             </td>
                             <td class="text-right">
                               <div class="table-action">
-                                <c:if test="${m.bill.id eq 0}">
+                                <c:if test="${m.id eq 0}">
                                   <a href="medical_record_details?bid=${m.booking.id}" class="btn btn-sm bg-success-light">
                                     <i class="far fa-eye"></i> Edit
                                   </a>
                                 </c:if>
-                                <c:if test="${m.bill.id ne 0}">
+                                <c:if test="${m.id ne 0}">
                                   <a href="medical_record_details?mid=${m.id}" class="btn btn-sm bg-success-light">
                                     <i class="far fa-eye"></i> Edit
                                   </a>

@@ -173,16 +173,9 @@
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="invoice_doctor">
 													<i class="fas fa-file-invoice"></i>
 													<span>Invoices</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-comments"></i>
-													<span>Message</span>
-													<small class="unread-msg">23</small>
 												</a>
 											</li>
 											<li>

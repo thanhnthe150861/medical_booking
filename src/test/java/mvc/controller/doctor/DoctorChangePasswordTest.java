@@ -1,22 +1,21 @@
+package mvc.controller.doctor;
 
-        package mvc.controller.doctor;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-        import jakarta.servlet.RequestDispatcher;
-        import jakarta.servlet.http.HttpServletRequest;
-        import jakarta.servlet.http.HttpServletResponse;
-        import jakarta.servlet.http.HttpSession;
-        import mvc.dal.AccountDB;
-        import mvc.dal.DoctorDBContext;
-        import mvc.model.Account;
-        import mvc.model.Doctor;
-        import org.junit.Before;
-        import org.junit.jupiter.api.Test;
-        import org.mockito.Mock;
-        import org.mockito.MockitoAnnotations;
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-        import static org.junit.jupiter.api.Assertions.*;
-        import static org.mockito.Mockito.verify;
-        import static org.mockito.Mockito.when;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import mvc.dal.AccountDB;
+import mvc.dal.DoctorDBContext;
+import mvc.model.Account;
+import mvc.model.Doctor;
 
 class DoctorChangePasswordTest {
     @Mock
