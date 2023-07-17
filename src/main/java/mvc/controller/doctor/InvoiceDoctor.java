@@ -28,6 +28,6 @@ public class InvoiceDoctor extends HttpServlet {
             session.setAttribute("doctor", doctor);
             req.getRequestDispatcher("view/doctor/invoices.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 }

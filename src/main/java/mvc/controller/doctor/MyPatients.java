@@ -29,7 +29,7 @@ public class MyPatients extends HttpServlet {
             req.setAttribute("patientList", patientList);
             req.getRequestDispatcher("view/doctor/my-patients.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

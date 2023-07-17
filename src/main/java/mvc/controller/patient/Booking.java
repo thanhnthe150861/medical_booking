@@ -42,7 +42,7 @@ public class Booking extends HttpServlet {
             session.setAttribute("selectedSlot", selectedSlot);
             req.getRequestDispatcher("view/patient/booking.jsp").forward(req, resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
 

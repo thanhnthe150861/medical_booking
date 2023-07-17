@@ -19,7 +19,7 @@ public class AppointmentList extends HttpServlet {
         if (account != null && account.getIsAdmin() == 0){
             req.getRequestDispatcher("view/admin/appointment-list.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

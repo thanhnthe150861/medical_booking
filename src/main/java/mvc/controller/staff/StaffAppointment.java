@@ -18,7 +18,7 @@ public class StaffAppointment extends HttpServlet {
                 req.getRequestDispatcher("view/staff/staff-appointment.jsp").forward(req, resp);
             }
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
 }

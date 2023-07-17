@@ -20,12 +20,12 @@ public class DoctorChangePassword extends HttpServlet {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
-        if (account != null && account.getIsAdmin() == 1){
+        if (account != null && account.getIsAdmin() == 1) {
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
-        req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req, resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override
@@ -34,19 +34,25 @@ public class DoctorChangePassword extends HttpServlet {
         String oldpassword = req.getParameter("old-password");
         String newpassword = req.getParameter("new-password");
         String repassword = req.getParameter("re-password");
-         HttpSession session = req.getSession();
+
+        HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
-        if(account.getPassword().equals(oldpassword)){
-            if (newpassword.equals(repassword)) {
+        if (account.getPassword().equals(oldpassword)) {
+            if (newpassword.equals(oldpassword)) {
+                req.setAttribute("messError", "New password must not be same with old password");
+                req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req, resp);
+            } else if (newpassword.equals(repassword)) {
                 account.setPassword(newpassword);
                 adb.UpdateAccount(account);
-                req.setAttribute("mess", "Update successful");
-                req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req,resp);
-            }else {
-                req.setAttribute("mess", "Confirm password incorrect");
+                req.setAttribute("messSuccess", "Update successful");
+                req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req, resp);
+            } else {
+                req.setAttribute("messError", "Confirm password incorrect");
+                req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req, resp);
             }
-        }else {
-            req.setAttribute("mess", "Password incorrect");
+        } else {
+            req.setAttribute("messError", "Password incorrect");
+            req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req, resp);
         }
     }
 }

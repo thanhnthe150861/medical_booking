@@ -44,7 +44,7 @@ public class PatientDashboard extends HttpServlet {
             }
             req.getRequestDispatcher("view/patient/patient-dashboard.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

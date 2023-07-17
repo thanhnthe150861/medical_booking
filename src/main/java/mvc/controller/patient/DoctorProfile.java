@@ -26,7 +26,7 @@ public class DoctorProfile extends HttpServlet {
             session.setAttribute("doctor", doctor);
             req.getRequestDispatcher("view/patient/doctor-profile.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

@@ -32,6 +32,6 @@ public class InvoiceView extends HttpServlet {
             req.setAttribute("bill", bill);
             req.getRequestDispatcher("view/doctor/invoice-view.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 }
