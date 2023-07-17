@@ -1,52 +1,53 @@
 package mvc.controller.staff;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 import mvc.dal.AccountDB;
-import mvc.dal.PatientDBContext;
+import mvc.dal.StaffDBContext;
 import mvc.model.Account;
-import mvc.model.Patient;
+import mvc.model.Staff;
 
 import java.io.IOException;
 
-@WebServlet(name = "PatientChangePassword", value = "/patient_change_password")
+@WebServlet(name = "StaffChangePassword", value = "/staff_change_password")
 public class StaffChangePassword extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        Account account = (Account) session.getAttribute("account");
-        if (account != null && account.getIsAdmin() == 2){
-            PatientDBContext patientDBContext = new PatientDBContext();
-            Patient patient = patientDBContext.getPatient(account);
-            session.setAttribute("patient", patient);
-            req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req,resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Account acc = (Account) session.getAttribute("account");
+        StaffDBContext staffDBContext = new StaffDBContext();
+        if (acc != null) {
+            if (acc.getIsAdmin() == 3) {
+                Staff staff = staffDBContext.getStaff(acc);
+                session.setAttribute("staff", staff);
+                request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
+            }
         }
-        req.getRequestDispatcher("login");
+        response.sendRedirect("login");
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        AccountDB adb = new AccountDB();
-        String oldpassword = req.getParameter("old-password");
-        String newpassword = req.getParameter("new-password");
-        String repassword = req.getParameter("re-password");
-        HttpSession session = req.getSession();
-        Account account = (Account) session.getAttribute("account");
-        if(account.getPassword().equals(oldpassword)){
-            if (newpassword.equals(repassword)) {
-                account.setPassword(newpassword);
-                adb.UpdateAccount(account);
-                req.setAttribute("mess", "Update successful");
-                req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req,resp);
-            }else {
-                req.setAttribute("mess", "Confirm password incorrect");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        AccountDB accountDB = new AccountDB();
+        String oldPass = request.getParameter("old-password");
+        String newPass = request.getParameter("new-password");
+        String rePass = request.getParameter("re-password");
+
+        HttpSession session = request.getSession();
+        Account acc = (Account) session.getAttribute("account");
+        if (acc.getPassword().equals(oldPass)) {
+            if (newPass.equals(oldPass)) {
+                request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
+            } else if (newPass.equals(rePass)) {
+                acc.setPassword(newPass);
+                accountDB.UpdateAccount(acc);
+                request.getRequestDispatcher("view/staff/staff-dashboard.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
             }
-        }else {
-            req.setAttribute("mess", "Password incorrect");
+        } else {
+            request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
         }
     }
 }

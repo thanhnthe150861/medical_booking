@@ -258,15 +258,6 @@ public class DoctorDBContext extends  DBContext{
         }
         return checkSlotToDay;
     }
-//    public static void main(String[] args) {
-//        PatientDBContext pdb = new PatientDBContext();
-//        Doctor doctor = pdb.getDoctorByPatient("1");
-//        DoctorDBContext ddb = new DoctorDBContext();
-//        List<Booking> booking = ddb.checkBookingMyDoctor(doctor, "2023-06-22");
-//        for (Booking b: booking) {
-//            System.out.println(b.getSlot_id());
-//        }
-//    }
     public Booking getBooking(String id){
         try {
             String sql = "SELECT * FROM booking WHERE id = ?";

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import mvc.dal.StaffDBContext;
 import mvc.model.Account;
 import mvc.model.Patient;
 import mvc.model.Staff;
@@ -48,10 +49,10 @@ public class Login extends HttpServlet {
                 resp.sendRedirect("home");
             }else if (account.getIsAdmin() == 3 && account.getStatus()){
                 session.setAttribute("account", account);
-
-                Staff staff = null;
+                StaffDBContext staffDBContext = new StaffDBContext();
+                Staff staff = staffDBContext.getStaff(account);
                 session.setAttribute("staff", staff);
-                resp.sendRedirect("home");
+                resp.sendRedirect("staff_dashboard");
             }
         }
 
