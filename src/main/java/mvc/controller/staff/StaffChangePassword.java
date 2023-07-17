@@ -17,14 +17,12 @@ public class StaffChangePassword extends HttpServlet {
         HttpSession session = request.getSession();
         Account acc = (Account) session.getAttribute("account");
         StaffDBContext staffDBContext = new StaffDBContext();
-        if (acc != null) {
-            if (acc.getIsAdmin() == 3) {
+        if (acc != null && acc.getIsAdmin() == 3) {
                 Staff staff = staffDBContext.getStaff(acc);
                 session.setAttribute("staff", staff);
                 request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
-            }
         }
-        response.sendRedirect("login");
+        request.getRequestDispatcher("login");
     }
 
     @Override
@@ -38,15 +36,19 @@ public class StaffChangePassword extends HttpServlet {
         Account acc = (Account) session.getAttribute("account");
         if (acc.getPassword().equals(oldPass)) {
             if (newPass.equals(oldPass)) {
+                request.setAttribute("messError", "New password must not be same with old password");
                 request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
             } else if (newPass.equals(rePass)) {
                 acc.setPassword(newPass);
                 accountDB.UpdateAccount(acc);
-                request.getRequestDispatcher("view/staff/staff-dashboard.jsp").forward(request, response);
+                request.setAttribute("messSuccess", "Update successful");
+                request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
             } else {
+                request.setAttribute("messError", "Confirm password incorrect");
                 request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
             }
         } else {
+            request.setAttribute("messError", "Password incorrect");
             request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
         }
     }

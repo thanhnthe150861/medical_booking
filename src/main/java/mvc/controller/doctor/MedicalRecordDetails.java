@@ -37,7 +37,7 @@ public class MedicalRecordDetails extends HttpServlet {
                 req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
             }
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override

@@ -69,7 +69,7 @@ public class FormDetails  extends HttpServlet {
                 resp.sendRedirect("admin_dashboard");
             }
         }else {
-            resp.sendRedirect("login");
+            req.getRequestDispatcher("login");
         }
 
     }

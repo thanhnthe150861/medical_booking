@@ -19,6 +19,6 @@ public class StaffList extends HttpServlet {
         if (account != null && account.getIsAdmin() == 0){
         req.getRequestDispatcher("view/admin/staff-list.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 }

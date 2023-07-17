@@ -25,7 +25,7 @@ public class PatientChangePassword extends HttpServlet {
             session.setAttribute("patient", patient);
             req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req,resp);
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override
@@ -36,17 +36,22 @@ public class PatientChangePassword extends HttpServlet {
         String repassword = req.getParameter("re-password");
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
-        if(account.getPassword().equals(oldpassword)){
-            if (newpassword.equals(repassword)) {
+        if (account.getPassword().equals(oldpassword)) {
+            if (newpassword.equals(oldpassword)) {
+                req.setAttribute("messError", "New password must not be same with old password");
+                req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
+            } else if (newpassword.equals(repassword)) {
                 account.setPassword(newpassword);
                 adb.UpdateAccount(account);
-                req.setAttribute("mess", "Update successful");
-                req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req,resp);
-            }else {
-                req.setAttribute("mess", "Confirm password incorrect");
+                req.setAttribute("messSuccess", "Update successful");
+                req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
+            } else {
+                req.setAttribute("messError", "Confirm password incorrect");
+                req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
             }
-        }else {
-            req.setAttribute("mess", "Password incorrect");
+        } else {
+            req.setAttribute("messError", "Password incorrect");
+            req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
         }
     }
 }

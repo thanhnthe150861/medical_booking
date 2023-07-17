@@ -38,7 +38,7 @@ public class BillDetails extends HttpServlet {
                 req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
             }
         }
-        resp.sendRedirect("login");
+        req.getRequestDispatcher("login");
     }
 
     @Override
