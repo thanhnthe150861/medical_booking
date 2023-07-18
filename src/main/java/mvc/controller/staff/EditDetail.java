@@ -121,8 +121,7 @@ public class EditDetail extends HttpServlet {
             doctor.setRankId(Integer.parseInt(rank));
             adb.UpdateDoctor(doctor);
             request.setAttribute("messSuccess", "Cập nhật thành công");
-//            session.removeAttribute("did");
-//            session.removeAttribute("sid");
+            session.removeAttribute("did");
             response.sendRedirect("view/staff/doctor-detail.jsp");
 
         } else if (did != null && pid != null) {
@@ -168,8 +167,7 @@ public class EditDetail extends HttpServlet {
             patient.setRankId(Integer.parseInt(rank));
             adb.UpdatePatient(patient);
             request.setAttribute("messSuccess", "Cập nhật thành công");
-//            session.removeAttribute("pid");
-//            session.removeAttribute("sid");
+            session.removeAttribute("pid");
             response.sendRedirect("view/staff/patient-detail.jsp");
         }
         //Add
