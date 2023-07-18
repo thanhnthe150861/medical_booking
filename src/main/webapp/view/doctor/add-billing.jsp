@@ -75,27 +75,78 @@
 						</li>
 						
 						<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow logged-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+						<c:if test="${sessionScope.account.isAdmin == 0}">
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpgg" width="31" alt="Admin">
+								</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>Administrator</h6>
+										</div>
+									</div>
+									<a class="dropdown-item" href="admin_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="profile">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
+								</div>
+							</li>
+						</c:if>
+						<c:if test="${sessionScope.account.isAdmin == 1}">
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
 									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
 								</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right">
-								<div class="user-header">
-									<div class="avatar avatar-sm">
-										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>${sessionScope.bills.booking.doctor.name}</h6>
+											<p class="text-muted mb-0">${sessionScope.bills.booking.doctor.ranks.name}</p>
+										</div>
 									</div>
-									<div class="user-text">
-										<h6>${sessionScope.bills.booking.doctor.name}</h6>
-										<p class="text-muted mb-0">${sessionScope.bills.booking.doctor.ranks.name}</p>
-									</div>
+									<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
 								</div>
-								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-								<a class="dropdown-item" href="login">Logout</a>
-							</div>
-						</li>
+							</li>
+						</c:if>
+						<c:if test="${sessionScope.account.isAdmin == 2}">
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31"
+										 alt="Ryan Taylor">
+								</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="assets/img/patients/patient.jpg" alt="User Image"
+												 class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>${sessionScope.patient.name}</h6>
+											<p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
+										</div>
+									</div>
+									<a class="dropdown-item" href="patient_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
+								</div>
+							</li>
+						</c:if>
+						<c:if test="${sessionScope.account.isAdmin == 3}">
+						</c:if>
 						<!-- /User Menu -->
 						
 					</ul>
@@ -164,7 +215,7 @@
 								</div>
 								<% } %>
 								<div class="card-body">
-									<form action="bill_details" method="post">
+									<form action="invoice_details" method="post">
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="biller-info">

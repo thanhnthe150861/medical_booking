@@ -145,9 +145,7 @@
                                     <h3>${sessionScope.patient.name}</h3>
                                     <div class="patient-details">
                                         <h5><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
-                                        <h5>
-                                            <i class="fas fa-${sessionScope.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i>${sessionScope.patient.gender}
-                                        </h5>
+                                        <h5><i class="fas fa-${sessionScope.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i>${sessionScope.patient.gender}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -167,13 +165,6 @@
                                             <span>My Doctor</span>
                                         </a>
                                     </li>
-                                    <%--                  <li>--%>
-                                    <%--                    <a href="#">--%>
-                                    <%--                      <i class="fas fa-comments"></i>--%>
-                                    <%--                      <span>Message</span>--%>
-                                    <%--                      <small class="unread-msg">23</small>--%>
-                                    <%--                    </a>--%>
-                                    <%--                  </li>--%>
                                     <li>
                                         <a href="patient_profile_settings">
                                             <i class="fas fa-user-cog"></i>
@@ -230,7 +221,6 @@
                                     <div class="card card-table mb-0">
                                         <div class="card-body">
                                             <div class="table-responsive">
-
                                                 <table class="table table-hover table-center mb-0">
                                                     <thead>
                                                     <tr>
@@ -243,40 +233,37 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <c:forEach items="${sessionScope.medicalRecordList}" var="m">
-                                                        <c:if test="${m.booking.status == 'Completed'}">
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="#">${m.bill.id}</a>
-                                                                </td>
-                                                                <td>
-                                                                    <h2 class="table-avatar">
-                                                                        <a href="doctor-profile.html"
-                                                                           class="avatar avatar-sm mr-2">
-                                                                            <img class="avatar-img rounded-circle"
-                                                                                 src="assets/img/doctors/doctor-thumb-01.jpg"
-                                                                                 alt="User Image">
-                                                                        </a>
-                                                                        <a href="#">${m.booking.doctor.name}
-                                                                            <span>${m.booking.doctor.specialty}</span></a>
-                                                                    </h2>
-                                                                </td>
-                                                                <td>${m.bill.price}</td>
-                                                                <td>${m.booking.date}</td>
-                                                                <td><span
-                                                                        class="badge badge-pill bg-${m.bill.payment_status == 'Paid' ? 'success-light' : m.bill.payment_status == 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span>
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    <div class="table-action">
-                                                                        <a href="javascript:void(0);"
-                                                                           class="btn btn-sm bg-info-light">
-                                                                            <i class="far fa-eye"></i> View
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </c:if>
-                                                    </c:forEach>
+                                                    <c:if test="${not empty sessionScope.medicalRecordList}">
+                                                        <c:forEach items="${sessionScope.medicalRecordList}" var="m">
+                                                            <c:if test="${m.booking.status eq 'Completed'}">
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">${m.bill.id}</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <h2 class="table-avatar">
+                                                                            <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
+                                                                                <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                                                                            </a>
+                                                                            <a href="#">${m.booking.doctor.name}<span>${m.booking.doctor.specialty}</span></a>
+                                                                        </h2>
+                                                                    </td>
+                                                                    <td>${m.bill.price}</td>
+                                                                    <td>${m.booking.date}</td>
+                                                                    <td>
+                                                                        <span class="badge badge-pill bg-${m.bill.payment_status eq 'Paid' ? 'success-light' : m.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span>
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        <div class="table-action">
+                                                                            <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                                                                                <i class="far fa-eye"></i> View
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </c:if>
                                                     </tbody>
                                                 </table>
                                             </div>

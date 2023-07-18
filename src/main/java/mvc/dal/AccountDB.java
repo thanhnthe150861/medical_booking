@@ -195,16 +195,14 @@ public class AccountDB extends DBContext{
                     "SET password = ?,\n" +
                     "    phone = ?,\n" +
                     "    email = ?,\n" +
-                    "    isAdmin = ?,\n" +
                     "    status = ?\n" +
                     "WHERE username = ?;";
             PreparedStatement accountStm = connection.prepareStatement(accountSql);
             accountStm.setString(1, doctor.getAccount().getPassword());
             accountStm.setString(2, doctor.getAccount().getPhone());
             accountStm.setString(3, doctor.getAccount().getEmail());
-            accountStm.setInt(4, doctor.getAccount().getIsAdmin());
-            accountStm.setBoolean(5, doctor.getAccount().getStatus());
-            accountStm.setString(6, doctor.getAccount().getUsername());
+            accountStm.setBoolean(4, doctor.getAccount().getStatus());
+            accountStm.setString(5, doctor.getAccount().getUsername());
             accountStm.executeUpdate();
             // Add data to the doctor table
             String doctorSql = "UPDATE doctor\n" +
@@ -235,16 +233,14 @@ public class AccountDB extends DBContext{
                     "SET password = ?,\n" +
                     "    phone = ?,\n" +
                     "    email = ?,\n" +
-                    "    isAdmin = ?,\n" +
                     "    status = ?\n" +
                     "WHERE username = ?;";
             PreparedStatement accountStm = connection.prepareStatement(accountSql);
             accountStm.setString(1, patient.getAccount().getPassword());
             accountStm.setString(2, patient.getAccount().getPhone());
             accountStm.setString(3, patient.getAccount().getEmail());
-            accountStm.setInt(4, patient.getAccount().getIsAdmin());
-            accountStm.setBoolean(5, patient.getAccount().getStatus());
-            accountStm.setString(6, patient.getAccount().getUsername());
+            accountStm.setBoolean(4, patient.getAccount().getStatus());
+            accountStm.setString(5, patient.getAccount().getUsername());
             accountStm.executeUpdate();
             // Add data to the patient table
             String patientSql = "UPDATE patient\n" +
@@ -273,16 +269,14 @@ public class AccountDB extends DBContext{
                     "SET password = ?,\n" +
                     "    phone = ?,\n" +
                     "    email = ?,\n" +
-                    "    isAdmin = ?,\n" +
                     "    status = ?\n" +
                     "WHERE username = ?;";
             PreparedStatement accountStm = connection.prepareStatement(accountSql);
             accountStm.setString(1, staff.getAccount().getPassword());
             accountStm.setString(2, staff.getAccount().getPhone());
             accountStm.setString(3, staff.getAccount().getEmail());
-            accountStm.setInt(4, staff.getAccount().getIsAdmin());
-            accountStm.setBoolean(5, staff.getAccount().getStatus());
-            accountStm.setString(6, staff.getAccount().getUsername());
+            accountStm.setBoolean(4, staff.getAccount().getStatus());
+            accountStm.setString(5, staff.getAccount().getUsername());
             accountStm.executeUpdate();
             // Add data to the staff table
             String staffSql = "UPDATE staff\n" +
@@ -352,7 +346,6 @@ public class AccountDB extends DBContext{
                 account.setIsAdmin(rs.getInt("isAdmin"));
                 account.setStatus(rs.getBoolean("status"));
                 Rank rank = new Rank();
-                rank.setId(rs.getInt("rank_id"));
                 rank.setName(rs.getString("rank_name"));
                 Patient patient = new Patient();
                 patient.setAccount(account);
@@ -362,6 +355,7 @@ public class AccountDB extends DBContext{
                 patient.setName(rs.getString("name"));
                 patient.setGender(rs.getString("gender"));
                 patient.setDob(rs.getDate("dob"));
+                patient.setRankId(rs.getInt("rank_id"));
                 return patient;
             }
         } catch (SQLException e) {
@@ -388,7 +382,6 @@ public class AccountDB extends DBContext{
                 account.setIsAdmin(rs.getInt("isAdmin"));
                 account.setStatus(rs.getBoolean("status"));
                 Rank rank = new Rank();
-                rank.setId(rs.getInt("rank_id"));
                 rank.setName(rs.getString("rank_name"));
                 Doctor doctor = new Doctor();
                 doctor.setAccount(account);
@@ -398,6 +391,7 @@ public class AccountDB extends DBContext{
                 doctor.setName(rs.getString("name"));
                 doctor.setGender(rs.getString("gender"));
                 doctor.setDob(rs.getDate("dob"));
+                doctor.setRankId(rs.getInt("rank_id"));
                 doctor.setSpecialty(rs.getString("specialty"));
                 return doctor;
             }

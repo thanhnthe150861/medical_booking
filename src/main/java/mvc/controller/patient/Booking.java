@@ -24,25 +24,36 @@ public class Booking extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        final String DATE_ATTRIBUTE = "date";
+        final String SELECTED_SLOT_ATTRIBUTE = "selectedSlot";
+
         Account account = (Account) session.getAttribute("account");
-        PatientDBContext patientDBContext = new PatientDBContext();
         if (account != null && account.getIsAdmin() == 2) {
-            //Lấy ngày hôm nay
+            PatientDBContext patientDBContext = new PatientDBContext();
+
+            // Lấy ngày hôm nay
             LocalDate today = LocalDate.now();
             String date = today.toString();
-            session.setAttribute("date", date);
+
+            // Kiểm tra nếu có ngày được chọn, thì lưu vào session
             String selectedDate = req.getParameter("datePicker");
-            if (selectedDate != null){
-                session.removeAttribute("date");
-                session.setAttribute("date", selectedDate);
+            if (selectedDate != null) {
+                date = selectedDate;
             }
+
+            session.setAttribute(DATE_ATTRIBUTE, date);
+
             List<Slot> slotList = patientDBContext.getAllSlots();
             session.setAttribute("slotList", slotList);
+
             String selectedSlot = req.getParameter("selectedSlot");
-            session.setAttribute("selectedSlot", selectedSlot);
+            session.setAttribute(SELECTED_SLOT_ATTRIBUTE, selectedSlot);
+
             req.getRequestDispatcher("view/patient/booking.jsp").forward(req, resp);
+        } else {
+            req.getRequestDispatcher("login").forward(req, resp);
         }
-        req.getRequestDispatcher("login");
+
     }
 
 
