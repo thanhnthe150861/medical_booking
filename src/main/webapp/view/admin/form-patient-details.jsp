@@ -231,16 +231,25 @@
 												</select>
 											</div>
 										</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-2">Status</label>
-												<div class="col-md-10">
-													<select class="form-control select" name="status" required>
-														<c:forEach items="${sessionScope.rankListPatient}" var="rld">
-															<option value="${rld.id}" ${sessionScope.patient.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
-														</c:forEach>
-													</select>
-												</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Rank</label>
+											<div class="col-md-10">
+												<select class="form-control select" name="rank" required>
+													<c:forEach items="${sessionScope.rankListPatient}" var="rlp">
+														<option value="${rlp.id}" ${sessionScope.patient.rankId == rlp.id ? "selected" : ""}>${rlp.name}</option>
+													</c:forEach>
+												</select>
 											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Status</label>
+											<div class="col-md-10">
+												<select class="form-control select" name="status" required>
+													<option value="true" ${sessionScope.patient.account.status == true ? "selected" : ""}>Active</option>
+													<option value="false" ${sessionScope.patient.account.status == false ? "selected" : ""}>Deactive</option>
+												</select>
+											</div>
+										</div>
 										<div class="submit-section">
 											<button type="submit" class="btn btn-primary submit-btn">Save</button>
 										</div>
