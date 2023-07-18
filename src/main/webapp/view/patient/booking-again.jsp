@@ -1,4 +1,5 @@
-
+<%@ page import="mvc.model.Slot" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -191,32 +192,42 @@
                                             <ul class="clearfix d-flex align-items-center justify-content-center">
                                                 <!-- Morning -->
                                                 <li>
-                                                    <c:forEach items="${sessionScope.bookingList}" var="bl">
-                                                    <c:forEach items="${sessionScope.slotList}" var="sl">
-                                                            <c:if test="${sl.id lt 4 && sl.id != bl.slot_id}">
-                                                                <a class="timing <c:if test='${sessionScope.selectedSlot eq sl.id}'>selected</c:if>"
+                                                    <c:forEach items="${requestScope.slotList}" var="sl">
+                                                        <c:if test="${sl.id < 4}">
+                                                            <c:forEach items="${requestScope.slotExist}" var="se">
+                                                                <c:if test="${se.id != sl.id}">
+                                                                    <a class="timing <c:if test='${requestScope.selectedSlot eq sl.id}'>selected</c:if>"
+                                                                       href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                        <span>${sl.name}</span>
+                                                                    </a>
+                                                                </c:if>
+                                                                <c:if test="${se.id == sl.id}">
+                                                                    <a class="timing" style="background-color: red; color: white"
+                                                                       href="#">
+                                                                        <span>${sl.name}</span>
+                                                                    </a>
+                                                                </c:if>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </li>
+                                                <!-- Afternoon -->
+                                                <li>
+                                                    <c:forEach items="${requestScope.slotList}" var="sl">
+                                                        <c:forEach items="${requestScope.slotExist}" var="se">
+                                                            <c:if test="${sl.id > 3 && se.id != sl.id}">
+                                                                <a class="timing <c:if test='${requestScope.selectedSlot eq sl.id}'>selected</c:if>"
                                                                    href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
                                                                     <span>${sl.name}</span>
                                                                 </a>
                                                             </c:if>
-                                                            <c:if test="${sl.id lt 4 && sl.id == bl.slot_id}">
+                                                            <c:if test="${sl.id > 3 && se.id == sl.id}">
                                                                 <a class="timing" style="background-color: red; color: white"
                                                                    href="#">
                                                                     <span>${sl.name}</span>
                                                                 </a>
                                                             </c:if>
                                                         </c:forEach>
-                                                    </c:forEach>
-                                                </li>
-                                                <!-- Afternoon -->
-                                                <li>
-                                                    <c:forEach items="${sessionScope.slotList}" var="sl">
-                                                        <c:if test="${sl.id gt 3}">
-                                                            <a class="timing <c:if test="${sessionScope.selectedSlot eq sl.id}">selected</c:if>"
-                                                               href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
-                                                                <span>${sl.name}</span>
-                                                            </a>
-                                                        </c:if>
                                                     </c:forEach>
                                                 </li>
                                             </ul>

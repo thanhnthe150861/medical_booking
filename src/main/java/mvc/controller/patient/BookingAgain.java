@@ -27,7 +27,7 @@ public class BookingAgain extends HttpServlet {
 //        if (account != null && account.getIsAdmin() == 2) {
             // lấy slot trong db ra
             List<Slot> slotList = patientDBContext.getAllSlots();
-            session.setAttribute("slotList", slotList);
+            req.setAttribute("slotList", slotList);
             //Lấy ngày hôm nay
             LocalDate today = LocalDate.now();
             String date = today.toString();
@@ -35,29 +35,30 @@ public class BookingAgain extends HttpServlet {
             //ngày chọn
             String selectedDate = req.getParameter("datePicker");
             if (selectedDate != null){//check ngày chọn xem nếu không null thì set lại date bằng ngày chọn
-                session.removeAttribute("date");
                 session.setAttribute("date", selectedDate);
             } else {
                 selectedDate = date;
             }
             //chọn slots
             String selectedSlot = req.getParameter("selectedSlot");
-            session.setAttribute("selectedSlot", selectedSlot);
+            req.setAttribute("selectedSlot", selectedSlot);
             //lấy doctor
             String did = req.getParameter("did");
-            if (did == null){
+            if (did == null){//check session xem nếu không null thì set lại vào did
                 did = session.getAttribute("did").toString();
             }
+
             if (did != null) {
                 session.setAttribute("did", did);
                 DoctorDBContext dbContext = new DoctorDBContext();
                 Doctor doctor = patientDBContext.getDoctorByPatient(did);
                 req.setAttribute("doctor", doctor);
-                List<Booking> bookingList = dbContext.checkBookingMyDoctor(doctor, selectedDate);
-                req.setAttribute("bookingList", bookingList);
+                List<Slot> slotExist = dbContext.checkSlotExist(did, selectedDate);
+                req.setAttribute("slotExist", slotExist);
             }
             req.getRequestDispatcher("view/patient/booking-again.jsp").forward(req, resp);
 //        }
 //        resp.sendRedirect("login");
     }
+
 }
