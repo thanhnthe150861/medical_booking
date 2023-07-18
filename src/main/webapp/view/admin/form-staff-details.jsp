@@ -230,15 +230,6 @@
 												</select>
 											</div>
 										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Status</label>
-											<div class="col-md-10">
-												<select class="form-control select" name="status" required>
-													<option value="true" ${sessionScope.staff.account.status == true ? "selected" : ""}>Active</option>
-													<option value="false" ${sessionScope.staff.account.status == false ? "selected" : ""}>Deactive</option>
-												</select>
-											</div>
-										</div>
 										<div class="submit-section">
 											<button type="submit" class="btn btn-primary submit-btn">Save</button>
 										</div>

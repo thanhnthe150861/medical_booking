@@ -34,10 +34,6 @@ public class FormDetails  extends HttpServlet {
             session.removeAttribute("doctor");
             session.removeAttribute("patient");
             session.removeAttribute("staff");
-            session.removeAttribute("did");
-            session.removeAttribute("pid");
-            session.removeAttribute("sid");
-            session.removeAttribute("str");
             //Update
             if(did != null){
                 session.setAttribute("did", did);
@@ -127,6 +123,7 @@ public class FormDetails  extends HttpServlet {
             doctor.getAccount().setPhone(phone);
             doctor.getAccount().setEmail(email);
             doctor.getAccount().setPassword(pass);
+            doctor.getAccount().setIsAdmin(1);
             //
             doctor.setUrl(url);
             doctor.setName(name);
@@ -135,13 +132,9 @@ public class FormDetails  extends HttpServlet {
             doctor.setSpecialty(specialty);
             doctor.setRankId(Integer.parseInt(rank));
             adb.UpdateDoctor(doctor);
-
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("pid");
             session.removeAttribute("sid");
-            session.removeAttribute("staff");
-            session.removeAttribute("patient");
-            session.setAttribute("doctor", doctor);
             req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
 
         } else if (pid != null) {
@@ -179,6 +172,7 @@ public class FormDetails  extends HttpServlet {
             patient.getAccount().setPhone(phone);
             patient.getAccount().setEmail(email);
             patient.getAccount().setPassword(pass);
+            patient.getAccount().setIsAdmin(1);
             //
             patient.setUrl(url);
             patient.setName(name);
@@ -189,9 +183,6 @@ public class FormDetails  extends HttpServlet {
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("did");
             session.removeAttribute("sid");
-            session.removeAttribute("staff");
-            session.removeAttribute("doctor");
-            session.setAttribute("patient", patient);
             req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req,resp);
         } else if (sid != null) {
             String pass = req.getParameter("password");
@@ -227,6 +218,7 @@ public class FormDetails  extends HttpServlet {
             staff.getAccount().setPhone(phone);
             staff.getAccount().setEmail(email);
             staff.getAccount().setPassword(pass);
+            staff.getAccount().setIsAdmin(1);
             //
             staff.setUrl(url);
             staff.setName(name);
@@ -236,9 +228,6 @@ public class FormDetails  extends HttpServlet {
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("pid");
             session.removeAttribute("did");
-            session.removeAttribute("doctor");
-            session.removeAttribute("patient");
-            session.setAttribute("staff", staff);
             req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
         }
         //Add
@@ -253,8 +242,6 @@ public class FormDetails  extends HttpServlet {
             String specialty = req.getParameter("speciality");
             String phone = req.getParameter("phone");
             String email = req.getParameter("email");
-            String rank = req.getParameter("rank");
-            Boolean status = Boolean.parseBoolean(req.getParameter("status"));
             // Validate user: should not contain special characters
             if (!user.matches("^[a-zA-Z0-9_]*$")) {
                 req.setAttribute("messError", "User không được chứa ký tự đặc biệt");
@@ -288,7 +275,7 @@ public class FormDetails  extends HttpServlet {
             AccountDB adb = new AccountDB();
             if (adb.checkAccountExist(user) == null) {
                 Account account = new Account();
-                account.setStatus(status);
+                account.setStatus(true);
                 account.setPhone(phone);
                 account.setEmail(email);
                 account.setUsername(user);
@@ -301,7 +288,7 @@ public class FormDetails  extends HttpServlet {
                 doctor.setGender(gender);
                 doctor.setDob(Date.valueOf(dob));
                 doctor.setSpecialty(specialty);
-                doctor.setRankId(Integer.parseInt(rank));
+                doctor.setRankId(1);
                 doctor.setAccount(account);
                 adb.addNewDoctor(doctor);
                 req.setAttribute("messSuccess", "Tạo tài khoản thành công");
@@ -319,8 +306,6 @@ public class FormDetails  extends HttpServlet {
             String dob = req.getParameter("dob");
             String phone = req.getParameter("phone");
             String email = req.getParameter("email");
-            String rank = req.getParameter("rank");
-            Boolean status = Boolean.parseBoolean(req.getParameter("status"));
             // Validate user: should not contain special characters
             if (!user.matches("^[a-zA-Z0-9_]*$")) {
                 req.setAttribute("messError", "User không được chứa ký tự đặc biệt");
@@ -348,7 +333,7 @@ public class FormDetails  extends HttpServlet {
             AccountDB adb = new AccountDB();
             if (adb.checkAccountExist(user) == null) {
                 Account account = new Account();
-                account.setStatus(status);
+                account.setStatus(true);
                 account.setPhone(phone);
                 account.setEmail(email);
                 account.setUsername(user);
@@ -360,7 +345,7 @@ public class FormDetails  extends HttpServlet {
                 patient.setName(name);
                 patient.setGender(gender);
                 patient.setDob(Date.valueOf(dob));
-                patient.setRankId(Integer.parseInt(rank));
+                patient.setRankId(1);
                 patient.setAccount(account);
                 adb.addNewPatient(patient);
                 req.setAttribute("messSuccess", "Tạo tài khoản thành công");
@@ -378,7 +363,6 @@ public class FormDetails  extends HttpServlet {
             String dob = req.getParameter("dob");
             String phone = req.getParameter("phone");
             String email = req.getParameter("email");
-            Boolean status = Boolean.parseBoolean(req.getParameter("status"));
             // Validate user: should not contain special characters
             if (!user.matches("^[a-zA-Z0-9_]*$")) {
                 req.setAttribute("messError", "User không được chứa ký tự đặc biệt");
@@ -406,7 +390,7 @@ public class FormDetails  extends HttpServlet {
             AccountDB adb = new AccountDB();
             if (adb.checkAccountExist(user) == null) {
                 Account account = new Account();
-                account.setStatus(status);
+                account.setStatus(true);
                 account.setPhone(phone);
                 account.setEmail(email);
                 account.setUsername(user);

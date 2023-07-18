@@ -163,6 +163,13 @@
 													<span>My Doctor</span>
 												</a>
 											</li>
+<%--											<li>--%>
+<%--												<a href="#">--%>
+<%--													<i class="fas fa-comments"></i>--%>
+<%--													<span>Message</span>--%>
+<%--													<small class="unread-msg">23</small>--%>
+<%--												</a>--%>
+<%--											</li>--%>
 											<li>
 												<a href="patient_profile_settings">
 													<i class="fas fa-user-cog"></i>
@@ -217,13 +224,6 @@
 											<div class="card card-table mb-0">
 												<div class="card-body">
 													<div class="table-responsive">
-														<!-- Place this code where you want to display the error message -->
-														<% String errorMessage = (String) request.getAttribute("messError"); %>
-														<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-														<div class="alert alert-danger" role="alert">
-															<%= errorMessage %>
-														</div>
-														<%}%>
 														<table class="table table-hover table-center mb-0">
 															<thead>
 																<tr>

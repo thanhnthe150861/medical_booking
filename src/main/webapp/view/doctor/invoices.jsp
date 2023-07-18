@@ -242,7 +242,7 @@
 													<td>$<%= invoice.getBill().getTotalPrice() %></td>
 													<td><%= invoice.getBooking().getDate() %></td>
 													<td>
-														<a href="invoice_details?pid=<%= invoice.getBooking().getPatient().getId() %>&bid=<%= invoice.getBill().getId() %>" class="btn btn-sm bg-success-light">
+														<a href="bill_details?pid=<%= invoice.getBooking().getPatient().getId() %>&bid=<%= invoice.getBill().getId() %>" class="btn btn-sm bg-success-light">
 															<i class="far fa-eye"></i> Edit
 														</a>
 														<a href="invoice_view?bid=<%= invoice.getBill().getId() %>" class="btn btn-sm bg-info-light">

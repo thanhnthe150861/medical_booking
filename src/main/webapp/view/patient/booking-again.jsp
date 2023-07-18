@@ -193,63 +193,42 @@
                                                 <!-- Morning -->
                                                 <li>
                                                     <c:forEach items="${requestScope.slotList}" var="sl">
-                                                    <c:if test="${sl.id < 4}">
-                                                        <c:set var="isSlotExist" value="false" />
-                                                    <c:forEach items="${requestScope.slotExist}" var="se">
-                                                    <c:if test="${se.id eq sl.id}">
-                                                        <c:set var="isSlotExist" value="true" />
-                                                    </c:if>
+                                                        <c:if test="${sl.id < 4}">
+                                                            <c:forEach items="${requestScope.slotExist}" var="se">
+                                                                <c:if test="${se.id != sl.id}">
+                                                                    <a class="timing <c:if test='${requestScope.selectedSlot eq sl.id}'>selected</c:if>"
+                                                                       href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                        <span>${sl.name}</span>
+                                                                    </a>
+                                                                </c:if>
+                                                                <c:if test="${se.id == sl.id}">
+                                                                    <a class="timing" style="background-color: red; color: white"
+                                                                       href="#">
+                                                                        <span>${sl.name}</span>
+                                                                    </a>
+                                                                </c:if>
+                                                            </c:forEach>
+                                                        </c:if>
                                                     </c:forEach>
-
-                                                    <c:choose>
-                                                    <c:when test="${requestScope.selectedSlot eq sl.id}">
-                                                    <a class="timing selected" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
-                                                        <span>${sl.name}</span>
-                                                    </a>
-                                                    </c:when>
-                                                    <c:when test="${isSlotExist}">
-                                                    <a class="timing" style="background-color: red; color: white" href="#">
-                                                        <span>${sl.name}</span>
-                                                    </a>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                    <a class="timing" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
-                                                        <span>${sl.name}</span>
-                                                    </a>
-                                                    </c:otherwise>
-                                                    </c:choose>
-                                                    </c:if>
-                                                    </c:forEach>
+                                                </li>
                                                 <!-- Afternoon -->
                                                 <li>
-                                                <c:forEach items="${requestScope.slotList}" var="sl">
-                                                    <c:if test="${sl.id > 3}">
-                                                        <c:set var="isSlotExist" value="false" />
+                                                    <c:forEach items="${requestScope.slotList}" var="sl">
                                                         <c:forEach items="${requestScope.slotExist}" var="se">
-                                                            <c:if test="${se.id eq sl.id}">
-                                                                <c:set var="isSlotExist" value="true" />
+                                                            <c:if test="${sl.id > 3 && se.id != sl.id}">
+                                                                <a class="timing <c:if test='${requestScope.selectedSlot eq sl.id}'>selected</c:if>"
+                                                                   href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                    <span>${sl.name}</span>
+                                                                </a>
+                                                            </c:if>
+                                                            <c:if test="${sl.id > 3 && se.id == sl.id}">
+                                                                <a class="timing" style="background-color: red; color: white"
+                                                                   href="#">
+                                                                    <span>${sl.name}</span>
+                                                                </a>
                                                             </c:if>
                                                         </c:forEach>
-
-                                                        <c:choose>
-                                                            <c:when test="${requestScope.selectedSlot eq sl.id}">
-                                                                <a class="timing selected" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
-                                                                    <span>${sl.name}</span>
-                                                                </a>
-                                                            </c:when>
-                                                            <c:when test="${isSlotExist}">
-                                                                <a class="timing" style="background-color: red; color: white" href="#">
-                                                                    <span>${sl.name}</span>
-                                                                </a>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <a class="timing" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
-                                                                    <span>${sl.name}</span>
-                                                                </a>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </c:if>
-                                                </c:forEach>
+                                                    </c:forEach>
                                                 </li>
                                             </ul>
                                         </div>

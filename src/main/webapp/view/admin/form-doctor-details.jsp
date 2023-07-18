@@ -238,21 +238,21 @@
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-form-label col-md-2">Rank</label>
-											<div class="col-md-10">
-												<select class="form-control select" name="rank" required>
-													<c:forEach items="${sessionScope.rankListDoctor}" var="rld">
-														<option value="${rld.id}" ${sessionScope.doctor.rankId == rld.id ? "selected" : ""}>${rld.name}</option>
-													</c:forEach>
-												</select>
-											</div>
-										</div>
-										<div class="form-group row">
 											<label class="col-form-label col-md-2">Status</label>
 											<div class="col-md-10">
 												<select class="form-control select" name="status" required>
 													<option value="true" ${sessionScope.doctor.account.status == true ? "selected" : ""}>Active</option>
 													<option value="false" ${sessionScope.doctor.account.status == false ? "selected" : ""}>Deactive</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Rank</label>
+											<div class="col-md-10">
+												<select class="form-control select" name="rank" required>
+													<c:forEach items="${sessionScope.rankListDoctor}" var="rld">
+														<option value="${rld.id}" ${sessionScope.doctor.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
+													</c:forEach>
 												</select>
 											</div>
 										</div>

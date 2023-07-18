@@ -212,12 +212,12 @@
                               <div class="table-action">
                                 <div class="table-action">
                                   <c:if test="${m.bill.id eq 0}">
-                                    <a href="invoice_details?mid=${m.id}" class="btn btn-sm bg-success-light">
+                                    <a href="bill_details?mid=${m.id}" class="btn btn-sm bg-success-light">
                                       <i class="far fa-eye"></i> Edit
                                     </a>
                                   </c:if>
                                   <c:if test="${m.bill.id ne 0}">
-                                    <a href="invoice_details?bid=${m.bill.id}" class="btn btn-sm bg-success-light">
+                                    <a href="bill_details?bid=${m.bill.id}" class="btn btn-sm bg-success-light">
                                       <i class="far fa-eye"></i> Edit
                                     </a>
                                     <a href="invoice_view?bid=${m.bill.id}" class="btn btn-sm bg-info-light">

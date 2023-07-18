@@ -170,5 +170,3 @@ INSERT INTO staff (username, url, name, gender, dob) VALUES ('staff5', 'www.exam
 use medical_booking;
 select * from medical_record;
 select * from bill;
-select * from account;
-select * from doctor;

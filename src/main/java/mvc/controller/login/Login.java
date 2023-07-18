@@ -1,13 +1,13 @@
 package mvc.controller.login;
 
+import mvc.dal.AccountDB;
+import mvc.dal.PatientDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import mvc.dal.AccountDB;
-import mvc.dal.PatientDBContext;
 import mvc.dal.StaffDBContext;
 import mvc.model.Account;
 import mvc.model.Patient;
@@ -21,7 +21,7 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.invalidate();
-        req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("view/login/login.jsp").forward(req,resp);
     }
 
     @Override
@@ -31,24 +31,21 @@ public class Login extends HttpServlet {
         AccountDB adb = new AccountDB();
         Account account = adb.getAccount(userRaw, passRaw);
         HttpSession session = req.getSession();
-        if (account == null) {
+        if(account == null){
             req.setAttribute("messError", "Tài khoản hoặc mật khẩu sai");
-            req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
-        } else if (!account.getStatus()) {
-            req.setAttribute("messError", "Tài khoản bị vô hiệu hóa");
-            req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
-        } else {
+            req.getRequestDispatcher("view/login/login.jsp").forward(req,resp);
+        }else{
             session.setAttribute("account", account);
-            if (account.getIsAdmin() == 0) {
+            if(account.getIsAdmin() == 0){
                 resp.sendRedirect("admin_dashboard");
-            } else if (account.getIsAdmin() == 1) {
+            } else if (account.getIsAdmin() == 1 && account.getStatus()){
                 resp.sendRedirect("doctor_dashboard");
-            } else if (account.getIsAdmin() == 2) {
+            } else if (account.getIsAdmin() == 2 && account.getStatus()){
                 PatientDBContext patientDBContext = new PatientDBContext();
                 Patient patient = patientDBContext.getPatient(account);
                 session.setAttribute("patient", patient);
                 resp.sendRedirect("home");
-            } else if (account.getIsAdmin() == 3) {
+            }else if (account.getIsAdmin() == 3 && account.getStatus()){
                 StaffDBContext staffDBContext = new StaffDBContext();
                 Staff staff = staffDBContext.getStaff(account);
                 session.setAttribute("staff", staff);
