@@ -210,7 +210,7 @@
 												<div class="form-group">
 													<div class="change-avatar">
 														<div class="profile-img">
-															<img src="assets/img/patients/patient.jpg" alt="User Image">
+															<img src="${sessionScope.patient.url}" alt="User Image">
 														</div>
 														<div class="upload-img">
 															<div class="change-photo-btn">
