@@ -30,7 +30,7 @@
     <script src="view/admin/assets/js/html5shiv.min.js"></script>
     <script src="view/admin/assets/js/respond.min.js"></script>
     <![endif]-->
-</head> 
+</head>
 <body>
 
 <!-- Main Wrapper -->
@@ -266,7 +266,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- /Main Wrapper -->
