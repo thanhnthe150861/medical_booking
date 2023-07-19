@@ -215,20 +215,24 @@
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Rank</label>
 											<div class="col-md-10">
-												<select class="form-control select" name="rank" required>
-													<c:forEach items="${sessionScope.rankListPatient}" var="rlp">
-														<option value="${rlp.id}" ${sessionScope.patient.rankId == rlp.id ? "selected" : ""}>${rlp.name}</option>
-													</c:forEach>
-												</select>
+												<label>
+													<select class="form-control select" name="rank" required>
+														<c:forEach items="${sessionScope.rankListPatient}" var="rlp">
+															<option value="${rlp.id}" ${sessionScope.patient.rankId == rlp.id ? "selected" : ""}>${rlp.name}</option>
+														</c:forEach>
+													</select>
+												</label>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Status</label>
 											<div class="col-md-10">
-												<select class="form-control select" name="status" required>
-													<option value="true" ${sessionScope.patient.account.status == true ? "selected" : ""}>Active</option>
-													<option value="false" ${sessionScope.patient.account.status == false ? "selected" : ""}>Deactive</option>
-												</select>
+												<label>
+													<select class="form-control select" name="status" required>
+														<option value="true" ${sessionScope.patient.account.status == true ? "selected" : ""}>Active</option>
+														<option value="false" ${sessionScope.patient.account.status == false ? "selected" : ""}>Deactive</option>
+													</select>
+												</label>
 											</div>
 										</div>
 										<div class="submit-section">
