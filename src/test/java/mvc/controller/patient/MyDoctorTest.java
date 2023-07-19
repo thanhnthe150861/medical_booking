@@ -42,7 +42,7 @@ class MyDoctorTest {
         if (account != null && account.getIsAdmin() == 2){
             PatientDBContext patientDBContext = new PatientDBContext();
             Patient patient = patientDBContext.getPatient(account);
-            List<Doctor> doctorList = patientDBContext.getMydoctor(patient, "Completed");
+            List<Doctor> doctorList = patientDBContext.getMyDoctor(patient, "Completed");
             when(request.getRequestDispatcher("view/patient/my-doctor.jsp")).thenReturn(requestDispatcher);
             MyDoctor doctor = new MyDoctor();
             doctor.doGet(request,response);

@@ -36,7 +36,7 @@ class BookingTest {
     @Test
     public void testDoGet() throws ServletException, IOException {
         MockitoAnnotations.initMocks(this);
-        Booking booking = new Booking();
+        Bookings booking = new Bookings();
         when(request.getSession()).thenReturn(session);
         Account account = (Account) session.getAttribute("account");
         PatientDBContext patientDBContext = new PatientDBContext();

@@ -45,7 +45,7 @@ class MedicalRecordDetailsTest {
             if (mid != null) {
                 Patient patient = (Patient) session.getAttribute("patient");
                 when(session.getAttribute("patient")).thenReturn(patient);
-                MedicalRecord medicalRecord = doctorDBContext.getMedicalRecord(mid);
+                MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
                 medicalRecordDetails.doGet(request, response);
                 verify(request).setAttribute("patient", patient);
                 verify(session).setAttribute("medicalRecord", medicalRecord);
@@ -83,7 +83,7 @@ class MedicalRecordDetailsTest {
         when(request.getParameter(prescription)).thenReturn("prescription");
         when(request.getParameter(mid)).thenReturn("mid");
         if(mid != null){
-            MedicalRecord medicalRecord = doctorDBContext.getMedicalRecord(mid);
+            MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
             medicalRecord.setDiagnosis(diagnosis);
             medicalRecord.setPrescription(prescription);
             medicalRecord.setUrl(url);
