@@ -48,7 +48,6 @@ class DoctorProfileSettingsTest {
         doctorProfileSettings.doGet(request, response);
         verify(response).sendRedirect("login");
     }
-
     @Test
     public void  testDoPost() throws ServletException, IOException {
         MockitoAnnotations.initMocks(this);
