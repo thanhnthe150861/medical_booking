@@ -180,9 +180,19 @@
 								<div class="card-body">
 									<form action="form_details" method="post">
 										<div class="form-group mb-0 row">
-											<label class="col-form-label col-md-2">Image</label>
-											<div class="col-md-10">
-												<input type="file" class="form-control" name="file">
+											<div class="col-md-2">
+												<div class="change-avatar">
+													<div class="profile-img">
+														<img src="${sessionScope.staff.url}" alt="User Image" style="width: 200px; height: 200px; object-fit: cover;" >
+													</div>
+													<div class="upload-img">
+														<label for="photo-upload" class="change-photo-btn">
+															<span><i class="fa fa-upload"></i> Upload Photo</span>
+														</label>
+														<input type="file" id="photo-upload" class="upload" name="file" style="display: none;">
+														<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+													</div>
+												</div>
 											</div>
 										</div>
 										<div class="form-group row">
