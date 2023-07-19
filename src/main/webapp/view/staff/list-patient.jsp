@@ -158,21 +158,19 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="table-responsive">
-
-
-<%--                                    <div class="actions text-md-right">--%>
-<%--                                        <a href="#" class="btn btn-sm bg-success-light mr-2">Add New Patient</a>--%>
-<%--                                    </div>--%>
-
-
+                                    <div class="actions text-md-right">
+                                        <a href="edit_detail?str=patient" class="btn btn-sm bg-success-light mr-2">Add New Patient</a>
+                                    </div>
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
                                         <tr>
+                                            <th>Patient ID</th>
                                             <th>Patient Name</th>
                                             <th>Date Of Birth</th>
                                             <th>Phone</th>
                                             <th>Email</th>
                                             <th>Last Visit</th>
+                                            <th>Paid</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Action</th>
                                         </tr>
@@ -180,6 +178,8 @@
                                         <tbody>
                                         <% for (MedicalRecord patient : patientList) { %>
                                         <tr>
+                                            <td><%= patient.getBooking().getPatient().getId() %>
+                                            </td>
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="#" class="avatar avatar-sm mr-2"><img

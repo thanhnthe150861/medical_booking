@@ -64,7 +64,6 @@
         <!-- Header Right Menu -->
         <ul class="nav user-menu">
 
-
             <!-- User Menu -->
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -79,7 +78,7 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Administrator</h6>
+                            <h6>Staff</h6>
                         </div>
                     </div>
                     <a class="dropdown-item" href="staff_dashboard">My Profile</a>
@@ -87,7 +86,6 @@
                 </div>
             </li>
             <!-- /User Menu -->
-
         </ul>
         <!-- /Header Right Menu -->
 
@@ -158,13 +156,9 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-
-
-<%--                                <div class="actions text-md-right">--%>
-<%--                                    <a href="#" class="btn btn-sm bg-success-light mr-2">Add New Doctor</a>--%>
-<%--                                </div>--%>
-
-
+                                <div class="actions text-md-right">
+                                    <a href="edit_detail?str=doctor" class="btn btn-sm bg-success-light mr-2">Add New Doctor</a>
+                                </div>
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>

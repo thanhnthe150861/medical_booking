@@ -65,7 +65,6 @@
         <ul class="nav user-menu">
 
             <!-- User Menu -->
-
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
@@ -86,9 +85,7 @@
                     <a class="dropdown-item" href="login">Logout</a>
                 </div>
             </li>
-
             <!-- /User Menu -->
-
         </ul>
         <!-- /Header Right Menu -->
 
@@ -229,7 +226,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- /Page Wrapper -->
