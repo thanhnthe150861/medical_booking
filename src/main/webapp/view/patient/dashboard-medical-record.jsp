@@ -163,13 +163,12 @@
                                             <span>My Doctor</span>
                                         </a>
                                     </li>
-<%--                                    <li>--%>
-<%--                                        <a href="#">--%>
-<%--                                            <i class="fas fa-comments"></i>--%>
-<%--                                            <span>Message</span>--%>
-<%--                                            <small class="unread-msg">23</small>--%>
-<%--                                        </a>--%>
-<%--                                    </li>--%>
+                                    <li>
+                                        <a href="invoice_patient">
+                                            <i class="fas fa-file-invoice"></i>
+                                            <span>Invoices</span>
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="patient_profile_settings">
                                             <i class="fas fa-user-cog"></i>
@@ -208,9 +207,6 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link active" href="patient_dashboard?medical=true" ><span class="med-records">Medical Records</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="patient_dashboard?bill=true" ><span>Billing</span></a>
                                     </li>
                                 </ul>
                             </nav>

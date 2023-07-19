@@ -173,7 +173,7 @@
 								<div class="card-body">
 									<div class="table-responsive">
 										<div class="actions text-md-right">
-											<a href="#" class="btn btn-sm bg-success-light mr-2">Add New Staff</a>
+											<a href="form_details?str=staff" class="btn btn-sm bg-success-light mr-2">Add New Staff</a>
 										</div>
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>

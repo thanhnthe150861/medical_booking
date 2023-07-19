@@ -24,7 +24,7 @@ public class MyDoctor extends HttpServlet {
         if (account != null && account.getIsAdmin() == 2){
             PatientDBContext patientDBContext = new PatientDBContext();
             Patient patient = patientDBContext.getPatient(account);
-            List<Doctor> doctorList = patientDBContext.getMydoctor(patient, "Completed");
+            List<Doctor> doctorList = patientDBContext.getMyDoctor(patient, "Completed");
             session.setAttribute("patient", patient);
             session.setAttribute("doctorList", doctorList);
             req.getRequestDispatcher("view/patient/my-doctor.jsp").forward(req,resp);

@@ -6,7 +6,7 @@ import java.sql.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BookingTest {
+class BookingsTest {
     @Test
     public void testGetPatientId() {
         Booking booking = new Booking();

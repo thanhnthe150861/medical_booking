@@ -475,16 +475,6 @@ public class DoctorDBContext extends  DBContext{
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        DoctorDBContext d = new DoctorDBContext();
-        List<Slot> slot = d.checkSlotExist("1", "2022-06-22");
-        for (Slot s: slot
-             ) {
-            System.out.println(s.getId());
-
-        }
-    }
     public MedicalRecord getTTByBookingID(String bid){
         try {
             String sql = "SELECT \n" +
