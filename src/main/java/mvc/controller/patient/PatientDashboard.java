@@ -41,9 +41,7 @@ public class PatientDashboard extends HttpServlet {
             String medical = req.getParameter("medical");
             String forwardUrl = "view/patient/patient-dashboard.jsp"; // Trang mặc định
 
-            if (bill != null && bill.equals("true")) {
-                forwardUrl = "view/patient/dashboard-bill.jsp";
-            } else if (medical != null && medical.equals("true")) {
+            if (medical != null && medical.equals("true")) {
                 forwardUrl = "view/patient/dashboard-medical-record.jsp";
             }
 

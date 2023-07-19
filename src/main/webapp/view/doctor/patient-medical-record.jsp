@@ -191,7 +191,7 @@
                           </thead>
                           <tbody>
                           <c:forEach items="${requestScope.medicalRecordList}" var="m">
-                            <c:if test="${m.booking.status == 'Completed'}">
+                            <c:if test="${m.booking.status eq 'Completed'}">
                           <tr>
                             <td><a href="javascript:void(0);">${m.id}</a></td>
                             <td>${m.booking.date}</td>
@@ -208,12 +208,12 @@
                             </td>
                             <td class="text-right">
                               <div class="table-action">
-                                <c:if test="${m.id eq 0}">
+                                <c:if test="${m.id == 0}">
                                   <a href="medical_record_details?bid=${m.booking.id}" class="btn btn-sm bg-success-light">
                                     <i class="far fa-eye"></i> Edit
                                   </a>
                                 </c:if>
-                                <c:if test="${m.id ne 0}">
+                                <c:if test="${m.id != 0}">
                                   <a href="medical_record_details?mid=${m.id}" class="btn btn-sm bg-success-light">
                                     <i class="far fa-eye"></i> Edit
                                   </a>

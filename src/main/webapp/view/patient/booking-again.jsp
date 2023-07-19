@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- doccure/Booking.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
     <meta charset="utf-8">
     <title>Doccure</title>
@@ -182,27 +181,27 @@
                             </div>
                         </div>
                         <!-- /Schedule Header -->
+                        <form action="booking_again" method="post">
                         <!-- Schedule Content -->
                         <div class="schedule-cont">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form action="booking_again" method="post">
                                         <!-- Time Slot -->
                                         <div class="time-slot">
                                             <ul class="clearfix d-flex align-items-center justify-content-center">
                                                 <!-- Morning -->
                                                 <li>
-                                                    <c:forEach items="${requestScope.slotList}" var="sl">
+                                                    <c:forEach items="${sessionScope.slotList}" var="sl">
                                                     <c:if test="${sl.id < 4}">
                                                         <c:set var="isSlotExist" value="false" />
-                                                    <c:forEach items="${requestScope.slotExist}" var="se">
+                                                    <c:forEach items="${sessionScope.slotExist}" var="se">
                                                     <c:if test="${se.id eq sl.id}">
                                                         <c:set var="isSlotExist" value="true" />
                                                     </c:if>
                                                     </c:forEach>
 
                                                     <c:choose>
-                                                    <c:when test="${requestScope.selectedSlot eq sl.id}">
+                                                    <c:when test="${sessionScope.selectedSlot eq sl.id}">
                                                     <a class="timing selected" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
                                                         <span>${sl.name}</span>
                                                     </a>
@@ -222,17 +221,17 @@
                                                     </c:forEach>
                                                 <!-- Afternoon -->
                                                 <li>
-                                                <c:forEach items="${requestScope.slotList}" var="sl">
+                                                <c:forEach items="${sessionScope.slotList}" var="sl">
                                                     <c:if test="${sl.id > 3}">
                                                         <c:set var="isSlotExist" value="false" />
-                                                        <c:forEach items="${requestScope.slotExist}" var="se">
+                                                        <c:forEach items="${sessionScope.slotExist}" var="se">
                                                             <c:if test="${se.id eq sl.id}">
                                                                 <c:set var="isSlotExist" value="true" />
                                                             </c:if>
                                                         </c:forEach>
 
                                                         <c:choose>
-                                                            <c:when test="${requestScope.selectedSlot eq sl.id}">
+                                                            <c:when test="${sessionScope.selectedSlot eq sl.id}">
                                                                 <a class="timing selected" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
                                                                     <span>${sl.name}</span>
                                                                 </a>
@@ -265,20 +264,19 @@
                                             </div>
                                         </div>
                                         <%----%>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                         <!-- /Schedule Content -->
 
+                        <!-- Submit Section -->
+                        <div class="submit-section proceed-btn text-right">
+                            <button class="btn btn-primary submit-btn">Booking</button>
+                        </div>
+                        <!-- /Submit Section -->
+                        </form>
                     </div>
                     <!-- /Schedule Widget -->
-
-                    <!-- Submit Section -->
-                    <div class="submit-section proceed-btn text-right">
-                        <button class="btn btn-primary submit-btn">Booking</button>
-                    </div>
-                    <!-- /Submit Section -->
                 </div>
             </div>
         </div>
@@ -446,5 +444,4 @@
 
 </body>
 
-<!-- doccure/Booking.jsp  30 Nov 2019 04:12:16 GMT -->
 </html>

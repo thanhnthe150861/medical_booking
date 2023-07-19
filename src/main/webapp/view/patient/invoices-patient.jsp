@@ -1,7 +1,7 @@
-<!DOCTYPE html> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
-	
-<!-- doccure/patient-profile-settings.jsp  30 Nov 2019 04:12:18 GMT -->
+
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -16,12 +16,6 @@
 		<!-- Fontawesome CSS -->
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-		
-		<!-- Datetimepicker CSS -->
-		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-		
-		<!-- Select2 CSS -->
-		<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
 		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="assets/css/style.css">
@@ -49,13 +43,13 @@
 								<span></span>
 							</span>
 						</a>
-						<a href="home" class="navbar-brand logo">
+						<a href="doctor_dashboard" class="navbar-brand logo">
 							<span class="text-primary">Clinic</span>-TATQ
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
-							<a href="home" class="menu-logo">
+							<a href="doctor_dashboard" class="menu-logo">
 								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
@@ -65,10 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="home">Home</a>
-							</li>
-							<li>
-								<a href="booking">Booking</a>
+								<a href="doctor_dashboard">Home</a>
 							</li>
 						</ul>
 					</div>		 
@@ -82,7 +73,7 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						
+
 						<!-- User Menu -->
 						<li class="nav-item dropdown has-arrow logged-item">
 							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -120,21 +111,22 @@
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="home">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+									<li class="breadcrumb-item active" aria-current="page">Invoices</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Profile Settings</h2>
+							<h2 class="breadcrumb-title">Invoices</h2>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- /Breadcrumb -->
-			
+
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container-fluid">
+
 					<div class="row">
-					
+
 						<!-- Profile Sidebar -->
 						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
 							<div class="profile-sidebar">
@@ -167,13 +159,13 @@
 													<span>My Doctor</span>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="invoice_patient">
 													<i class="fas fa-file-invoice"></i>
 													<span>Invoices</span>
 												</a>
 											</li>
-											<li class="active">
+											<li>
 												<a href="patient_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Profile Settings</span>
@@ -197,86 +189,67 @@
 
 							</div>
 						</div>
-						<!-- /Profile Sidebar -->
-						
+						<!-- / Profile Sidebar -->
+
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
-								<div class="card-body">
-									
-									<!-- Profile Settings Form -->
-									<form action="patient_profile_settings" method="post">
-										<div class="row form-row">
-											<div class="col-12 col-md-12">
-												<div class="form-group">
-													<div class="change-avatar">
-														<div class="profile-img">
-															<img src="assets/img/patients/patient.jpg" alt="User Image">
-														</div>
-														<div class="upload-img">
-															<div class="change-photo-btn">
-																<span><i class="fa fa-upload"></i> Upload Photo</span>
-																<input type="file" class="upload" name="file">
-															</div>
-															<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
-														</div>
+								<div class="card-body pt-0">
+
+									<!-- Tab Content -->
+									<div class="tab-content pt-0">
+
+										<!-- Medical Records Tab -->
+										<div class="tab-pane fade show active" id="medical">
+											<div class="card card-table mb-0">
+												<div class="card-body">
+													<div class="table-responsive">
+														<table class="table table-hover table-center mb-0">
+															<thead>
+															<tr>
+																<th>ID</th>
+																<th>Booking ID</th>
+																<th>Amount</th>
+																<th>Paid On</th>
+																<th>Status</th>
+																<th>Action</th>
+															</tr>
+															</thead>
+															<tbody>
+															<c:forEach items="${sessionScope.invoiceList}" var="invoice">
+																<tr>
+																	<td>${invoice.bill.id}</td>
+																	<td>${invoice.booking.id}</td>
+																	<td>${invoice.bill.totalPrice}</td>
+																	<td>${invoice.booking.date}</td>
+																	<td><span class="badge badge-pill bg-${invoice.bill.payment_status eq 'Paid' ? 'success-light' : invoice.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">${invoice.bill.payment_status}</span></td>
+																	<td>
+																		<div class="table-action">
+																			<a href="invoice_view?bid=${invoice.bill.id}" class="btn btn-sm bg-info-light">
+																				<i class="far fa-eye"></i> View
+																			</a>
+																		</div>
+																	</td>
+																</tr>
+															</c:forEach>
+															</tbody>
+														</table>
 													</div>
 												</div>
-												<!-- Place this code where you want to display the error message -->
-												<% String errorMessage = (String) request.getAttribute("messError"); %>
-												<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-												<div class="alert alert-danger" role="alert">
-													<%= errorMessage %>
-												</div>
-												<% } %>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Name</label>
-													<input type="text" class="form-control" name="name" value="${sessionScope.patient.name}">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group mb-0">
-													<label>Date of Birth</label>
-													<input type="date" class="form-control" name="dob" value="${sessionScope.patient.dob}">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Gender</label>
-													<select class="form-control select" name="gender">
-														<option>Select</option>
-														<option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>Male</option>
-														<option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>Female</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Email</label>
-													<input type="email" class="form-control" name="email" value="${sessionScope.account.email}">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Phone</label>
-													<input type="text" value="${sessionScope.account.phone}" name="phone" class="form-control">
-												</div>
 											</div>
 										</div>
-										<div class="submit-section">
-											<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-										</div>
-									</form>
-									<!-- /Profile Settings Form -->
-									
+										<!-- /Medical Records Tab -->
+
+									</div>
+									<!-- Tab Content -->
+
 								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
 
-			</div>		
+			</div>
 			<!-- /Page Content -->
    
 			<!-- Footer -->
@@ -330,7 +303,7 @@
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
 										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
+										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -343,7 +316,7 @@
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For Doctors</h2>
 									<ul>
-										<li><a href="appointments.html"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+										<li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
 										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
 										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
 										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
@@ -428,13 +401,6 @@
 		<script src="assets/js/popper.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
 		
-		<!-- Select2 JS -->
-		<script src="assets/plugins/select2/js/select2.min.js"></script>
-		
-		<!-- Datetimepicker JS -->
-		<script src="assets/js/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-		
 		<!-- Sticky Sidebar JS -->
         <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
         <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
@@ -444,5 +410,5 @@
 		
 	</body>
 
-<!-- doccure/patient-profile-settings.jsp  30 Nov 2019 04:12:18 GMT -->
+<!-- doccure/invoices.jsp  30 Nov 2019 04:12:14 GMT -->
 </html>

@@ -1,4 +1,5 @@
-<!DOCTYPE html> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
 	
 <!-- doccure/invoice-view.jsp  30 Nov 2019 04:12:19 GMT -->
@@ -73,12 +74,12 @@
 							</div>
 						</li>
 						<!-- User Menu -->
-						<%--<c:if test="${sessionScope.account.isAdmin == 0}">
+						<c:if test="${sessionScope.account.isAdmin == 0}">
 							<li class="nav-item dropdown has-arrow logged-item">
 								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpgg" width="31" alt="Admin">
-								</span>
+            <span class="user-img">
+                <img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31" alt="Admin">
+            </span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="user-header">
@@ -98,9 +99,9 @@
 						<c:if test="${sessionScope.account.isAdmin == 1}">
 							<li class="nav-item dropdown has-arrow logged-item">
 								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
-								</span>
+            <span class="user-img">
+                <img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+            </span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="user-header">
@@ -121,16 +122,14 @@
 						<c:if test="${sessionScope.account.isAdmin == 2}">
 							<li class="nav-item dropdown has-arrow logged-item">
 								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31"
-										 alt="Ryan Taylor">
-								</span>
+            <span class="user-img">
+                <img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+            </span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="user-header">
 										<div class="avatar avatar-sm">
-											<img src="assets/img/patients/patient.jpg" alt="User Image"
-												 class="avatar-img rounded-circle">
+											<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">
 											<h6>${sessionScope.patient.name}</h6>
@@ -144,7 +143,26 @@
 							</li>
 						</c:if>
 						<c:if test="${sessionScope.account.isAdmin == 3}">
-						</c:if>--%>
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+            </span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>${sessionScope.staff.name}</h6>
+										</div>
+									</div>
+									<a class="dropdown-item" href="staff_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="login">Logout</a>
+								</div>
+							</li>
+						</c:if>
 						<!-- /User Menu -->
 					</ul>
 				</nav>

@@ -192,7 +192,7 @@
                           </thead>
                           <tbody>
                           <c:forEach items="${requestScope.medicalRecordList}" var="m">
-                            <c:if test="${m.booking.status == 'Completed' && m.id != 0}">
+                            <c:if test="${m.booking.status eq 'Completed' && m.id != 0}">
                           <tr>
                             <td>
                               <a href="#">${m.bill.id}</a>
@@ -207,16 +207,16 @@
                             </td>
                             <td>${m.bill.totalPrice}</td>
                             <td>${m.booking.date}</td>
-                            <td><span class="badge badge-pill bg-${m.bill.payment_status == 'Paid' ? 'success-light' : m.bill.payment_status == 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span></td>
+                            <td><span class="badge badge-pill bg-${m.bill.payment_status eq 'Paid' ? 'success-light' : m.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span></td>
                             <td class="text-right">
                               <div class="table-action">
                                 <div class="table-action">
-                                  <c:if test="${m.bill.id eq 0}">
+                                  <c:if test="${m.bill.id == 0}">
                                     <a href="invoice_details?mid=${m.id}" class="btn btn-sm bg-success-light">
                                       <i class="far fa-eye"></i> Edit
                                     </a>
                                   </c:if>
-                                  <c:if test="${m.bill.id ne 0}">
+                                  <c:if test="${m.bill.id != 0}">
                                     <a href="invoice_details?bid=${m.bill.id}" class="btn btn-sm bg-success-light">
                                       <i class="far fa-eye"></i> Edit
                                     </a>

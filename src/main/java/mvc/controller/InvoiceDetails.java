@@ -1,4 +1,4 @@
-package mvc.controller.doctor;
+package mvc.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

@@ -190,7 +190,6 @@
 																</tr>
 															</thead>
 															<tbody>
-															<c:if test="${requestScope.medicalRecordList ne null}">
 															<c:forEach items="${requestScope.medicalRecordList}" var="m">
 																<tr>
 																	<td>
@@ -206,7 +205,7 @@
 																	<td></td>
 																	<td></td>
 																	<td>
-																		<span class="badge badge-pill bg-${m.booking.status == 'Confirmed' ? 'success-light' : m.booking.status == 'Pending' ? 'warning-light' : m.booking.status == 'Cancelled' ? 'danger-light' : m.booking.status == 'Completed' ? 'info-light' : ''}">
+																		<span class="badge badge-pill bg-${m.booking.status eq 'Confirmed' ? 'success-light' : m.booking.status eq 'Pending' ? 'warning-light' : m.booking.status eq 'Cancelled' ? 'danger-light' : m.booking.status eq 'Completed' ? 'info-light' : ''}">
 																				${m.booking.status}
 																		</span>
 																	</td>
@@ -215,7 +214,7 @@
 																			<a href="javascript:void(0);" class="btn btn-sm bg-info-light">
 																				<i class="far fa-eye"></i> View
 																			</a>
-																			<c:if test="${m.booking.status == 'Confirmed'}">
+																			<c:if test="${m.booking.status eq 'Confirmed'}">
 																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Completed" class="btn btn-sm bg-info-light">
 																					<i class="fas fa-check"></i> Completed
 																				</a>
@@ -223,7 +222,7 @@
 																					<i class="far fa-trash-alt"></i> Cancel
 																				</a>
 																			</c:if>
-																			<c:if test="${m.booking.status == 'Pending'}">
+																			<c:if test="${m.booking.status eq 'Pending'}">
 																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Confirmed" class="btn btn-sm bg-success-light">
 																					<i class="fas fa-check"></i> Confirmed
 																				</a>
@@ -231,7 +230,7 @@
 																					<i class="far fa-trash-alt"></i> Cancel
 																				</a>
 																			</c:if>
-																			<c:if test="${m.booking.status == 'Completed'}">
+																			<c:if test="${m.booking.status eq 'Completed'}">
 																				<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
 																					<i class="far fa-clock"></i> Reschedule
 																				</a>
@@ -240,7 +239,6 @@
 																	</td>
 																</tr>
 															</c:forEach>
-															</c:if>
 															</tbody>
 														</table>
 													</div>
