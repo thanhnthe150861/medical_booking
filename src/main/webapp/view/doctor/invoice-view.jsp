@@ -1,4 +1,5 @@
-<!DOCTYPE html> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en">
 	
 <!-- doccure/invoice-view.jsp  30 Nov 2019 04:12:19 GMT -->
@@ -58,7 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="home">Home</a>
+								<a href="#">Home</a>
 							</li>
 						</ul>
 					</div>		 
@@ -73,27 +74,95 @@
 							</div>
 						</li>
 						<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow logged-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
-								</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right">
-								<div class="user-header">
-									<div class="avatar avatar-sm">
-										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+						<c:if test="${sessionScope.account.isAdmin == 0}">
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31" alt="Admin">
+            </span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>Administrator</h6>
+										</div>
 									</div>
-									<div class="user-text">
-										<h6>${sessionScope.doctor.name}</h6>
-										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
-									</div>
+									<a class="dropdown-item" href="admin_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="profile">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
 								</div>
-								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-								<a class="dropdown-item" href="login">Logout</a>
-							</div>
-						</li>
+							</li>
+						</c:if>
+						<c:if test="${sessionScope.account.isAdmin == 1}">
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+            </span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>${sessionScope.bills.booking.doctor.name}</h6>
+											<p class="text-muted mb-0">${sessionScope.bills.booking.doctor.ranks.name}</p>
+										</div>
+									</div>
+									<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
+								</div>
+							</li>
+						</c:if>
+						<c:if test="${sessionScope.account.isAdmin == 2}">
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+            </span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>${sessionScope.patient.name}</h6>
+											<p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
+										</div>
+									</div>
+									<a class="dropdown-item" href="patient_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
+								</div>
+							</li>
+						</c:if>
+						<c:if test="${sessionScope.account.isAdmin == 3}">
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+            </span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>${sessionScope.staff.name}</h6>
+										</div>
+									</div>
+									<a class="dropdown-item" href="staff_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="login">Logout</a>
+								</div>
+							</li>
+						</c:if>
 						<!-- /User Menu -->
 					</ul>
 				</nav>
@@ -107,7 +176,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="home">Home</a></li>
+									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Invoice View</li>
 								</ol>
 							</nav>
@@ -134,7 +203,7 @@
 										</div>
 										<div class="col-md-6">
 											<p class="invoice-details">
-												<strong>Order:</strong> ${requestScope.bill.bill.id} <br>
+												<strong>Order:</strong> ${requestScope.bill.bill.id}<br>
 												<strong>Issued:</strong> ${requestScope.bill.booking.date}
 											</p>
 										</div>
@@ -148,9 +217,8 @@
 											<div class="invoice-info">
 												<strong class="customer-text">Invoice From</strong>
 												<p class="invoice-details invoice-details-two">
-													${requestScope.doctor.name} <br>
-														${requestScope.doctor.specialty} <br>
-														${requestScope.doctor.ranks.name}<br>
+													${requestScope.bill.booking.doctor.name} <br>
+														${requestScope.bill.booking.doctor.specialty} <br>
 												</p>
 											</div>
 										</div>
@@ -158,8 +226,7 @@
 											<div class="invoice-info invoice-info2">
 												<strong class="customer-text">Invoice To</strong>
 												<p class="invoice-details">
-													${requestScope.patient.name} <br>
-													${requestScope.patient.ranks.name}<br>
+													${requestScope.bill.booking.patient.name} <br>
 												</p>
 											</div>
 										</div>

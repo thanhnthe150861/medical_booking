@@ -25,7 +25,6 @@
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
-	<script src="js/script.js" defer></script>
 	
 	</head>
 	<body>
@@ -51,6 +50,7 @@
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
 							<a href="doctor_dashboard" class="menu-logo">
+								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -62,7 +62,7 @@
 								<a href="doctor_dashboard">Home</a>
 							</li>
 						</ul>
-					</div>
+					</div>		 
 					<ul class="nav header-navbar-rht">
 						<li class="nav-item contact-item">
 							<div class="header-contact-img">
@@ -73,80 +73,29 @@
 								<p class="contact-info-header"> +1 315 369 5943</p>
 							</div>
 						</li>
-						
+
 						<!-- User Menu -->
-						<c:if test="${sessionScope.account.isAdmin == 0}">
-							<li class="nav-item dropdown has-arrow logged-item">
-								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpgg" width="31" alt="Admin">
+									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
 								</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<div class="user-header">
-										<div class="avatar avatar-sm">
-											<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
-										</div>
-										<div class="user-text">
-											<h6>Administrator</h6>
-										</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
 									</div>
-									<a class="dropdown-item" href="admin_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="profile">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
-								</div>
-							</li>
-						</c:if>
-						<c:if test="${sessionScope.account.isAdmin == 1}">
-							<li class="nav-item dropdown has-arrow logged-item">
-								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
-								</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<div class="user-header">
-										<div class="avatar avatar-sm">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
-										</div>
-										<div class="user-text">
-											<h6>${sessionScope.bills.booking.doctor.name}</h6>
-											<p class="text-muted mb-0">${sessionScope.bills.booking.doctor.ranks.name}</p>
-										</div>
+									<div class="user-text">
+										<h6>${sessionScope.patient.name}</h6>
+										<p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
 									</div>
-									<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
 								</div>
-							</li>
-						</c:if>
-						<c:if test="${sessionScope.account.isAdmin == 2}">
-							<li class="nav-item dropdown has-arrow logged-item">
-								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31"
-										 alt="Ryan Taylor">
-								</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<div class="user-header">
-										<div class="avatar avatar-sm">
-											<img src="assets/img/patients/patient.jpg" alt="User Image"
-												 class="avatar-img rounded-circle">
-										</div>
-										<div class="user-text">
-											<h6>${sessionScope.patient.name}</h6>
-											<p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
-										</div>
-									</div>
-									<a class="dropdown-item" href="patient_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
-								</div>
-							</li>
-						</c:if>
-						<c:if test="${sessionScope.account.isAdmin == 3}">
-						</c:if>
+								<a class="dropdown-item" href="patient_dashboard">Dashboard</a>
+								<a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
+								<a class="dropdown-item" href="login">Logout</a>
+							</div>
+						</li>
 						<!-- /User Menu -->
 						
 					</ul>
@@ -161,132 +110,138 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Bill Details</li>
+									<li class="breadcrumb-item"><a href="home">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Invoices</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Bill Details</h2>
+							<h2 class="breadcrumb-title">Invoices</h2>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- /Breadcrumb -->
-			
+
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container-fluid">
 
 					<div class="row">
+
+						<!-- Profile Sidebar -->
 						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
-
-							<!-- Profile Widget -->
-							<div class="card widget-profile pat-widget-profile">
-								<div class="card-body">
-									<div class="pro-widget-content">
-										<div class="profile-info-widget">
-											<a href="#" class="booking-doc-img">
-												<img src="assets/img/patients/patient.jpg" alt="User Image">
-											</a>
-											<div class="profile-det-info">
-												<h3>${sessionScope.bills.booking.patient.name}</h3>
-
-												<div class="patient-details">
-													<h5><b>Patient ID :</b> ${sessionScope.bills.booking.patient.id}</h5>
-													<h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.bills.booking.patient.dob}</h5>
-												</div>
+							<div class="profile-sidebar">
+								<div class="widget-profile pro-widget-content">
+									<div class="profile-info-widget">
+										<a href="#" class="booking-doc-img">
+											<img src="assets/img/patients/patient.jpg" alt="User Image">
+										</a>
+										<div class="profile-det-info">
+											<h3>${sessionScope.patient.name}</h3>
+											<div class="patient-details">
+												<h5><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
+												<h5><i class="fas fa-${sessionScope.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i>${sessionScope.patient.gender}</h5>
 											</div>
 										</div>
 									</div>
 								</div>
+								<div class="dashboard-widget">
+									<nav class="dashboard-menu">
+										<ul>
+											<li>
+												<a href="patient_dashboard">
+													<i class="fas fa-columns"></i>
+													<span>Dashboard</span>
+												</a>
+											</li>
+											<li>
+												<a href="my_doctor">
+													<i class="fas fa-user-md"></i>
+													<span>My Doctor</span>
+												</a>
+											</li>
+											<li class="active">
+												<a href="invoice_patient">
+													<i class="fas fa-file-invoice"></i>
+													<span>Invoices</span>
+												</a>
+											</li>
+											<li>
+												<a href="patient_profile_settings">
+													<i class="fas fa-user-cog"></i>
+													<span>Profile Settings</span>
+												</a>
+											</li>
+											<li>
+												<a href="patient_change_password">
+													<i class="fas fa-lock"></i>
+													<span>Change Password</span>
+												</a>
+											</li>
+											<li>
+												<a href="login">
+													<i class="fas fa-sign-out-alt"></i>
+													<span>Logout</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+
 							</div>
-							<!-- /Profile Widget -->
-							
 						</div>
+						<!-- / Profile Sidebar -->
 
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title mb-0">Bill Details</h4>
-								</div>
-								<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
-								<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
-								<div class="alert alert-success" role="alert">
-									<%= messSuccess %>
-								</div>
-								<% } %>
-								<div class="card-body">
-									<form action="invoice_details" method="post">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="biller-info">
-												<h4 class="d-block">${sessionScope.bills.booking.doctor.name}</h4>
-												<span class="d-block text-sm text-muted">${sessionScope.bills.booking.doctor.specialty}</span>
-												<span class="d-block text-sm text-muted">${sessionScope.bills.booking.doctor.ranks.name}</span>
+								<div class="card-body pt-0">
+
+									<!-- Tab Content -->
+									<div class="tab-content pt-0">
+
+										<!-- Medical Records Tab -->
+										<div class="tab-pane fade show active" id="medical">
+											<div class="card card-table mb-0">
+												<div class="card-body">
+													<div class="table-responsive">
+														<table class="table table-hover table-center mb-0">
+															<thead>
+															<tr>
+																<th>ID</th>
+																<th>Booking ID</th>
+																<th>Amount</th>
+																<th>Paid On</th>
+																<th>Status</th>
+																<th>Action</th>
+															</tr>
+															</thead>
+															<tbody>
+															<c:forEach items="${sessionScope.invoiceList}" var="invoice">
+																<tr>
+																	<td>${invoice.bill.id}</td>
+																	<td>${invoice.booking.id}</td>
+																	<td>${invoice.bill.totalPrice}</td>
+																	<td>${invoice.booking.date}</td>
+																	<td><span class="badge badge-pill bg-${invoice.bill.payment_status eq 'Paid' ? 'success-light' : invoice.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">${invoice.bill.payment_status}</span></td>
+																	<td>
+																		<div class="table-action">
+																			<a href="invoice_view?bid=${invoice.bill.id}" class="btn btn-sm bg-info-light">
+																				<i class="far fa-eye"></i> View
+																			</a>
+																		</div>
+																	</td>
+																</tr>
+															</c:forEach>
+															</tbody>
+														</table>
+													</div>
+												</div>
 											</div>
 										</div>
-										<div class="col-sm-6 text-sm-right">
-											<div class="billing-info">
-												<h4 class="d-block">
-														<p>Booking Date: ${sessionScope.bills.booking.date}</p>
-												</h4>
-												<span class="d-block text-muted">
-														<p>Booking ID: ${sessionScope.bills.booking.id}</p>
-													</span>
-											</div>
-										</div>
+										<!-- /Medical Records Tab -->
+
 									</div>
-									
-									<!-- Billing Item -->
-									<div class="card card-table">
-										<div class="card-body">
-											<div class="table-responsive">
-												<table class="table table-hover table-center">
-													<thead>
-														<tr>
-															<th style="min-width:150px;">Price Medical</th>
-															<th style="min-width:150px;">Price Prescription (if any)</th>
-															<th style="min-width:100px;">Total</th>
-															<th style="min-width:50px;">Status</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<input type="text" hidden="hidden" class="form-control" name="mid" value="${sessionScope.mid}">
-															<input type="text" hidden="hidden" class="form-control" name="bid" value="${sessionScope.bid}">
-															<td>
-																<input type="number" min="0" class="form-control" name="priceMedical" id="priceMedical" value="${sessionScope.bills.bill.priceMedical}" >
-															</td>
-															<td>
-																<input type="number" min="0" class="form-control" name="pricePrescription" id="pricePrescription" value="${sessionScope.bills.bill.pricePrescription}">
-															</td>
-															<td>
-																<input type="number" min="0" class="form-control" name="totalPrice" id="totalPrice" value="${sessionScope.bills.bill.priceMedical + sessionScope.bills.bill.pricePrescription}" readonly>
-															</td>
-														<td class="text-center">
-															<select name="status">
-																<option ${sessionScope.bills.bill.payment_status == "Paid" ? "selected" : ""} value="Paid">Paid</option>
-																<option ${sessionScope.bills.bill.payment_status == "Unpaid" ? "selected" : ""} value="Unpaid">Unpaid</option>
-															</select>
-														</td>
-													</tr>
-													</tbody>
-												</table>
-											</div>
-										</div>
-									</div>
-									<!-- /Billing Item -->
-									
-									<!-- Submit Section -->
-									<div class="row">
-										<div class="col-md-12">
-											<div class="submit-section">
-												<button type="submit" class="btn btn-primary submit-btn">Save</button>
-												<button type="reset" class="btn btn-secondary submit-btn">Clear</button>
-											</div>
-										</div>
-									</div>
-									<!-- /Submit Section -->
-								</form>
+									<!-- Tab Content -->
+
 								</div>
 							</div>
 						</div>
@@ -294,7 +249,7 @@
 
 				</div>
 
-			</div>		
+			</div>
 			<!-- /Page Content -->
    
 			<!-- Footer -->
@@ -452,9 +407,8 @@
 		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
-
 		
 	</body>
 
-<!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
+<!-- doccure/invoices.jsp  30 Nov 2019 04:12:14 GMT -->
 </html>

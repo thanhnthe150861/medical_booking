@@ -193,7 +193,7 @@ class PatientDBContextTest {
         String date = "2023-06-22";
         String slot = "1";
         PatientDBContext patientDBContext = new PatientDBContext();
-        Booking result = patientDBContext.checkBookingExsit(patient, date, slot);
+        Booking result = patientDBContext.checkBookingExist(patient, date, slot);
         assertNotNull(result);
 
     }
@@ -205,11 +205,11 @@ class PatientDBContextTest {
         String date = "2023-09-22";
         String slot = "1";
         PatientDBContext patientDBContext = new PatientDBContext();
-        Booking result = patientDBContext.checkBookingExsit(patient, date, slot);
+        Booking result = patientDBContext.checkBookingExist(patient, date, slot);
         assertNull(result);
     }
     @Test
-    public void testGetMydoctorTrue() {
+    public void testGetMyDoctorTrue() {
         PatientDBContext patientDBContext = new PatientDBContext();
         Patient patient = new Patient();
         patient.setUserName("patient");
@@ -219,13 +219,13 @@ class PatientDBContextTest {
         patient.setGender("Male");
         patient.setDob(new Date(1990-01-01));
         patient.setRankId(1);
-        List<Doctor> doctors = patientDBContext.getMydoctor(patient, "Completed");
+        List<Doctor> doctors = patientDBContext.getMyDoctor(patient, "Completed");
         assertNotNull(doctors);
         assertEquals(1,doctors.size());
         assertEquals(doctors.get(0).getName(),"Dr Smith");
     }
     @Test
-    public void testGetMydoctorFalse() {
+    public void testGetMyDoctorFalse() {
         PatientDBContext patientDBContext = new PatientDBContext();
         Patient patient = new Patient();
         patient.setUserName("patient");
@@ -235,7 +235,7 @@ class PatientDBContextTest {
         patient.setGender("Male");
         patient.setDob(new Date(1990-01-01));
         patient.setRankId(1);
-        List<Doctor> doctors = patientDBContext.getMydoctor(patient, "Completed");
+        List<Doctor> doctors = patientDBContext.getMyDoctor(patient, "Completed");
         assertNotNull(doctors);
         assertEquals(1,doctors.size());
         assertEquals(doctors.get(0).getName(),"Dr Smith");

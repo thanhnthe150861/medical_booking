@@ -168,10 +168,9 @@
 												</a>
 											</li>
 											<li>
-												<a href="#">
-													<i class="fas fa-comments"></i>
-													<span>Message</span>
-													<small class="unread-msg">23</small>
+												<a href="invoice_patient">
+													<i class="fas fa-file-invoice"></i>
+													<span>Invoices</span>
 												</a>
 											</li>
 											<li class="active">
@@ -211,7 +210,7 @@
 												<div class="form-group">
 													<div class="change-avatar">
 														<div class="profile-img">
-															<img src="assets/img/patients/patient.jpg" alt="User Image">
+															<img src="${sessionScope.patient.url}" alt="User Image">
 														</div>
 														<div class="upload-img">
 															<div class="change-photo-btn">

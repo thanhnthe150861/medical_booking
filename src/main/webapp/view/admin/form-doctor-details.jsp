@@ -178,11 +178,21 @@
 									<% } %>
 								</div>
 								<div class="card-body">
-									<form action="form_details" method="post">
+									<form action="form_details" method="post" enctype="multipart/form-data">
 										<div class="form-group mb-0 row">
-											<label class="col-form-label col-md-2">Image</label>
-											<div class="col-md-10">
-												<input type="file" class="form-control" name="file">
+											<div class="col-md-2">
+												<div class="change-avatar">
+													<div class="profile-img">
+														<img src="${sessionScope.doctor.url}" alt="User Image" style="width: 200px; height: 200px; object-fit: cover;" >
+													</div>
+													<div class="upload-img">
+														<label for="photo-upload" class="change-photo-btn">
+															<span><i class="fa fa-upload"></i> Upload Photo</span>
+														</label>
+														<input type="file" id="photo-upload" class="upload" name="file" style="display: none;">
+														<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+													</div>
+												</div>
 											</div>
 										</div>
 										<div class="form-group row">
@@ -238,21 +248,21 @@
 											</div>
 										</div>
 										<div class="form-group row">
+											<label class="col-form-label col-md-2">Rank</label>
+											<div class="col-md-10">
+												<select class="form-control select" name="rank" required>
+													<c:forEach items="${sessionScope.rankListDoctor}" var="rld">
+														<option value="${rld.id}" ${sessionScope.doctor.rankId == rld.id ? "selected" : ""}>${rld.name}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
 											<label class="col-form-label col-md-2">Status</label>
 											<div class="col-md-10">
 												<select class="form-control select" name="status" required>
 													<option value="true" ${sessionScope.doctor.account.status == true ? "selected" : ""}>Active</option>
 													<option value="false" ${sessionScope.doctor.account.status == false ? "selected" : ""}>Deactive</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Rank</label>
-											<div class="col-md-10">
-												<select class="form-control select" name="rank" required>
-													<c:forEach items="${sessionScope.rankListDoctor}" var="rld">
-														<option value="${rld.id}" ${sessionScope.doctor.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
-													</c:forEach>
 												</select>
 											</div>
 										</div>

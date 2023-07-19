@@ -1,5 +1,6 @@
 package mvc.dal;
 
+import mvc.dal.DBContext;
 import mvc.model.*;
 
 import java.sql.PreparedStatement;
@@ -8,9 +9,34 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminDBContext extends  DBContext{
+public class StaffDBContext extends DBContext {
     private static PreparedStatement stm = null;
     private static ResultSet rs = null;
+
+    public Staff getStaff(Account account){
+        try {
+            String sql = " SELECT s.id, s.username, s.url, s.name, s.gender, s.dob \n " +
+                    " FROM staff s \n " +
+                    " WHERE s.username = ?; ";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, account.getUsername());
+            rs = stm.executeQuery();
+            if (rs.next()){
+                Staff s = new Staff();
+                s.setId(rs.getInt("id"));
+                s.setUserName(rs.getString("username"));
+                s.setUrl(rs.getString("url"));
+                s.setName(rs.getString("name"));
+                s.setGender(rs.getString("gender"));
+                s.setDob(rs.getDate("dob"));
+                return s;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
     public List<MedicalRecord> getTop5Doctor(){
         List<MedicalRecord> doctorListTop5 = new ArrayList<>();
         try {
@@ -97,8 +123,8 @@ public class AdminDBContext extends  DBContext{
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
             if (rs.next()){
-            int count = rs.getInt("total_doctors");
-            return count;
+                int count = rs.getInt("total_doctors");
+                return count;
             }
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -295,71 +321,5 @@ public class AdminDBContext extends  DBContext{
             throw new RuntimeException(e);
         }
         return getPatientList;
-    }
-    public  List<Staff> staffList (){
-        List<Staff> getStaffList = new ArrayList<>();
-        try {
-            String sql = "SELECT s.*, a.username AS account_username, a.password, a.phone, a.email, a.isAdmin, a.status\n" +
-                    "FROM staff s\n" +
-                    "LEFT JOIN account a ON s.username = a.username;";
-            stm = connection.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while (rs.next()){
-                Account account = new Account();
-                account.setUsername(rs.getString("account_username"));
-                account.setPassword(rs.getString("password"));
-                account.setEmail(rs.getString("email"));
-                account.setPhone(rs.getString("phone"));
-                account.setIsAdmin(rs.getInt("isAdmin"));
-                account.setStatus(rs.getBoolean("status"));
-                Staff staff = new Staff();
-                staff.setId(rs.getInt("id"));
-                staff.setUrl(rs.getString("url"));
-                staff.setName(rs.getString("name"));
-                staff.setGender(rs.getString("gender"));
-                staff.setDob(rs.getDate("dob"));
-                staff.setAccount(account);
-                getStaffList.add(staff);
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return getStaffList;
-    }
-    public  List<MedicalRecord> invoiceList (){
-        List<MedicalRecord> getInvoiceList = new ArrayList<>();
-        try {
-            String sql = "SELECT b.id AS bill_id, b.totalPrice, b.payment_status, bd.id AS booking, bd.date, p.*\n" +
-                    "FROM bill b\n" +
-                    "JOIN medical_record mr ON b.medical_record_id = mr.id\n" +
-                    "JOIN booking bd ON mr.booking_id = bd.id\n" +
-                    "JOIN patient p ON bd.patient_id = p.id;";
-            stm = connection.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while (rs.next()){
-                Patient patient = new Patient();
-                patient.setId(rs.getInt("id"));
-                patient.setUrl(rs.getString("url"));
-                patient.setName(rs.getString("name"));
-                patient.setGender(rs.getString("gender"));
-                patient.setDob(rs.getDate("dob"));
-                patient.setRankId(rs.getInt("rank_id"));
-                Bill bill = new Bill();
-                bill.setId(rs.getInt("bill_id"));
-                bill.setTotalPrice(rs.getFloat("totalPrice"));
-                bill.setPayment_status(rs.getString("payment_status"));
-                Booking booking = new Booking();
-                booking.setId(rs.getInt("booking"));
-                booking.setDate(rs.getDate("date"));
-                booking.setPatient(patient);
-                MedicalRecord medicalRecord = new MedicalRecord();
-                medicalRecord.setBooking(booking);
-                medicalRecord.setBill(bill);
-                getInvoiceList.add(medicalRecord);
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return getInvoiceList;
     }
 }

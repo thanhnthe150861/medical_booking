@@ -219,7 +219,7 @@
 											<div class="form-group">
 												<div class="change-avatar">
 													<div class="profile-img">
-														<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+														<img src="${sessionScope.doctor.url}" alt="User Image">
 													</div>
 													<div class="upload-img">
 														<div class="change-photo-btn">

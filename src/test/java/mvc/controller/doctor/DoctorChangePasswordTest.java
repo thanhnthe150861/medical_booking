@@ -1,5 +1,7 @@
-package mvc.controller.doctor;
 
+        package mvc.controller.doctor;
+
+        import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

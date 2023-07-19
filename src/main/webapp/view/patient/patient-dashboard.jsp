@@ -164,10 +164,9 @@
 												</a>
 											</li>
 											<li>
-												<a href="#">
-													<i class="fas fa-comments"></i>
-													<span>Message</span>
-													<small class="unread-msg">23</small>
+												<a href="invoice_patient">
+													<i class="fas fa-file-invoice"></i>
+													<span>Invoices</span>
 												</a>
 											</li>
 											<li>
@@ -209,9 +208,6 @@
 											<li class="nav-item">
 												<a class="nav-link" href="patient_dashboard?medical=true" ><span class="med-records">Medical Records</span></a>
 											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="patient_dashboard?bill=true" ><span>Billing</span></a>
-											</li>
 										</ul>
 									</nav>
 									<!-- /Tab Menu -->
@@ -224,6 +220,13 @@
 											<div class="card card-table mb-0">
 												<div class="card-body">
 													<div class="table-responsive">
+														<!-- Place this code where you want to display the error message -->
+														<% String errorMessage = (String) request.getAttribute("messError"); %>
+														<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+														<div class="alert alert-danger" role="alert">
+															<%= errorMessage %>
+														</div>
+														<%}%>
 														<table class="table table-hover table-center mb-0">
 															<thead>
 																<tr>
@@ -237,7 +240,7 @@
 																</tr>
 															</thead>
 															<tbody>
-															<c:if test="${sessionScope.medicalRecordList ne null}">
+															<c:if test="${not empty sessionScope.medicalRecordList}">
 															<c:forEach items="${sessionScope.medicalRecordList}" var="m">
 																<tr>
 																	<td>

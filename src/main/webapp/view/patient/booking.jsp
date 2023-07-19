@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- doccure/Booking.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
     <meta charset="utf-8">
     <title>Doccure</title>
@@ -387,5 +386,4 @@
 
 </body>
 
-<!-- doccure/Booking.jsp  30 Nov 2019 04:12:16 GMT -->
 </html>
