@@ -45,21 +45,21 @@ public class DoctorProfileSettings extends HttpServlet {
         Doctor doctor = (Doctor) session.getAttribute("doctor");
         //
         String name = req.getParameter("name");
+        String phone = req.getParameter("phone");
+        String gender = req.getParameter("gender");
+        String dob = req.getParameter("dob");
         // Validate name_raw: should not contain special characters
-        if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
+        if (name != null && name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
             req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
-            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
             return;
         }
-        String phone = req.getParameter("phone");
-                // Validate phone_raw: should only contain numbers and not exceed 10 digits
-        if (!phone.matches("^[0-9]{10}$")) {
+        // Validate phone_raw: should only contain numbers and not exceed 10 digits
+        if (phone != null && phone.matches("^[0-9]{10}$")) {
             req.setAttribute("messError", "Phone sai định dạng");
             req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req,resp);
             return;
         }
-        String gender = req.getParameter("gender");
-        Date dob = Date.valueOf(req.getParameter("dob"));
 //Lấy file từ jsp và up lên aws s3
         // Đường dẫn lưu trữ file
         String fileSavePath = AWSS3Client.fileSavePath; // Thay thế bằng đường dẫn thư mục lưu trữ file của bạn
@@ -126,7 +126,7 @@ public class DoctorProfileSettings extends HttpServlet {
             doctor.setUrl(presignUrl);
         }
         doctor.setName(name);
-        doctor.setDob(dob);
+        doctor.setDob(Date.valueOf(dob));
         doctor.setGender(gender);
         account.setPhone(phone);
         doctor.setAccount(account);

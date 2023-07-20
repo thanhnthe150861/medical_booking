@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 		<meta charset="utf-8">
@@ -101,13 +101,13 @@
 							<li class="nav-item dropdown has-arrow logged-item">
 								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.bills.booking.doctor.url}" width="31">
 								</span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="user-header">
 										<div class="avatar avatar-sm">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+											<img src="${sessionScope.bills.booking.doctor.url}" alt="User Image" class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">
 											<h6>${sessionScope.bills.booking.doctor.name}</h6>
@@ -124,14 +124,13 @@
 							<li class="nav-item dropdown has-arrow logged-item">
 								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31"
-										 alt="Ryan Taylor">
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
 								</span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="user-header">
 										<div class="avatar avatar-sm">
-											<img src="assets/img/patients/patient.jpg" alt="User Image"
+											<img src="${sessionScope.patient.url}" alt="User Image"
 												 class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">

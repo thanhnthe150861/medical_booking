@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- doccure/doctor-patient-change-password.jsp  30 Nov 2019 04:12:36 GMT -->
 <head>
     <meta charset="utf-8">
     <title>Doccure</title>
@@ -77,14 +76,14 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31"
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31"
                                          alt="Darren Elder">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"
+                                <img src="${sessionScope.doctor.url}" alt="User Image"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -133,7 +132,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                                    <img src="${sessionScope.doctor.url}" alt="User Image">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3> ${sessionScope.doctor.name}</h3>

@@ -1,13 +1,9 @@
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="java.util.List" %>
-<%@ page import="mvc.model.Staff" %>
-<%@ page import="mvc.model.Account" %>
-<%@ page import="mvc.dal.StaffDBContext" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/patient-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -36,8 +32,7 @@
     <![endif]-->
 </head>
 <body>
-<% Account account = (Account) session.getAttribute("account");
-    if (account.getIsAdmin() == 0) {%>
+
 <!-- Main Wrapper -->
 <div class="main-wrapper">
 
@@ -200,7 +195,7 @@
                                                 <h2 class="table-avatar">
                                                     <a href="#" class="avatar avatar-sm mr-2"><img
                                                             class="avatar-img rounded-circle"
-                                                            src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+                                                            src="<%= patient.getBooking().getPatient().getUrl() %>" alt="User Image"></a>
                                                     <a href="#"><%= patient.getBooking().getPatient().getName() %>
                                                     </a>
                                                 </h2>
@@ -248,207 +243,6 @@
 
 </div>
 <!-- /Main Wrapper -->
-
-<% } else { %>
-<!-- Main Wrapper -->
-<div class="main-wrapper">
-
-    <!-- Header -->
-    <div class="header">
-
-        <!-- Logo -->
-        <div class="header-left">
-            <a href="staff_dashboard" class="logo">
-                <span class="text-primary">Clinic</span>-TATQ
-            </a>
-            <a href="staff_dashboard" class="logo logo-small">
-                <span class="text-primary" width="50" height="50">Clinic</span>
-            </a>
-        </div>
-        <!-- /Logo -->
-
-        <a href="javascript:void(0);" id="toggle_btn">
-            <i class="fe fe-text-align-left"></i>
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <a class="mobile_btn" id="mobile_btn">
-            <i class="fa fa-bars"></i>
-        </a>
-        <!-- /Mobile Menu Toggle -->
-
-        <!-- Header Right Menu -->
-        <ul class="nav user-menu">
-
-            <!-- User Menu -->
-            <li class="nav-item dropdown has-arrow">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                    <span class="user-img"><img class="rounded-circle"
-                                                src="images/staff/staff1.jpg" width="31"
-                                                alt="Swift Taylor"></span>
-                </a>
-                <div class="dropdown-menu">
-                    <div class="user-header">
-                        <div class="avatar avatar-sm">
-                            <img src="images/staff/staff1.jpg" alt="User Image"
-                                 class="avatar-img rounded-circle">
-                        </div>
-                        <div class="user-text">
-                            <h6>Staff</h6>
-                        </div>
-                    </div>
-                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
-                </div>
-            </li>
-            <!-- /User Menu -->
-
-        </ul>
-        <!-- /Header Right Menu -->
-
-    </div>
-    <!-- /Header -->
-
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-inner slimscroll">
-            <div id="sidebar-menu" class="sidebar-menu">
-                <ul>
-                    <li class="menu-title">
-                        <span>Main</span>
-                    </li>
-                    <li>
-                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
-                    </li>
-                    <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
-                    </li>
-                    <li class="active">
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
-                    </li>
-                    <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
-                    </li>
-                    <li>
-                        <a href="login">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /Sidebar -->
-
-    <!-- Page Wrapper -->
-    <div class="page-wrapper">
-        <div class="content container-fluid">
-            <!-- Page Header -->
-            <div class="page-header">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h3 class="page-title">List of Patient</h3>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="staff_dashboard">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Patient</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- /Page Header -->
-            <%
-                StaffDBContext staffDBContext = new StaffDBContext();
-                List<MedicalRecord> patientList = staffDBContext.patientList();
-            %>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <div class="table-responsive">
-                                    <div class="actions text-md-right">
-                                        <a href="#" class="btn btn-sm bg-success-light mr-2">Add New Patient</a>
-                                    </div>
-                                    <table class="datatable table table-hover table-center mb-0">
-                                        <thead>
-                                        <tr>
-                                            <th>Patient ID</th>
-                                            <th>Patient Name</th>
-                                            <th>Date Of Birth</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>Last Visit</th>
-                                            <th>Paid</th>
-                                            <th class="text-center">Status</th>
-                                            <th class="text-center">Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <% for (MedicalRecord patient : patientList) { %>
-                                        <tr>
-                                            <td><%= patient.getBooking().getPatient().getId() %>
-                                            </td>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="#" class="avatar avatar-sm mr-2"><img
-                                                            class="avatar-img rounded-circle"
-                                                            src="assets/img/patients/patient1.jpg" alt="User Image"></a>
-                                                    <a href="#"><%= patient.getBooking().getPatient().getName() %>
-                                                    </a>
-                                                </h2>
-                                            </td>
-                                            <td><%= patient.getBooking().getPatient().getDob() %>
-                                            </td>
-                                            <td><%= patient.getBooking().getPatient().getAccount().getPhone() %>
-                                            </td>
-                                            <td><%= patient.getBooking().getPatient().getAccount().getEmail() %>
-                                            </td>
-                                            <td><%= patient.getBooking().getDate() %>
-                                            </td>
-                                            <td>$<%= patient.getBill().getTotalPrice() %>
-                                            </td>
-                                            <td class="text-center">
-                                                <% if (patient.getBooking().getPatient().getAccount().getStatus()) { %>
-                                                <span class="badge badge-pill bg-success inv-badge">Active</span>
-                                                <% } else { %>
-                                                <span class="badge badge-pill bg-danger inv-badge">Deactive</span>
-                                                <% } %>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="actions">
-                                                    <a data-toggle="modal"
-                                                       href="form_details?pid=<%= patient.getBooking().getPatient().getId() %>"
-                                                       class="btn btn-sm bg-success-light mr-2">
-                                                        <i class="fe fe-pencil"></i> Edit
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <% } %>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <!-- /Page Wrapper -->
-
-</div>
-<!-- /Main Wrapper -->
-<% } %>
-
 
 <!-- jQuery -->
 <script src="assets/js/jquery-3.2.1.min.js"></script>
