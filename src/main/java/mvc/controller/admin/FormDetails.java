@@ -155,8 +155,8 @@ public class FormDetails  extends HttpServlet {
 // Lấy phần tải lên (upload) của file từ request
             Part part = req.getPart("file");
             long fileSize = part.getSize();
-            long maxSize = 1024 * 1024 * 2; // 2MB
-            if (fileSize > maxSize) {
+                long maxSize = 1024 * 1024 * 2; // 2MB
+                if (fileSize > maxSize) {
                 // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
                 req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
                 req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
@@ -285,7 +285,7 @@ public class FormDetails  extends HttpServlet {
                 String filePath = fileSavePath + File.separator + fileName;
                 part.write(filePath);
                 // Gọi AWS
-                //lưu file trên s3 với tên của user
+                // lưu file trên s3 với tên của user
                 String KEY = patient.getAccount().getUsername(); // Set the KEY according to the username
 
                 String accessKeyID = ACCESS_KEY_ID; // Replace with your actual AWS access key
