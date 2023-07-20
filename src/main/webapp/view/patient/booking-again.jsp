@@ -1,5 +1,3 @@
-<%@ page import="mvc.model.Slot" %>
-<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,14 +79,14 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31"
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
                                          alt="Ryan Taylor">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="assets/img/patients/patient.jpg" alt="User Image"
+                                <img src="${sessionScope.patient.url}" alt="User Image"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -136,7 +134,7 @@
                             <div class="card-body">
                                 <div class="booking-doc-info">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                                        <img src="${sessionScope.doctor.url}" alt="User Image">
                                     </a>
                                     <div class="booking-info">
                                         <h4><a href="#">${requestScope.doctor.name}</a></h4>
@@ -182,10 +180,10 @@
                         </div>
                         <!-- /Schedule Header -->
                         <form action="booking_again" method="post">
-                        <!-- Schedule Content -->
-                        <div class="schedule-cont">
-                            <div class="row">
-                                <div class="col-md-12">
+                            <!-- Schedule Content -->
+                            <div class="schedule-cont">
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <!-- Time Slot -->
                                         <div class="time-slot">
                                             <ul class="clearfix d-flex align-items-center justify-content-center">
@@ -193,63 +191,69 @@
                                                 <li>
                                                     <c:forEach items="${sessionScope.slotList}" var="sl">
                                                     <c:if test="${sl.id < 4}">
-                                                        <c:set var="isSlotExist" value="false" />
+                                                        <c:set var="isSlotExist" value="false"/>
                                                     <c:forEach items="${sessionScope.slotExist}" var="se">
                                                     <c:if test="${se.id eq sl.id}">
-                                                        <c:set var="isSlotExist" value="true" />
+                                                        <c:set var="isSlotExist" value="true"/>
                                                     </c:if>
                                                     </c:forEach>
 
                                                     <c:choose>
                                                     <c:when test="${sessionScope.selectedSlot eq sl.id}">
-                                                    <a class="timing selected" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                    <a class="timing selected"
+                                                       href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
                                                         <span>${sl.name}</span>
                                                     </a>
                                                     </c:when>
                                                     <c:when test="${isSlotExist}">
-                                                    <a class="timing" style="background-color: red; color: white" href="#">
+                                                    <a class="timing" style="background-color: red; color: white"
+                                                       href="#">
                                                         <span>${sl.name}</span>
                                                     </a>
                                                     </c:when>
                                                     <c:otherwise>
-                                                    <a class="timing" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                    <a class="timing"
+                                                       href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
                                                         <span>${sl.name}</span>
                                                     </a>
                                                     </c:otherwise>
                                                     </c:choose>
                                                     </c:if>
                                                     </c:forEach>
-                                                </li>
-                                                <!-- Afternoon -->
+                                                    <!-- Afternoon -->
                                                 <li>
-                                                <c:forEach items="${sessionScope.slotList}" var="sl">
-                                                    <c:if test="${sl.id > 3}">
-                                                        <c:set var="isSlotExist" value="false" />
-                                                        <c:forEach items="${sessionScope.slotExist}" var="se">
-                                                            <c:if test="${se.id eq sl.id}">
-                                                                <c:set var="isSlotExist" value="true" />
-                                                            </c:if>
-                                                        </c:forEach>
+                                                    <c:forEach items="${sessionScope.slotList}" var="sl">
+                                                        <c:if test="${sl.id > 3}">
+                                                            <c:set var="isSlotExist" value="false"/>
+                                                            <c:forEach items="${sessionScope.slotExist}" var="se">
+                                                                <c:if test="${se.id eq sl.id}">
+                                                                    <c:set var="isSlotExist" value="true"/>
+                                                                </c:if>
+                                                            </c:forEach>
 
-                                                        <c:choose>
-                                                            <c:when test="${sessionScope.selectedSlot eq sl.id}">
-                                                                <a class="timing selected" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
-                                                                    <span>${sl.name}</span>
-                                                                </a>
-                                                            </c:when>
-                                                            <c:when test="${isSlotExist}">
-                                                                <a class="timing" style="background-color: red; color: white" href="#">
-                                                                    <span>${sl.name}</span>
-                                                                </a>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <a class="timing" href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
-                                                                    <span>${sl.name}</span>
-                                                                </a>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </c:if>
-                                                </c:forEach>
+                                                            <c:choose>
+                                                                <c:when test="${sessionScope.selectedSlot eq sl.id}">
+                                                                    <a class="timing selected"
+                                                                       href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                        <span>${sl.name}</span>
+                                                                    </a>
+                                                                </c:when>
+                                                                <c:when test="${isSlotExist}">
+                                                                    <a class="timing"
+                                                                       style="background-color: red; color: white"
+                                                                       href="#">
+                                                                        <span>${sl.name}</span>
+                                                                    </a>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <a class="timing"
+                                                                       href="booking_again?did=${sessionScope.did}&datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                        <span>${sl.name}</span>
+                                                                    </a>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </c:if>
+                                                    </c:forEach>
                                                 </li>
                                             </ul>
                                         </div>
@@ -265,16 +269,16 @@
                                             </div>
                                         </div>
                                         <%----%>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /Schedule Content -->
+                            <!-- /Schedule Content -->
 
-                        <!-- Submit Section -->
-                        <div class="submit-section proceed-btn text-right">
-                            <button class="btn btn-primary submit-btn">Booking</button>
-                        </div>
-                        <!-- /Submit Section -->
+                            <!-- Submit Section -->
+                            <div class="submit-section proceed-btn text-right">
+                                <button class="btn btn-primary submit-btn">Booking</button>
+                            </div>
+                            <!-- /Submit Section -->
                         </form>
                     </div>
                     <!-- /Schedule Widget -->

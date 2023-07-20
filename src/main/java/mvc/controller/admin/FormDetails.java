@@ -156,11 +156,11 @@ public class FormDetails extends HttpServlet {
 // Lấy phần tải lên (upload) của file từ request
             Part part = req.getPart("file");
             long fileSize = part.getSize();
-            long maxSize = 1024 * 1024 * 2; // 2MB
-            if (fileSize > maxSize) {
+                long maxSize = 1024 * 1024 * 2; // 2MB
+                if (fileSize > maxSize) {
                 // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
                 req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
-                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
                 return;
             }
             if (part != null && part.getSize() > 0) {
@@ -229,7 +229,11 @@ public class FormDetails extends HttpServlet {
             session.removeAttribute("staff");
             session.removeAttribute("patient");
             session.setAttribute("doctor", doctor);
+<<<<<<< HEAD
             req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+=======
+            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+>>>>>>> master
 
         } else if (pid != null) {
             String pass = req.getParameter("password");
@@ -277,7 +281,11 @@ public class FormDetails extends HttpServlet {
             if (fileSize > maxSize) {
                 // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
                 req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+<<<<<<< HEAD
                 req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+=======
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+>>>>>>> master
                 return;
             }
             if (part != null && part.getSize() > 0) {
@@ -344,7 +352,11 @@ public class FormDetails extends HttpServlet {
             session.removeAttribute("staff");
             session.removeAttribute("doctor");
             session.setAttribute("patient", patient);
+<<<<<<< HEAD
             req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
+=======
+            req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req,resp);
+>>>>>>> master
         } else if (sid != null) {
             String pass = req.getParameter("password");
             String name = req.getParameter("name");
@@ -390,7 +402,11 @@ public class FormDetails extends HttpServlet {
             if (fileSize > maxSize) {
                 // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
                 req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+<<<<<<< HEAD
                 req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+=======
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+>>>>>>> master
                 return;
             }
             if (part != null && part.getSize() > 0) {
@@ -456,7 +472,11 @@ public class FormDetails extends HttpServlet {
             session.removeAttribute("doctor");
             session.removeAttribute("patient");
             session.setAttribute("staff", staff);
+<<<<<<< HEAD
             req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
+=======
+            req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
+>>>>>>> master
         }
         //Add
         String str = (String) session.getAttribute("str");
@@ -534,7 +554,11 @@ public class FormDetails extends HttpServlet {
                     if (fileSize > maxSize) {
                         // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
                         req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+<<<<<<< HEAD
                         req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+=======
+                        req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+>>>>>>> master
                         return;
                     }
                     if (part != null && part.getSize() > 0) {
@@ -660,7 +684,11 @@ public class FormDetails extends HttpServlet {
                     if (fileSize > maxSize) {
                         // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
                         req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+<<<<<<< HEAD
                         req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+=======
+                        req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+>>>>>>> master
                         return;
                     }
                     if (part != null && part.getSize() > 0) {
@@ -783,7 +811,11 @@ public class FormDetails extends HttpServlet {
                     if (fileSize > maxSize) {
                         // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
                         req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+<<<<<<< HEAD
                         req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+=======
+                        req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+>>>>>>> master
                         return;
                     }
                     if (part != null && part.getSize() > 0) {

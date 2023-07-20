@@ -1,14 +1,13 @@
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/patient-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Patient</title>
+    <title>Doccure - Dashboard</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -112,7 +111,7 @@
                         <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
                     </li>
                     <li class="active">
                         <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
@@ -196,7 +195,7 @@
                                                 <h2 class="table-avatar">
                                                     <a href="#" class="avatar avatar-sm mr-2"><img
                                                             class="avatar-img rounded-circle"
-                                                            src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+                                                            src="<%= patient.getBooking().getPatient().getUrl() %>" alt="User Image"></a>
                                                     <a href="#"><%= patient.getBooking().getPatient().getName() %>
                                                     </a>
                                                 </h2>
@@ -244,7 +243,6 @@
 
 </div>
 <!-- /Main Wrapper -->
-
 
 <!-- jQuery -->
 <script src="assets/js/jquery-3.2.1.min.js"></script>

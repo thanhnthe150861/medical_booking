@@ -1,15 +1,13 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<html lang="en">
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/doctor-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Doctor</title>
+    <title>Doccure - Dashboard</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -65,6 +63,7 @@
         <ul class="nav user-menu">
 
             <!-- User Menu -->
+
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
@@ -85,7 +84,9 @@
                     <a class="dropdown-item" href="login">Logout</a>
                 </div>
             </li>
+
             <!-- /User Menu -->
+
         </ul>
         <!-- /Header Right Menu -->
 
@@ -110,7 +111,7 @@
                         <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
                     </li>
                     <li class="active">
-                        <a href="doctor_list"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
                     </li>
                     <li>
                         <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
@@ -189,7 +190,7 @@
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2">
                                                     <img class="avatar-img rounded-circle"
-                                                         src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                                                         src="<%= doctor.getBooking().getDoctor().getUrl() %>" alt="User Image">
                                                 </a>
                                                 <a href="#"><%= doctor.getBooking().getDoctor().getName() %>
                                                 </a>
@@ -226,6 +227,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <!-- /Page Wrapper -->
@@ -251,5 +253,4 @@
 
 </body>
 
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/doctor-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
 </html>

@@ -10,6 +10,7 @@ import mvc.model.Doctor;
 import service.AWSS3Client;
 import software.amazon.awssdk.auth.credentials.AwsCredentials;
 
+import jakarta.servlet.http.Part;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +31,11 @@ import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignReques
         maxRequestSize = 1024 * 1024 * 50 //50MB
 )
 
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, //2MB
+        maxFileSize = 1024 * 1024 * 10, //10MB
+        maxRequestSize = 1024 * 1024 * 50 //50MB
+)
 @WebServlet(name = "DoctorProfileSettings", value = "/doctor_profile_settings")
 public class DoctorProfileSettings extends HttpServlet {
 
@@ -53,27 +59,21 @@ public class DoctorProfileSettings extends HttpServlet {
         Doctor doctor = (Doctor) session.getAttribute("doctor");
         //
         String name = req.getParameter("name");
-        // Validate name: Not null
-        if (name == null) {
-            req.setAttribute("messError", "Tên không được để trống");
-            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
-            return;
-        }
+        String phone = req.getParameter("phone");
+        String gender = req.getParameter("gender");
+        String dob = req.getParameter("dob");
         // Validate name_raw: should not contain special characters
         if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
             req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
             req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
             return;
         }
-        String phone = req.getParameter("phone");
         // Validate phone_raw: should only contain numbers and not exceed 10 digits
         if (!phone.matches("^[0-9]{10}$")) {
             req.setAttribute("messError", "Phone sai định dạng");
             req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
             return;
         }
-        String gender = req.getParameter("gender");
-        Date dob = Date.valueOf(req.getParameter("dob"));
 //Lấy file từ jsp và up lên aws s3
         // Đường dẫn lưu trữ file
         String fileSavePath = AWSS3Client.fileSavePath; // Thay thế bằng đường dẫn thư mục lưu trữ file của bạn
@@ -84,6 +84,14 @@ public class DoctorProfileSettings extends HttpServlet {
         }
 // Lấy phần tải lên (upload) của file từ request
         Part part = req.getPart("file");
+        long fileSize = part.getSize();
+        long maxSize = 1024 * 1024 * 2; // 2MB
+        if (fileSize > maxSize) {
+            // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
+            req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+            return;
+        }
         if (part != null && part.getSize() > 0) {
             String fileName = part.getSubmittedFileName();
 // Lưu file vào đường dẫn đã chỉ định
@@ -132,7 +140,7 @@ public class DoctorProfileSettings extends HttpServlet {
             doctor.setUrl(presignUrl);
         }
         doctor.setName(name);
-        doctor.setDob(dob);
+        doctor.setDob(Date.valueOf(dob));
         doctor.setGender(gender);
         account.setPhone(phone);
         doctor.setAccount(account);

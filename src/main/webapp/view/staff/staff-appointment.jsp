@@ -114,13 +114,13 @@
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                     </li>
                     <li>
-                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
                     </li>
                     <li>
-                        <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
                     </li>
                     <li>
-                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
                     </li>
                     <li>
                         <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
@@ -172,6 +172,7 @@
                                         <th>Patient Name</th>
                                         <th>Apointment Time</th>
                                         <th class="text-center">Status</th>
+                                        <th>Amount</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -211,6 +212,9 @@
                                             <% } else if (appointment.getBooking().getStatus().equals("Completed")) { %>
                                             <span class="badge badge-pill bg-info-light"><%= appointment.getBooking().getStatus() %></span>
                                             <% } %>
+                                        </td>
+                                        <td class="text-left">
+                                            $<%= appointment.getBill().getTotalPrice() %>
                                         </td>
                                     </tr>
                                     <% } %>

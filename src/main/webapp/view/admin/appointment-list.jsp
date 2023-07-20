@@ -1,7 +1,8 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
 	<meta charset="utf-8">
@@ -117,7 +118,7 @@
 								<a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
 							</li>
 							<li>
-								<a href="doctor_list"><i class="fe fe-user"></i> <span>Doctors</span></a>
+								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
 							</li>
 							<li>
 								<a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
@@ -188,14 +189,14 @@
 												<tr>
 													<td>
 														<h2 class="table-avatar">
-															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
+															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%= appointment.getBooking().getDoctor().getUrl() %>" alt="User Image"></a>
 															<a href="#"><%= appointment.getBooking().getDoctor().getName() %></a>
 														</h2>
 													</td>
 													<td><%= appointment.getBooking().getDoctor().getSpecialty() %></td>
 													<td>
 														<h2 class="table-avatar">
-															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%= appointment.getBooking().getPatient().getUrl() %>" alt="User Image"></a>
 															<a href="#"><%= appointment.getBooking().getPatient().getName() %> </a>
 														</h2>
 													</td>

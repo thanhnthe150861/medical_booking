@@ -3,7 +3,7 @@
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 		<meta charset="utf-8">
@@ -53,7 +53,6 @@
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
 							<a href="doctor_dashboard" class="menu-logo">
-								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -81,13 +80,13 @@
 						<li class="nav-item dropdown has-arrow logged-item">
 							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31" alt="Darren Elder">
 								</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<div class="user-header">
 									<div class="avatar avatar-sm">
-										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+										<img src="${sessionScope.doctor.url}" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
 										<h6>${sessionScope.doctor.name}</h6>
@@ -136,7 +135,7 @@
 								<div class="widget-profile pro-widget-content">
 									<div class="profile-info-widget">
 										<a href="#" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+											<img src="${sessionScope.doctor.url}" alt="User Image">
 										</a>
 										<div class="profile-det-info">
 											<h3> ${sessionScope.doctor.name}</h3>
@@ -234,7 +233,7 @@
 													<td>
 														<h2 class="table-avatar">
 															<a href="patient_profile?id=<%= invoice.getBooking().getPatient().getId() %>" class="avatar avatar-sm mr-2">
-																<img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image">
+																<img class="avatar-img rounded-circle" src="<%= invoice.getBooking().getPatient().getUrl() %>" alt="User Image">
 															</a>
 															<a href="patient_profile?id=<%= invoice.getBooking().getPatient().getId() %>"><%= invoice.getBooking().getPatient().getName() %> <span><%= invoice.getBooking().getPatient().getId() %></span></a>
 														</h2>
@@ -242,7 +241,7 @@
 													<td>$<%= invoice.getBill().getTotalPrice() %></td>
 													<td><%= invoice.getBooking().getDate() %></td>
 													<td>
-														<a href="bill_details?pid=<%= invoice.getBooking().getPatient().getId() %>&bid=<%= invoice.getBill().getId() %>" class="btn btn-sm bg-success-light">
+														<a href="invoice_details?pid=<%= invoice.getBooking().getPatient().getId() %>&bid=<%= invoice.getBill().getId() %>" class="btn btn-sm bg-success-light">
 															<i class="far fa-eye"></i> Edit
 														</a>
 														<a href="invoice_view?bid=<%= invoice.getBill().getId() %>" class="btn btn-sm bg-info-light">
