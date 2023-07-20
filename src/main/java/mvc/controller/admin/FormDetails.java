@@ -49,6 +49,10 @@ public class FormDetails  extends HttpServlet {
             session.removeAttribute("doctor");
             session.removeAttribute("patient");
             session.removeAttribute("staff");
+            session.removeAttribute("did");
+            session.removeAttribute("pid");
+            session.removeAttribute("sid");
+            session.removeAttribute("str");
             //Update
             if(did != null){
                 session.setAttribute("did", did);
@@ -210,7 +214,6 @@ public class FormDetails  extends HttpServlet {
             doctor.getAccount().setPhone(phone);
             doctor.getAccount().setEmail(email);
             doctor.getAccount().setPassword(pass);
-            doctor.getAccount().setIsAdmin(1);
             //
             doctor.setName(name);
             doctor.setGender(gender);
@@ -218,9 +221,13 @@ public class FormDetails  extends HttpServlet {
             doctor.setSpecialty(specialty);
             doctor.setRankId(Integer.parseInt(rank));
             adb.UpdateDoctor(doctor);
+
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("pid");
             session.removeAttribute("sid");
+            session.removeAttribute("staff");
+            session.removeAttribute("patient");
+            session.setAttribute("doctor", doctor);
             req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
 
         } else if (pid != null) {
@@ -324,7 +331,6 @@ public class FormDetails  extends HttpServlet {
             patient.getAccount().setPhone(phone);
             patient.getAccount().setEmail(email);
             patient.getAccount().setPassword(pass);
-            patient.getAccount().setIsAdmin(1);
             //
             patient.setName(name);
             patient.setGender(gender);
@@ -334,6 +340,9 @@ public class FormDetails  extends HttpServlet {
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("did");
             session.removeAttribute("sid");
+            session.removeAttribute("staff");
+            session.removeAttribute("doctor");
+            session.setAttribute("patient", patient);
             req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req,resp);
         } else if (sid != null) {
             String pass = req.getParameter("password");
@@ -435,7 +444,6 @@ public class FormDetails  extends HttpServlet {
             staff.getAccount().setPhone(phone);
             staff.getAccount().setEmail(email);
             staff.getAccount().setPassword(pass);
-            staff.getAccount().setIsAdmin(1);
             //
             staff.setName(name);
             staff.setGender(gender);
@@ -444,6 +452,9 @@ public class FormDetails  extends HttpServlet {
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("pid");
             session.removeAttribute("did");
+            session.removeAttribute("doctor");
+            session.removeAttribute("patient");
+            session.setAttribute("staff", staff);
             req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
         }
         //Add

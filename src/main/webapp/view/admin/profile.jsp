@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/profile.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:46 GMT -->
@@ -106,7 +107,7 @@
                         <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
                     </li>
                     <li>
                         <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>

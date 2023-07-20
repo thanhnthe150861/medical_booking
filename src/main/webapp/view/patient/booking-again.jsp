@@ -219,7 +219,6 @@
                                                     </c:choose>
                                                     </c:if>
                                                     </c:forEach>
-                                                </li>
                                                 <!-- Afternoon -->
                                                 <li>
                                                 <c:forEach items="${sessionScope.slotList}" var="sl">

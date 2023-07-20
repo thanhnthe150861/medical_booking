@@ -109,13 +109,13 @@
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                     </li>
                     <li>
-                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
                     </li>
                     <li>
-                        <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
                     </li>
                     <li>
-                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
                     </li>
                     <li>
                         <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
@@ -149,56 +149,185 @@
                 </div>
             </div>
             <!-- /Page Header -->
-
-            <div class="content container-fluid">
-                <%
-                    StaffDBContext staffDBContext = new StaffDBContext();
-                    List<MedicalRecord> doctorList = staffDBContext.doctorList();
-                %>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="datatable table table-hover table-center mb-0">
-                                        <thead>
-                                        <tr>
-                                            <th>Doctor Name</th>
-                                            <th>Speciality</th>
-                                            <th class="text-center">Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <% for (MedicalRecord doctor : doctorList) { %>
-                                        <tr>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="#" class="avatar avatar-sm mr-2">
-                                                        <img class="avatar-img rounded-circle"
-                                                             src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
-                                                    </a>
-                                                    <a href="#"><%= doctor.getBooking().getDoctor().getName() %>
-                                                    </a>
-                                                </h2>
-                                            </td>
-                                            <td><%= doctor.getBooking().getDoctor().getSpecialty() %>
-                                            </td>
-                                            <td class="text-center">
-                                                <% if (doctor.getBooking().getDoctor().getAccount().getStatus()) { %>
-                                                <span class="badge badge-pill bg-success inv-badge">Active</span>
-                                                <% } else { %>
-                                                <span class="badge badge-pill bg-danger inv-badge">Deactive</span>
-                                                <% } %>
-                                            </td>
-                                        </tr>
-                                        <% } %>
-                                        </tbody>
-                                    </table>
+            <%
+                StaffDBContext staffDBContext = new StaffDBContext();
+                List<MedicalRecord> doctorListTop5 = staffDBContext.getTop5Doctor();
+                List<MedicalRecord> patientListTop5 = staffDBContext.getTop5Patient();
+                int totalDoctor = staffDBContext.getTotalDoctor();
+                int totalPatient = staffDBContext.getTotalPatient();
+                int totalStaff = staffDBContext.getTotalStaff();
+                int totalAppointment = staffDBContext.getTotalAppointment();
+                float totalPrice = staffDBContext.getTotalPrice();
+            %>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+										<span class="dash-widget-icon text-primary border-primary">
+											<i class="fe fe-users"></i>
+										</span>
+                                <div class="dash-count">
+                                    <h3><%= totalDoctor %>
+                                    </h3>
                                 </div>
+                            </div>
+                            <div class="dash-widget-info">
+                                <h6 class="text-muted">Doctors</h6>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+										<span class="dash-widget-icon text-success">
+											<i class="fe fe-users"></i>
+										</span>
+                                <div class="dash-count">
+                                    <h3><%= totalPatient %>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="dash-widget-info">
+                                <h6 class="text-muted">Patients</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+										<span class="dash-widget-icon text-danger border-danger">
+											<i class="fe fe-money"></i>
+										</span>
+                                <div class="dash-count">
+                                    <h3><%= totalAppointment %>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="dash-widget-info">
+                                <h6 class="text-muted">Appointment</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+										<span class="dash-widget-icon text-warning border-warning">
+											<i class="fe fe-folder"></i>
+										</span>
+                                <div class="dash-count">
+                                    <h3>$<%= totalPrice %>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="dash-widget-info">
+                                <h6 class="text-muted">Revenue</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+                </div>
+                <div class="col-md-12 col-lg-6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 d-flex">
+                    <!-- Recent Orders -->
+                    <div class="card card-table flex-fill">
+                        <div class="card-header">
+                            <h4 class="card-title">Top 5 Doctor</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-center mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Doctor Name</th>
+                                        <th>Speciality</th>
+                                        <th>Earned</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% for (MedicalRecord doctor : doctorListTop5) { %>
+                                    <tr>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="profile.jsp" class="avatar avatar-sm mr-2"><img
+                                                        class="avatar-img rounded-circle"
+                                                        src="view/admin/assets/img/doctors/doctor-thumb-01.jpg"
+                                                        alt="User Image"></a>
+                                                <a href="profile.jsp"><%= doctor.getBooking().getDoctor().getName() %>
+                                                </a>
+                                            </h2>
+                                        </td>
+                                        <td><%= doctor.getBooking().getDoctor().getSpecialty() %>
+                                        </td>
+                                        <td>$<%= doctor.getBill().getTotalPrice() %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Recent Orders -->
+
+                </div>
+                <div class="col-md-6 d-flex">
+
+                    <!-- Feed Activity -->
+                    <div class="card  card-table flex-fill">
+                        <div class="card-header">
+                            <h4 class="card-title">Top 5 Patients</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-center mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th></th>
+                                        <th>Last Visit</th>
+                                        <th>Paid</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% for (MedicalRecord patient : patientListTop5) { %>
+                                    <tr>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="profile.jsp" class="avatar avatar-sm mr-2"><img
+                                                        class="avatar-img rounded-circle"
+                                                        src="view/admin/assets/img/patients/patient1.jpg"
+                                                        alt="User Image"></a>
+                                                <a href="profile.jsp"><%= patient.getBooking().getPatient().getName() %>
+                                                </a>
+                                            </h2>
+                                        </td>
+                                        <td></td>
+                                        <td><%= patient.getBooking().getDate() %>
+                                        </td>
+                                        <td class="text-right">$<%= patient.getBill().getTotalPrice() %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Feed Activity -->
+
                 </div>
             </div>
 
@@ -206,7 +335,6 @@
     </div>
     <!-- /Page Wrapper -->
 
-    <!-- /Page Wrapper -->
 </div>
 <!-- /Main Wrapper -->
 

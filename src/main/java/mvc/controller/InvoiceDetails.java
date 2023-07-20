@@ -11,17 +11,23 @@ import mvc.model.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "BillDetails", value = "/bill_details")
-public class BillDetails extends HttpServlet {
+@WebServlet(name = "InvoiceDetails", value = "/invoice_details")
+public class InvoiceDetails extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
+        String bid = req.getParameter("bid");
+        String mid = req.getParameter("mid");
+        if (account != null && account.getIsAdmin() == 0){
+            MedicalRecord bill = doctorDBContext.getTTByBillID(bid);
+            session.setAttribute("bills", bill);
+            req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req,resp);
+        }
         if (account != null && account.getIsAdmin() == 1) {
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
-            String mid = req.getParameter("mid");
             if(mid != null){
                 session.removeAttribute("bid");
                 session.setAttribute("mid", mid);
@@ -29,7 +35,6 @@ public class BillDetails extends HttpServlet {
                 session.setAttribute("bills", medicalRecord);
                 req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
             }
-            String bid = req.getParameter("bid");
             if(bid != null){
                 session.removeAttribute("mid");
                 session.setAttribute("bid", bid);

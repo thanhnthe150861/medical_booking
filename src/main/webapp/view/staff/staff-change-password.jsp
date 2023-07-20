@@ -99,22 +99,22 @@
                     <li class="menu-title">
                         <span>Main</span>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                     </li>
                     <li>
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                     </li>
                     <li>
-                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
                     </li>
                     <li>
-                        <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
                     </li>
                     <li>
-                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
                     </li>
                     <li>

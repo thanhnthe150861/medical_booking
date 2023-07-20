@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html lang="en">
     
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
@@ -108,7 +108,7 @@
 								<a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
 							</li>
 							<li>
-								<a href="doctor_list"><i class="fe fe-user"></i> <span>Doctors</span></a>
+								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
 							</li>
 							<li>
 								<a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
@@ -248,21 +248,21 @@
 											</div>
 										</div>
 										<div class="form-group row">
+											<label class="col-form-label col-md-2">Rank</label>
+											<div class="col-md-10">
+												<select class="form-control select" name="rank" required>
+													<c:forEach items="${sessionScope.rankListDoctor}" var="rld">
+														<option value="${rld.id}" ${sessionScope.doctor.rankId == rld.id ? "selected" : ""}>${rld.name}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
 											<label class="col-form-label col-md-2">Status</label>
 											<div class="col-md-10">
 												<select class="form-control select" name="status" required>
 													<option value="true" ${sessionScope.doctor.account.status == true ? "selected" : ""}>Active</option>
 													<option value="false" ${sessionScope.doctor.account.status == false ? "selected" : ""}>Deactive</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Rank</label>
-											<div class="col-md-10">
-												<select class="form-control select" name="rank" required>
-													<c:forEach items="${sessionScope.rankListDoctor}" var="rld">
-														<option value="${rld.id}" ${sessionScope.doctor.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
-													</c:forEach>
 												</select>
 											</div>
 										</div>
