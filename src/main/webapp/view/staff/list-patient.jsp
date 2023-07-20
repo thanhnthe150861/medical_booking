@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="view/admin/assets/css/bootstrap.min.css">
 
     <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="view/admin/assets/css/font-awesome.min.css">
 
     <!-- Feathericon CSS -->
@@ -79,7 +80,7 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Administrator</h6>
+                            <h6>Staff</h6>
                         </div>
                     </div>
                     <a class="dropdown-item" href="staff_dashboard">My Profile</a>
@@ -99,7 +100,7 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li class="menu-title">
+                    <li>
                         <span>Main</span>
                     </li>
                     <li>
@@ -118,11 +119,14 @@
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
                     <li>
+                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
+                    </li>
+                    <li>
                         <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fas fa-sign-out-alt"></i>
+                            <i class="fa fa-sign-out-alt"></i>
                             <span>Logout</span>
                         </a>
                     </li>
@@ -158,9 +162,6 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="table-responsive">
-                                    <div class="actions text-md-right">
-                                        <a href="edit_detail?str=patient" class="btn btn-sm bg-success-light mr-2">Add New Patient</a>
-                                    </div>
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
                                         <tr>
@@ -170,7 +171,6 @@
                                             <th>Phone</th>
                                             <th>Email</th>
                                             <th>Last Visit</th>
-                                            <th>Paid</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Action</th>
                                         </tr>

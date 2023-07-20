@@ -1,5 +1,6 @@
 package mvc.controller.patient;
 
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.*;
 import mvc.dal.PatientDBContext;
 import jakarta.servlet.ServletException;
@@ -22,6 +23,11 @@ import java.time.Duration;
 
 import static service.AWSS3Client.*;
 import static service.AWSS3Client.BUCKET_NAME;
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, //2MB
+        maxFileSize = 1024 * 1024 * 10, //10MB
+        maxRequestSize = 1024 * 1024 * 50 //50MB
+)
 
 @WebServlet(name = "PatientProfileSettings", value = "/patient_profile_settings")
 public class PatientProfileSettings extends HttpServlet {
@@ -115,7 +121,7 @@ public class PatientProfileSettings extends HttpServlet {
             //Gen presignUrl
             var request =
                     GetObjectPresignRequest.builder()
-                            .signatureDuration(Duration.ofDays(365))
+                            .signatureDuration(Duration.ofDays(7))
                             .getObjectRequest(d -> d.bucket(BUCKET_NAME).key(KEY))
                             .build();
             String presignUrl = s3Presigner.presignGetObject(request).url().toString();

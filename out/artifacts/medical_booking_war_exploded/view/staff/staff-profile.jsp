@@ -1,7 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="mvc.model.MedicalRecord" %>
-<%@ page import="java.util.List" %>
-<%@ page import="mvc.dal.StaffDBContext" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +100,7 @@
                     <li class="menu-title">
                         <span>Main</span>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                     </li>
                     <li>
@@ -118,7 +115,7 @@
                     <li>
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
                     </li>
                     <li>
@@ -136,81 +133,104 @@
     </div>
     <!-- /Sidebar -->
 
-    <!-- Page Wrapper -->
+    <!-- Page Content -->
     <div class="page-wrapper">
-
         <div class="content container-fluid">
-
             <!-- Page Header -->
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Xin chào Staff!</h3>
+                        <h3 class="page-title">User Profile</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="staff_dashboard">Bảng điều khiển</a></li>
-                            <li class="breadcrumb-item active">Danh sách Bác sĩ</li>
+                            <li class="breadcrumb-item"><a href="staff_dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item active">User Profile</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- /Page Header -->
 
-            <div class="content container-fluid">
-                <%
-                    StaffDBContext staffDBContext = new StaffDBContext();
-                    List<MedicalRecord> doctorList = staffDBContext.doctorList();
-                %>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="datatable table table-hover table-center mb-0">
-                                        <thead>
-                                        <tr>
-                                            <th>Doctor Name</th>
-                                            <th>Speciality</th>
-                                            <th class="text-center">Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <% for (MedicalRecord doctor : doctorList) { %>
-                                        <tr>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="#" class="avatar avatar-sm mr-2">
-                                                        <img class="avatar-img rounded-circle"
-                                                             src="assets/img/doctors/doctor-thumb-01.jpg"
-                                                             alt="User Image">
-                                                    </a>
-                                                    <a href="#"><%= doctor.getBooking().getDoctor().getName() %>
-                                                    </a>
-                                                </h2>
-                                            </td>
-                                            <td><%= doctor.getBooking().getDoctor().getSpecialty() %>
-                                            </td>
-                                            <td class="text-center">
-                                                <% if (doctor.getBooking().getDoctor().getAccount().getStatus()) { %>
-                                                <span class="badge badge-pill bg-success inv-badge">Active</span>
-                                                <% } else { %>
-                                                <span class="badge badge-pill bg-danger inv-badge">Deactive</span>
-                                                <% } %>
-                                            </td>
-                                        </tr>
-                                        <% } %>
-                                        </tbody>
-                                    </table>
+            <form class="row" action="staff_profile" method="post" enctype="multipart/form-data">
+                <div class="col-sm-12">
+                    <!-- Basic Information -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">User Information</h4>
+                            <div class="row form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="change-avatar">
+                                            <div class="profile-img">
+                                                <img src="${sessionScope.staff.url}" alt="User Image" style="width: 200px; height: 200px; object-fit: cover;">
+                                            </div>
+                                            <div class="upload-img">
+                                                <div class="change-photo-btn">
+                                                    <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                                    <input type="file" class="upload" name="file">
+                                                </div>
+                                                <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Place this code where you want to display the error message -->
+                                    <% String errorMessage = (String) request.getAttribute("messError"); %>
+                                    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%= errorMessage %>
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Username <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" value="${sessionScope.account.username}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" value="${sessionScope.account.email}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="name" value="${sessionScope.staff.name}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input type="text" class="form-control" name="phone" value="${sessionScope.account.phone}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select class="form-control select" name="gender">
+                                            <option>Select</option>
+                                            <option value="Male" ${sessionScope.staff.gender == "Male" ? "selected" : ""}>Male</option>
+                                            <option value="Female" ${sessionScope.staff.gender == "Female" ? "selected" : ""}>Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-0">
+                                        <label>Date of Birth</label>
+                                        <input type="date" class="form-control" name="dob" value="${sessionScope.staff.dob}">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="submit-section submit-btn-bottom">
+                        <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                    </div>
                 </div>
-            </div>
-
+            </form>
         </div>
     </div>
-    <!-- /Page Wrapper -->
+    <!-- /Page Content -->
 
     <!-- /Page Wrapper -->
 </div>

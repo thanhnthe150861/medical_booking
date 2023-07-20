@@ -23,23 +23,24 @@ import java.util.List;
 
 import static service.AWSS3Client.*;
 import static service.AWSS3Client.BUCKET_NAME;
+
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, //2MB
         maxFileSize = 1024 * 1024 * 10, //10MB
         maxRequestSize = 1024 * 1024 * 50 //50MB
 )
 @WebServlet(name = "FormDetails", value = "/form_details")
-public class FormDetails  extends HttpServlet {
+public class FormDetails extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         AccountDB adb = new AccountDB();
-        if (account != null && account.getIsAdmin() == 0){
+        if (account != null && account.getIsAdmin() == 0) {
             List<Rank> rankListDoctor = adb.getRankDoctor();
             List<Rank> rankListPatient = adb.getRankPatient();
-            session.setAttribute("rankListDoctor",rankListDoctor);
-            session.setAttribute("rankListPatient",rankListPatient);
+            session.setAttribute("rankListDoctor", rankListDoctor);
+            session.setAttribute("rankListPatient", rankListPatient);
 
             //lấy id để update
             String did = req.getParameter("did");
@@ -49,26 +50,30 @@ public class FormDetails  extends HttpServlet {
             session.removeAttribute("doctor");
             session.removeAttribute("patient");
             session.removeAttribute("staff");
+            session.removeAttribute("did");
+            session.removeAttribute("pid");
+            session.removeAttribute("sid");
+            session.removeAttribute("str");
             //Update
-            if(did != null){
+            if (did != null) {
                 session.setAttribute("did", did);
                 Doctor doctor = adb.getDoctorByID(did);
                 session.setAttribute("doctor", doctor);
-                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
-            } else if (pid != null){
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+            } else if (pid != null) {
                 session.setAttribute("pid", pid);
                 Patient patient = adb.getPatientByID(pid);
                 session.setAttribute("patient", patient);
-                req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req,resp);
-            } else if (sid != null){
+                req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
+            } else if (sid != null) {
                 session.setAttribute("sid", sid);
                 Staff staff = adb.getStaffByID(sid);
                 session.setAttribute("staff", staff);
-                req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
             }
             //Add
             String str = req.getParameter("str");
-            if(str == null){
+            if (str == null) {
                 str = "";
             }
             switch (str) {
@@ -88,7 +93,7 @@ public class FormDetails  extends HttpServlet {
                     resp.sendRedirect("admin_dashboard");
                     break;
             }
-        }else {
+        } else {
             req.getRequestDispatcher("login");
         }
 
@@ -101,7 +106,7 @@ public class FormDetails  extends HttpServlet {
         String did = (String) session.getAttribute("did");
         String pid = (String) session.getAttribute("pid");
         String sid = (String) session.getAttribute("sid");
-        if(did != null ){
+        if (did != null) {
             String pass = req.getParameter("password");
             String name = req.getParameter("name");
             String gender = req.getParameter("gender");
@@ -115,25 +120,25 @@ public class FormDetails  extends HttpServlet {
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
                 req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
-                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                 return;
             }
             // Validate specialty: should not contain special characters
             if (!specialty.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
                 req.setAttribute("messError", "Speciality không được chứa ký tự đặc biệt");
-                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
                 req.setAttribute("messError", "Phone sai định dạng");
-                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                 return;
             }
             // Validate email: should be in the correct email format
             if (!email.matches("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$")) {
                 req.setAttribute("messError", "Email sai định dạng");
-                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                 return;
             }
             AccountDB adb = new AccountDB();
@@ -150,6 +155,14 @@ public class FormDetails  extends HttpServlet {
             }
 // Lấy phần tải lên (upload) của file từ request
             Part part = req.getPart("file");
+            long fileSize = part.getSize();
+            long maxSize = 1024 * 1024 * 2; // 2MB
+            if (fileSize > maxSize) {
+                // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
+                req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+                return;
+            }
             if (part != null && part.getSize() > 0) {
                 String fileName = part.getSubmittedFileName();
 // Lưu file vào đường dẫn đã chỉ định
@@ -189,7 +202,7 @@ public class FormDetails  extends HttpServlet {
                 //Gen presignUrl
                 var request =
                         GetObjectPresignRequest.builder()
-                                .signatureDuration(Duration.ofDays(365))
+                                .signatureDuration(Duration.ofDays(7))
                                 .getObjectRequest(d -> d.bucket(BUCKET_NAME).key(KEY))
                                 .build();
                 String presignUrl = s3Presigner.presignGetObject(request).url().toString();
@@ -202,7 +215,6 @@ public class FormDetails  extends HttpServlet {
             doctor.getAccount().setPhone(phone);
             doctor.getAccount().setEmail(email);
             doctor.getAccount().setPassword(pass);
-            doctor.getAccount().setIsAdmin(1);
             //
             doctor.setName(name);
             doctor.setGender(gender);
@@ -210,10 +222,14 @@ public class FormDetails  extends HttpServlet {
             doctor.setSpecialty(specialty);
             doctor.setRankId(Integer.parseInt(rank));
             adb.UpdateDoctor(doctor);
+
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("pid");
             session.removeAttribute("sid");
-            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+            session.removeAttribute("staff");
+            session.removeAttribute("patient");
+            session.setAttribute("doctor", doctor);
+            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
 
         } else if (pid != null) {
             String pass = req.getParameter("password");
@@ -228,19 +244,19 @@ public class FormDetails  extends HttpServlet {
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
                 req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
-                req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
                 req.setAttribute("messError", "Phone sai định dạng");
-                req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
                 return;
             }
             // Validate email: should be in the correct email format
             if (!email.matches("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$")) {
                 req.setAttribute("messError", "Email sai định dạng");
-                req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
                 return;
             }
             AccountDB adb = new AccountDB();
@@ -256,13 +272,21 @@ public class FormDetails  extends HttpServlet {
             }
 // Lấy phần tải lên (upload) của file từ request
             Part part = req.getPart("file");
+            long fileSize = part.getSize();
+            long maxSize = 1024 * 1024 * 2; // 2MB
+            if (fileSize > maxSize) {
+                // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
+                req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+                return;
+            }
             if (part != null && part.getSize() > 0) {
                 String fileName = part.getSubmittedFileName();
 // Lưu file vào đường dẫn đã chỉ định
                 String filePath = fileSavePath + File.separator + fileName;
                 part.write(filePath);
                 // Gọi AWS
-                //lưu file trên s3 với tên của user
+                // lưu file trên s3 với tên của user
                 String KEY = patient.getAccount().getUsername(); // Set the KEY according to the username
 
                 String accessKeyID = ACCESS_KEY_ID; // Replace with your actual AWS access key
@@ -295,7 +319,7 @@ public class FormDetails  extends HttpServlet {
                 //Gen presignUrl
                 var request =
                         GetObjectPresignRequest.builder()
-                                .signatureDuration(Duration.ofDays(365))
+                                .signatureDuration(Duration.ofDays(7))
                                 .getObjectRequest(d -> d.bucket(BUCKET_NAME).key(KEY))
                                 .build();
                 String presignUrl = s3Presigner.presignGetObject(request).url().toString();
@@ -308,7 +332,6 @@ public class FormDetails  extends HttpServlet {
             patient.getAccount().setPhone(phone);
             patient.getAccount().setEmail(email);
             patient.getAccount().setPassword(pass);
-            patient.getAccount().setIsAdmin(1);
             //
             patient.setName(name);
             patient.setGender(gender);
@@ -318,7 +341,10 @@ public class FormDetails  extends HttpServlet {
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("did");
             session.removeAttribute("sid");
-            req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req,resp);
+            session.removeAttribute("staff");
+            session.removeAttribute("doctor");
+            session.setAttribute("patient", patient);
+            req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
         } else if (sid != null) {
             String pass = req.getParameter("password");
             String name = req.getParameter("name");
@@ -331,19 +357,19 @@ public class FormDetails  extends HttpServlet {
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
                 req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
-                req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
                 req.setAttribute("messError", "Phone sai định dạng");
-                req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
                 return;
             }
             // Validate email: should be in the correct email format
             if (!email.matches("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$")) {
                 req.setAttribute("messError", "Email sai định dạng");
-                req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
+                req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
                 return;
             }
             AccountDB adb = new AccountDB();
@@ -359,6 +385,14 @@ public class FormDetails  extends HttpServlet {
             }
 // Lấy phần tải lên (upload) của file từ request
             Part part = req.getPart("file");
+            long fileSize = part.getSize();
+            long maxSize = 1024 * 1024 * 2; // 2MB
+            if (fileSize > maxSize) {
+                // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
+                req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+                req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+                return;
+            }
             if (part != null && part.getSize() > 0) {
                 String fileName = part.getSubmittedFileName();
 // Lưu file vào đường dẫn đã chỉ định
@@ -398,7 +432,7 @@ public class FormDetails  extends HttpServlet {
                 //Gen presignUrl
                 var request =
                         GetObjectPresignRequest.builder()
-                                .signatureDuration(Duration.ofDays(365))
+                                .signatureDuration(Duration.ofDays(7))
                                 .getObjectRequest(d -> d.bucket(BUCKET_NAME).key(KEY))
                                 .build();
                 String presignUrl = s3Presigner.presignGetObject(request).url().toString();
@@ -411,7 +445,6 @@ public class FormDetails  extends HttpServlet {
             staff.getAccount().setPhone(phone);
             staff.getAccount().setEmail(email);
             staff.getAccount().setPassword(pass);
-            staff.getAccount().setIsAdmin(1);
             //
             staff.setName(name);
             staff.setGender(gender);
@@ -420,7 +453,10 @@ public class FormDetails  extends HttpServlet {
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("pid");
             session.removeAttribute("did");
-            req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req,resp);
+            session.removeAttribute("doctor");
+            session.removeAttribute("patient");
+            session.setAttribute("staff", staff);
+            req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
         }
         //Add
         String str = (String) session.getAttribute("str");
@@ -493,6 +529,14 @@ public class FormDetails  extends HttpServlet {
                     }
 // Lấy phần tải lên (upload) của file từ request
                     Part part = req.getPart("file");
+                    long fileSize = part.getSize();
+                    long maxSize = 1024 * 1024 * 2; // 2MB
+                    if (fileSize > maxSize) {
+                        // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
+                        req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+                        req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+                        return;
+                    }
                     if (part != null && part.getSize() > 0) {
                         String fileName = part.getSubmittedFileName();
 // Lưu file vào đường dẫn đã chỉ định
@@ -532,7 +576,7 @@ public class FormDetails  extends HttpServlet {
                         //Gen presignUrl
                         var request =
                                 GetObjectPresignRequest.builder()
-                                        .signatureDuration(Duration.ofDays(365))
+                                        .signatureDuration(Duration.ofDays(7))
                                         .getObjectRequest(d -> d.bucket(BUCKET_NAME).key(KEY))
                                         .build();
                         String presignUrl = s3Presigner.presignGetObject(request).url().toString();
@@ -611,6 +655,14 @@ public class FormDetails  extends HttpServlet {
                     }
 // Lấy phần tải lên (upload) của file từ request
                     Part part = req.getPart("file");
+                    long fileSize = part.getSize();
+                    long maxSize = 1024 * 1024 * 2; // 2MB
+                    if (fileSize > maxSize) {
+                        // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
+                        req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+                        req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+                        return;
+                    }
                     if (part != null && part.getSize() > 0) {
                         String fileName = part.getSubmittedFileName();
 // Lưu file vào đường dẫn đã chỉ định
@@ -650,7 +702,7 @@ public class FormDetails  extends HttpServlet {
                         //Gen presignUrl
                         var request =
                                 GetObjectPresignRequest.builder()
-                                        .signatureDuration(Duration.ofDays(365))
+                                        .signatureDuration(Duration.ofDays(7))
                                         .getObjectRequest(d -> d.bucket(BUCKET_NAME).key(KEY))
                                         .build();
                         String presignUrl = s3Presigner.presignGetObject(request).url().toString();
@@ -726,6 +778,14 @@ public class FormDetails  extends HttpServlet {
                     }
 // Lấy phần tải lên (upload) của file từ request
                     Part part = req.getPart("file");
+                    long fileSize = part.getSize();
+                    long maxSize = 1024 * 1024 * 2; // 2MB
+                    if (fileSize > maxSize) {
+                        // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
+                        req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+                        req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+                        return;
+                    }
                     if (part != null && part.getSize() > 0) {
                         String fileName = part.getSubmittedFileName();
 // Lưu file vào đường dẫn đã chỉ định
@@ -765,7 +825,7 @@ public class FormDetails  extends HttpServlet {
                         //Gen presignUrl
                         var request =
                                 GetObjectPresignRequest.builder()
-                                        .signatureDuration(Duration.ofDays(365))
+                                        .signatureDuration(Duration.ofDays(7))
                                         .getObjectRequest(d -> d.bucket(BUCKET_NAME).key(KEY))
                                         .build();
                         String presignUrl = s3Presigner.presignGetObject(request).url().toString();

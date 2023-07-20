@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="view/admin/assets/css/bootstrap.min.css">
 
     <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="view/admin/assets/css/font-awesome.min.css">
 
     <!-- Feathericon CSS -->
@@ -111,26 +112,21 @@
                     <li>
                         <a href="list_doctor"><i class="fe fe-user"></i> <span>Doctors</span></a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
                     </li>
                     <li>
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
+                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
                     </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Edit Details </span> <span
-                                class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="edit_detail?str=doctor">Doctor</a></li>
-                            <li class="active"><a href="edit_detail?str=patient">Patient</a></li>
-                        </ul>
+                    <li>
+                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fas fa-sign-out-alt"></i>
+                            <i class="fa fa-sign-out-alt"></i>
                             <span>Logout</span>
                         </a>
                     </li>
@@ -180,11 +176,24 @@
                             <% } %>
                         </div>
                         <div class="card-body">
-                            <form action="edit_detail" method="post">
+                            <form action="form_details" method="post" enctype="multipart/form-data">
                                 <div class="form-group mb-0 row">
-                                    <label class="col-form-label col-md-2">Image</label>
-                                    <div class="col-md-10">
-                                        <input type="file" class="form-control" name="file">
+                                    <div class="col-md-2">
+                                        <div class="change-avatar">
+                                            <div class="profile-img">
+                                                <img src="${sessionScope.patient.url}" alt="User Image"
+                                                     style="width: 200px; height: 200px; object-fit: cover;">
+                                            </div>
+                                            <div class="upload-img">
+                                                <label for="photo-upload" class="change-photo-btn">
+                                                    <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                                </label>
+                                                <input type="file" id="photo-upload" class="upload" name="file"
+                                                       style="display: none;">
+                                                <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of
+                                                    2MB</small>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -245,6 +254,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Rank</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control select" name="rank" required>
+                                            <c:forEach items="${sessionScope.rankListPatient}" var="rlp">
+                                                <option value="${rlp.id}" ${sessionScope.patient.rankId == rlp.id ? "selected" : ""}>${rlp.name}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-form-label col-md-2">Status</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="status" required>
@@ -254,16 +273,6 @@
                                             <option value="false" ${sessionScope.patient.account.status == false ? "selected" : ""}>
                                                 Deactive
                                             </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Rank</label>
-                                    <div class="col-md-10">
-                                        <select class="form-control select" name="rank" required>
-                                            <c:forEach items="${sessionScope.rankListPatient}" var="rld">
-                                                <option value="${rld.id}" ${sessionScope.patient.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
-                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="view/admin/assets/css/bootstrap.min.css">
 
     <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="view/admin/assets/css/font-awesome.min.css">
 
     <!-- Feathericon CSS -->
@@ -116,11 +117,14 @@
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
                     <li>
+                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
+                    </li>
+                    <li>
                         <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fas fa-sign-out-alt"></i>
+                            <i class="fa fa-sign-out-alt"></i>
                             <span>Logout</span>
                         </a>
                     </li>
@@ -156,9 +160,6 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <div class="actions text-md-right">
-                                    <a href="edit_detail?str=doctor" class="btn btn-sm bg-success-light mr-2">Add New Doctor</a>
-                                </div>
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>

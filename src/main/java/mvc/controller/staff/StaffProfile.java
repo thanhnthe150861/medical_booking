@@ -1,15 +1,18 @@
-package mvc.controller.doctor;
+package mvc.controller.staff;
 
-import jakarta.servlet.annotation.MultipartConfig;
-import mvc.dal.DoctorDBContext;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.*;
 import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+import mvc.dal.DoctorDBContext;
+import mvc.dal.StaffDBContext;
 import mvc.model.Account;
-import mvc.model.Doctor;
+import mvc.model.Staff;
 import service.AWSS3Client;
 import software.amazon.awssdk.auth.credentials.AwsCredentials;
-
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.presigner.S3Presigner;
+import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignRequest;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,57 +22,46 @@ import java.sql.Date;
 import java.time.Duration;
 
 import static service.AWSS3Client.*;
+import static service.AWSS3Client.BUCKET_NAME;
 
-import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
-import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.presigner.S3Presigner;
-import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignRequest;
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, //2MB
         maxFileSize = 1024 * 1024 * 10, //10MB
         maxRequestSize = 1024 * 1024 * 50 //50MB
 )
 
-@WebServlet(name = "DoctorProfileSettings", value = "/doctor_profile_settings")
-public class DoctorProfileSettings extends HttpServlet {
-
+@WebServlet(name = "StaffProfile", value = "/staff_profile")
+public class StaffProfile extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        DoctorDBContext doctorDBContext = new DoctorDBContext();
-        if (account != null && account.getIsAdmin() == 1) {
-            Doctor doctor = doctorDBContext.getDoctor(account);
-            session.setAttribute("doctor", doctor);
-            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
+        StaffDBContext staffDBContext = new StaffDBContext();
+        if(account != null && account.getIsAdmin() == 3){
+            Staff staff = staffDBContext.getStaff(account);
+            session.setAttribute("staff", staff);
+            request.getRequestDispatcher("view/staff/staff-profile.jsp").forward(request,response);
         }
-        req.getRequestDispatcher("login");
+        request.getRequestDispatcher("login");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Account account = (Account) session.getAttribute("account");
-        Doctor doctor = (Doctor) session.getAttribute("doctor");
-        //
+        Account account = (Account)session.getAttribute("account");
+        Staff staff = (Staff) session.getAttribute("staff");
+
         String name = req.getParameter("name");
-        // Validate name: Not null
-        if (name == null) {
-            req.setAttribute("messError", "Tên không được để trống");
-            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
-            return;
-        }
-        // Validate name_raw: should not contain special characters
         if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
             req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
-            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
+            req.getRequestDispatcher("view/staff/staff-profile.jsp").forward(req,resp);
             return;
         }
         String phone = req.getParameter("phone");
         // Validate phone_raw: should only contain numbers and not exceed 10 digits
         if (!phone.matches("^[0-9]{10}$")) {
             req.setAttribute("messError", "Phone sai định dạng");
-            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
+            req.getRequestDispatcher("view/staff/staff-profile.jsp").forward(req,resp);
             return;
         }
         String gender = req.getParameter("gender");
@@ -129,15 +121,16 @@ public class DoctorProfileSettings extends HttpServlet {
             String presignUrl = s3Presigner.presignGetObject(request).url().toString();
 //kết thúc việc tải file và lấy link của file
 
-            doctor.setUrl(presignUrl);
+            staff.setUrl(presignUrl);
         }
-        doctor.setName(name);
-        doctor.setDob(dob);
-        doctor.setGender(gender);
+        staff.setName(name);
+        staff.setDob(dob);
+        staff.setGender(gender);
         account.setPhone(phone);
-        doctor.setAccount(account);
-        DoctorDBContext doctorDBContext = new DoctorDBContext();
-        doctorDBContext.updateDoctor(doctor);
-        resp.sendRedirect("doctor_profile_settings");
+        staff.setAccount(account);
+        StaffDBContext staffDBContext = new StaffDBContext();
+        staffDBContext.updateStaff(staff);
+        resp.sendRedirect("staff_profile");
+
     }
 }

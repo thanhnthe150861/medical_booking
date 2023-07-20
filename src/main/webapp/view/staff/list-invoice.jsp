@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="view/admin/assets/css/bootstrap.min.css">
 
     <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="view/admin/assets/css/font-awesome.min.css">
 
     <!-- Feathericon CSS -->
@@ -79,7 +80,7 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Administrator</h6>
+                            <h6>Staff</h6>
                         </div>
                     </div>
                     <a class="dropdown-item" href="admin_dashboard">My Profile</a>
@@ -118,11 +119,14 @@
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
                     <li>
+                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
+                    </li>
+                    <li>
                         <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fas fa-sign-out-alt"></i>
+                            <i class="fa fa-sign-out-alt"></i>
                             <span>Logout</span>
                         </a>
                     </li>

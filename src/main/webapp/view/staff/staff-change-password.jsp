@@ -10,11 +10,13 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
+    <link href="assets/img/favicon.png" rel="icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="view/admin/assets/css/bootstrap.min.css">
 
     <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="view/admin/assets/css/font-awesome.min.css">
 
     <!-- Feathericon CSS -->
@@ -113,6 +115,9 @@
                     </li>
                     <li>
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
+                    </li>
+                    <li>
+                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
                     </li>
                     <li class="active">
                         <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>

@@ -37,33 +37,28 @@ public class StaffDBContext extends DBContext {
         return null;
     }
 
-    public int getTotalDoctor(){
+    public void updateStaff(Staff staff) {
         try {
-            String sql = "SELECT COUNT(*) AS total_doctors FROM doctor;";
+            // Update the account's information
+            String accountSql = "UPDATE account SET password = ?, email = ?, phone = ? WHERE username = ?";
+            stm = connection.prepareStatement(accountSql);
+            stm.setString(1, staff.getAccount().getPassword());
+            stm.setString(2, staff.getAccount().getEmail());
+            stm.setString(3, staff.getAccount().getPhone());
+            stm.setString(4, staff.getAccount().getUsername());
+            stm.executeUpdate();
+            // Update the staff's information
+            String sql = "UPDATE staff SET url = ?, name = ?, gender = ?, dob = ? WHERE username = ?";
             stm = connection.prepareStatement(sql);
-            rs = stm.executeQuery();
-            if (rs.next()){
-                int count = rs.getInt("total_doctors");
-                return count;
-            }
-        }catch (SQLException e){
+            stm.setString(1, staff.getUrl());
+            stm.setString(2, staff.getName());
+            stm.setString(3, staff.getGender());
+            stm.setDate(4, staff.getDob());
+            stm.setString(5, staff.getUserName());
+            stm.executeUpdate();
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return 0;
-    }
-    public int getTotalPatient(){
-        try {
-            String sql = "SELECT COUNT(*) AS total_patients FROM patient;";
-            stm = connection.prepareStatement(sql);
-            rs = stm.executeQuery();
-            if (rs.next()){
-                int count = rs.getInt("total_patients");
-                return count;
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return 0;
     }
 
     public float getTotalPrice(){
