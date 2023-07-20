@@ -1,6 +1,7 @@
 <%@ page import="mvc.model.Slot" %>
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
 
@@ -63,7 +64,7 @@
                         <a href="home">Home</a>
                     </li>
                     <li>
-                        <a href="patient_dashboard">Dash Board</a>
+                        <a href="booking">Đặt lịch</a>
                     </li>
                 </ul>
             </div>
@@ -73,32 +74,30 @@
                         <i class="far fa-hospital"></i>
                     </div>
                     <div class="header-contact-detail">
-                        <p class="contact-header">Contact</p>
-                        <p class="contact-info-header"> +1 315 369 5943</p>
+                        <p class="contact-header">Liên hệ</p>
+                        <p class="contact-info-header"> +84 868746275</p>
                     </div>
                 </li>
                 <!-- User Menu -->
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31"
-                                         alt="Ryan Taylor">
+									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="assets/img/patients/patient.jpg" alt="User Image"
-                                     class="avatar-img rounded-circle">
+                                <img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
                                 <h6>${sessionScope.patient.name}</h6>
                                 <p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="patient_dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
-                        <a class="dropdown-item" href="login">Logout</a>
+                        <a class="dropdown-item" href="patient_dashboard">Bảng điều khiển</a>
+                        <a class="dropdown-item" href="patient_profile_settings">Cài đặt </a>
+                        <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -114,11 +113,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Booking</li>
+                            <li class="breadcrumb-item"><a href="home">Clinic TQTA</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Đặt lịch</li>
                         </ol>
                     </nav>
-                    <h2 class="breadcrumb-title">Booking</h2>
+                    <h2 class="breadcrumb-title">Đặt lịch</h2>
                 </div>
             </div>
         </div>
@@ -257,7 +256,7 @@
                                              style="margin-top: 20px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
                                             <div class="card-body" style="padding: 20px;">
                                                 <label for="textReason"
-                                                       style="font-size: 20px; color: #333;">Reason</label>
+                                                       style="font-size: 20px; color: #333;">Lý do</label>
                                                 <br>
                                                 <input type="text" id="textReason" name="textReason"
                                                        style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
@@ -271,7 +270,7 @@
 
                         <!-- Submit Section -->
                         <div class="submit-section proceed-btn text-right">
-                            <button class="btn btn-primary submit-btn">Booking</button>
+                            <button class="btn btn-primary submit-btn">Đặt lịch</button>
                         </div>
                         <!-- /Submit Section -->
                         </form>
@@ -305,13 +304,11 @@
                     <div class="col-lg-3 col-md-6">
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Patients</h2>
+                            <h2 class="footer-title">Đối với bệnh nhân</h2>
                             <ul>
-                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Mydoctor</a></li>
-                                <li><a href="login.jsp"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="register.sjp"><i class="fas fa-angle-double-right"></i> Register</a></li>
-                                <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
+                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
+                                <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
+                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
                             </ul>
                         </div>
                         <!-- /Footer Widget -->
@@ -322,19 +319,19 @@
 
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-contact">
-                            <h2 class="footer-title">Contact Us</h2>
+                            <h2 class="footer-title">Liên hệ chúng tôi</h2>
                             <div class="footer-contact-info">
                                 <div class="footer-address">
                                     <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
                                 </div>
                                 <p>
                                     <i class="fas fa-phone-alt"></i>
-                                    +1 315 369 5943
+                                    +84 868746275
                                 </p>
                                 <p class="mb-0">
                                     <i class="fas fa-envelope"></i>
-                                    doccure@example.com
+                                    quyetlbche160252@fpt.edu.vn
                                 </p>
                             </div>
                         </div>
