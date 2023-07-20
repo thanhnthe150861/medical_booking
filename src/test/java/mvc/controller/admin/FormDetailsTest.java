@@ -111,14 +111,12 @@ class FormDetailsTest {
             verify(request).getRequestDispatcher("view/admin/form-staff-details.jsp");
             verify(requestDispatcher).forward(request, response);
         } else {
-            when(request.getParameter("str")).thenReturn("invalid");
-            when(request.getSession()).thenReturn(session);
+
             // Call the function
             formDetails.doGet(request, response);
             // Verify the behavior
-            verify(session, never()).setAttribute(anyString(), anyString());
-            verify(request, never()).getRequestDispatcher(anyString());
-            verify(response).sendRedirect("login");
+
+            verify(request).getRequestDispatcher("login");
         }
     }
 

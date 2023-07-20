@@ -46,7 +46,7 @@ class DoctorProfileSettingsTest {
             verify(request).getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(request, response);
         }
         doctorProfileSettings.doGet(request, response);
-        verify(response).sendRedirect("login");
+        verify(request).getRequestDispatcher("login");
     }
     @Test
     public void  testDoPost() throws ServletException, IOException {

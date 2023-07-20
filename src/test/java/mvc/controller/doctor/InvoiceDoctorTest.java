@@ -1,11 +1,11 @@
-package mvc.controller.patient;
+package mvc.controller.doctor;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import mvc.dal.PatientDBContext;
+import mvc.dal.DoctorDBContext;
 import mvc.model.Account;
 import mvc.model.Doctor;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-class DoctorProfileTest {
+class InvoiceDoctorTest {
     @Mock
     private HttpServletRequest request;
     @Mock
@@ -29,23 +29,21 @@ class DoctorProfileTest {
     private RequestDispatcher requestDispatcher;
 
     @Test
-    public void testDoGetWithValidAccount() throws ServletException, IOException {
+    public void testDoGet() throws ServletException, IOException {
         MockitoAnnotations.initMocks(this);
-        Account account = new Account();
-        Doctor doctor = new Doctor();
-        DoctorProfile doctorProfile = new DoctorProfile();
         when(request.getSession()).thenReturn(session);
+        InvoiceDoctor invoiceDoctor = new InvoiceDoctor();
+        Account account = (Account) session.getAttribute("account");
+        DoctorDBContext doctorDBContext = new DoctorDBContext();
         when(session.getAttribute("account")).thenReturn(account);
-        if (account != null && account.getIsAdmin() == 2) {
-            when(request.getParameter("id")).thenReturn("1");
-            PatientDBContext patientDBContext = new PatientDBContext();
-            when(patientDBContext.getDoctorByPatient("1")).thenReturn(doctor);
-            when(request.getRequestDispatcher("view/patient/doctor-profile.jsp")).thenReturn(requestDispatcher);
-            doctorProfile .doGet(request, response);
+        if (account != null && account.getIsAdmin() == 1){
+            Doctor doctor = doctorDBContext.getDoctor(account);
+            when(request.getRequestDispatcher("view/doctor/invoices.jsp")).thenReturn(requestDispatcher);
+            invoiceDoctor.doGet(request,response);
+            verify(session).setAttribute("doctor", doctor);
             verify(requestDispatcher).forward(request,response);
         }
-
-        doctorProfile .doGet(request, response);
+        invoiceDoctor.doGet(request,response);
         verify(request).getRequestDispatcher("login");
     }
 }

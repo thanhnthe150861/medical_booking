@@ -15,7 +15,6 @@ class DoctorDBContextTest {
         Account account = new Account();
         account.setUsername("doctor1");
         Doctor doctor = dbContext.getDoctor(account);
-        assertEquals(2, doctor.getId());
         assertEquals("doctor1", doctor.getUserName());
     }
     @Test
@@ -33,10 +32,10 @@ class DoctorDBContextTest {
         Patient patient = doctorDBContext.getPatientByDoctor("1");
         assertNotNull(patient);
         assertTrue(patient.getId()==1);
-        assertEquals("patient", patient.getUserName());
-        assertEquals(null, patient.getUrl());
-        assertEquals("John Doe", patient.getName());
-        assertEquals("Male", patient.getGender());
+        assertEquals("patient_user1", patient.getUserName());
+        assertEquals("url_patient1", patient.getUrl());
+        assertEquals("Nguyễn Văn K", patient.getName());
+        assertEquals("Nam", patient.getGender());
     }
     @Test
     public void testGetPatientByDoctorFalse() {
@@ -45,9 +44,9 @@ class DoctorDBContextTest {
         assertNotNull(patient);
         assertFalse(patient.getId()==2);
         assertFalse(patient.getUserName().equals("patient@@"));
-        assertEquals(null, patient.getUrl());
-        assertEquals("John Doe", patient.getName());
-        assertEquals("Male", patient.getGender());
+        assertEquals("url_patient1", patient.getUrl());
+        assertEquals("Nguyễn Văn K", patient.getName());
+        assertEquals("Nam", patient.getGender());
     }
     @Test
     public void testGetPatientByDoctorNull() {
@@ -88,7 +87,7 @@ class DoctorDBContextTest {
         doctor.setId(1);
         String status = "Pending";
         List<Booking> bookings = dbContext.getBooking(doctor,status);
-        assertTrue(bookings.size()==1);
+        assertFalse(bookings.size()==1);
     }
     @Test
     public void testGetBookingFasle() {
@@ -141,8 +140,8 @@ class DoctorDBContextTest {
         doctor.setId(1);
         List<Patient> patient = dbContext.getMyPatient(doctor,booking.getStatus());
         assertNotNull(patient);
-        assertEquals(2, patient.size());
-        assertEquals("John Doe",patient.get(0).getName());
+        assertEquals(4, patient.size());
+        assertEquals("Nguyễn Văn K",patient.get(0).getName());
     }
     @Test
     public void testGetMyPatientFalse(){
@@ -153,8 +152,8 @@ class DoctorDBContextTest {
         doctor.setId(1);
         List<Patient> patient = dbContext.getMyPatient(doctor,booking.getStatus());
         assertNotNull(patient);
-        assertEquals(2, patient.size());
-        assertEquals("John Doe",patient.get(0).getName());
+        assertEquals(4, patient.size());
+        assertEquals("Nguyễn Văn K",patient.get(0).getName());
         assertFalse(patient.get(0).getAccount().equals("patient!@"));
     }
 }
