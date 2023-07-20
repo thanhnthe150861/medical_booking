@@ -4,12 +4,12 @@
 <%@ page import="mvc.dal.StaffDBContext" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Dashboard</title>
+    <title>TATQ Clinic</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -70,21 +70,21 @@
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
-                                                src="images/staff/staff1.jpg" width="31"
-                                                alt="Swift Taylor"></span>
+                                                src="${sessionScope.staff.url}" width="31"
+                                                alt="${sessionScope.staff.name}"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="images/staff/staff1.jpg" alt="User Image"
+                            <img src="${sessionScope.staff.url}" alt="User Image"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Staff</h6>
+                            <h6>${sessionScope.staff.name}</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="staff_dashboard">Bảng điều khiển</a>
+                    <a class="dropdown-item" href="login">Đăng xuất</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -100,34 +100,31 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li class="menu-title">
-                        <span>Main</span>
-                    </li>
                     <li class="active">
-                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Danh sách bác sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="list_patient"><i class="fe fe-user"></i> <span>Danh sách bệnh nhân</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
+                        <a href="staff_profile"><i class="fe fe-edit"></i><span>Thông tin cá nhân</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
+                        <a href="staff_change_password"><i class="fe fe-edit"></i> <span>Đổi mật khẩu</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fa fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <i class="fe fe-eject"></i>
+                            <span>Đăng xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -145,7 +142,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Xin chào Staff!</h3>
+                        <h3 class="page-title">Xin chào ${sessionScope.staff.name}</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="staff_dashboard">Bảng điều khiển</a></li>
                             <li class="breadcrumb-item active">Danh sách Bác sĩ</li>
@@ -169,9 +166,9 @@
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
                                         <tr>
-                                            <th>Doctor Name</th>
-                                            <th>Speciality</th>
-                                            <th class="text-center">Status</th>
+                                            <th>Tên bác sĩ</th>
+                                            <th>Chuyên môn</th>
+                                            <th class="text-center">Trạng thái</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -181,7 +178,7 @@
                                                 <h2 class="table-avatar">
                                                     <a href="#" class="avatar avatar-sm mr-2">
                                                         <img class="avatar-img rounded-circle"
-                                                             src="assets/img/doctors/doctor-thumb-01.jpg"
+                                                             src="<%= doctor.getBooking().getDoctor().getUrl() %>"
                                                              alt="User Image">
                                                     </a>
                                                     <a href="#"><%= doctor.getBooking().getDoctor().getName() %>
@@ -203,165 +200,10 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="dash-widget-info">
-                                <h6 class="text-muted">Doctors</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="dash-widget-header">
-										<span class="dash-widget-icon text-success">
-											<i class="fe fe-users"></i>
-										</span>
-                                <div class="dash-count">
-                                    <h3><%= totalPatient %>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="dash-widget-info">
-                                <h6 class="text-muted">Patients</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="dash-widget-header">
-										<span class="dash-widget-icon text-danger border-danger">
-											<i class="fe fe-money"></i>
-										</span>
-                                <div class="dash-count">
-                                    <h3><%= totalAppointment %>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="dash-widget-info">
-                                <h6 class="text-muted">Appointment</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="dash-widget-header">
-										<span class="dash-widget-icon text-warning border-warning">
-											<i class="fe fe-folder"></i>
-										</span>
-                                <div class="dash-count">
-                                    <h3>$<%= totalPrice %>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="dash-widget-info">
-                                <h6 class="text-muted">Revenue</h6>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 col-lg-6">
-                </div>
-                <div class="col-md-12 col-lg-6">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 d-flex">
-                    <!-- Recent Orders -->
-                    <div class="card card-table flex-fill">
-                        <div class="card-header">
-                            <h4 class="card-title">Top 5 Doctor</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-center mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th>Doctor Name</th>
-                                        <th>Speciality</th>
-                                        <th>Earned</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <% for (MedicalRecord doctor : doctorListTop5) { %>
-                                    <tr>
-                                        <td>
-                                            <h2 class="table-avatar">
-                                                <a href="profile.jsp" class="avatar avatar-sm mr-2"><img
-                                                        class="avatar-img rounded-circle"
-                                                        src="view/admin/assets/img/doctors/doctor-thumb-01.jpg"
-                                                        alt="User Image"></a>
-                                                <a href="profile.jsp"><%= doctor.getBooking().getDoctor().getName() %>
-                                                </a>
-                                            </h2>
-                                        </td>
-                                        <td><%= doctor.getBooking().getDoctor().getSpecialty() %>
-                                        </td>
-                                        <td>$<%= doctor.getBill().getTotalPrice() %>
-                                        </td>
-                                    </tr>
-                                    <% } %>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Recent Orders -->
-
-                </div>
-                <div class="col-md-6 d-flex">
-
-                    <!-- Feed Activity -->
-                    <div class="card  card-table flex-fill">
-                        <div class="card-header">
-                            <h4 class="card-title">Top 5 Patients</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-center mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th>Patient Name</th>
-                                        <th></th>
-                                        <th>Last Visit</th>
-                                        <th>Paid</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <% for (MedicalRecord patient : patientListTop5) { %>
-                                    <tr>
-                                        <td>
-                                            <h2 class="table-avatar">
-                                                <a href="profile.jsp" class="avatar avatar-sm mr-2"><img
-                                                        class="avatar-img rounded-circle"
-                                                        src="view/admin/assets/img/patients/patient1.jpg"
-                                                        alt="User Image"></a>
-                                                <a href="profile.jsp"><%= patient.getBooking().getPatient().getName() %>
-                                                </a>
-                                            </h2>
-                                        </td>
-                                        <td></td>
-                                        <td><%= patient.getBooking().getDate() %>
-                                        </td>
-                                        <td class="text-right">$<%= patient.getBill().getTotalPrice() %>
-                                        </td>
-                                    </tr>
-                                    <% } %>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Feed Activity -->
-
-                </div>
-            </div>
-
         </div>
     </div>
     <!-- /Page Wrapper -->

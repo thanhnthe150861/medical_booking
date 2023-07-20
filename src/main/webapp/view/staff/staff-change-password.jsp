@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -68,21 +68,21 @@
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
-                                                src="images/staff/staff1.jpg" width="31"
-                                                alt="Swift Taylor"></span>
+                                                src="${sessionScope.staff.url}" width="31"
+                                                alt="${sessionScope.staff.name}"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="images/staff/staff1.jpg" alt="User Image"
+                            <img src="${sessionScope.staff.url}" alt="User Image"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Staff</h6>
+                            <h6>${sessionScope.staff.name}</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="staff_dashboard">Bảng điều khiển</a>
+                    <a class="dropdown-item" href="login">Đăng xuất</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -98,34 +98,31 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li class="menu-title">
-                        <span>Main</span>
+                    <li>
+                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
+                    </li>
+                    <li>
+                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Danh sách bác sĩ</span></a>
+                    </li>
+                    <li>
+                        <a href="list_patient"><i class="fe fe-user"></i> <span>Danh sách bệnh nhân</span></a>
+                    </li>
+                    <li>
+                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Hóa đơn</span></a>
+                    </li>
+                    <li>
+                        <a href="staff_profile"><i class="fe fe-edit"></i><span>Thông tin cá nhân</span></a>
                     </li>
                     <li class="active">
-                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
-                    </li>
-                    <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
-                    </li>
-                    <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
-                    </li>
-                    <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
-                    </li>
-                    <li class="active">
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
+                        <a href="staff_change_password"><i class="fe fe-edit"></i> <span>Đổi mật khẩu</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fa fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <i class="fe fe-eject"></i>
+                            <span>Đăng xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -151,25 +148,25 @@
                     <%= messSuccess %>
                 </div>
                 <% } %>
-                <h5 class="card-title">Change Password</h5>
+                <h5 class="card-title">Đổi mật khẩu</h5>
                 <div class="row">
                     <div class="col-md-12 col-lg-6">
                         <!-- Change Password Form -->
                         <form action="staff_change_password" method="post">
                             <div class="form-group">
-                                <label>Old Password</label>
+                                <label>Mật khẩu cũ</label>
                                 <input type="password" class="form-control" name="old-password">
                             </div>
                             <div class="form-group">
-                                <label>New Password</label>
+                                <label>Mật khẩu mới</label>
                                 <input type="password" class="form-control" name="new-password">
                             </div>
                             <div class="form-group">
-                                <label>Confirm Password</label>
+                                <label>Nhập lại mật khẩu mới</label>
                                 <input type="password" class="form-control" name="re-password">
                             </div>
                             <div class="submit-section">
-                                <button type="submit" class="btn btn-primary submit-btn">Save Changes
+                                <button type="submit" class="btn btn-primary submit-btn">LƯU
                                 </button>
                             </div>
                         </form>

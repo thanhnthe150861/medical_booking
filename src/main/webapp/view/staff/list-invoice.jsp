@@ -3,7 +3,7 @@
 <%@ page import="mvc.dal.StaffDBContext" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<html lang="en">
+<html>
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/invoice-report.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:53 GMT -->
 <head>
@@ -65,26 +65,25 @@
         <!-- Header Right Menu -->
         <ul class="nav user-menu">
 
-
             <!-- User Menu -->
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
-                                                src="images/staff/staff1.jpg" width="31"
-                                                alt="Swift Taylor"></span>
+                                                src="${sessionScope.staff.url}" width="31"
+                                                alt="${sessionScope.staff.name}"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="images/staff/staff1.jpg" alt="User Image"
+                            <img src="${sessionScope.staff.url}" alt="User Image"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Staff</h6>
+                            <h6>${sessionScope.staff.name}</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="staff_dashboard">Bảng điều khiển</a>
+                    <a class="dropdown-item" href="login">Đăng xuất</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -100,34 +99,31 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li class="menu-title">
-                        <span>Main</span>
+                    <li>
+                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
                     </li>
                     <li>
-                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Danh sách bác sĩ</span></a>
                     </li>
                     <li>
-                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Doctors</span></a>
-                    </li>
-                    <li>
-                        <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="list_patient"><i class="fe fe-user"></i> <span>Danh sách bệnh nhân</span></a>
                     </li>
                     <li class="active">
-                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
+                        <a href="list_invoice"><i class="fe fe-user"></i> <span>Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
+                        <a href="staff_profile"><i class="fe fe-user"></i><span>Thông tin cá nhân</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
+                        <a href="staff_change_password"><i class="fe fe-user"></i> <span>Đổi mật khẩu</span></a>
                     </li>
                     <li>
                         <a href="login">
                             <i class="fa fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <span>Đăng xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -144,10 +140,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Invoice Report</h3>
+                        <h3 class="page-title">Hóa đơn</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home.jsp">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Invoice Report</li>
+                            <li class="breadcrumb-item"><a href="view/staff/staff-dashboard.jsp">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active">Hóa đơn</li>
                         </ul>
                     </div>
                 </div>
@@ -165,12 +161,12 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Invoice ID</th>
-                                        <th>Patient Name</th>
-                                        <th>Total Amount</th>
-                                        <th>Created Date</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-center">Actions</th>
+                                        <th>ID Hóa đơn</th>
+                                        <th>Tên bệnh nhân</th>
+                                        <th>Tổng chi phí</th>
+                                        <th>Ngày lập</th>
+                                        <th class="text-center">Trạng thái</th>
+                                        <th class="text-center">Hành động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -192,17 +188,17 @@
                                         <td><%= invoice.getBooking().getDate() %>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
+                                            <span class="badge badge-pill bg-success inv-badge">Thanh toán</span>
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
                                                 <a data-toggle="modal" href="#"
                                                    class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> Xem
                                                 </a>
-                                                <a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
-                                                    <i class="fe fe-trash"></i> Delete
-                                                </a>
+<%--                                                <a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">--%>
+<%--                                                    <i class="fe fe-trash"></i> Delete--%>
+<%--                                                </a>--%>
                                             </div>
                                         </td>
                                     </tr>
@@ -218,82 +214,6 @@
         </div>
     </div>
     <!-- /Page Wrapper -->
-
-    <!-- Edit Details Modal -->
-    <div class="modal fade" id="edit_invoice_report" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Invoice Report</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Invoice Number</label>
-                                    <input type="text" class="form-control" value="#INV-0001">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Patient Name</label>
-                                    <input type="text" class="form-control" value="R Amer">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Patient Image</label>
-                                    <input type="file" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Total Amount</label>
-                                    <input type="text" class="form-control" value="$200.00">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Created Date</label>
-                                    <input type="text" class="form-control" value="29th Oct 2019">
-                                </div>
-                            </div>
-
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Edit Details Modal -->
-
-    <!-- Delete Modal -->
-    <div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <!--	<div class="modal-header">
-                        <h5 class="modal-title">Delete</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>-->
-                <div class="modal-body">
-                    <div class="form-content p-2">
-                        <h4 class="modal-title">Delete</h4>
-                        <p class="mb-4">Are you sure want to delete?</p>
-                        <button type="button" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Delete Modal -->
 </div>
 <!-- /Main Wrapper -->
 

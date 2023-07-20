@@ -37,19 +37,19 @@ public class StaffDBContext extends DBContext {
         return null;
     }
 
-    public void updateStaff(Staff staff) {
+    public void updateStaff(Staff staff){
+        //Update the account information
+        String accountSql = "UPDATE account SET password = ?, email = ?, phone = ? WHERE username = ?";
         try {
-            // Update the account's information
-            String accountSql = "UPDATE account SET password = ?, email = ?, phone = ? WHERE username = ?";
             stm = connection.prepareStatement(accountSql);
             stm.setString(1, staff.getAccount().getPassword());
             stm.setString(2, staff.getAccount().getEmail());
             stm.setString(3, staff.getAccount().getPhone());
             stm.setString(4, staff.getAccount().getUsername());
             stm.executeUpdate();
-            // Update the staff's information
-            String sql = "UPDATE staff SET url = ?, name = ?, gender = ?, dob = ? WHERE username = ?";
-            stm = connection.prepareStatement(sql);
+            //Update the staff's information
+            String staffSql = "UPDATE staff SET url = ?, name = ?, gender = ?, dob = ? WHERE username = ?";
+            stm = connection.prepareStatement(staffSql);
             stm.setString(1, staff.getUrl());
             stm.setString(2, staff.getName());
             stm.setString(3, staff.getGender());
@@ -60,51 +60,8 @@ public class StaffDBContext extends DBContext {
             throw new RuntimeException(e);
         }
     }
-    public int getTotalStaff(){
-        try {
-            String sql = "SELECT COUNT(*) AS total_staffs FROM staff;";
-            stm = connection.prepareStatement(sql);
-            rs = stm.executeQuery();
-            if (rs.next()){
-                int count = rs.getInt("total_staffs");
-                return count;
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return 0;
-    }
-    public float getTotalPrice(){
-        try {
-            String sql = "SELECT SUM(totalPrice) AS total_price\n" +
-                    "FROM bill\n" +
-                    "WHERE payment_status = 'Paid';";
-            stm = connection.prepareStatement(sql);
-            rs = stm.executeQuery();
-            if (rs.next()){
-                float count = rs.getFloat("total_price");
-                return count;
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return 0;
-    }
-    public int getTotalAppointment(){
-        try {
-            String sql = "SELECT COUNT(*) AS total_appointments\n" +
-                    "FROM booking;";
-            stm = connection.prepareStatement(sql);
-            rs = stm.executeQuery();
-            if (rs.next()){
-                int count = rs.getInt("total_appointments");
-                return count;
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return 0;
-    }
+
+
     public List<MedicalRecord> getInforTotalAppoinment(){
         List<MedicalRecord> getAppoinmentList = new ArrayList<>();
         try {
@@ -236,5 +193,42 @@ public class StaffDBContext extends DBContext {
             throw new RuntimeException(e);
         }
         return getPatientList;
+    }
+
+    public  List<MedicalRecord> invoiceList (){
+        List<MedicalRecord> getInvoiceList = new ArrayList<>();
+        try {
+            String sql = "SELECT b.id AS bill_id, b.totalPrice, b.payment_status, bd.id AS booking, bd.date, p.*\n" +
+                    "FROM bill b\n" +
+                    "JOIN medical_record mr ON b.medical_record_id = mr.id\n" +
+                    "JOIN booking bd ON mr.booking_id = bd.id\n" +
+                    "JOIN patient p ON bd.patient_id = p.id;";
+            stm = connection.prepareStatement(sql);
+            rs = stm.executeQuery();
+            while (rs.next()){
+                Patient patient = new Patient();
+                patient.setId(rs.getInt("id"));
+                patient.setUrl(rs.getString("url"));
+                patient.setName(rs.getString("name"));
+                patient.setGender(rs.getString("gender"));
+                patient.setDob(rs.getDate("dob"));
+                patient.setRankId(rs.getInt("rank_id"));
+                Bill bill = new Bill();
+                bill.setId(rs.getInt("bill_id"));
+                bill.setTotalPrice(rs.getFloat("totalPrice"));
+                bill.setPayment_status(rs.getString("payment_status"));
+                Booking booking = new Booking();
+                booking.setId(rs.getInt("booking"));
+                booking.setDate(rs.getDate("date"));
+                booking.setPatient(patient);
+                MedicalRecord medicalRecord = new MedicalRecord();
+                medicalRecord.setBooking(booking);
+                medicalRecord.setBill(bill);
+                getInvoiceList.add(medicalRecord);
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return getInvoiceList;
     }
 }

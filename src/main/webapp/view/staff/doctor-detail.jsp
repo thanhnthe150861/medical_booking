@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
 <head>
@@ -68,22 +69,21 @@
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
-                                                src="images/staff/staff1.jpg" width="31"
-                                                alt="Swift Taylor"></span>
+                                                src="${sessionScope.staff.url}" width="31"
+                                                alt="${sessionScope.staff.name}"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="images/staff/staff1.jpg" alt="User Image"
+                            <img src="${sessionScope.staff.url}" alt="User Image"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Swift Taylor</h6>
-                            <p class="text-muted mb-0">Staff</p>
+                            <h6>${sessionScope.staff.name}</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="staff_dashboard">Bảng điều khiển</a>
+                    <a class="dropdown-item" href="login">Đăng xuất</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -118,14 +118,14 @@
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
                     <li>
-                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
+                        <a href="staff_profile"><i class="fe fe-edit"></i><span>Profile Settings</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
+                        <a href="staff_change_password"><i class="fe fe-edit"></i> <span>Change Password</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fa fa-sign-out-alt"></i>
+                            <i class="fe fe-eject"></i>
                             <span>Logout</span>
                         </a>
                     </li>

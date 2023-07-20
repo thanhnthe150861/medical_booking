@@ -2,7 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="mvc.dal.StaffDBContext" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/patient-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
 <head>
@@ -65,26 +66,25 @@
         <!-- Header Right Menu -->
         <ul class="nav user-menu">
 
-
             <!-- User Menu -->
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
-                                                src="images/staff/staff1.jpg" width="31"
-                                                alt="Swift Taylor"></span>
+                                                src="${sessionScope.staff.url}" width="31"
+                                                alt="${sessionScope.staff.name}"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="images/staff/staff1.jpg" alt="User Image"
+                            <img src="${sessionScope.staff.url}" alt="User Image"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Staff</h6>
+                            <h6>${sessionScope.staff.name}</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="staff_dashboard">Bảng điều khiển</a>
+                    <a class="dropdown-item" href="login">Đăng xuất</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -101,33 +101,30 @@
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
                     <li>
-                        <span>Main</span>
+                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
                     </li>
                     <li>
-                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
-                    </li>
-                    <li>
-                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Danh sách bác sĩ</span></a>
                     </li>
                     <li class="active">
-                        <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="list_patient"><i class="fe fe-user"></i> <span>Danh sách bệnh nhân</span></a>
                     </li>
                     <li>
-                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
+                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="staff_profile"><i class="fe fe-user"></i><span>Profile Settings</span></a>
+                        <a href="staff_profile"><i class="fe fe-edit"></i><span>Thông tin cá nhân</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
+                        <a href="staff_change_password"><i class="fe fe-edit"></i> <span>Đổi mật khẩu</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fa fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <i class="fe fe-eject"></i>
+                            <span>Đăng xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -143,10 +140,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">List of Patient</h3>
+                        <h3 class="page-title">Danh sách bệnh nhân</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="staff_dashboard">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Patient</li>
+                            <li class="breadcrumb-item"><a href="staff_dashboard">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active">Danh sách bệnh nhân</li>
                         </ul>
                     </div>
                 </div>
@@ -165,26 +162,23 @@
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
                                         <tr>
-                                            <th>Patient ID</th>
-                                            <th>Patient Name</th>
-                                            <th>Date Of Birth</th>
-                                            <th>Phone</th>
+                                            <th>Tên bệnh nhân</th>
+                                            <th>Ngày sinh</th>
+                                            <th>Số điện thoại</th>
                                             <th>Email</th>
-                                            <th>Last Visit</th>
-                                            <th class="text-center">Status</th>
-                                            <th class="text-center">Action</th>
+                                            <th>Lần khám gần nhất</th>
+                                            <th class="text-center">Trạng thái</th>
+                                            <th class="text-center">Hành động</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <% for (MedicalRecord patient : patientList) { %>
                                         <tr>
-                                            <td><%= patient.getBooking().getPatient().getId() %>
-                                            </td>
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="#" class="avatar avatar-sm mr-2"><img
                                                             class="avatar-img rounded-circle"
-                                                            src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+                                                            src="<%= patient.getBooking().getPatient().getUrl()%>" alt="User Image"></a>
                                                     <a href="#"><%= patient.getBooking().getPatient().getName() %>
                                                     </a>
                                                 </h2>
@@ -209,7 +203,7 @@
                                                     <a data-toggle="modal"
                                                        href="edit_detail?pid=<%= patient.getBooking().getPatient().getId() %>"
                                                        class="btn btn-sm bg-success-light mr-2">
-                                                        <i class="fe fe-pencil"></i> Edit
+                                                        <i class="fe fe-pencil"></i> LƯU
                                                     </a>
                                                 </div>
                                             </td>

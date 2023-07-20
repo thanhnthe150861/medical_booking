@@ -25,11 +25,6 @@ import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.presigner.S3Presigner;
 import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignRequest;
-@MultipartConfig(
-        fileSizeThreshold = 1024 * 1024 * 2, //2MB
-        maxFileSize = 1024 * 1024 * 10, //10MB
-        maxRequestSize = 1024 * 1024 * 50 //50MB
-)
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, //2MB
@@ -38,7 +33,6 @@ import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignReques
 )
 @WebServlet(name = "DoctorProfileSettings", value = "/doctor_profile_settings")
 public class DoctorProfileSettings extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
