@@ -76,6 +76,14 @@ public class PatientProfileSettings extends HttpServlet {
         }
 // Lấy phần tải lên (upload) của file từ request
         Part part = req.getPart("file");
+        long fileSize = part.getSize();
+        long maxSize = 1024 * 1024 * 2; // 2MB
+        if (fileSize > maxSize) {
+            // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
+            req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
+            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+            return;
+        }
         if (part != null && part.getSize() > 0) {
             String fileName = part.getSubmittedFileName();
 // Lưu file vào đường dẫn đã chỉ định
@@ -115,7 +123,7 @@ public class PatientProfileSettings extends HttpServlet {
             //Gen presignUrl
             var request =
                     GetObjectPresignRequest.builder()
-                            .signatureDuration(Duration.ofDays(365))
+                            .signatureDuration(Duration.ofDays(7))
                             .getObjectRequest(d -> d.bucket(BUCKET_NAME).key(KEY))
                             .build();
             String presignUrl = s3Presigner.presignGetObject(request).url().toString();

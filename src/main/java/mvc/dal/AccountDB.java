@@ -256,7 +256,7 @@ public class AccountDB extends DBContext{
             stm.setString(3, patient.getGender());
             stm.setDate(4, patient.getDob());
             stm.setInt(5, patient.getRankId());
-            stm.setString(6, patient.getUserName());
+            stm.setInt(6, patient.getId());
             stm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

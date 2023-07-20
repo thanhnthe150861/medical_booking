@@ -1,8 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
-    
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -178,7 +176,7 @@
 									<% } %>
 								</div>
 								<div class="card-body">
-									<form action="form_details" method="post">
+									<form action="form_details" method="post" enctype="multipart/form-data">
 										<div class="form-group mb-0 row">
 											<div class="col-md-2">
 												<div class="change-avatar">
@@ -244,24 +242,20 @@
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Rank</label>
 											<div class="col-md-10">
-												<label>
 													<select class="form-control select" name="rank" required>
 														<c:forEach items="${sessionScope.rankListPatient}" var="rlp">
 															<option value="${rlp.id}" ${sessionScope.patient.rankId == rlp.id ? "selected" : ""}>${rlp.name}</option>
 														</c:forEach>
 													</select>
-												</label>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Status</label>
 											<div class="col-md-10">
-												<label>
 													<select class="form-control select" name="status" required>
 														<option value="true" ${sessionScope.patient.account.status == true ? "selected" : ""}>Active</option>
 														<option value="false" ${sessionScope.patient.account.status == false ? "selected" : ""}>Deactive</option>
 													</select>
-												</label>
 											</div>
 										</div>
 										<div class="submit-section">

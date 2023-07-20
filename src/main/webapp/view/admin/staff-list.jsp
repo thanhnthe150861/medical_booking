@@ -2,9 +2,8 @@
 <%@ page import="mvc.model.Staff" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
-<html lang="en">
-    
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/doctor-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
+<html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -54,13 +53,6 @@
 				<a href="javascript:void(0);" id="toggle_btn">
 					<i class="fe fe-text-align-left"></i>
 				</a>
-				
-<%--				<div class="top-nav-search">--%>
-<%--					<form>--%>
-<%--						<input type="text" class="form-control" placeholder="Search here">--%>
-<%--						<button class="btn" type="submit"><i class="fa fa-search"></i></button>--%>
-<%--					</form>--%>
-<%--				</div>--%>
 				
 				<!-- Mobile Menu Toggle -->
 				<a class="mobile_btn" id="mobile_btn">
@@ -194,7 +186,7 @@
 												<td>
 													<h2 class="table-avatar">
 														<a href="#" class="avatar avatar-sm mr-2">
-															<img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+															<img class="avatar-img rounded-circle" src="<%= staff.getUrl() %>" alt="User Image">
 														</a>
 														<a href="#"><%= staff.getName() %></a>
 													</h2>
@@ -252,6 +244,4 @@
 		<script  src="assets/js/script.js"></script>
 		
     </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/doctor-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:51 GMT -->
 </html>

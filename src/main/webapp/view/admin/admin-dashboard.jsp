@@ -3,9 +3,8 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:20 GMT -->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -283,8 +282,8 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
-												<a href="profile.jsp"><%= doctor.getBooking().getDoctor().getName() %></a>
+												<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%= doctor.getBooking().getDoctor().getUrl() %>" alt="User Image"></a>
+												<a href="#"><%= doctor.getBooking().getDoctor().getName() %></a>
 											</h2>
 										</td>
 										<td><%= doctor.getBooking().getDoctor().getSpecialty() %></td>
@@ -322,7 +321,7 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="view/admin/assets/img/patients/patient1.jpg" alt="User Image"></a>
+												<a href="profile.jsp" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%= patient.getBooking().getPatient().getUrl() %>" alt="User Image"></a>
 												<a href="profile.jsp"><%= patient.getBooking().getPatient().getName() %></a>
 											</h2>
 										</td>

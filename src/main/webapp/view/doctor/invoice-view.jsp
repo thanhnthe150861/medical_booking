@@ -1,8 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
-	
-<!-- doccure/invoice-view.jsp  30 Nov 2019 04:12:19 GMT -->
+<html>
+
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -100,13 +99,13 @@
 							<li class="nav-item dropdown has-arrow logged-item">
 								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
-                <img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+                <img class="rounded-circle" src="${sessionScope.bills.booking.doctor.url}" width="31" alt="Darren Elder">
             </span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="user-header">
 										<div class="avatar avatar-sm">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+											<img src="${sessionScope.bills.booking.doctor.url}" alt="User Image" class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">
 											<h6>${sessionScope.bills.booking.doctor.name}</h6>
@@ -123,13 +122,13 @@
 							<li class="nav-item dropdown has-arrow logged-item">
 								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
-                <img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+                <img class="rounded-circle" src="${sessionScope.patient.url}" width="31" alt="Ryan Taylor">
             </span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="user-header">
 										<div class="avatar avatar-sm">
-											<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+											<img src="${sessionScope.patient.url}" alt="User Image" class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">
 											<h6>${sessionScope.patient.name}</h6>
@@ -146,13 +145,13 @@
 							<li class="nav-item dropdown has-arrow logged-item">
 								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
-                <img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+                <img class="rounded-circle" src="${sessionScope.staff.url}" width="31" alt="Ryan Taylor">
             </span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="user-header">
 										<div class="avatar avatar-sm">
-											<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+											<img src="${sessionScope.staff.url}" alt="User Image" class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">
 											<h6>${sessionScope.staff.name}</h6>
@@ -309,7 +308,7 @@
 							
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-about">
-									<a href="home" class="navbar-brand logo">
+									<a href="doctor_dashboard" class="navbar-brand logo">
 										<span class="text-primary">Clinic</span>-TATQ
 									</a>
 									<div class="footer-about-content">
@@ -338,40 +337,7 @@
 								<!-- /Footer Widget -->
 								
 							</div>
-							
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Patients</h2>
-									<ul>
-										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
-										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
-							
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
-									<ul>
-										<li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
+
 							
 							<div class="col-lg-3 col-md-6">
 							
@@ -411,7 +377,7 @@
 							<div class="row">
 								<div class="col-md-6 col-lg-6">
 									<div class="copyright-text">
-										<p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
+										<p class="mb-0"><a href="#">Templates Hub</a></p>
 									</div>
 								</div>
 								<div class="col-md-6 col-lg-6">
@@ -419,8 +385,8 @@
 									<!-- Copyright Menu -->
 									<div class="copyright-menu">
 										<ul class="policy-menu">
-											<li><a href="term-condition.html">Terms and Conditions</a></li>
-											<li><a href="privacy-policy.html">Policy</a></li>
+											<li><a href="#">Terms and Conditions</a></li>
+											<li><a href="#">Policy</a></li>
 										</ul>
 									</div>
 									<!-- /Copyright Menu -->

@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-	
-<!-- doccure/patient-profile-settings.jsp  30 Nov 2019 04:12:18 GMT -->
+<!DOCTYPE html> 
+<html>
+
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -55,7 +55,6 @@
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
 							<a href="home" class="menu-logo">
-								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -203,7 +202,7 @@
 								<div class="card-body">
 									
 									<!-- Profile Settings Form -->
-									<form action="patient_profile_settings" method="post">
+									<form action="patient_profile_settings" method="post" enctype="multipart/form-data">
 										<div class="row form-row">
 											<div class="col-12 col-md-12">
 												<div class="form-group">

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<!-- doccure/doctor-patient-profile-settings.jsp  30 Nov 2019 04:12:14 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -58,7 +57,6 @@
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
 							<a href="doctor_dashboard" class="menu-logo">
-								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -86,13 +84,13 @@
 						<li class="nav-item dropdown has-arrow logged-item">
 							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31" alt="Darren Elder">
 								</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<div class="user-header">
 									<div class="avatar avatar-sm">
-										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+										<img src="${sessionScope.doctor.url}" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
 										<h6>${sessionScope.doctor.name}</h6>
@@ -132,7 +130,7 @@
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container-fluid">
-					<form class="row" action="doctor_profile_settings" method="post">
+					<form class="row" action="doctor_profile_settings" method="post" enctype="multipart/form-data">
 						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
 
 							<!-- Profile Sidebar -->
@@ -140,7 +138,7 @@
 								<div class="widget-profile pro-widget-content">
 									<div class="profile-info-widget">
 										<a href="#" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+											<img src="${sessionScope.doctor.url}" alt="User Image">
 										</a>
 										<div class="profile-det-info">
 											<h3> ${sessionScope.doctor.name}</h3>
@@ -460,5 +458,4 @@
 
 	</body>
 
-<!-- doccure/doctor-patient-profile-settings.jsp  30 Nov 2019 04:12:15 GMT -->
 </html>

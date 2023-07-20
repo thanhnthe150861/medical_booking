@@ -2,7 +2,7 @@
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 	<meta charset="utf-8">
@@ -189,14 +189,14 @@
 												<tr>
 													<td>
 														<h2 class="table-avatar">
-															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image"></a>
+															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%= appointment.getBooking().getDoctor().getUrl() %>" alt="User Image"></a>
 															<a href="#"><%= appointment.getBooking().getDoctor().getName() %></a>
 														</h2>
 													</td>
 													<td><%= appointment.getBooking().getDoctor().getSpecialty() %></td>
 													<td>
 														<h2 class="table-avatar">
-															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+															<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%= appointment.getBooking().getPatient().getUrl() %>" alt="User Image"></a>
 															<a href="#"><%= appointment.getBooking().getPatient().getName() %> </a>
 														</h2>
 													</td>
