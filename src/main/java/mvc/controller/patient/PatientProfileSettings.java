@@ -1,5 +1,6 @@
 package mvc.controller.patient;
 
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.*;
 import mvc.dal.PatientDBContext;
 import jakarta.servlet.ServletException;
@@ -23,17 +24,22 @@ import java.time.Duration;
 import static service.AWSS3Client.*;
 import static service.AWSS3Client.BUCKET_NAME;
 
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, //2MB
+        maxFileSize = 1024 * 1024 * 10, //10MB
+        maxRequestSize = 1024 * 1024 * 50 //50MB
+)
 @WebServlet(name = "PatientProfileSettings", value = "/patient_profile_settings")
 public class PatientProfileSettings extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
-        if (account != null && account.getIsAdmin() == 2){
+        if (account != null && account.getIsAdmin() == 2) {
             PatientDBContext patientDBContext = new PatientDBContext();
             Patient patient = patientDBContext.getPatient(account);
             session.setAttribute("patient", patient);
-        req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req, resp);
         }
         req.getRequestDispatcher("login");
     }
@@ -47,21 +53,21 @@ public class PatientProfileSettings extends HttpServlet {
         // Validate name_raw: should not contain special characters
         if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
             req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
-            req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req, resp);
             return;
         }
         String phone = req.getParameter("phone");
         // Validate phone_raw: should only contain numbers and not exceed 10 digits
         if (!phone.matches("^[0-9]{10}$")) {
             req.setAttribute("messError", "Phone sai định dạng");
-            req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req, resp);
             return;
         }
         String email = req.getParameter("email");
         // Validate email_raw: should be in the correct email format
         if (!email.matches("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$")) {
             req.setAttribute("messError", "Email sai định dạng");
-            req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req, resp);
             return;
         }
         String gender = req.getParameter("gender");
@@ -81,7 +87,7 @@ public class PatientProfileSettings extends HttpServlet {
         if (fileSize > maxSize) {
             // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
             req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
-            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
             return;
         }
         if (part != null && part.getSize() > 0) {

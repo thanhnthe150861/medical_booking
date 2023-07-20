@@ -50,7 +50,6 @@
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="home" class="menu-logo">
-                        <%-- <img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
                         <span class="text-primary" width="50" height="50">Clinic</span>
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -81,14 +80,14 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31"
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
                                          alt="Ryan Taylor">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="assets/img/patients/patient.jpg" alt="User Image"
+                                <img src="${sessionScope.patient.url}" alt="User Image"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -138,7 +137,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="assets/img/patients/patient.jpg" alt="User Image">
+                                    <img src="${sessionScope.patient.url}" alt="User Image">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3>${sessionScope.patient.name}</h3>

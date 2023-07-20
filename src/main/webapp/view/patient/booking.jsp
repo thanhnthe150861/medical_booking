@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,13 +79,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31">
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="assets/img/patients/patient.jpg" alt="User Image"
+                                <img src="${sessionScope.patient.url}" alt="User Image"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -163,10 +162,10 @@
                         </div>
                         <!-- /Schedule Header -->
                         <form action="booking" method="post">
-                        <!-- Schedule Content -->
-                        <div class="schedule-cont">
-                            <div class="row">
-                                <div class="col-md-12">
+                            <!-- Schedule Content -->
+                            <div class="schedule-cont">
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <!-- Time Slot -->
                                         <div class="time-slot">
                                             <ul class="clearfix d-flex align-items-center justify-content-center">
@@ -206,10 +205,10 @@
                                             </div>
                                         </div>
                                         <%----%>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /Schedule Content -->
+                            <!-- /Schedule Content -->
                             <!-- Submit Section -->
                             <div class="submit-section proceed-btn text-right">
                                 <button class="btn btn-primary submit-btn">Booking</button>

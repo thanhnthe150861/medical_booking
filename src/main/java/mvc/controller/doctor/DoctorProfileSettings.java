@@ -1,5 +1,6 @@
 package mvc.controller.doctor;
 
+import jakarta.servlet.annotation.MultipartConfig;
 import mvc.dal.DoctorDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import mvc.model.Doctor;
 import service.AWSS3Client;
 import software.amazon.awssdk.auth.credentials.AwsCredentials;
 
+import jakarta.servlet.http.Part;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,11 +20,17 @@ import java.sql.Date;
 import java.time.Duration;
 
 import static service.AWSS3Client.*;
+
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.presigner.S3Presigner;
 import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignRequest;
 
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, //2MB
+        maxFileSize = 1024 * 1024 * 10, //10MB
+        maxRequestSize = 1024 * 1024 * 50 //50MB
+)
 @WebServlet(name = "DoctorProfileSettings", value = "/doctor_profile_settings")
 public class DoctorProfileSettings extends HttpServlet {
     @Override
@@ -30,10 +38,10 @@ public class DoctorProfileSettings extends HttpServlet {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
-        if (account != null && account.getIsAdmin() == 1){
+        if (account != null && account.getIsAdmin() == 1) {
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
-            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
         }
         req.getRequestDispatcher("login");
     }
@@ -49,15 +57,15 @@ public class DoctorProfileSettings extends HttpServlet {
         String gender = req.getParameter("gender");
         String dob = req.getParameter("dob");
         // Validate name_raw: should not contain special characters
-        if (name != null && name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
+        if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
             req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
             req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
             return;
         }
         // Validate phone_raw: should only contain numbers and not exceed 10 digits
-        if (phone != null && phone.matches("^[0-9]{10}$")) {
+        if (!phone.matches("^[0-9]{10}$")) {
             req.setAttribute("messError", "Phone sai định dạng");
-            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
             return;
         }
 //Lấy file từ jsp và up lên aws s3
@@ -75,7 +83,7 @@ public class DoctorProfileSettings extends HttpServlet {
         if (fileSize > maxSize) {
             // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
             req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
-            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
             return;
         }
         if (part != null && part.getSize() > 0) {
