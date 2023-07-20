@@ -1,16 +1,15 @@
-<%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
 <%@ page import="mvc.dal.StaffDBContext" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html lang="en">
 
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/appointment-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:46 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/invoice-report.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:53 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Dashboard</title>
+    <title>Doccure - Invoice</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -35,10 +34,6 @@
     <![endif]-->
 </head>
 <body>
-<%
-    StaffDBContext staffDBContext = new StaffDBContext();
-    List<MedicalRecord> appointmentList = staffDBContext.getInforTotalAppoinment();
-%>
 <!-- Main Wrapper -->
 <div class="main-wrapper">
 
@@ -69,6 +64,7 @@
         <!-- Header Right Menu -->
         <ul class="nav user-menu">
 
+
             <!-- User Menu -->
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -83,10 +79,10 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Staff</h6>
+                            <h6>Administrator</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
+                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
                     <a class="dropdown-item" href="login">Logout</a>
                 </div>
             </li>
@@ -109,7 +105,7 @@
                     <li>
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                     </li>
                     <li>
@@ -118,7 +114,7 @@
                     <li>
                         <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
                     <li>
@@ -144,69 +140,66 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Appointments</h3>
+                        <h3 class="page-title">Invoice Report</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="view/home.jsp">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Appointments</li>
+                            <li class="breadcrumb-item"><a href="home.jsp">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Invoice Report</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- /Page Header -->
+            <%
+                StaffDBContext staffDBContext = new StaffDBContext();
+                List<MedicalRecord> invoiceList = staffDBContext.invoiceList();
+            %>
             <div class="row">
-                <div class="col-md-12">
-
-                    <!-- Recent Orders -->
+                <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Doctor Name</th>
-                                        <th>Speciality</th>
+                                        <th>Invoice ID</th>
                                         <th>Patient Name</th>
-                                        <th>Apointment Time</th>
+                                        <th>Total Amount</th>
+                                        <th>Created Date</th>
                                         <th class="text-center">Status</th>
+                                        <th class="text-center">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <% for (MedicalRecord appointment : appointmentList) { %>
+                                    <% for (MedicalRecord invoice : invoiceList) { %>
                                     <tr>
-                                        <td>
-                                            <h2 class="table-avatar">
-                                                <a href="#" class="avatar avatar-sm mr-2"><img
-                                                        class="avatar-img rounded-circle"
-                                                        src="assets/img/doctors/doctor-thumb-01.jpg"
-                                                        alt="User Image"></a>
-                                                <a href="#"><%= appointment.getBooking().getDoctor().getName() %>
-                                                </a>
-                                            </h2>
-                                        </td>
-                                        <td><%= appointment.getBooking().getDoctor().getSpecialty() %>
-                                        </td>
+                                        <td><a href="#"><%= invoice.getBill().getId() %>
+                                        </a></td>
                                         <td>
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="assets/img/patients/patient1.jpg" alt="User Image"></a>
-                                                <a href="#"><%= appointment.getBooking().getPatient().getName() %>
+                                                <a href="#"><%= invoice.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>
                                         </td>
-                                        <td><%= appointment.getBooking().getDate() %> <span
-                                                class="text-primary d-block"><%= appointment.getBooking().getSlots().getName() %></span>
+                                        <td>$<%= invoice.getBill().getTotalPrice() %>
+                                        </td>
+                                        <td><%= invoice.getBooking().getDate() %>
                                         </td>
                                         <td class="text-center">
-                                            <% if (appointment.getBooking().getStatus().equals("Confirmed")) { %>
-                                            <span class="badge badge-pill bg-success-light"><%= appointment.getBooking().getStatus() %></span>
-                                            <% } else if (appointment.getBooking().getStatus().equals("Pending")) { %>
-                                            <span class="badge badge-pill bg-warning-light"><%= appointment.getBooking().getStatus() %></span>
-                                            <% } else if (appointment.getBooking().getStatus().equals("Cancelled")) { %>
-                                            <span class="badge badge-pill bg-danger-light"><%= appointment.getBooking().getStatus() %></span>
-                                            <% } else if (appointment.getBooking().getStatus().equals("Completed")) { %>
-                                            <span class="badge badge-pill bg-info-light"><%= appointment.getBooking().getStatus() %></span>
-                                            <% } %>
+                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="actions">
+                                                <a data-toggle="modal" href="#"
+                                                   class="btn btn-sm bg-success-light mr-2">
+                                                    <i class="fe fe-pencil"></i> Edit
+                                                </a>
+                                                <a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
+                                                    <i class="fe fe-trash"></i> Delete
+                                                </a>
+                                            </div>
                                         </td>
                                     </tr>
                                     <% } %>
@@ -215,20 +208,93 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /Recent Orders -->
-
                 </div>
             </div>
+
         </div>
     </div>
     <!-- /Page Wrapper -->
 
+    <!-- Edit Details Modal -->
+    <div class="modal fade" id="edit_invoice_report" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Invoice Report</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row form-row">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Invoice Number</label>
+                                    <input type="text" class="form-control" value="#INV-0001">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Patient Name</label>
+                                    <input type="text" class="form-control" value="R Amer">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Patient Image</label>
+                                    <input type="file" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Total Amount</label>
+                                    <input type="text" class="form-control" value="$200.00">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Created Date</label>
+                                    <input type="text" class="form-control" value="29th Oct 2019">
+                                </div>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Edit Details Modal -->
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <!--	<div class="modal-header">
+                        <h5 class="modal-title">Delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>-->
+                <div class="modal-body">
+                    <div class="form-content p-2">
+                        <h4 class="modal-title">Delete</h4>
+                        <p class="mb-4">Are you sure want to delete?</p>
+                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Delete Modal -->
 </div>
 <!-- /Main Wrapper -->
 
 <!-- jQuery -->
 <script src="assets/js/jquery-3.2.1.min.js"></script>
-
 <!-- Bootstrap Core JS -->
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -245,5 +311,5 @@
 
 </body>
 
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/appointment-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:49 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/invoice-report.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:53 GMT -->
 </html>

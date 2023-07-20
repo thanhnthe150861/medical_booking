@@ -929,8 +929,8 @@ button.bg-danger:hover {
 	border-bottom-color:#00d0f1;
 }
 .bg-info-light{
-	background-color:rgba(2, 182, 179,0.12) !important;
-	color:#1db9aa !important;
+	background-color:#48f542 !important;
+	color:white !important;
 }
 .bg-primary-light{
 	background-color:rgba(17, 148, 247,0.12) !important;

@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Dashboard</title>
+    <title>Doccure - Edit Patient</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -33,217 +33,20 @@
 </head>
 <body>
 
-					
-					<!-- User Menu -->
-					<li class="nav-item dropdown has-arrow">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-							<span class="user-img"><img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
-						</a>
-						<div class="dropdown-menu">
-							<div class="user-header">
-								<div class="avatar avatar-sm">
-									<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
-								</div>
-								<div class="user-text">
-									<h6>Ryan Taylor</h6>
-									<p class="text-muted mb-0">Administrator</p>
-								</div>
-							</div>
-							<a class="dropdown-item" href="admin_dashboard">My Profile</a>
-							<a class="dropdown-item" href="login">Logout</a>
-						</div>
-					</li>
-					<!-- /User Menu -->
-					
-				</ul>
-				<!-- /Header Right Menu -->
-				
-            </div>
-			<!-- /Header -->
-			
-<!-- Sidebar -->
-			<div class="sidebar" id="sidebar">
-				<div class="sidebar-inner slimscroll">
-					<div id="sidebar-menu" class="sidebar-menu">
-						<ul>
-							<li class="menu-title">
-								<span>Main</span>
-							</li>
-							<li>
-								<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
-							</li>
-							<li>
-								<a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
-							</li>
-							<li>
-								<a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
-							</li>
-							<li>
-								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
-							</li>
-							<li>
-								<a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
-							</li>
-							<li>
-								<a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
-							</li>
-							<li>
-								<a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
-							</li>
-							<li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
-									<li><a href="form_details?str=doctor">Doctor</a></li>
-									<li class="active"><a href="form_details?str=patient">Patient</a></li>
-									<li><a href="form_details?str=staff">Staff</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="login">
-									<i class="fas fa-sign-out-alt"></i>
-									<span>Logout</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!-- /Sidebar -->
-			
-			
-			<!-- Page Wrapper -->
-            <div class="page-wrapper">
-                <div class="content container-fluid">
-				
-					<!-- Page Header -->
-					<div class="page-header">
-						<div class="row">
-							<div class="col">
-								<h3 class="page-title">Form Details</h3>
-								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="admin_dashboard">Dashboard</a></li>
-									<li class="breadcrumb-item active">Form Details</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /Page Header -->
-					
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title"><c:if test="${sessionScope.patient eq null}">ADD NEW</c:if><c:if test="${sessionScope.patient ne null}">UPDATE</c:if> PATIENT</h4>
-									<!-- Place this code where you want to display the error message -->
-									<% String errorMessage = (String) request.getAttribute("messError"); %>
-									<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-									<div class="alert alert-danger" role="alert">
-										<%= errorMessage %>
-									</div>
-									<% } %>
-									<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
-									<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
-									<div class="alert alert-success" role="alert">
-										<%= messSuccess %>
-									</div>
-									<% } %>
-								</div>
-								<div class="card-body">
-									<form action="form_details" method="post" enctype="multipart/form-data">
-										<div class="form-group mb-0 row">
-											<div class="col-md-2">
-												<div class="change-avatar">
-													<div class="profile-img">
-														<img src="${sessionScope.patient.url}" alt="User Image" style="width: 200px; height: 200px; object-fit: cover;" >
-													</div>
-													<div class="upload-img">
-														<label for="photo-upload" class="change-photo-btn">
-															<span><i class="fa fa-upload"></i> Upload Photo</span>
-														</label>
-														<input type="file" id="photo-upload" class="upload" name="file" style="display: none;">
-														<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">User Name</label>
-											<div class="col-md-10">
-												<input type="text" class="form-control" name="username" required <c:if test="${sessionScope.patient ne null}"> readonly="readonly" value="${sessionScope.patient.account.username}"</c:if>>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Password</label>
-											<div class="col-md-10">
-												<input type="text" class="form-control" name="password" required value="${sessionScope.patient.account.password}">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Name</label>
-											<div class="col-md-10">
-												<input type="text" class="form-control" name="name" required value="${sessionScope.patient.name}">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Phone</label>
-											<div class="col-md-10">
-												<input type="text" class="form-control" name="phone" required value="${sessionScope.patient.account.phone}">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Email</label>
-											<div class="col-md-10">
-												<input type="text" class="form-control" name="email" required value="${sessionScope.patient.account.email}">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Date Of Birth</label>
-											<div class="col-md-10">
-												<input class="form-control" type="date" name="dob" required value="${sessionScope.patient.dob}">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Gender</label>
-											<div class="col-md-10">
-												<select class="form-control select" name="gender" required>
-													<option>Select</option>
-													<option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>Male</option>
-													<option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>Female</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Rank</label>
-											<div class="col-md-10">
-													<select class="form-control select" name="rank" required>
-														<c:forEach items="${sessionScope.rankListPatient}" var="rlp">
-															<option value="${rlp.id}" ${sessionScope.patient.rankId == rlp.id ? "selected" : ""}>${rlp.name}</option>
-														</c:forEach>
-													</select>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">Status</label>
-											<div class="col-md-10">
-													<select class="form-control select" name="status" required>
-														<option value="true" ${sessionScope.patient.account.status == true ? "selected" : ""}>Active</option>
-														<option value="false" ${sessionScope.patient.account.status == false ? "selected" : ""}>Deactive</option>
-													</select>
-											</div>
-										</div>
-										<div class="submit-section">
-											<button type="submit" class="btn btn-primary submit-btn">Save</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-				</div>			
-			</div>
-			<!-- /Main Wrapper -->
-		
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+
+    <!-- Header -->
+    <div class="header">
+
+        <!-- Logo -->
+        <div class="header-left">
+            <a href="staff_dashboard" class="logo">
+                <span class="text-primary">Clinic</span>-TATQ
+            </a>
+            <a href="staff_dashboard" class="logo logo-small">
+                <span class="text-primary" width="50" height="50">Clinic</span>
+            </a>
         </div>
         <!-- /Logo -->
 
@@ -265,21 +68,21 @@
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
-                                                src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                                                src="images/staff/staff1.jpg" width="31"
+                                                alt="Swift Taylor"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="images/staff/staff1.jpg" alt="User Image"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Ryan Taylor</h6>
-                            <p class="text-muted mb-0">Administrator</p>
+                            <h6>Swift Taylor</h6>
+                            <p class="text-muted mb-0">Staff</p>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
+                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
                     <a class="dropdown-item" href="login">Logout</a>
                 </div>
             </li>
@@ -300,33 +103,29 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                     </li>
                     <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+                        <a href="list_doctor"><i class="fe fe-user"></i> <span>Doctors</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user"></i> <span>Doctors</span></a>
+                        <a href="list_patient"><i class="fe fe-user"></i> <span>Patients</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Invoice</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
-                    </li>
-                    <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span> Edit Details </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Doctor</a></li>
-                            <li class="active"><a href="form_details?str=patient">Patient</a></li>
-                            <li><a href="form_details?str=staff">Staff</a></li>
+                            <li><a href="edit_detail?str=doctor">Doctor</a></li>
+                            <li class="active"><a href="edit_detail?str=patient">Patient</a></li>
                         </ul>
                     </li>
                     <li>
@@ -352,7 +151,7 @@
                     <div class="col">
                         <h3 class="page-title">Form Details</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="admin_dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="staff_dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">Form Details</li>
                         </ul>
                     </div>
@@ -381,7 +180,7 @@
                             <% } %>
                         </div>
                         <div class="card-body">
-                            <form action="form_details" method="post">
+                            <form action="edit_detail" method="post">
                                 <div class="form-group mb-0 row">
                                     <label class="col-form-label col-md-2">Image</label>
                                     <div class="col-md-10">
@@ -449,6 +248,19 @@
                                     <label class="col-form-label col-md-2">Status</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="status" required>
+                                            <option value="true" ${sessionScope.patient.account.status == true ? "selected" : ""}>
+                                                Active
+                                            </option>
+                                            <option value="false" ${sessionScope.patient.account.status == false ? "selected" : ""}>
+                                                Deactive
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Rank</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control select" name="rank" required>
                                             <c:forEach items="${sessionScope.rankListPatient}" var="rld">
                                                 <option value="${rld.id}" ${sessionScope.patient.ranks.id == rld.id ? "selected" : ""}>${rld.name}</option>
                                             </c:forEach>

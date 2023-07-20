@@ -21,20 +21,18 @@ public class PatientDashboard extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
-        if (account != null && account.getIsAdmin() == 2) {
-            PatientDBContext patientDBContext = new PatientDBContext();
-            Patient patient = patientDBContext.getPatient(account);
-            List<MedicalRecord> medicalRecordList = patientDBContext.getInforMyPatients(patient);
-
+        PatientDBContext patientDBContext = new PatientDBContext();
+        if (account != null && account.getIsAdmin() == 2){
             String id = req.getParameter("id");
             String status = req.getParameter("status");
+            // Kiểm tra xem các tham số có tồn tại hay không
             if (id != null && status != null) {
                 // Cập nhật trạng thái của đặt lịch
                 DoctorDBContext doctorDBContext = new DoctorDBContext();
                 doctorDBContext.updateBookingStatus(id, status);
-                req.setAttribute("messError", "Hủy lịch đặt thành công");
-                medicalRecordList = patientDBContext.getInforMyPatients(patient);
             }
+            Patient patient = patientDBContext.getPatient(account);
+            List<MedicalRecord> medicalRecordList = patientDBContext.getInforMyPatients(patient);
             session.setAttribute("patient", patient);
             session.setAttribute("medicalRecordList", medicalRecordList);
             String bill = req.getParameter("bill");
@@ -44,10 +42,13 @@ public class PatientDashboard extends HttpServlet {
             if (medical != null && medical.equals("true")) {
                 forwardUrl = "view/patient/dashboard-medical-record.jsp";
             }
-
-            req.getRequestDispatcher(forwardUrl).forward(req, resp);
-        } else {
-            req.getRequestDispatcher("login").forward(req, resp);
+            req.getRequestDispatcher("view/patient/patient-dashboard.jsp").forward(req,resp);
         }
+        req.getRequestDispatcher("login");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
     }
 }

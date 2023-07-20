@@ -24,7 +24,7 @@ public class DBContext {
             String serverName = "localhost";//đang kết nối với database localhost
             //Acc localhost
             String user = "root";           //Account mySQL
-            String pass = "Thanh1742001.";      //Password mySQL
+            String pass = "Tuan@3006";      //Password mySQL
 
 
             String url = "jdbc:mysql://"+serverName+":"+portNumber+"/"+dbName;
