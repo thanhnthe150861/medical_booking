@@ -132,7 +132,7 @@
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container-fluid">
-					<form class="row" action="doctor_profile_settings" method="post">
+					<form class="row" action="doctor_profile_settings" method="post" enctype="multipart/form-data">
 						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
 
 							<!-- Profile Sidebar -->

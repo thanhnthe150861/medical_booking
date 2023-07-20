@@ -178,7 +178,7 @@
 									<% } %>
 								</div>
 								<div class="card-body">
-									<form action="form_details" method="post">
+									<form action="form_details" method="post" enctype="multipart/form-data">
 										<div class="form-group mb-0 row">
 											<div class="col-md-2">
 												<div class="change-avatar">
@@ -244,24 +244,20 @@
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Rank</label>
 											<div class="col-md-10">
-												<label>
 													<select class="form-control select" name="rank" required>
 														<c:forEach items="${sessionScope.rankListPatient}" var="rlp">
 															<option value="${rlp.id}" ${sessionScope.patient.rankId == rlp.id ? "selected" : ""}>${rlp.name}</option>
 														</c:forEach>
 													</select>
-												</label>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Status</label>
 											<div class="col-md-10">
-												<label>
 													<select class="form-control select" name="status" required>
 														<option value="true" ${sessionScope.patient.account.status == true ? "selected" : ""}>Active</option>
 														<option value="false" ${sessionScope.patient.account.status == false ? "selected" : ""}>Deactive</option>
 													</select>
-												</label>
 											</div>
 										</div>
 										<div class="submit-section">

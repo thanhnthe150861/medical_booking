@@ -204,7 +204,7 @@
 								<div class="card-body">
 									
 									<!-- Profile Settings Form -->
-									<form action="patient_profile_settings" method="post">
+									<form action="patient_profile_settings" method="post" enctype="multipart/form-data">
 										<div class="row form-row">
 											<div class="col-12 col-md-12">
 												<div class="form-group">

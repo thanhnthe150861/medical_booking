@@ -178,7 +178,7 @@
 									<% } %>
 								</div>
 								<div class="card-body">
-									<form action="form_details" method="post">
+									<form action="form_details" method="post" enctype="multipart/form-data">
 										<div class="form-group mb-0 row">
 											<div class="col-md-2">
 												<div class="change-avatar">
