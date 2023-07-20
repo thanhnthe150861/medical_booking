@@ -1,13 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hp
-  Date: 6/1/2023
-  Time: 10:25 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
-<html lang="en">
+<html>
 <head>
     <title>Register</title>
     <meta charset="utf-8">
@@ -57,17 +50,17 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="name" placeholder="Name" required>
                         </div>
-<%--                        <div class="form-group">--%>
-<%--                            <input type="text" class="form-control" name="phone" placeholder="Phone" required>--%>
-<%--                        </div>--%>
+                        <%--                        <div class="form-group">--%>
+                        <%--                            <input type="text" class="form-control" name="phone" placeholder="Phone" required>--%>
+                        <%--                        </div>--%>
                         <div class="form-group">
                             <input type="text" class="form-control" name="email" placeholder="Email" required>
                         </div>
                         <!-- Existing form fields... -->
                         <div class="form-group d-md-flex">
                             <label class="checkbox">
-                            <input type="checkbox" name="agree" required>
-                            <label class="form-check-label">Tôi đồng ý với các <a href="#">điều khoản</a></label>
+                                <input type="checkbox" name="agree" required>
+                                <label class="form-check-label">Tôi đồng ý với các <a href="#">điều khoản</a></label>
                             </label>
                         </div>
                         <!-- Existing form fields... -->

@@ -1,13 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hp
-  Date: 5/31/2023
-  Time: 5:29 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
-<html lang="en">
+<html>
 <head>
     <title>Login</title>
     <meta charset="utf-8">
@@ -44,7 +37,8 @@
                             <input type="text" class="form-control" placeholder="Username" name="username" required>
                         </div>
                         <div class="form-group">
-                            <input id="password-field" type="password" class="form-control" name="password" placeholder="Password" required>
+                            <input id="password-field" type="password" class="form-control" name="password"
+                                   placeholder="Password" required>
                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
