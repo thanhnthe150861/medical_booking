@@ -84,19 +84,19 @@ public class EditDetail extends HttpServlet {
 
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                request.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+                request.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
                 request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
                 return;
             }
             // Validate specialty: should not contain special characters
             if (!specialty.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                request.setAttribute("messError", "Speciality không được chứa ký tự đặc biệt");
+                request.setAttribute("messError", "Chuyên môn không được chứa ký tự đặc biệt");
                 request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
-                request.setAttribute("messError", "Phone sai định dạng");
+                request.setAttribute("messError", "Số điện thoại sai định dạng");
                 request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
                 return;
             }
@@ -137,13 +137,13 @@ public class EditDetail extends HttpServlet {
 
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                request.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+                request.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
                 request.getRequestDispatcher("view/staff/patient-detail.jsp").forward(request, response);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
-                request.setAttribute("messError", "Phone sai định dạng");
+                request.setAttribute("messError", "Số điện thoại sai định dạng");
                 request.getRequestDispatcher("view/staff/patient-detail.jsp").forward(request, response);
                 return;
             }
@@ -170,133 +170,7 @@ public class EditDetail extends HttpServlet {
             session.removeAttribute("pid");
             response.sendRedirect("view/staff/patient-detail.jsp");
         }
-        //Add
-        String str = (String) session.getAttribute("str");
-        if (str.equals("doctor")) {
-            String user = request.getParameter("username");
-            String pass = request.getParameter("password");
-            String url = request.getParameter("file");
-            String name = request.getParameter("name");
-            String gender = request.getParameter("gender");
-            String dob = request.getParameter("dob");
-            String specialty = request.getParameter("speciality");
-            String phone = request.getParameter("phone");
-            String email = request.getParameter("email");
-            // Validate user: should not contain special characters
-            if (!user.matches("^[a-zA-Z0-9_]*$")) {
-                request.setAttribute("messError", "User không được chứa ký tự đặc biệt");
-                request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
-                return;
-            }
-            // Validate name: should not contain special characters
-            if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                request.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
-                request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
-                return;
-            }
-            // Validate specialty: should not contain special characters
-            if (!specialty.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                request.setAttribute("messError", "Speciality không được chứa ký tự đặc biệt");
-                request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
-                return;
-            }
-            // Validate phone: should only contain numbers and not exceed 10 digits
-            if (!phone.matches("^[0-9]{10}$")) {
-                request.setAttribute("messError", "Phone sai định dạng");
-                request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
-                return;
-            }
-            // Validate email: should be in the correct email format
-            if (!email.matches("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$")) {
-                request.setAttribute("messError", "Email sai định dạng");
-                request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
-                return;
-            }
-            AccountDB adb = new AccountDB();
-            if (adb.checkAccountExist(user) == null) {
-                Account account = new Account();
-                account.setStatus(true);
-                account.setPhone(phone);
-                account.setEmail(email);
-                account.setUsername(user);
-                account.setPassword(pass);
-                account.setIsAdmin(1);
-                Doctor doctor = new Doctor();
-                doctor.setUserName(user);
-                doctor.setUrl(url);
-                doctor.setName(name);
-                doctor.setGender(gender);
-                doctor.setDob(Date.valueOf(dob));
-                doctor.setSpecialty(specialty);
-                doctor.setRankId(1);
-                doctor.setAccount(account);
-                adb.addNewDoctor(doctor);
-                request.setAttribute("messSuccess", "Tạo tài khoản thành công");
-                request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
-            } else {
-                request.setAttribute("messError", "User đã tồn tại");
-                request.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(request, response);
-            }
-        } else if (str.equals("patient")) {
-            String user = request.getParameter("username");
-            String pass = request.getParameter("password");
-            String url = request.getParameter("file");
-            String name = request.getParameter("name");
-            String gender = request.getParameter("gender");
-            String dob = request.getParameter("dob");
-            String phone = request.getParameter("phone");
-            String email = request.getParameter("email");
-            // Validate user: should not contain special characters
-            if (!user.matches("^[a-zA-Z0-9_]*$")) {
-                request.setAttribute("messError", "User không được chứa ký tự đặc biệt");
-                request.getRequestDispatcher("view/staff/patient-detail.jsp").forward(request, response);
-                return;
-            }
-            // Validate name: should not contain special characters
-            if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                request.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
-                request.getRequestDispatcher("view/staff/patient-detail.jsp").forward(request, response);
-                return;
-            }
-            // Validate phone: should only contain numbers and not exceed 10 digits
-            if (!phone.matches("^[0-9]{10}$")) {
-                request.setAttribute("messError", "Phone sai định dạng");
-                request.getRequestDispatcher("view/staff/patient-detail.jsp").forward(request, response);
-                return;
-            }
-            // Validate email: should be in the correct email format
-            if (!email.matches("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$")) {
-                request.setAttribute("messError", "Email sai định dạng");
-                request.getRequestDispatcher("view/staff/patient-detail.jsp").forward(request, response);
-                return;
-            }
-            AccountDB adb = new AccountDB();
-            if (adb.checkAccountExist(user) == null) {
-                Account account = new Account();
-                account.setStatus(true);
-                account.setPhone(phone);
-                account.setEmail(email);
-                account.setUsername(user);
-                account.setPassword(pass);
-                account.setIsAdmin(2);
-                Patient patient = new Patient();
-                patient.setUserName(user);
-                patient.setUrl(url);
-                patient.setName(name);
-                patient.setGender(gender);
-                patient.setDob(Date.valueOf(dob));
-                patient.setRankId(1);
-                patient.setAccount(account);
-                adb.addNewPatient(patient);
-                request.setAttribute("messSuccess", "Tạo tài khoản thành công");
-                request.getRequestDispatcher("view/staff/patient-detail.jsp").forward(request, response);
-            } else {
-                request.setAttribute("messError", "User đã tồn tại");
-                request.getRequestDispatcher("view/staff/patient-detail.jsp").forward(request, response);
-            }
-        } else if (str == null) {
-            response.sendRedirect("staff_dashboard");
-        }
+
     }
 
 }

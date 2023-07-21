@@ -140,10 +140,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col">
-                        <h3 class="page-title">Form Details</h3>
+                        <h3 class="page-title">Thông tin bác sĩ</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="staff_dashboard">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Form Details</li>
+                            <li class="breadcrumb-item"><a href="staff_dashboard">Bảng iều khiển</a></li>
+                            <li class="breadcrumb-item active">Thông tin bác sĩ</li>
                         </ul>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                             <% } %>
                         </div>
                         <div class="card-body">
-                            <form action="form_details" method="post" enctype="multipart/form-data">
+                            <form action="edit_detail" method="post" enctype="multipart/form-data">
                                 <div class="form-group mb-0 row">
                                     <div class="col-md-2">
                                         <div class="change-avatar">
