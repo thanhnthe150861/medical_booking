@@ -1,13 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hp
-  Date: 6/6/2023
-  Time: 10:27 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <title>Reset Password</title>
   <meta charset="utf-8">
@@ -25,34 +18,34 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6 text-center mb-5">
-        <h2 class="heading-section">Medical Booking</h2>
+        <h2 class="heading-section">Đặt lịch khám</h2>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="login-wrap p-0">
-          <h3 class="mb-4 text-center">Reset Password</h3>
+          <h3 class="mb-4 text-center">Cấp lại mật khẩu</h3>
           <form action="reset_password" class="login-form" method="post">
             <div class="form-group">
               <input type="text" hidden="hidden" class="form-control" placeholder="Username" value="${requestScope.account.username}" name="username" required>
             </div>
             <div class="form-group">
-              <input  type="text" class="form-control" name="password" placeholder="Password" required>
+              <input  type="text" class="form-control" name="password" placeholder="Mật khẩu" required>
               <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
             <div class="form-group">
-              <input  type="text" class="form-control" name="repassword" placeholder="RePassword" required>
+              <input  type="text" class="form-control" name="repassword" placeholder="Nhập lại mật khẩu" required>
               <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
             <div class="form-group">
-              <button type="submit" class="form-control btn btn-primary submit px-3">Submit</button>
+              <button type="submit" class="form-control btn btn-primary submit px-3">Lưu</button>
             </div>
             <div class="form-group d-md-flex">
               <div class="w-50 text-md-left">
-                <a href="login" style="color: #fff">Login</a>
+                <a href="login" style="color: #fff">Đăng nhập</a>
               </div>
               <div class="w-50 text-md-right">
-                <a href="register" style="color: #fff">Register</a>
+                <a href="register" style="color: #fff">Tạo tài khoản</a>
               </div>
             </div>
           </form>

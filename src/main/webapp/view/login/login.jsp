@@ -1,13 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hp
-  Date: 5/31/2023
-  Time: 5:29 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
-<html lang="en">
+<html>
 <head>
     <title>Login</title>
     <meta charset="utf-8">
@@ -31,7 +24,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
-                    <h3 class="mb-4 text-center">Login</h3>
+                    <h3 class="mb-4 text-center">Đăng nhập</h3>
                     <!-- Place this code where you want to display the error message -->
                     <% String errorMessage = (String) request.getAttribute("messError"); %>
                     <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
@@ -52,8 +45,8 @@
                         </div>
                         <div class="form-group d-md-flex">
                             <div class="w-50 text-md-left">
-                                <a href="register" style="color: #fff">Register</a><br>
-                                <a href="forgot" style="color: #fff">Forgot Password</a>
+                                <a href="register" style="color: #fff">Tạo tài khoản</a><br>
+                                <a href="forgot" style="color: #fff">Quên mật khẩu</a>
                             </div>
                         </div>
                     </form>
