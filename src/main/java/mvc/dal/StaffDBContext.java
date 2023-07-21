@@ -131,6 +131,7 @@ public class StaffDBContext extends DBContext {
         }
         return 0;
     }
+
     public int getTotalPatient(){
         try {
             String sql = "SELECT COUNT(*) AS total_patients FROM patient;";

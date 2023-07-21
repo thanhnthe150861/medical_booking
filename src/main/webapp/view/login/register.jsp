@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Đăng kí</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -18,13 +18,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
-                <h2 class="heading-section">Medical Booking</h2>
+                <h2 class="heading-section">Clinic TQTA</h2>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="login-wrap p-0">
-                    <h3 class="mb-4 text-center">Register</h3>
+                    <h3 class="mb-4 text-center">Đăng kí</h3>
                     <!-- Place this code where you want to display the error message -->
                     <% String errorMessage = (String) request.getAttribute("messError"); %>
                     <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
@@ -40,15 +40,15 @@
                     <% } %>
                     <form action="register" class="login-form" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username" name="username" required>
+                            <input type="text" class="form-control" placeholder="Tài khoản" name="username" required>
                         </div>
                         <div class="form-group">
                             <input id="password-field" type="password" class="form-control" name="password"
-                                   placeholder="Password" required>
+                                   placeholder="Mật khẩu" required>
                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Name" required>
+                            <input type="text" class="form-control" name="name" placeholder="Tên" required>
                         </div>
                         <%--                        <div class="form-group">--%>
                         <%--                            <input type="text" class="form-control" name="phone" placeholder="Phone" required>--%>
@@ -65,14 +65,14 @@
                         </div>
                         <!-- Existing form fields... -->
                         <div class="form-group">
-                            <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
+                            <button type="submit" class="form-control btn btn-primary submit px-3">Đăng kí</button>
                         </div>
                         <div class="form-group d-md-flex">
                             <div class="w-50 text-md-left">
-                                <a href="login" style="color: #fff">Login</a>
+                                <a href="login" style="color: #fff">Đăng nhập</a>
                             </div>
                             <div class="w-50 text-md-right">
-                                <a href="forgot" style="color: #fff">Forgot Password</a>
+                                <a href="forgot" style="color: #fff">Quên mật khẩu</a>
                             </div>
                         </div>
                     </form>

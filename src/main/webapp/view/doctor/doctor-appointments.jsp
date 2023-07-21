@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -69,7 +70,7 @@
                     </div>
                     <div class="header-contact-detail">
                         <p class="contact-header">Contact</p>
-                        <p class="contact-info-header"> +1 315 369 5943</p>
+                        <p class="contact-info-header"> +84 868746275</p>
                     </div>
                 </li>
 
@@ -295,7 +296,30 @@
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-menu">
                             <h2 class="footer-title">For Patients</h2>
-                            <ul>
+                            <ul>i>
+                                    Register</a></li>
+                                <li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor
+                                    Dashboard</a></li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="col-lg-3 col-md-6">
+
+                            <!-- Footer Widget -->
+                            <div class="footer-widget footer-contact">
+                                <h2 class="footer-title">Contact Us</h2>
+                                <div class="footer-contact-info">
+                                    <div class="footer-address">
+                                        <span><i class="fas fa-map-marker-alt"></i></span>
+                                        <p> FPT University<br> Hòa Lạc, Hà Nội </p>
+                                    </div>
+                                    <p>
+                                        <i class="fas fa-phone-alt"></i>
                                 <li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for
                                     Doctors</a></li>
                                 <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
@@ -319,37 +343,16 @@
                                     Appointments</a></li>
                                 <li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
                                 <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i>
-                                    Register</a></li>
-                                <li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor
-                                    Dashboard</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-contact">
-                            <h2 class="footer-title">Contact Us</h2>
-                            <div class="footer-contact-info">
-                                <div class="footer-address">
-                                    <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> 3556 Beech Street, San Francisco,<br> California, CA 94108 </p>
+                                <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></
+                                        +84 868746275
+                                    </p>
+                                    <p class="mb-0">
+                                        <i class="fas fa-envelope"></i>
+                                        quyetlbche160252@fpt.edu.vn
+                                    </p>
                                 </div>
-                                <p>
-                                    <i class="fas fa-phone-alt"></i>
-                                    +1 315 369 5943
-                                </p>
-                                <p class="mb-0">
-                                    <i class="fas fa-envelope"></i>
-                                    doccure@example.com
-                                </p>
                             </div>
-                        </div>
-                        <!-- /Footer Widget -->
+                            <!-- /Footer Widget -->
 
                     </div>
 

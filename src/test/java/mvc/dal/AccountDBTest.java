@@ -99,7 +99,7 @@ class AccountDBTest {
     }
     @Test
     public void testRegisterTrue() {
-
+        // vì phone trong database để NotNull, cách pass là vào chỉnh lại thành Null
         Account account = new Account();
         account.setUsername("testuser123121");
         account.setPassword("testpassword");
@@ -114,7 +114,7 @@ class AccountDBTest {
     }
     @Test
     public void testRegisterFalse() {
-
+// vì phone trong database để NotNull, cách pass là vào chỉnh lại thành Null
         Account account = new Account();
         account.setUsername("testuser123121");
         account.setPassword("testpassword");
@@ -176,7 +176,7 @@ class AccountDBTest {
         // Set other properties of the patient object
         // Create a sample Account object
         Account account = new Account();
-        account.setUsername("doctor@@");
+        account.setUsername("doctor@@@");
         account.setPassword("password");
         account.setPhone("123213121");
         account.setEmail("quyetlbche160252@fpt.edu.vn");
@@ -191,7 +191,7 @@ class AccountDBTest {
         accountDB.addNewDoctor(doctor);
         // Assert that the patient is added successfully
         // Write assertions based on the expected behavior of the addNewPatient() method
-        assertEquals(account.getUsername(),"doctor@@");
+        assertEquals(account.getUsername(),"doctor@@@");
         assertEquals(account.getPassword(),"password");
         assertEquals(account.getPhone(),"123213121");
         assertEquals(account.getEmail(),"quyetlbche160252@fpt.edu.vn");

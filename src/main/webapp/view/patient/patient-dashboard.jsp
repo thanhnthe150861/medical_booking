@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <!-- doccure/patient-dashboard.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
@@ -43,43 +44,42 @@
 								<span></span>
 								<span></span>
 							</span>
-                </a>
-                <a href="home" class="navbar-brand logo">
-                    <span class="text-primary">Clinic</span>-TATQ
-                </a>
-            </div>
-            <div class="main-menu-wrapper">
-                <div class="menu-header">
-                    <a href="home" class="menu-logo">
-                        <span class="text-primary" width="50" height="50">Clinic</span>
-                    </a>
-                    <a id="menu_close" class="menu-close" href="javascript:void(0);">
-                        <i class="fas fa-times"></i>
-                    </a>
-                </div>
-                <ul class="main-nav">
-                    <li>
-                        <a href="home">Home</a>
-                    </li>
-                    <li>
-                        <a href="booking">Booking</a>
-                    </li>
-                </ul>
-            </div>
-            <ul class="nav header-navbar-rht">
-                <li class="nav-item contact-item">
-                    <div class="header-contact-img">
-                        <i class="far fa-hospital"></i>
-                    </div>
-                    <div class="header-contact-detail">
-                        <p class="contact-header">Contact</p>
-                        <p class="contact-info-header"> +1 315 369 5943</p>
-                    </div>
-                </li>
-
-                <!-- User Menu -->
-                <li class="nav-item dropdown has-arrow logged-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+						</a>
+						<a href="home" class="navbar-brand logo">
+							<span class="text-primary">Clinic</span>-TATQ
+						</a>
+					</div>
+					<div class="main-menu-wrapper">
+						<div class="menu-header">
+							<a href="home" class="menu-logo">
+								<span class="text-primary" width="50" height="50">Clinic</span>
+							</a>
+							<a id="menu_close" class="menu-close" href="javascript:void(0);">
+								<i class="fas fa-times"></i>
+							</a>
+						</div>
+						<ul class="main-nav">
+							<li>
+								<a href="home">Home</a>
+							</li>
+							<li>
+								<a href="booking">Đặt lịch</a>
+							</li>
+						</ul>
+					</div>
+					<ul class="nav header-navbar-rht">
+						<li class="nav-item contact-item">
+							<div class="header-contact-img">
+								<i class="far fa-hospital"></i>
+							</div>
+							<div class="header-contact-detail">
+								<p class="contact-header">Liên hệ</p>
+								<p class="contact-info-header"> +84 868746275</p>
+							</div>
+						</li>
+						<!-- User Menu -->
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
 									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
                                          alt="Ryan Taylor">
@@ -96,9 +96,9 @@
                                 <p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="patient_dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
-                        <a class="dropdown-item" href="login">Logout</a>
+                        <a class="dropdown-item" href="patient_dashboard">Bảng Điều Khiển</a>
+								<a class="dropdown-item" href="patient_profile_settings">Cài Đặt </a>
+								<a class="dropdown-item" href="login">Đăng Xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -109,22 +109,22 @@
     <!-- /Header -->
 
     <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-12 col-12">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Dashboard</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="home">Clinic TQTA</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Bảng Điều Khiển</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Bảng Điều Khiển</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
 
     <!-- Page Content -->
     <div class="content">
@@ -154,40 +154,40 @@
                         <div class="dashboard-widget">
                             <nav class="dashboard-menu">
                                 <ul>
-                                    <li class="active">
+                                    <li>
                                         <a href="patient_dashboard">
                                             <i class="fas fa-columns"></i>
-                                            <span>Dashboard</span>
+                                            <span>Bảng điều khiển</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="my_doctor">
                                             <i class="fas fa-user-md"></i>
-                                            <span>My Doctor</span>
+                                            <span>Bác sĩ của tôi</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="active">
                                         <a href="invoice_patient">
                                             <i class="fas fa-file-invoice"></i>
-                                            <span>Invoices</span>
+                                            <span>Hóa đơn</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="patient_profile_settings">
                                             <i class="fas fa-user-cog"></i>
-                                            <span>Profile Settings</span>
+                                            <span>Thông tin cá nhân</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="patient_change_password">
                                             <i class="fas fa-lock"></i>
-                                            <span>Change Password</span>
+                                            <span>Thay đổi mật khẩu</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="login">
                                             <i class="fas fa-sign-out-alt"></i>
-                                            <span>Logout</span>
+                                            <span>Đăng xuất</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -203,44 +203,43 @@
                         <div class="card-body pt-0">
 
                             <!-- Tab Menu -->
-                            <nav class="user-tabs mb-4">
-                                <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="patient_dashboard">Appointments</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="patient_dashboard?medical=true"><span
-                                                class="med-records">Medical Records</span></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <!-- /Tab Menu -->
-
-                            <!-- Tab Content -->
-                            <div class="tab-content pt-0">
-
-                                <!-- Appointment Tab -->
-                                <div id="pat_appointments" class="tab-pane fade show active">
-                                    <div class="card card-table mb-0">
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <!-- Place this code where you want to display the error message -->
-                                                <% String errorMessage = (String) request.getAttribute("messError"); %>
-                                                <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-                                                <div class="alert alert-danger" role="alert">
-                                                    <%= errorMessage %>
-                                                </div>
-                                                <%}%>
-                                                <table class="table table-hover table-center mb-0">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Doctor</th>
-                                                        <th></th>
-                                                        <th>Booking Date</th>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th>Status</th>
-                                                        <th></th>
+									<nav class="user-tabs mb-4">
+										<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+											<li class="nav-item">
+												<a class="nav-link active" href="patient_dashboard">Cuộc hẹn</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="patient_dashboard?medical=true" ><span class="med-records">Hồ sơ bệnh án</span></a>
+											</li>
+										</ul>
+									</nav>
+									<!-- /Tab Menu -->
+									
+									<!-- Tab Content -->
+									<div class="tab-content pt-0">
+										
+										<!-- Appointment Tab -->
+										<div id="pat_appointments" class="tab-pane fade show active">
+											<div class="card card-table mb-0">
+												<div class="card-body">
+													<div class="table-responsive">
+														<!-- Place this code where you want to display the error message -->
+														<% String errorMessage = (String) request.getAttribute("messError"); %>
+														<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+														<div class="alert alert-danger" role="alert">
+															<%= errorMessage %>
+														</div>
+														<%}%>
+														<table class="table table-hover table-center mb-0">
+															<thead>
+																<tr>
+																	<th>Bác sĩ</th>
+																	<th></th>
+																	<th>Thời gian đặt lịch</th>
+																	<th></th>
+																	<th></th>
+																	<th>Trạng thái</th>
+																	<th></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -274,18 +273,18 @@
                                                                     <div class="table-action">
                                                                         <a href="javascript:void(0);"
                                                                            class="btn btn-sm bg-info-light">
-                                                                            <i class="far fa-eye"></i> View
+                                                                            <i class="far fa-eye"></i> Xem
                                                                         </a>
                                                                         <c:if test="${m.booking.status == 'Pending'}">
                                                                             <a href="patient_dashboard?id=${m.booking.id}&status=Cancelled"
                                                                                class="btn btn-sm bg-danger-light">
-                                                                                <i class="far fa-trash-alt"></i> Cancel
+                                                                                <i class="far fa-trash-alt"></i> Hủy
                                                                             </a>
                                                                         </c:if>
                                                                         <c:if test="${m.booking.status == 'Completed'}">
                                                                             <a href="javascript:void(0);"
                                                                                class="btn btn-sm bg-primary-light">
-                                                                                <i class="far fa-clock"></i> Reschedule
+                                                                                <i class="far fa-clock"></i> Đặt Lại
                                                                             </a>
                                                                         </c:if>
                                                                     </div>
@@ -315,149 +314,78 @@
     <!-- /Page Content -->
 
     <!-- Footer -->
-    <footer class="footer">
+			<footer class="footer">
+				
+				<!-- Footer Top -->
+				<div class="footer-top">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
 
-        <!-- Footer Top -->
-        <div class="footer-top">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-about">
+									<a href="home" class="navbar-brand logo">
+										<span class="text-primary">Clinic</span>-TATQ
+									</a>
+								</div>
+								<!-- /Footer Widget -->
+							</div>
 
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-about">
-                            <div class="footer-logo">
-                                <img src="assets/img/footer-logo.png" alt="logo">
-                            </div>
-                            <div class="footer-about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Footer Widget -->
+							<div class="col-lg-3 col-md-6">
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">Đối với bệnh nhân</h2>
+									<ul>
+										<li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
+										<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
+										<li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+							</div>
 
-                    </div>
 
-                    <div class="col-lg-3 col-md-6">
+							<div class="col-lg-3 col-md-6">
 
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Patients</h2>
-                            <ul>
-                                <li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for
-                                    Doctors</a></li>
-                                <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-                                <li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient
-                                    Dashboard</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact">
+									<h2 class="footer-title">Liên hệ chúng tôi</h2>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<span><i class="fas fa-map-marker-alt"></i></span>
+											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
+										</div>
+										<p>
+											<i class="fas fa-phone-alt"></i>
+											+84 868746275
+										</p>
+										<p class="mb-0">
+											<i class="fas fa-envelope"></i>
+											quyetlbche160252@fpt.edu.vn
+										</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+							</div>
 
-                    </div>
+						</div>
+					</div>
+				</div>
+				<!-- /Footer Top -->
+				
+				<!-- Footer Bottom -->
+                <div class="footer-bottom">
+					<div class="container-fluid">
+					
+						<!-- Copyright -->
 
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Doctors</h2>
-                            <ul>
-                                <li><a href="appointments.html"><i class="fas fa-angle-double-right"></i>
-                                    Appointments</a></li>
-                                <li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-                                <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i>
-                                    Register</a></li>
-                                <li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor
-                                    Dashboard</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-contact">
-                            <h2 class="footer-title">Contact Us</h2>
-                            <div class="footer-contact-info">
-                                <div class="footer-address">
-                                    <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> 3556 Beech Street, San Francisco,<br> California, CA 94108 </p>
-                                </div>
-                                <p>
-                                    <i class="fas fa-phone-alt"></i>
-                                    +1 315 369 5943
-                                </p>
-                                <p class="mb-0">
-                                    <i class="fas fa-envelope"></i>
-                                    doccure@example.com
-                                </p>
-                            </div>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- /Footer Top -->
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container-fluid">
-
-                <!-- Copyright -->
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                                <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-
-                            <!-- Copyright Menu -->
-                            <div class="copyright-menu">
-                                <ul class="policy-menu">
-                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                    <li><a href="privacy-policy.html">Policy</a></li>
-                                </ul>
-                            </div>
-                            <!-- /Copyright Menu -->
-
-                        </div>
-                    </div>
-                </div>
-                <!-- /Copyright -->
-
-            </div>
-        </div>
-        <!-- /Footer Bottom -->
-
-    </footer>
-    <!-- /Footer -->
+						
+					</div>
+				</div>
+				<!-- /Footer Bottom -->
+				
+			</footer>
+			<!-- /Footer -->
 
 </div>
 <!-- /Main Wrapper -->
