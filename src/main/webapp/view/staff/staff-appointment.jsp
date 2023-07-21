@@ -179,7 +179,7 @@
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
-                                                        src=""<%= appointment.getBooking().getDoctor().getUrl() %>""
+                                                        src="<%= appointment.getBooking().getDoctor().getUrl() %>"
                                                         alt="User Image"></a>
                                                 <a href="#"><%= appointment.getBooking().getDoctor().getName() %>
                                                 </a>
@@ -191,7 +191,7 @@
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
-                                                        src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+                                                        src="<%= appointment.getBooking().getPatient().getUrl() %>" alt="User Image"></a>
                                                 <a href="#"><%= appointment.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>
@@ -211,7 +211,7 @@
                                             <% } %>
                                         </td>
                                         <td class="text-left">
-                                            $<%= appointment.getBill().getTotalPrice() %>
+                                            <%= appointment.getBill().getTotalPrice() %>.000 VND
                                         </td>
                                     </tr>
                                     <% } %>

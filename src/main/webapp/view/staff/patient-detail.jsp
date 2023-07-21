@@ -154,7 +154,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><c:if test="${sessionScope.patient eq null}">THÊM THÔNG TIN</c:if><c:if
+                            <h4 class="card-title"><c:if test="${sessionScope.patient eq null}">THÊM</c:if><c:if
                                     test="${sessionScope.patient ne null}">CẬP NHẬT THÔNG TIN</c:if> BỆNH NHÂN</h4>
                             <!-- Place this code where you want to display the error message -->
                             <% String errorMessage = (String) request.getAttribute("messError"); %>

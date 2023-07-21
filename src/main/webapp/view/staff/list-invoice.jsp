@@ -112,17 +112,17 @@
                         <a href="list_patient"><i class="fe fe-user"></i> <span>Danh sách bệnh nhân</span></a>
                     </li>
                     <li class="active">
-                        <a href="list_invoice"><i class="fe fe-user"></i> <span>Hóa đơn</span></a>
+                        <a href="list_invoice"><i class="fe fe-document"></i> <span>Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="staff_profile"><i class="fe fe-user"></i><span>Thông tin cá nhân</span></a>
+                        <a href="staff_profile"><i class="fe fe-edit"></i><span>Thông tin cá nhân</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user"></i> <span>Đổi mật khẩu</span></a>
+                        <a href="staff_change_password"><i class="fe fe-edit"></i> <span>Đổi mật khẩu</span></a>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fa fa-sign-out-alt"></i>
+                            <i class="fe fe-eject"></i>
                             <span>Đăng xuất</span>
                         </a>
                     </li>

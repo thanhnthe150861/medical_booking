@@ -197,7 +197,7 @@
                                                 <a data-toggle="modal"
                                                    href="edit_detail?did=<%= doctor.getBooking().getDoctor().getId() %>"
                                                    class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> LƯU
+                                                    <i class="fe fe-pencil"></i> Chỉnh sửa
                                                 </a>
                                             </div>
                                         </td>
