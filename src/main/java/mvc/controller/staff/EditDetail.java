@@ -88,7 +88,6 @@ public class EditDetail extends HttpServlet {
         //Update
         String did = (String) session.getAttribute("did");
         String pid = (String) session.getAttribute("pid");
-        String sid = (String) session.getAttribute("sid");
         if (did != null) {
             String pass = req.getParameter("password");
             String name = req.getParameter("name");
@@ -208,8 +207,6 @@ public class EditDetail extends HttpServlet {
 
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("pid");
-            session.removeAttribute("sid");
-            session.removeAttribute("staff");
             session.removeAttribute("patient");
             session.setAttribute("doctor", doctor);
             req.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(req, resp);
@@ -323,11 +320,9 @@ public class EditDetail extends HttpServlet {
             adb.UpdatePatient(patient);
             req.setAttribute("messSuccess", "Cập nhật thành công");
             session.removeAttribute("did");
-            session.removeAttribute("sid");
-            session.removeAttribute("staff");
             session.removeAttribute("doctor");
             session.setAttribute("patient", patient);
-            req.getRequestDispatcher("vview/staff/patient-details.jsp").forward(req, resp);
+            req.getRequestDispatcher("view/staff/patient-details.jsp").forward(req, resp);
         }
     }
 }
