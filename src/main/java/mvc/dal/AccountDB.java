@@ -88,15 +88,15 @@ public class AccountDB extends DBContext{
     public void Register(Account account, String name){
         try {
             //Insert Account
-            String sql = "INSERT account (username, password, email, isAdmin) " +
-                    "VALUES (?, ?, ?, ?)";
+            String sql = "INSERT account (username, password, email, isAdmin, status) " +
+                    "VALUES (?, ?, ?, ?, true)";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, account.getUsername());
             stm.setString(2, account.getPassword());
 //            stm.setString(3, account.getPhone());
             stm.setString(3, account.getEmail());
             stm.setInt(4, account.getIsAdmin());
-//            stm.setBoolean(6, account.getStatus());
+//            stm.setBoolean(5, account.getStatus());
             stm.executeUpdate();
             //Insert Patient
             String sql1 = "INSERT patient (username, name, rank_id)" +

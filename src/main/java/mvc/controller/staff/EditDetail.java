@@ -224,19 +224,19 @@ public class EditDetail extends HttpServlet {
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
                 req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
-                req.getRequestDispatcher("view/staff/patient-details.jsp").forward(req, resp);
+                req.getRequestDispatcher("view/staff/patient-detail.jsp").forward(req, resp);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
                 req.setAttribute("messError", "Số điện thoại sai định dạng");
-                req.getRequestDispatcher("view/staff/patient-details.jsp").forward(req, resp);
+                req.getRequestDispatcher("view/staff/patient-detail.jsp").forward(req, resp);
                 return;
             }
             // Validate email: should be in the correct email format
             if (!email.matches("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,3})+$")) {
                 req.setAttribute("messError", "Email sai định dạng");
-                req.getRequestDispatcher("view/staff/patient-details.jsp").forward(req, resp);
+                req.getRequestDispatcher("view/staff/patient-detail.jsp").forward(req, resp);
                 return;
             }
             AccountDB adb = new AccountDB();
@@ -257,7 +257,7 @@ public class EditDetail extends HttpServlet {
             if (fileSize > maxSize) {
                 // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
                 req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
-                req.getRequestDispatcher("view/staff/patient-details.jsp").forward(req, resp);
+                req.getRequestDispatcher("view/staff/patient-detail.jsp").forward(req, resp);
                 return;
             }
             if (part != null && part.getSize() > 0) {
@@ -322,7 +322,7 @@ public class EditDetail extends HttpServlet {
             session.removeAttribute("did");
             session.removeAttribute("doctor");
             session.setAttribute("patient", patient);
-            req.getRequestDispatcher("view/staff/patient-details.jsp").forward(req, resp);
+            req.getRequestDispatcher("view/staff/patient-detail.jsp").forward(req, resp);
         }
     }
 }
