@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html lang="en">
+<html>
 	
 <!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 <head>
@@ -59,7 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="home">Home</a>
+								<a href="home">Trang chủ</a>
 							</li>
 							<%--							<li class="has-submenu active">--%>
 							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
@@ -167,7 +167,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item"><a href="index-2.html">Trang chủ</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Add Billing</li>
 								</ol>
 							</nav>
