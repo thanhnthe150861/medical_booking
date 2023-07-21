@@ -178,7 +178,7 @@
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
-                                                        src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+                                                        src="<%= invoice.getBooking().getPatient().getUrl()%>" alt="User Image"></a>
                                                 <a href="#"><%= invoice.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>
