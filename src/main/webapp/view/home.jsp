@@ -9,7 +9,7 @@
 
     <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-    <title>One Health - Medical Center HTML5 Template</title>
+    <title>TATQ  CLINIC</title>
 
     <link rel="stylesheet" href="css/maicons.css">
 

@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Edit Patient</title>
+    <title>TATQ CLINIC - EDIT PATIENT</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
