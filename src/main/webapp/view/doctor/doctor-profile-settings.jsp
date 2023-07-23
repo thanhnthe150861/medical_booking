@@ -4,7 +4,7 @@
 
 <head>
 		<meta charset="utf-8">
-		<title>Doccure</title>
+	<title>Clinic TQTA</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
 		<!-- Favicons -->
@@ -66,7 +66,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Home</a>
+								<a href="doctor_dashboard">Trang chủ</a>
 							</li>
 						</ul>
 					</div>
@@ -76,7 +76,7 @@
 								<i class="far fa-hospital"></i>
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">Contact</p>
+								<p class="contact-header">Liên hệ</p>
 								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
@@ -98,9 +98,9 @@
 										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
 									</div>
 								</div>
-								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-								<a class="dropdown-item" href="login">Logout</a>
+								<a class="dropdown-item" href="doctor_dashboard">bảng điều khiển</a>
+								<a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
+								<a class="dropdown-item" href="login">Đăng xuất</a>
 							</div>
 						</li>
 						<!-- /User Menu -->
@@ -117,11 +117,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Thông tin cá nhân</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Profile Settings</h2>
+							<h2 class="breadcrumb-title">Thông tin cá nhân</h2>
 						</div>
 					</div>
 				</div>
@@ -156,49 +156,49 @@
 											<li>
 												<a href="doctor_dashboard">
 													<i class="fas fa-columns"></i>
-													<span>Dashboard</span>
+													<span>Bảng điều khiển</span>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="doctor_appointments">
 													<i class="fas fa-calendar-check"></i>
-													<span>Appointments</span>
+													<span>Cuộc hẹn</span>
 												</a>
 											</li>
 											<li>
 												<a href="my_patients">
 													<i class="fas fa-user-injured"></i>
-													<span>My Patients</span>
+													<span>Bệnh nhân của tôi</span>
 												</a>
 											</li>
 											<li>
 												<a href="doctor_schedule_timings">
 													<i class="fas fa-hourglass-start"></i>
-													<span>Schedule Timings</span>
+													<span>Thời gian khám</span>
 												</a>
 											</li>
 											<li>
 												<a href="invoice_doctor">
 													<i class="fas fa-file-invoice"></i>
-													<span>Invoices</span>
+													<span>Hóa đơn</span>
 												</a>
 											</li>
-											<li class="active">
+											<li>
 												<a href="doctor_profile_settings">
 													<i class="fas fa-user-cog"></i>
-													<span>Profile Settings</span>
+													<span>Thông tin cá nhân</span>
 												</a>
 											</li>
 											<li>
 												<a href="doctor_change_password">
 													<i class="fas fa-lock"></i>
-													<span>Change Password</span>
+													<span>Thay đổi mật khẩu</span>
 												</a>
 											</li>
 											<li>
 												<a href="login">
 													<i class="fas fa-sign-out-alt"></i>
-													<span>Logout</span>
+													<span>Đăng xuất</span>
 												</a>
 											</li>
 										</ul>
@@ -212,7 +212,7 @@
 							<!-- Basic Information -->
 							<div class="card">
 								<div class="card-body">
-									<h4 class="card-title">Basic Information</h4>
+									<h4 class="card-title">Thông tin cơ bản</h4>
 									<div class="row form-row">
 										<div class="col-md-12">
 											<div class="form-group">
@@ -222,10 +222,10 @@
 													</div>
 													<div class="upload-img">
 														<div class="change-photo-btn">
-															<span><i class="fa fa-upload"></i> Upload Photo</span>
+															<span><i class="fa fa-upload"></i> Tải ảnh lên</span>
 															<input type="file" class="upload" name="file">
 														</div>
-														<small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+														<small class="form-text text-muted">Cho phép JPG, GIF or PNG. Kích thước tối đa của 2MB</small>
 													</div>
 												</div>
 											</div>
@@ -239,7 +239,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label>Username <span class="text-danger">*</span></label>
+												<label>Tài khoản <span class="text-danger">*</span></label>
 												<input type="text" class="form-control" value="${sessionScope.account.username}" readonly>
 											</div>
 										</div>
@@ -251,13 +251,13 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label>Name <span class="text-danger">*</span></label>
+												<label>Tên <span class="text-danger">*</span></label>
 												<input type="text" class="form-control" name="name" value="${sessionScope.doctor.name}">
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label>Phone Number</label>
+												<label>Số điện thoại</label>
 												<input type="text" class="form-control" name="phone" value="${sessionScope.account.phone}">
 											</div>
 										</div>
@@ -266,14 +266,14 @@
 												<label>Gender</label>
 												<select class="form-control select" name="gender">
 													<option>Select</option>
-													<option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>Male</option>
-													<option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>Female</option>
+													<option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>Nam</option>
+													<option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>Nữ</option>
 												</select>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group mb-0">
-												<label>Date of Birth</label>
+												<label>Ngày sinh</label>
 												<input type="date" class="form-control" name="dob" value="${sessionScope.doctor.dob}">
 											</div>
 										</div>
@@ -281,7 +281,7 @@
 								</div>
 							</div>
 							<div class="submit-section submit-btn-bottom">
-								<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+								<button type="submit" class="btn btn-primary submit-btn">lưu</button>
 							</div>
 						</div>
 				</form>
@@ -296,91 +296,13 @@
 				<div class="footer-top">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-lg-3 col-md-6">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<a href="home" class="navbar-brand logo">
-										<span class="text-primary">Clinic</span>-TATQ
-									</a>
-								</div>
-								<!-- /Footer Widget -->
 
-							</div>
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
-									<ul>
-										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-
-							</div>
-
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+84 868746275
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											quyetlbche160252@fpt.edu.vn
-										</p>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
-
-							</div>
 
 						</div>
 					</div>
 				</div>
 				<!-- /Footer Top -->
-
-				<!-- Footer Bottom -->
-                <div class="footer-bottom">
-					<div class="container-fluid">
-
-						<!-- Copyright -->
-						<div class="copyright">
-							<div class="row">
-								<div class="col-md-6 col-lg-6">
-									<div class="copyright-text">
-										<p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-6">
-
-									<!-- Copyright Menu -->
-									<div class="copyright-menu">
-										<ul class="policy-menu">
-											<li><a href="term-condition.html">Terms and Conditions</a></li>
-											<li><a href="privacy-policy.html">Policy</a></li>
-										</ul>
-									</div>
-									<!-- /Copyright Menu -->
-
-								</div>
-							</div>
-						</div>
-						<!-- /Copyright -->
-
-					</div>
-				</div>
-				<!-- /Footer Bottom -->
 
 			</footer>
 			<!-- /Footer -->

@@ -85,11 +85,11 @@
 									<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
 								</div>
 								<div class="user-text">
-									<h6>Administrator</h6>
+									<h6>Người quản lý</h6>
 								</div>
 							</div>
-							<a class="dropdown-item" href="admin_dashboard">My Profile</a>
-							<a class="dropdown-item" href="login">Logout</a>
+							<a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
+							<a class="dropdown-item" href="login">Đăng xuất</a>
 						</div>
 					</li>
 					<!-- /User Menu -->
@@ -99,7 +99,7 @@
 				
             </div>
 			<!-- /Header -->
-			
+
 			<!-- Sidebar -->
 			<div class="sidebar" id="sidebar">
 				<div class="sidebar-inner slimscroll">
@@ -108,39 +108,39 @@
 							<li class="menu-title">
 								<span>Main</span>
 							</li>
-							<li>
-								<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
-							</li>
-							<li  class="active">
-								<a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+							<li class="active">
+								<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
 							</li>
 							<li>
-								<a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+								<a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
 							</li>
 							<li>
-								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+								<a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
 							</li>
 							<li>
-								<a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
 							</li>
 							<li>
-								<a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+								<a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
 							</li>
 							<li>
-								<a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+								<a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
+							</li>
+							<li>
+								<a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
 							</li>
 							<li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="form_details?str=doctor">Doctor</a></li>
-									<li><a href="form_details?str=patient">Patient</a></li>
-									<li><a href="form_details?str=staff">Staff</a></li>
+									<li><a href="form_details?str=doctor">Bác sĩ</a></li>
+									<li><a href="form_details?str=patient">Bênh nhân</a></li>
+									<li><a href="form_details?str=staff">Nhân viên</a></li>
 								</ul>
 							</li>
 							<li>
 								<a href="login">
-									<i class="fas fa-sign-out-alt"></i>
-									<span>Logout</span>
+									<i class="fa fa-sign-out-alt"></i>
+									<span>Đăng xuất</span>
 								</a>
 							</li>
 						</ul>
@@ -157,10 +157,10 @@
 					<div class="page-header">
 						<div class="row">
 							<div class="col-sm-12">
-								<h3 class="page-title">Appointments</h3>
+								<h3 class="page-title">Cuộc hẹn</h3>
 								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-									<li class="breadcrumb-item active">Appointments</li>
+									<li class="breadcrumb-item"><a href="index.html">Bảng điều khiển</a></li>
+									<li class="breadcrumb-item active">Cuộc hẹn</li>
 								</ul>
 							</div>
 						</div>
@@ -176,12 +176,12 @@
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Doctor Name</th>
-													<th>Speciality</th>
-													<th>Patient Name</th>
-													<th>Apointment Time</th>
-													<th class="text-center">Status</th>
-													<th>Amount</th>
+													<th>Tên bác sĩ</th>
+													<th>Chuyên môn</th>
+													<th>Tên bệnh nhân</th>
+													<th>Thời gian hẹn</th>
+													<th class="text-center">Trạng thái</th>
+													<th>Số lượng</th>
 												</tr>
 											</thead>
 											<tbody>

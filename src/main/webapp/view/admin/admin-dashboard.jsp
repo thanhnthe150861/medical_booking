@@ -75,11 +75,11 @@
 							<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
 						</div>
 						<div class="user-text">
-							<h6>Administrator</h6>
+							<h6>Người quản lý</h6>
 						</div>
 					</div>
-					<a class="dropdown-item" href="admin_dashboard">My Profile</a>
-					<a class="dropdown-item" href="login">Logout</a>
+					<a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
+					<a class="dropdown-item" href="login">Đăng xuất</a>
 				</div>
 			</li>
 			<!-- /User Menu -->
@@ -99,38 +99,38 @@
 						<span>Main</span>
 					</li>
 					<li class="active">
-						<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+						<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
 					</li>
 					<li>
-						<a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+						<a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
 					</li>
 					<li>
-						<a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+						<a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
 					</li>
 					<li>
-						<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+						<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
 					</li>
 					<li>
-						<a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+						<a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
 					</li>
 					<li>
-						<a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+						<a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
 					</li>
 					<li>
-						<a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+						<a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
 					</li>
 					<li class="submenu">
-						<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
+						<a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span class="menu-arrow"></span></a>
 						<ul style="display: none;">
-							<li><a href="form_details?str=doctor">Doctor</a></li>
-							<li><a href="form_details?str=patient">Patient</a></li>
-							<li><a href="form_details?str=staff">Staff</a></li>
+							<li><a href="form_details?str=doctor">Bác sĩ</a></li>
+							<li><a href="form_details?str=patient">Bênh nhân</a></li>
+							<li><a href="form_details?str=staff">Nhân viên</a></li>
 						</ul>
 					</li>
 					<li>
 						<a href="login">
 							<i class="fa fa-sign-out-alt"></i>
-							<span>Logout</span>
+							<span>Đăng xuất</span>
 						</a>
 					</li>
 				</ul>
@@ -148,9 +148,9 @@
 			<div class="page-header">
 				<div class="row">
 					<div class="col-sm-12">
-						<h3 class="page-title">Welcome Admin!</h3>
+						<h3 class="page-title">Chào mừng quản trị viên!</h3>
 						<ul class="breadcrumb">
-							<li class="breadcrumb-item active">Dashboard</li>
+							<li class="breadcrumb-item active">Bảng điều khiển</li>
 						</ul>
 					</div>
 				</div>
@@ -179,7 +179,7 @@
 								</div>
 							</div>
 							<div class="dash-widget-info">
-								<h6 class="text-muted">Doctors</h6>
+								<h6 class="text-muted">Bác sĩ</h6>
 							</div>
 						</div>
 					</div>
@@ -196,7 +196,7 @@
 								</div>
 							</div>
 							<div class="dash-widget-info">
-								<h6 class="text-muted">Patients</h6>
+								<h6 class="text-muted">Bệnh nhân</h6>
 							</div>
 						</div>
 					</div>
@@ -213,7 +213,7 @@
 								</div>
 							</div>
 							<div class="dash-widget-info">
-								<h6 class="text-muted">Staff</h6>
+								<h6 class="text-muted">Nhân viên</h6>
 							</div>
 						</div>
 					</div>
@@ -230,7 +230,7 @@
 								</div>
 							</div>
 							<div class="dash-widget-info">
-								<h6 class="text-muted">Appointment</h6>
+								<h6 class="text-muted">Cuộc hẹn</h6>
 							</div>
 						</div>
 					</div>
@@ -248,7 +248,7 @@
 							</div>
 							<div class="dash-widget-info">
 
-								<h6 class="text-muted">Revenue</h6>
+								<h6 class="text-muted">Doanh thu</h6>
 							</div>
 						</div>
 					</div>
@@ -265,16 +265,16 @@
 					<!-- Recent Orders -->
 					<div class="card card-table flex-fill">
 						<div class="card-header">
-							<h4 class="card-title">Top 5 Doctor</h4>
+							<h4 class="card-title">Top 5 bác sĩ</h4>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-hover table-center mb-0">
 									<thead>
 									<tr>
-										<th>Doctor Name</th>
-										<th>Speciality</th>
-										<th>Earned</th>
+										<th>Tên bác sĩ</th>
+										<th>Chuyên môn</th>
+										<th>Doanh thu</th>
 									</tr>
 									</thead>
 									<tbody>
@@ -303,17 +303,17 @@
 					<!-- Feed Activity -->
 					<div class="card  card-table flex-fill">
 						<div class="card-header">
-							<h4 class="card-title">Top 5 Patients</h4>
+							<h4 class="card-title">Top 5 Bệnh nhân</h4>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-hover table-center mb-0">
 									<thead>
 									<tr>
-										<th>Patient Name</th>
+										<th>Tên bệnh nhân</th>
 										<th></th>
-										<th>Last Visit</th>
-										<th>Paid</th>
+										<th>Lần truy cập Cuối</th>
+										<th>Thanh toán</th>
 									</tr>
 									</thead>
 									<tbody>

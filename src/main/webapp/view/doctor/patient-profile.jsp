@@ -6,7 +6,7 @@
 
 <head>
 		<meta charset="utf-8">
-		<title>Doccure</title>
+	<title>Clinic TQTA</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 		
 		<!-- Favicons -->
@@ -63,7 +63,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Dash Board</a>
+								<a href="doctor_dashboard">Bảng điều khiển</a>
 							</li>
 						</ul>
 					</div>		 
@@ -73,7 +73,7 @@
 								<i class="far fa-hospital"></i>							
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">Contact</p>
+								<p class="contact-header">liên hệ</p>
 								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
@@ -95,9 +95,9 @@
 										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
 									</div>
 								</div>
-								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-								<a class="dropdown-item" href="login">Logout</a>
+								<a class="dropdown-item" href="doctor_dashboard">bảng điều khiển</a>
+								<a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
+								<a class="dropdown-item" href="login">Đăng xuất</a>
 							</div>
 						</li>
 						<!-- /User Menu -->
@@ -114,11 +114,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Profile</li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Hồ sơ</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Profile</h2>
+							<h2 class="breadcrumb-title">Hồ sơ</h2>
 						</div>
 					</div>
 				</div>
@@ -162,13 +162,13 @@
 									<div class="user-tabs">
 										<ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
 											<li class="nav-item">
-												<a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Appointments</a>
+												<a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Cuộc hẹn</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&medical=true" ><span class="med-records">Medical Records</span></a>
+												<a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&medical=true" ><span class="med-records">Hồ sơ bệnh án</span></a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&bill=true" ><span>Billing</span></a>
+												<a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&bill=true" ><span>Thanh toán</span></a>
 											</li>
 										</ul>
 									</div>
@@ -181,12 +181,12 @@
 														<table class="table table-hover table-center mb-0">
 															<thead>
 																<tr>
-																	<th>Doctor</th>
+																	<th>Bác sĩ</th>
 																	<th></th>
-																	<th>Booking Date</th>
+																	<th>Ngày đặt phòng</th>
 																	<th></th>
 																	<th></th>
-																	<th>Status</th>
+																	<th>Trạng thái </th>
 																	<th></th>
 																</tr>
 															</thead>
@@ -213,27 +213,27 @@
 																	<td class="text-right">
 																		<div class="table-action">
 																			<a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-																				<i class="far fa-eye"></i> View
+																				<i class="far fa-eye"></i> Xem
 																			</a>
 																			<c:if test="${m.booking.status eq 'Confirmed'}">
 																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Completed" class="btn btn-sm bg-info-light">
-																					<i class="fas fa-check"></i> Completed
+																					<i class="fas fa-check"></i> Hoàn thành
 																				</a>
 																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
-																					<i class="far fa-trash-alt"></i> Cancel
+																					<i class="far fa-trash-alt"></i> Hủy
 																				</a>
 																			</c:if>
 																			<c:if test="${m.booking.status eq 'Pending'}">
 																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Confirmed" class="btn btn-sm bg-success-light">
-																					<i class="fas fa-check"></i> Confirmed
+																					<i class="fas fa-check"></i> Đã xác nhận
 																				</a>
 																				<a href="patient_profile?id=${sessionScope.patient.id}&bid=${m.booking.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
-																					<i class="far fa-trash-alt"></i> Cancel
+																					<i class="far fa-trash-alt"></i> Hủy
 																				</a>
 																			</c:if>
 																			<c:if test="${m.booking.status eq 'Completed'}">
 																				<a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
-																					<i class="far fa-clock"></i> Reschedule
+																					<i class="far fa-clock"></i> Đặt lịch lại
 																				</a>
 																			</c:if>
 																		</div>
@@ -260,99 +260,20 @@
    
 			<!-- Footer -->
 			<footer class="footer">
-				
+
 				<!-- Footer Top -->
 				<div class="footer-top">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-lg-3 col-md-6">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<a href="home" class="navbar-brand logo">
-										<span class="text-primary">Clinic</span>-TATQ
-									</a>
-								</div>
-								<!-- /Footer Widget -->
 
-							</div>
-							<div class="col-lg-3 col-md-6">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
-									<ul>
-										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-
-							</div>
-
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+84 868746275
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											quyetlbche160252@fpt.edu.vn
-										</p>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
-							</div>
 						</div>
 					</div>
 				</div>
 				<!-- /Footer Top -->
-				
-				<!-- Footer Bottom -->
-                <div class="footer-bottom">
-					<div class="container-fluid">
-					
-						<!-- Copyright -->
-						<div class="copyright">
-							<div class="row">
-								<div class="col-md-6 col-lg-6">
-									<div class="copyright-text">
-										<p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-6">
-								
-									<!-- Copyright Menu -->
-									<div class="copyright-menu">
-										<ul class="policy-menu">
-											<li><a href="term-condition.html">Terms and Conditions</a></li>
-											<li><a href="privacy-policy.html">Policy</a></li>
-										</ul>
-									</div>
-									<!-- /Copyright Menu -->
-									
-								</div>
-							</div>
-						</div>
-						<!-- /Copyright -->
-						
-					</div>
-				</div>
-				<!-- /Footer Bottom -->
-				
-			</footer>
-			<!-- /Footer -->
 		   
-		</div>
+
 		<!-- /Main Wrapper -->
 		
 		<!-- Add Medical Records Modal -->
@@ -360,26 +281,26 @@
 			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h3 class="modal-title">Medical Records</h3>
+						<h3 class="modal-title">Hồ sơ bệnh án </h3>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					</div>
 					<form>					
 						<div class="modal-body">
 							<div class="form-group">
-								<label>Date</label>
+								<label>Ngày</label>
 								<input type="text" class="form-control datetimepicker" value="31-10-2019">
 							</div>
 							<div class="form-group">
-								<label>Description ( Optional )</label>
+								<label>Mô tả (không bắt buộc )</label>
 								<textarea class="form-control"></textarea>
 							</div>
 							<div class="form-group">
-								<label>Upload File</label> 
+								<label>Tải ảnh lên</label>
 								<input type="file" class="form-control">
 							</div>	
 							<div class="submit-section text-center">
-								<button type="submit" class="btn btn-primary submit-btn">Submit</button>
-								<button type="button" class="btn btn-secondary submit-btn" data-dismiss="modal">Cancel</button>							
+								<button type="submit" class="btn btn-primary submit-btn">Nộp</button>
+								<button type="button" class="btn btn-secondary submit-btn" data-dismiss="modal">Hủy</button>
 							</div>
 						</div>
 					</form>

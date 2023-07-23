@@ -73,11 +73,11 @@
 								</div>
 								<div class="user-text">
 									<h6>Ryan Taylor</h6>
-									<p class="text-muted mb-0">Administrator</p>
+									<p class="text-muted mb-0">Người quản lý</p>
 								</div>
 							</div>
-							<a class="dropdown-item" href="admin_dashboard">My Profile</a>
-							<a class="dropdown-item" href="login">Logout</a>
+							<a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
+							<a class="dropdown-item" href="login">Đăng xuất</a>
 						</div>
 					</li>
 					<!-- /User Menu -->
@@ -87,8 +87,8 @@
 				
             </div>
 			<!-- /Header -->
-			
-<!-- Sidebar -->
+
+			<!-- Sidebar -->
 			<div class="sidebar" id="sidebar">
 				<div class="sidebar-inner slimscroll">
 					<div id="sidebar-menu" class="sidebar-menu">
@@ -96,39 +96,39 @@
 							<li class="menu-title">
 								<span>Main</span>
 							</li>
-							<li>
-								<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+							<li class="active">
+								<a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
 							</li>
 							<li>
-								<a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+								<a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
 							</li>
 							<li>
-								<a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+								<a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
 							</li>
 							<li>
-								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+								<a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
 							</li>
 							<li>
-								<a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+								<a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
 							</li>
 							<li>
-								<a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+								<a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
 							</li>
 							<li>
-								<a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+								<a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
 							</li>
 							<li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="form_details?str=doctor">Doctor</a></li>
-									<li><a href="form_details?str=patient">Patient</a></li>
-									<li class="active"><a href="form_details?str=staff">Staff</a></li>
+									<li><a href="form_details?str=doctor">Bác sĩ</a></li>
+									<li><a href="form_details?str=patient">Bênh nhân</a></li>
+									<li><a href="form_details?str=staff">Nhân viên</a></li>
 								</ul>
 							</li>
 							<li>
 								<a href="login">
-									<i class="fas fa-sign-out-alt"></i>
-									<span>Logout</span>
+									<i class="fa fa-sign-out-alt"></i>
+									<span>Đăng xuất</span>
 								</a>
 							</li>
 						</ul>
