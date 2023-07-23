@@ -1,4 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="mvc.model.Doctor" %>
+<%@ page import="mvc.dal.DoctorDBContext" %>
+<%@ page import="mvc.model.MedicalRecord" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -113,10 +117,10 @@
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Appointments</li>
+                            <li class="breadcrumb-item active" aria-current="page">Invoices</li>
                         </ol>
                     </nav>
-                    <h2 class="breadcrumb-title">Appointments</h2>
+                    <h2 class="breadcrumb-title">Invoices</h2>
                 </div>
             </div>
         </div>
@@ -202,44 +206,88 @@
                         </div>
                     </div>
                     <!-- /Profile Sidebar -->
-
                 </div>
-
                 <div class="col-md-7 col-lg-8 col-xl-9">
-                    <div class="appointments">
+                    <div class="card card-table">
+                        <div class="card-body">
 
-                        <c:forEach items="${requestScope.bookingList}" var="b">
-                            <!-- Appointment List -->
-                            <div class="appointment-list">
-                                <div class="profile-info-widget">
-                                    <a href="patient_profile?id=${b.patient.id}" class="booking-doc-img">
-                                        <img src="${b.patient.url}" alt="User Image">
-                                    </a>
-                                    <div class="profile-det-info">
-                                        <h3><a href="patient_profile?id=${b.patient.id}">${b.patient.name}</a></h3>
-                                        <div class="patient-details">
-                                            <h5><i class="far fa-clock"></i> ${b.date}, ${b.slots.name}</h5>
-                                            <h5>
-                                                <i class="fas fa-${b.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i>${b.patient.gender}
-                                            </h5>
-                                            <h5><i class="fas fa-birthday-cake"></i>${b.patient.dob}</h5>
-                                            <h5><i class=""></i>${b.booking_reason}</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="appointment-action">
-                                    <a href="doctor_appointments?id=${b.id}&status=Confirmed"
-                                       class="btn btn-sm bg-success-light">
-                                        <i class="fas fa-check"></i> Confirmed
-                                    </a>
-                                    <a href="doctor_appointments?id=${b.id}&status=Cancelled"
-                                       class="btn btn-sm bg-danger-light">
-                                        <i class="fas fa-times"></i> Cancel
-                                    </a>
-                                </div>
+                            <!-- Invoice Table -->
+                            <div class="table-responsive">
+                                <table class="table table-hover table-center mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Mã cuộc hẹn</th>
+                                        <th>Bệnh nhân</th>
+                                        <th>Ngày khám</th>
+                                        <th>Bác sĩ</th>
+                                        <th>Trạng thái</th>
+                                        <th>Thanh toán</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach items="${requestScope.bookingList}" var="bl">
+                                        <tr>
+                                            <td>
+                                                <a href="#">${bl.bill.id}</a>
+                                            </td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="patient_profile?id=${bl.booking.patient.id}"
+                                                       class="avatar avatar-sm mr-2">
+                                                        <img class="avatar-img rounded-circle"
+                                                             src="${bl.booking.patient.url}" alt="User Image">
+                                                    </a>
+                                                    <a href="patient_profile?id=${bl.booking.patient.id}">${bl.booking.patient.name}</a>
+                                                </h2>
+                                            </td>
+                                            <td>${bl.booking.date}</td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="doctor_profile?id=${bl.booking.doctor.id}"
+                                                       class="avatar avatar-sm mr-2">
+                                                        <img class="avatar-img rounded-circle"
+                                                             src="${bl.booking.doctor.url}" alt="User Image">
+                                                    </a>
+                                                    <a href="doctor_profile?id=${bl.booking.doctor.id}">${bl.booking.doctor.name}</a>
+                                                </h2>
+                                            </td>
+                                            <td>
+            <span class="badge badge-pill bg-${bl.booking.status eq 'Confirmed' ? 'success-light' : bl.booking.status eq 'Pending' ? 'warning-light' : bl.booking.status eq 'Cancelled' ? 'danger-light' : bl.booking.status eq 'Completed' ? 'info-light' : ''}">
+                    ${bl.booking.status}
+            </span>
+                                            </td>
+                                            <td>${bl.bill.totalPrice} VND</td>
+                                            <td class="text-right">
+                                                <div class="table-action">
+                                                    <c:choose>
+                                                        <c:when test="${bl.booking.status eq 'Confirmed'}">
+                                                            <a href="medical_record_details?bid=${bl.booking.id}"
+                                                               class="btn btn-sm bg-info-light">
+                                                                <i class="fas fa-check"></i> Tạo hồ sơ bệnh án
+                                                            </a>
+                                                            <a href="doctor_appointments?id=${bl.booking.id}&status=Cancelled"
+                                                               class="btn btn-sm bg-danger-light">
+                                                                <i class="far fa-trash-alt"></i> Hủy
+                                                            </a>
+                                                        </c:when>
+                                                        <c:when test="${bl.booking.status eq 'Completed'}">
+                                                            <a href="medical_record_details?mid=${bl.id}"
+                                                               class="btn btn-sm bg-info-light">
+                                                                <i class="far fa-eye"></i> Xem hồ sơ bệnh án
+                                                            </a>
+                                                        </c:when>
+                                                    </c:choose>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- /Appointment List -->
-                        </c:forEach>
+                            <!-- /Invoice Table -->
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,45 +308,22 @@
 
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-about">
-                            <div class="footer-logo">
-                                <img src="assets/img/footer-logo.png" alt="logo">
-                            </div>
-                            <div class="footer-about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <a href="home" class="navbar-brand logo">
+                                <span class="text-primary">Clinic</span>-TATQ
+                            </a>
                         </div>
                         <!-- /Footer Widget -->
 
                     </div>
-
                     <div class="col-lg-3 col-md-6">
 
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Patients</h2>
-                            <ul>i>
-                                Register</a></li>
-                                <li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor
+                            <h2 class="footer-title">For Doctors</h2>
+                            <ul>
+                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a>
+                                </li>
+                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor
                                     Dashboard</a></li>
                             </ul>
                         </div>
@@ -308,95 +333,64 @@
 
                     <div class="col-lg-3 col-md-6">
 
-                        <div class="col-lg-3 col-md-6">
-
-                            <!-- Footer Widget -->
-                            <div class="footer-widget footer-contact">
-                                <h2 class="footer-title">Contact Us</h2>
-                                <div class="footer-contact-info">
-                                    <div class="footer-address">
-                                        <span><i class="fas fa-map-marker-alt"></i></span>
-                                        <p> FPT University<br> Hòa Lạc, Hà Nội </p>
-                                    </div>
-                                    <p>
-                                        <i class="fas fa-phone-alt"></i>
-                                        <li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for
-                                            Doctors</a></li>
-                                        <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a>
-                                        </li>
-                                        <li><a href="register.html"><i class="fas fa-angle-double-right"></i>
-                                            Register</a></li>
-                                        <li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a>
-                                        </li>
-                                        <li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i>
-                                            Patient
-                                            Dashboard</a></li>
-                                        </ul>
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-contact">
+                            <h2 class="footer-title">Contact Us</h2>
+                            <div class="footer-contact-info">
+                                <div class="footer-address">
+                                    <span><i class="fas fa-map-marker-alt"></i></span>
+                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
                                 </div>
-                                <!-- /Footer Widget -->
-
-                            </div>
-
-                            <div class="col-lg-3 col-md-6">
-
-                                <!-- Footer Widget -->
-                                <div class="footer-widget footer-menu">
-                                    <h2 class="footer-title">For Doctors</h2>
-                                    <ul>
-                                        <li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i>
-                                            Appointments</a></li>
-                                        <li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-                                        <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a>
-                                        </li>
-                                        <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></
-                                            +84 868746275
-                                            </p>
-                                            <p class="mb-0">
-                                                <i class="fas fa-envelope"></i>
-                                                quyetlbche160252@fpt.edu.vn
-                                            </p>
-                                </div>
-                            </div>
-                            <!-- /Footer Widget -->
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- /Footer Top -->
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="container-fluid">
-
-                    <!-- Copyright -->
-                    <div class="copyright">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6">
-                                <div class="copyright-text">
-                                    <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-6">
-
-                                <!-- Copyright Menu -->
-                                <div class="copyright-menu">
-                                    <ul class="policy-menu">
-                                        <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                        <li><a href="privacy-policy.html">Policy</a></li>
-                                    </ul>
-                                </div>
-                                <!-- /Copyright Menu -->
-
+                                <p>
+                                    <i class="fas fa-phone-alt"></i>
+                                    +84 868746275
+                                </p>
+                                <p class="mb-0">
+                                    <i class="fas fa-envelope"></i>
+                                    quyetlbche160252@fpt.edu.vn
+                                </p>
                             </div>
                         </div>
+                        <!-- /Footer Widget -->
+
                     </div>
-                    <!-- /Copyright -->
 
                 </div>
             </div>
-            <!-- /Footer Bottom -->
+        </div>
+        <!-- /Footer Top -->
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container-fluid">
+
+                <!-- Copyright -->
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="copyright-text">
+                                <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+
+                            <!-- Copyright Menu -->
+                            <div class="copyright-menu">
+                                <ul class="policy-menu">
+                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
+                                    <li><a href="privacy-policy.html">Policy</a></li>
+                                </ul>
+                            </div>
+                            <!-- /Copyright Menu -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /Copyright -->
+
+            </div>
+        </div>
+        <!-- /Footer Bottom -->
 
     </footer>
     <!-- /Footer -->
@@ -420,5 +414,5 @@
 
 </body>
 
-<!-- doccure/appointments.jsp  30 Nov 2019 04:12:09 GMT -->
+<!-- doccure/invoices.jsp  30 Nov 2019 04:12:14 GMT -->
 </html>

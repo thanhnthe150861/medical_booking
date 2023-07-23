@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
@@ -55,19 +56,20 @@ class MedicalRecordDetailsTest {
             if (bid != null) {
                 Patient patient = (Patient) session.getAttribute("patient");
                 when(session.getAttribute("patient")).thenReturn(patient);
-                Booking booking = doctorDBContext.getBooking(bid);
-                medicalRecordDetails.doGet(request,response);
+                List<MedicalRecord> booking = doctorDBContext.bookingList(doctor);
+                medicalRecordDetails.doGet(request, response);
                 verify(request).setAttribute("patient", patient);
                 verify(session).setAttribute("booking", booking);
             }
             when(request.getRequestDispatcher("view/doctor/add-medical-record.jsp")).thenReturn(requestDispatcher);
-            medicalRecordDetails.doGet(request,response);
-            verify(requestDispatcher).forward(request,response);
+            medicalRecordDetails.doGet(request, response);
+            verify(requestDispatcher).forward(request, response);
         }
 
-        medicalRecordDetails.doGet(request,response);
+        medicalRecordDetails.doGet(request, response);
         verify(response).sendRedirect("login");
     }
+
     @Test
     public void testDoPost() throws ServletException, IOException {
         MockitoAnnotations.initMocks(this);
@@ -82,32 +84,32 @@ class MedicalRecordDetailsTest {
         when(request.getParameter(url)).thenReturn("url");
         when(request.getParameter(prescription)).thenReturn("prescription");
         when(request.getParameter(mid)).thenReturn("mid");
-        if(mid != null){
+        if (mid != null) {
             MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
             medicalRecord.setDiagnosis(diagnosis);
             medicalRecord.setPrescription(prescription);
             medicalRecord.setUrl(url);
             doctorDBContext.UpdateMedical(medicalRecord);
-            medicalRecordDetails.doPost(request,response);
+            medicalRecordDetails.doPost(request, response);
             verify(session).setAttribute("medicalRecord", medicalRecord);
         }
         String bid = request.getParameter("bid");
         when(request.getParameter(bid)).thenReturn("bid");
-        if(bid != null){
+        if (bid != null) {
             MedicalRecord record = new MedicalRecord();
             record.setBooking_id(Integer.parseInt(bid));
             record.setDiagnosis(diagnosis);
             record.setPrescription(prescription);
             record.setUrl(url);
             DoctorDBContext dbContext = new DoctorDBContext();
-            medicalRecordDetails.doPost(request,response);
+            medicalRecordDetails.doPost(request, response);
             verify(session).setAttribute("medicalRecord", record);
         }
-        if(bid != null &&mid != null){
+        if (bid != null && mid != null) {
             when(request.getRequestDispatcher("view/doctor/add-medical-record.jsp")).thenReturn(requestDispatcher);
-            medicalRecordDetails.doPost(request,response);
+            medicalRecordDetails.doPost(request, response);
             verify(session).setAttribute("messSuccess", "Cập nhật thành công");
-            verify(requestDispatcher).forward(request,response);
+            verify(requestDispatcher).forward(request, response);
         }
     }
 }
