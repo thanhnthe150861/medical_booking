@@ -1,6 +1,6 @@
-<!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -58,7 +58,7 @@
                 </div>
                 <ul class="main-nav">
                     <li>
-                        <a href="doctor_dashboard">Trang chủ</a>
+                        <a href="doctor_dashboard">Bảng điều khiển</a>
                     </li>
                 </ul>
             </div>
@@ -109,11 +109,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Thay đổi mật khẩu</li>
+                            <li class="breadcrumb-item"><a href="doctor_dashboard">Bảng điều khển</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Đổi mật khẩu</li>
                         </ol>
                     </nav>
-                    <h2 class="breadcrumb-title">Thay đổi mật khẩu</h2>
+                    <h2 class="breadcrumb-title">Đổi mật khẩu</h2>
                 </div>
             </div>
         </div>
@@ -166,7 +166,7 @@
                                     <li>
                                         <a href="doctor_schedule_timings">
                                             <i class="fas fa-hourglass-start"></i>
-                                            <span>Thời gian khám</span>
+                                            <span>Lịch làm việc</span>
                                         </a>
                                     </li>
                                     <li>
@@ -184,7 +184,7 @@
                                     <li>
                                         <a href="doctor_change_password">
                                             <i class="fas fa-lock"></i>
-                                            <span>Thay đổi mật khẩu</span>
+                                            <span>Đổi mật khẩu</span>
                                         </a>
                                     </li>
                                     <li>
@@ -222,19 +222,19 @@
                                     <!-- Change Password Form -->
                                     <form action="doctor_change_password" method="post">
                                         <div class="form-group">
-                                            <label>Old Password</label>
+                                            <label>Mật khẩu cũ</label>
                                             <input type="password" class="form-control" name="old-password">
                                         </div>
                                         <div class="form-group">
-                                            <label>New Password</label>
+                                            <label>Mật khẩu mới</label>
                                             <input type="password" class="form-control" name="new-password">
                                         </div>
                                         <div class="form-group">
-                                            <label>Confirm Password</label>
+                                            <label>Xác nhận mật khẩu</label>
                                             <input type="password" class="form-control" name="re-password">
                                         </div>
                                         <div class="submit-section">
-                                            <button type="submit" class="btn btn-primary submit-btn">Lưu
+                                            <button type="submit" class="btn btn-primary submit-btn">Lưu thay đổi
                                             </button>
                                         </div>
                                     </form>
@@ -259,12 +259,82 @@
                 <div class="row">
 
 
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">Cho bác sĩ</h2>
+                            <ul>
+                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển</a></li>
+                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Lịch hẹn</a></li>
+                                <li><a href="my_patients"><i class="fas fa-angle-double-right"></i> Bệnh nhân</a></li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-contact">
+                            <h2 class="footer-title">Liên hệ chúng tôi</h2>
+                            <div class="footer-contact-info">
+                                <div class="footer-address">
+                                    <span><i class="fas fa-map-marker-alt"></i></span>
+                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
+                                </div>
+                                <p>
+                                    <i class="fas fa-phone-alt"></i>
+                                    +84 868746275
+                                </p>
+                                <p class="mb-0">
+                                    <i class="fas fa-envelope"></i>
+                                    quyetlbche160252@fpt.edu.vn
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
 
                 </div>
             </div>
         </div>
         <!-- /Footer Top -->
 
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container-fluid">
+
+                <!-- Copyright -->
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="copyright-text">
+                                <p class="mb-0">Medical Clinic-TATQ</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+
+                            <!-- Copyright Menu -->
+                            <div class="copyright-menu">
+                                <ul class="policy-menu">
+                                    <li><a href="term-condition.html"></a></li>
+                                    <li><a href="privacy-policy.html"></a></li>
+                                </ul>
+                            </div>
+                            <!-- /Copyright Menu -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /Copyright -->
+
+            </div>
+        </div>
+        <!-- /Footer Bottom -->
 
     </footer>
     <!-- /Footer -->

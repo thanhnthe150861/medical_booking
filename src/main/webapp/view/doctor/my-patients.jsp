@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +58,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Trang chủ</a>
+								<a href="doctor_dashboard">Bảng điều khiển</a>
 							</li>
 						</ul>
 					</div>		 
@@ -110,11 +109,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Trang chủ</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Bệnh nhân của tôi</li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Bảng điều khiển</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Bệnh nhân</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Bệnh nhân của tôi</h2>
+							<h2 class="breadcrumb-title">Bệnh nhân</h2>
 						</div>
 					</div>
 				</div>
@@ -177,7 +176,7 @@
 													<span>Hóa đơn</span>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="doctor_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Thông tin cá nhân</span>
@@ -186,7 +185,7 @@
 											<li>
 												<a href="doctor_change_password">
 													<i class="fas fa-lock"></i>
-													<span>Thay đổi mật khẩu</span>
+													<span>Đổi mật khẩu</span>
 												</a>
 											</li>
 											<li>
@@ -218,8 +217,8 @@
 													<div class="profile-det-info">
 														<h3><a href="patient_profile?id=${p.id}">${p.name}</a></h3>
 														<div class="patient-details">
-															<h5><b>Patient ID :</b> ${p.id}</h5>
-															<h5><b>Rank :</b> ${p.ranks.name}</h5>
+															<h5><b>Mã bệnh nhân:</b> ${p.id}</h5>
+															<h5><b>Hạng:</b> ${p.ranks.name}</h5>
 														</div>
 													</div>
 												</div>
@@ -253,6 +252,45 @@
 						<div class="row">
 
 
+							</div>
+							<div class="col-lg-3 col-md-6">
+
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">Cho bác sĩ</h2>
+									<ul>
+										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển</a></li>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Lịch hẹn</a></li>
+										<li><a href="my_patients"><i class="fas fa-angle-double-right"></i> Bệnh nhân</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+
+							</div>
+
+							<div class="col-lg-3 col-md-6">
+
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact">
+									<h2 class="footer-title">Liên hệ chúng tôi</h2>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<span><i class="fas fa-map-marker-alt"></i></span>
+											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
+										</div>
+										<p>
+											<i class="fas fa-phone-alt"></i>
+											+84 868746275
+										</p>
+										<p class="mb-0">
+											<i class="fas fa-envelope"></i>
+											quyetlbche160252@fpt.edu.vn
+										</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+
+							</div>
 
 						</div>
 					</div>

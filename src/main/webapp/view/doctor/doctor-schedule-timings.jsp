@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -62,7 +61,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Home</a>
+								<a href="home">Trang chủ</a>
 							</li>
 						</ul>
 					</div>
@@ -72,7 +71,7 @@
 								<i class="far fa-hospital"></i>
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">Contact</p>
+								<p class="contact-header">Liên hệ</p>
 								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
@@ -113,11 +112,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Thời gian khám</li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Bảng điều khiển</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Thời gian biểu</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Thời gian khám</h2>
+							<h2 class="breadcrumb-title">Thời gian biểu</h2>
 						</div>
 					</div>
 				</div>
@@ -171,7 +170,7 @@
 											<li>
 												<a href="doctor_schedule_timings">
 													<i class="fas fa-hourglass-start"></i>
-													<span>Thời gian khám</span>
+													<span>Lịch làm việc</span>
 												</a>
 											</li>
 											<li>
@@ -180,7 +179,7 @@
 													<span>Hóa đơn</span>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="doctor_profile_settings">
 													<i class="fas fa-user-cog"></i>
 													<span>Thông tin cá nhân</span>
@@ -189,7 +188,7 @@
 											<li>
 												<a href="doctor_change_password">
 													<i class="fas fa-lock"></i>
-													<span>Thay đổi mật khẩu</span>
+													<span>Đổi mật khẩu</span>
 												</a>
 											</li>
 											<li>
@@ -212,7 +211,7 @@
 								<div class="col-sm-12">
 									<div class="card">
 										<div class="card-body">
-											<h4 class="card-title">Thời gian khám</h4>
+											<h4 class="card-title">Lịch làm việc</h4>
 											<div class="profile-box">
 												<div class="row">
 
@@ -243,8 +242,7 @@
 																<!-- Monday Slot -->
 																<div id="slot_monday" class="tab-pane fade show active">
 																	<h4 class="card-title d-flex justify-content-between">
-																		<span>Time Slots</span>
-																		<a class="edit-link" data-toggle="modal" href="#edit_time_slot"><i class="fa fa-edit mr-1"></i>Chỉnh sửa</a>
+																		<span>Khoảng thời gian</span>
 																	</h4>
 
 																	<!-- Slot List -->
@@ -288,6 +286,45 @@
 						<div class="row">
 
 
+							</div>
+							<div class="col-lg-3 col-md-6">
+
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">Cho bác sĩ</h2>
+									<ul>
+										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển</a></li>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Lịch hẹn</a></li>
+										<li><a href="my_patients"><i class="fas fa-angle-double-right"></i> Bệnh nhân</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+
+							</div>
+
+							<div class="col-lg-3 col-md-6">
+
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact">
+									<h2 class="footer-title">Liên hệ chúng tôi</h2>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<span><i class="fas fa-map-marker-alt"></i></span>
+											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
+										</div>
+										<p>
+											<i class="fas fa-phone-alt"></i>
+											+84 868746275
+										</p>
+										<p class="mb-0">
+											<i class="fas fa-envelope"></i>
+											quyetlbche160252@fpt.edu.vn
+										</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+
+							</div>
 
 						</div>
 					</div>
@@ -300,186 +337,6 @@
 		</div>
 		<!-- /Main Wrapper -->
 		
-		<!-- Add Time Slot Modal -->
-		<div class="modal fade custom-modal" id="add_time_slot">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Thêm thời gian khám </h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="hours-info">
-								<div class="row form-row hours-cont">
-									<div class="col-12 col-md-10">
-										<div class="row form-row">
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Thời gian bắt đầu</label>
-													<select class="form-control">
-														<option>-</option>
-														<option>12.00 am</option>
-														<option>12.30 am</option>  
-														<option>1.00 am</option>
-														<option>1.30 am</option>
-													</select>
-												</div> 
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Thời gian kết thúc</label>
-													<select class="form-control">
-														<option>-</option>
-														<option>12.00 am</option>
-														<option>12.30 am</option>  
-														<option>1.00 am</option>
-														<option>1.30 am</option>
-													</select>
-												</div> 
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="add-more mb-3">
-								<a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i>Bổ sung thêm</a>
-							</div>
-							<div class="submit-section text-center">
-								<button type="submit" class="btn btn-primary submit-btn">Lưu</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /Add Time Slot Modal -->
-		
-		<!-- Edit Time Slot Modal -->
-		<div class="modal fade custom-modal" id="edit_time_slot">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Chỉnh sửa thời gian khám </h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="hours-info">
-								<div class="row form-row hours-cont">
-									<div class="col-12 col-md-10">
-										<div class="row form-row">
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Thời gian bắt đầu</label>
-													<select class="form-control">
-														<option>-</option>
-														<option selected>12.00 am</option>
-														<option>12.30 am</option>  
-														<option>1.00 am</option>
-														<option>1.30 am</option>
-													</select>
-												</div> 
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Thời gian kết thúc</label>
-													<select class="form-control">
-														<option>-</option>
-														<option>12.00 am</option>
-														<option selected>12.30 am</option>  
-														<option>1.00 am</option>
-														<option>1.30 am</option>
-													</select>
-												</div> 
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="row form-row hours-cont">
-									<div class="col-12 col-md-10">
-										<div class="row form-row">
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Thời gian bắt đầu</label>
-													<select class="form-control">
-														<option>-</option>
-														<option>12.00 am</option>
-														<option selected>12.30 am</option>
-														<option>1.00 am</option>
-														<option>1.30 am</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Thời gian kết thúc</label>
-													<select class="form-control">
-														<option>-</option>
-														<option>12.00 am</option>
-														<option>12.30 am</option>
-														<option selected>1.00 am</option>
-														<option>1.30 am</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-2"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>
-								</div>
-								
-								<div class="row form-row hours-cont">
-									<div class="col-12 col-md-10">
-										<div class="row form-row">
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Thời gian bắt đầu</label>
-													<select class="form-control">
-														<option>-</option>
-														<option>12.00 am</option>
-														<option>12.30 am</option>
-														<option selected>1.00 am</option>
-														<option>1.30 am</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Thời gian kết thúc</label>
-													<select class="form-control">
-														<option>-</option>
-														<option>12.00 am</option>
-														<option>12.30 am</option>
-														<option>1.00 am</option>
-														<option selected>1.30 am</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-md-2"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>
-								</div>
-
-							</div>
-							
-							<div class="add-more mb-3">
-								<a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i> Bổ xung thêm </a>
-							</div>
-							<div class="submit-section text-center">
-								<button type="submit" class="btn btn-primary submit-btn">Lưu</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /Edit Time Slot Modal -->
 	  
 		<!-- jQuery -->
 		<script src="assets/js/jquery.min.js"></script>

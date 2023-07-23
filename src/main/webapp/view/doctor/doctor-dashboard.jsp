@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +58,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Home</a>
+								<a href="home">Trang chủ</a>
 							</li>
 						</ul>
 					</div>
@@ -69,7 +68,7 @@
 								<i class="far fa-hospital"></i>
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">Contact</p>
+								<p class="contact-header">Liên hệ</p>
 								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
@@ -168,7 +167,7 @@
 											<li>
 												<a href="doctor_schedule_timings">
 													<i class="fas fa-hourglass-start"></i>
-													<span>Thời gian khám</span>
+													<span>Lịch làm việc</span>
 												</a>
 											</li>
 											<li>
@@ -186,7 +185,7 @@
 											<li>
 												<a href="doctor_change_password">
 													<i class="fas fa-lock"></i>
-													<span>Thay đổi mật khẩu</span>
+													<span>Đổi mật khẩu</span>
 												</a>
 											</li>
 											<li>
@@ -206,7 +205,7 @@
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="row">
 								<div class="col-md-12">
-									<h4 class="mb-4">Cuộc hẹn bệnh nhân</h4>
+									<h4 class="mb-4">Cuộc hẹn</h4>
 									<div class="appointment-tab">
 									
 										<!-- Appointment Tab -->
@@ -247,7 +246,7 @@
 																		<td class="text-right">
 																			<div class="table-action">
 																				<a href="doctor_appointments?id=${b.id}&status=Confirmed" class="btn btn-sm bg-success-light">
-																					<i class="fas fa-check"></i> Chấp nhận
+																					<i class="fas fa-check"></i> Xác nhận
 																				</a>
 																				<a href="doctor_appointments?id=${b.id}&status=Cancelled" class="btn btn-sm bg-danger-light">
 																					<i class="fas fa-times"></i> Hủy bỏ
@@ -283,15 +282,92 @@
 				<div class="footer-top">
 					<div class="container-fluid">
 						<div class="row">
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-about">
+									<a href="home" class="navbar-brand logo">
+										<span class="text-primary">Clinic</span>-TATQ
+									</a>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							<div class="col-lg-3 col-md-6">
 
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">Cho bác sĩ</h2>
+									<ul>
+										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển</a></li>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Lịch hẹn</a></li>
+										<li><a href="my_patients"><i class="fas fa-angle-double-right"></i> Bệnh nhân</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
 
+							</div>
+
+							<div class="col-lg-3 col-md-6">
+
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact">
+									<h2 class="footer-title">Liên hệ chúng tôi</h2>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<span><i class="fas fa-map-marker-alt"></i></span>
+											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
+										</div>
+										<p>
+											<i class="fas fa-phone-alt"></i>
+											+84 868746275
+										</p>
+										<p class="mb-0">
+											<i class="fas fa-envelope"></i>
+											quyetlbche160252@fpt.edu.vn
+										</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+
+							</div>
 
 						</div>
 					</div>
 				</div>
 				<!-- /Footer Top -->
-				
 
+				<!-- Footer Bottom -->
+				<div class="footer-bottom">
+					<div class="container-fluid">
+
+						<!-- Copyright -->
+						<div class="copyright">
+							<div class="row">
+								<div class="col-md-6 col-lg-6">
+									<div class="copyright-text">
+										<p class="mb-0">Medical Clinic-TATQ</p>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-6">
+
+									<!-- Copyright Menu -->
+									<div class="copyright-menu">
+										<ul class="policy-menu">
+											<li><a href="term-condition.html"></a></li>
+											<li><a href="privacy-policy.html"></a></li>
+										</ul>
+									</div>
+									<!-- /Copyright Menu -->
+									
+								</div>
+							</div>
+						</div>
+						<!-- /Copyright -->
+						
+					</div>
+				</div>
+				<!-- /Footer Bottom -->
 				
 			</footer>
 			<!-- /Footer -->
