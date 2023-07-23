@@ -116,11 +116,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                          <li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Hồ sơ</li>
                         </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Profile</h2>
+                      </nav>
+                      <h2 class="breadcrumb-title">Hồ sơ</h2>
                 </div>
             </div>
         </div>
@@ -255,9 +255,9 @@
 
     <!-- Footer -->
     <footer class="footer">
-
+				
         <!-- Footer Top -->
-        <div class="footer-top">
+        <footer class="footer-top">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
@@ -270,123 +270,12 @@
                         </div>
                         <!-- /Footer Widget -->
 
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Doctors</h2>
-                            <ul>
-                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a>
-                                </li>
-                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor
-                                    Dashboard</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-contact">
-                            <h2 class="footer-title">Contact Us</h2>
-                            <div class="footer-contact-info">
-                                <div class="footer-address">
-                                    <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
-                                </div>
-                                <p>
-                                    <i class="fas fa-phone-alt"></i>
-                                    +84 868746275
-                                </p>
-                                <p class="mb-0">
-                                    <i class="fas fa-envelope"></i>
-                                    quyetlbche160252@fpt.edu.vn
-                                </p>
-                            </div>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
 
                 </div>
             </div>
         </div>
         <!-- /Footer Top -->
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container-fluid">
-
-                <!-- Copyright -->
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                                <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-
-                            <!-- Copyright Menu -->
-                            <div class="copyright-menu">
-                                <ul class="policy-menu">
-                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                    <li><a href="privacy-policy.html">Policy</a></li>
-                                </ul>
-                            </div>
-                            <!-- /Copyright Menu -->
-
-                        </div>
-                    </div>
-                </div>
-                <!-- /Copyright -->
-
-            </div>
-        </div>
-        <!-- /Footer Bottom -->
-
-    </footer>
-    <!-- /Footer -->
-
-</div>
-<!-- /Main Wrapper -->
-
-<!-- Add Medical Records Modal -->
-<div class="modal fade custom-modal" id="add_medical_records">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Medical Records</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input type="text" class="form-control datetimepicker" value="31-10-2019">
-                    </div>
-                    <div class="form-group">
-                        <label>Description ( Optional )</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Upload File</label>
-                        <input type="file" class="form-control">
-                    </div>
-                    <div class="submit-section text-center">
-                        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
-                        <button type="button" class="btn btn-secondary submit-btn" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- /Add Medical Records Modal -->
+   </footer>
 
 <!-- jQuery -->
 <script src="assets/js/jquery.min.js"></script>

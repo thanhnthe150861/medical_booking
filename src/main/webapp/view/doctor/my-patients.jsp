@@ -59,7 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Home</a>
+								<a href="doctor_dashboard">Trang chủ</a>
 							</li>
 						</ul>
 					</div>		 
@@ -110,11 +110,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">doctor_dashboard</a></li>
-									<li class="breadcrumb-item active" aria-current="page">My Patients</li>
+									<li class="breadcrumb-item"><a href="index-2.html">Trang chủ</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Bệnh nhân của tôi</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">My Patients</h2>
+							<h2 class="breadcrumb-title">Bệnh nhân của tôi</h2>
 						</div>
 					</div>
 				</div>
@@ -186,7 +186,7 @@
 											<li>
 												<a href="doctor_change_password">
 													<i class="fas fa-lock"></i>
-													<span>Change Password</span>
+													<span>Thay đổi mật khẩu</span>
 												</a>
 											</li>
 											<li>
@@ -261,44 +261,6 @@
 								</div>
 								<!-- /Footer Widget -->
 
-							</div>
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
-									<ul>
-										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-
-							</div>
-
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+84 868746275
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											quyetlbche160252@fpt.edu.vn
-										</p>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
-
-							</div>
 
 						</div>
 					</div>

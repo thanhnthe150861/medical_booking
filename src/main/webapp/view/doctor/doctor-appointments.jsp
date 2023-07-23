@@ -116,11 +116,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Invoices</li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Invoices</h2>
+                            <li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Cuộc hẹn</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Cuộc hẹn</h2>
                 </div>
             </div>
         </div>
@@ -174,7 +174,7 @@
                                     <li>
                                         <a href="doctor_schedule_timings">
                                             <i class="fas fa-hourglass-start"></i>
-                                            <span>Schedule Timings</span>
+                                            <span>Thời gian khám</span>
                                         </a>
                                     </li>
                                     <li>
@@ -192,7 +192,7 @@
                                     <li>
                                         <a href="doctor_change_password">
                                             <i class="fas fa-lock"></i>
-                                            <span>Change Password</span>
+                                            <span>Thay đổi mật khẩu</span>
                                         </a>
                                     </li>
                                     <li>

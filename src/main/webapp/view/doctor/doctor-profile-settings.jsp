@@ -66,7 +66,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Home</a>
+								<a href="doctor_dashboard">Trang chủ</a>
 							</li>
 						</ul>
 					</div>
@@ -146,68 +146,68 @@
                                 <div class="profile-det-info">
                                     <h3> ${sessionScope.doctor.name}</h3>
 
-                                    <div class="patient-details">
-                                        <h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dashboard-widget">
-                            <nav class="dashboard-menu">
-                                <ul>
-                                    <li>
-                                        <a href="doctor_dashboard">
-                                            <i class="fas fa-columns"></i>
-                                            <span>Dashboard</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="doctor_appointments">
-                                            <i class="fas fa-calendar-check"></i>
-                                            <span>Appointments</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="my_patients">
-                                            <i class="fas fa-user-injured"></i>
-                                            <span>My Patients</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="doctor_schedule_timings">
-                                            <i class="fas fa-hourglass-start"></i>
-                                            <span>Schedule Timings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="invoice_doctor">
-                                            <i class="fas fa-file-invoice"></i>
-                                            <span>Invoices</span>
-                                        </a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="doctor_profile_settings">
-                                            <i class="fas fa-user-cog"></i>
-                                            <span>Profile Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="doctor_change_password">
-                                            <i class="fas fa-lock"></i>
-                                            <span>Change Password</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="login">
-                                            <i class="fas fa-sign-out-alt"></i>
-                                            <span>Logout</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <!-- /Profile Sidebar -->
+											<div class="patient-details">
+												<h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dashboard-widget">
+									<nav class="dashboard-menu">
+										<ul>
+											<li>
+												<a href="doctor_dashboard">
+													<i class="fas fa-columns"></i>
+													<span>Bảng điều khiển</span>
+												</a>
+											</li>
+											<li class="active">
+												<a href="doctor_appointments">
+													<i class="fas fa-calendar-check"></i>
+													<span>Cuộc hẹn</span>
+												</a>
+											</li>
+											<li>
+												<a href="my_patients">
+													<i class="fas fa-user-injured"></i>
+													<span>Bệnh nhân của tôi</span>
+												</a>
+											</li>
+											<li>
+												<a href="doctor_schedule_timings">
+													<i class="fas fa-hourglass-start"></i>
+													<span>Thời gian khám</span>
+												</a>
+											</li>
+											<li>
+												<a href="invoice_doctor">
+													<i class="fas fa-file-invoice"></i>
+													<span>Hóa đơn</span>
+												</a>
+											</li>
+											<li>
+												<a href="doctor_profile_settings">
+													<i class="fas fa-user-cog"></i>
+													<span>Thông tin cá nhân</span>
+												</a>
+											</li>
+											<li>
+												<a href="doctor_change_password">
+													<i class="fas fa-lock"></i>
+													<span>Thay đổi mật khẩu</span>
+												</a>
+											</li>
+											<li>
+												<a href="login">
+													<i class="fas fa-sign-out-alt"></i>
+													<span>Đăng xuất</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+							<!-- /Profile Sidebar -->
 
                 </div>
                 <div class="col-md-7 col-lg-8 col-xl-9">
