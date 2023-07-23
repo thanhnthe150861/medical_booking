@@ -1,6 +1,7 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="mvc.model.Staff" %>
 <%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -78,11 +79,11 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Administrator</h6>
+                            <h6>Người quản lý</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
+                    <a class="dropdown-item" href="login">Đăng kí</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -102,39 +103,39 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
                     </li>
                     <li class="active">
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span> Chi tiết biểu mẫu </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Doctor</a></li>
-                            <li><a href="form_details?str=patient">Patient</a></li>
-                            <li><a href="form_details?str=staff">Staff</a></li>
+                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
+                            <li><a href="form_details?str=patient">Bệnh nhân</a></li>
+                            <li><a href="form_details?str=staff">Nhân viên</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <span>Đăng xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -151,10 +152,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">List of Staff</h3>
+                        <h3 class="page-title">Danh sách nhân viên</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="admin_dashboard">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Staff</li>
+                            <li class="breadcrumb-item"><a href="admin_dashboard">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active">Nhân viên</li>
                         </ul>
                     </div>
                 </div>
@@ -170,19 +171,20 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="actions text-md-right">
-                                    <a href="form_details?str=staff" class="btn btn-sm bg-success-light mr-2">Add New
-                                        Staff</a>
+                                    <a href="form_details?str=staff" class="btn btn-sm bg-success-light mr-2">Thêm nhân viên mới</a>
                                 </div>
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Staff Name</th>
-                                        <th>Date Of Birth</th>
-                                        <th>Gender</th>
-                                        <th>Phone</th>
+                                        <th>Bệnh nhân ID</th>
+                                        <th>Tên bệnh nhân</th>
+                                        <th>Ngày sinh</th>
+                                        <th>Số điện thoai</th>
                                         <th>Email</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-center">Action</th>
+                                        <th>Lần truy cập trước</th>
+                                        <th>Thanh toán</th>
+                                        <th class="text-center">Trạng thái</th>
+                                        <th class="text-center">Hoạt động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -208,16 +210,16 @@
                                         </td>
                                         <td class="text-center">
                                             <% if (staff.getAccount().getStatus()) { %>
-                                            <span class="badge badge-pill bg-success inv-badge">Active</span>
+                                            <span class="badge badge-pill bg-success inv-badge">kích hoạt</span>
                                             <% } else { %>
-                                            <span class="badge badge-pill bg-danger inv-badge">Deactive</span>
+                                            <span class="badge badge-pill bg-danger inv-badge">Hủy kích hoạt</span>
                                             <% } %>
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
                                                 <a data-toggle="modal" href="form_details?sid=<%= staff.getId() %>"
                                                    class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> Chỉnh sửa
                                                 </a>
                                             </div>
                                         </td>

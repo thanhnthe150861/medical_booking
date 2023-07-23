@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,11 +77,11 @@
                         </div>
                         <div class="user-text">
                             <h6>Ryan Taylor</h6>
-                            <p class="text-muted mb-0">Administrator</p>
+                            <p class="text-muted mb-0">Người quản lý</p>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
+                    <a class="dropdown-item" href="login">Đăng xuất</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -100,33 +101,33 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>các cuộc hẹn</span></a>
                     </li>
                     <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Người bệnh</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span> Chi tiết biểu mẫu </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Doctor</a></li>
-                            <li class="active"><a href="form_details?str=patient">Patient</a></li>
-                            <li><a href="form_details?str=staff">Staff</a></li>
+                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
+                            <li class="active"><a href="form_details?str=patient">Bệnh nhân</a></li>
+                            <li><a href="form_details?str=staff">Nhân viên</a></li>
                         </ul>
                     </li>
                     <li>
@@ -150,10 +151,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col">
-                        <h3 class="page-title">Form Details</h3>
+                        <h3 class="page-title">Chi tiết biểu mẫu</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="admin_dashboard">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Form Details</li>
+                            <li class="breadcrumb-item"><a href="admin_dashboard">bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active">Chi tiết biểu mẫu</li>
                         </ul>
                     </div>
                 </div>
@@ -164,8 +165,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><c:if test="${sessionScope.patient eq null}">ADD NEW</c:if><c:if
-                                    test="${sessionScope.patient ne null}">UPDATE</c:if> PATIENT</h4>
+                            <h4 class="card-title"><c:if test="${sessionScope.patient eq null}">Thêm mới</c:if><c:if
+                                    test="${sessionScope.patient ne null}">UPDATE</c:if> Bệnh nhân</h4>
                             <!-- Place this code where you want to display the error message -->
                             <% String errorMessage = (String) request.getAttribute("messError"); %>
                             <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
@@ -191,18 +192,18 @@
                                             </div>
                                             <div class="upload-img">
                                                 <label for="photo-upload" class="change-photo-btn">
-                                                    <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                                    <span><i class="fa fa-upload"></i> Tải ảnh lên</span>
                                                 </label>
                                                 <input type="file" id="photo-upload" class="upload" name="file"
                                                        style="display: none;">
-                                                <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of
+                                                <small class="form-text text-muted">Cho phép JPG, GIF or PNG. Kích thước tối đa
                                                     2MB</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">User Name</label>
+                                    <label class="col-form-label col-md-2">Tài khoản</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="username" required <c:if
                                                 test="${sessionScope.patient ne null}"> readonly="readonly"
@@ -210,21 +211,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Password</label>
+                                    <label class="col-form-label col-md-2">Mật khẩu</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="password" required
                                                value="${sessionScope.patient.account.password}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Name</label>
+                                    <label class="col-form-label col-md-2">Tên</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="name" required
                                                value="${sessionScope.patient.name}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Phone</label>
+                                    <label class="col-form-label col-md-2">PHone</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="phone" required
                                                value="${sessionScope.patient.account.phone}">
@@ -238,28 +239,28 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Date Of Birth</label>
+                                    <label class="col-form-label col-md-2">Ngày sinh</label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="date" name="dob" required
                                                value="${sessionScope.patient.dob}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Gender</label>
+                                    <label class="col-form-label col-md-2">Giới tính</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="gender" required>
                                             <option>Select</option>
                                             <option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>
-                                                Male
+                                                Nam
                                             </option>
                                             <option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>
-                                                Female
+                                                Nữ
                                             </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Rank</label>
+                                    <label class="col-form-label col-md-2">Hạng</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="rank" required>
                                             <c:forEach items="${sessionScope.rankListPatient}" var="rlp">
@@ -269,7 +270,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Status</label>
+                                    <label class="col-form-label col-md-2">Trạng thái</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="status" required>
                                             <option value="true" ${sessionScope.patient.account.status == true ? "selected" : ""}>
@@ -282,7 +283,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-section">
-                                    <button type="submit" class="btn btn-primary submit-btn">Save</button>
+                                    <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
                                 </div>
                             </form>
                         </div>

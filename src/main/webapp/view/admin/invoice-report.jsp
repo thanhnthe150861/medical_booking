@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="mvc.model.Account" %>
 <%@ page import="mvc.dal.StaffDBContext" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -81,11 +82,11 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Administrator</h6>
+                            <h6>Người quản lý</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
+                    <a class="dropdown-item" href="login">Đăng kí</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -105,39 +106,39 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
                     </li>
                     <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
                     </li>
                     <li class="active">
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span> Chi tiết biểu mẫu </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Doctor</a></li>
-                            <li><a href="form_details?str=patient">Patient</a></li>
-                            <li><a href="form_details?str=staff">Staff</a></li>
+                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
+                            <li><a href="form_details?str=patient">Bệnh nhân</a></li>
+                            <li><a href="form_details?str=staff">Nhân viên</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <span>Đăng kí</span>
                         </a>
                     </li>
                 </ul>
@@ -154,10 +155,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Invoice Report</h3>
+                        <h3 class="page-title">Báo cáo hóa đơn</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Invoice Report</li>
+                            <li class="breadcrumb-item"><a href="index.html">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active">Báo cáo hóa đơn</li>
                         </ul>
                     </div>
                 </div>
@@ -175,13 +176,13 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Invoice ID</th>
-                                        <th>Patient ID</th>
-                                        <th>Patient Name</th>
-                                        <th>Total Amount</th>
-                                        <th>Created Date</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-center">Actions</th>
+                                        <th>Hóa đơn ID</th>
+                                        <th>Bệnh nhân ID</th>
+                                        <th>Tên bệnh nhân</th>
+                                        <th>Tổng cộng</th>
+                                        <th>Ngày tạo</th>
+                                        <th class="text-center">Trạng thái</th>
+                                        <th class="text-center">Hành động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -205,18 +206,18 @@
                                         <td><%= invoice.getBooking().getDate() %>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
+                                            <span class="badge badge-pill bg-success inv-badge">Thanh toán</span>
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
                                                 <a data-toggle="modal"
                                                    href="invoice_details?bid=<%= invoice.getBill().getId() %>"
                                                    class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> Chỉnh sửa
                                                 </a>
                                                 <a class="btn btn-sm bg-info-light" data-toggle="modal"
                                                    href="invoice_view?bid=<%= invoice.getBill().getId() %>">
-                                                    <i class="fe fe-trash"></i> View
+                                                    <i class="fe fe-trash"></i> Xem
                                                 </a>
                                             </div>
                                         </td>
@@ -239,7 +240,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Invoice Report</h5>
+                    <h5 class="modal-title">Chỉnh sửa báo cáo hóa đơn</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -249,43 +250,43 @@
                         <div class="row form-row">
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Invoice Number</label>
+                                    <label>Số hóa đơn</label>
                                     <input type="text" class="form-control" value="#INV-0001">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Patient ID</label>
+                                    <label>Bệnh nhân ID</label>
                                     <input type="text" class="form-control" value="	#PT002">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Patient Name</label>
+                                    <label>Tên bệnh nhân</label>
                                     <input type="text" class="form-control" value="R Amer">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Patient Image</label>
+                                    <label>Ảnh bệnh nhân</label>
                                     <input type="file" class="form-control">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Total Amount</label>
+                                    <label>Tổng cộng</label>
                                     <input type="text" class="form-control" value="$200.00">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Created Date</label>
+                                    <label>Ngày tạo</label>
                                     <input type="text" class="form-control" value="29th Oct 2019">
                                 </div>
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                        <button type="submit" class="btn btn-primary btn-block">Lưu</button>
                     </form>
                 </div>
             </div>
@@ -305,10 +306,10 @@
                     </div>-->
                 <div class="modal-body">
                     <div class="form-content p-2">
-                        <h4 class="modal-title">Delete</h4>
-                        <p class="mb-4">Are you sure want to delete?</p>
-                        <button type="button" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <h4 class="modal-title">Xóa</h4>
+                        <p class="mb-4">Abạn có chắc chắn muốn xóa không?</p>
+                        <button type="button" class="btn btn-primary">Lưu</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                     </div>
                 </div>
             </div>
@@ -365,8 +366,8 @@
                             <h6>Staff</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="staff_dashboard">Thông tin của tôi</a>
+                    <a class="dropdown-item" href="login">Đăng kí</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -386,27 +387,27 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Người bệnh</span></a>
                     </li>
                     <li class="active">
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
+                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Đổi mật khẩu</span></a>
                     </li>
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <span>Đăng kí</span>
                         </a>
                     </li>
                 </ul>
@@ -423,10 +424,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Invoice Report</h3>
+                        <h3 class="page-title">Báo cáo hóa đơn</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Invoice Report</li>
+                            <li class="breadcrumb-item active">Báo cáo hóa đơn</li>
                         </ul>
                     </div>
                 </div>
@@ -444,13 +445,13 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Invoice ID</th>
-                                        <th>Patient ID</th>
-                                        <th>Patient Name</th>
+                                        <th>Hóa đơnID</th>
+                                        <th>Bệnh nhân ID</th>
+                                        <th>Tên bệnh nhân</th>
                                         <th>Total Amount</th>
-                                        <th>Created Date</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-center">Actions</th>
+                                        <th>Ngày tạo</th>
+                                        <th class="text-center">Trạng thái</th>
+                                        <th class="text-center">Hoạt động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -474,16 +475,16 @@
                                         <td><%= invoice.getBooking().getDate() %>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
+                                            <span class="badge badge-pill bg-success inv-badge">Thanh toán</span>
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
                                                 <a data-toggle="modal" href="#"
                                                    class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> Chính sửa
                                                 </a>
                                                 <a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
-                                                    <i class="fe fe-trash"></i> Delete
+                                                    <i class="fe fe-trash"></i> Xóa
                                                 </a>
                                             </div>
                                         </td>
@@ -506,7 +507,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Invoice Report</h5>
+                    <h5 class="modal-title">Chỉnh sửa báo cáo hóa đơn</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -516,25 +517,25 @@
                         <div class="row form-row">
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Invoice Number</label>
+                                    <label>Số hóa đơn</label>
                                     <input type="text" class="form-control" value="#INV-0001">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Patient ID</label>
+                                    <label>Bệnh nhân ID</label>
                                     <input type="text" class="form-control" value="	#PT002">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Patient Name</label>
+                                    <label>Tên bệnh nhân</label>
                                     <input type="text" class="form-control" value="R Amer">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Patient Image</label>
+                                    <label>Ảnh bệnh nhân</label>
                                     <input type="file" class="form-control">
                                 </div>
                             </div>
@@ -552,7 +553,7 @@
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                        <button type="submit" class="btn btn-primary btn-block">Lưu</button>
                     </form>
                 </div>
             </div>
@@ -572,10 +573,10 @@
                     </div>-->
                 <div class="modal-body">
                     <div class="form-content p-2">
-                        <h4 class="modal-title">Delete</h4>
-                        <p class="mb-4">Are you sure want to delete?</p>
-                        <button type="button" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <h4 class="modal-title">Xóa</h4>
+                        <p class="mb-4">Bạn có chắc chắn muốn xóa?</p>
+                        <button type="button" class="btn btn-primary">Lưu</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                     </div>
                 </div>
             </div>

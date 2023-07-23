@@ -63,7 +63,7 @@
                 </div>
                 <ul class="main-nav">
                     <li>
-                        <a href="doctor_dashboard">Dash Board</a>
+                        <a href="doctor_dashboard">Bảng điều khiển</a>
                     </li>
                 </ul>
             </div>
@@ -73,7 +73,7 @@
                         <i class="far fa-hospital"></i>
                     </div>
                     <div class="header-contact-detail">
-                        <p class="contact-header">Contact</p>
+                        <p class="contact-header">Liên hệ</p>
                         <p class="contact-info-header"> +84 868746275</p>
                     </div>
                 </li>
@@ -97,9 +97,9 @@
                                 <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-                        <a class="dropdown-item" href="login">Logout</a>
+                        <a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+                        <a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -116,11 +116,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                            <li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Hồ sơ</li>
                         </ol>
                     </nav>
-                    <h2 class="breadcrumb-title">Profile</h2>
+                    <h2 class="breadcrumb-title">Hồ sơ</h2>
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@
                                         <h3>${sessionScope.patient.name}</h3>
 
                                         <div class="patient-details">
-                                            <h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
+                                            <h5><b>Bệnh nhân ID :</b> ${sessionScope.patient.id}</h5>
                                             <h5 class="mb-0"><i
                                                     class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
                                         </div>
@@ -165,12 +165,12 @@
                             <div class="user-tabs">
                                 <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Appointments</a>
+                                        <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Cuộc hẹn</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link"
                                            href="patient_profile?id=${sessionScope.patient.id}&medical=true"><span
-                                                class="med-records">Medical Records</span></a>
+                                                class="med-records">Hồ sơ bệnh án</span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -183,13 +183,13 @@
                                                 <table class="table table-hover table-center mb-0">
                                                     <thead>
                                                     <tr>
-                                                        <th>Doctor</th>
+                                                        <th>Bác sĩ</th>
                                                         <th></th>
-                                                        <th>Booking Date</th>
+                                                        <th>Ngày đặt lịch</th>
                                                         <th></th>
                                                         <th></th>
-                                                        <th>Status</th>
-                                                        <th>Action</th>
+                                                        <th>Trạng thái</th>
+                                                        <th>Hoạt động</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -266,91 +266,12 @@
         <div class="footer-top">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
 
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-about">
-                            <a href="home" class="navbar-brand logo">
-                                <span class="text-primary">Clinic</span>-TATQ
-                            </a>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Doctors</h2>
-                            <ul>
-                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a>
-                                </li>
-                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor
-                                    Dashboard</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-contact">
-                            <h2 class="footer-title">Contact Us</h2>
-                            <div class="footer-contact-info">
-                                <div class="footer-address">
-                                    <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
-                                </div>
-                                <p>
-                                    <i class="fas fa-phone-alt"></i>
-                                    +84 868746275
-                                </p>
-                                <p class="mb-0">
-                                    <i class="fas fa-envelope"></i>
-                                    quyetlbche160252@fpt.edu.vn
-                                </p>
-                            </div>
-                        </div>
-                        <!-- /Footer Widget -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Footer Top -->
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container-fluid">
-
-                <!-- Copyright -->
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                                <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-
-                            <!-- Copyright Menu -->
-                            <div class="copyright-menu">
-                                <ul class="policy-menu">
-                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                    <li><a href="privacy-policy.html">Policy</a></li>
-                                </ul>
-                            </div>
-                            <!-- /Copyright Menu -->
 
                         </div>
                     </div>
                 </div>
                 <!-- /Copyright -->
-
-            </div>
-        </div>
-        <!-- /Footer Bottom -->
 
     </footer>
     <!-- /Footer -->
