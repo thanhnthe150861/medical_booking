@@ -1,7 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
-
+	
+<!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -59,7 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Home</a>
+								<a href="home">Trang chủ</a>
 							</li>
 						</ul>
 					</div>
@@ -160,8 +160,8 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Bill Details</li>
+									<li class="breadcrumb-item"><a href="index-2.html">Trang chủ</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Add Billing</li>
 								</ol>
 							</nav>
 							<h2 class="breadcrumb-title">Bill Details</h2>
