@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -74,11 +75,11 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Administrator</h6>
+                            <h6>Người quản lý</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
+                    <a class="dropdown-item" href="login">Đằng xuất</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -97,39 +98,39 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
                     </li>
                     <li>
                         <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
                     </li>
                     <li class="active">
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span> Chi tiết biểu mẫu </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Doctor</a></li>
-                            <li><a href="form_details?str=patient">Patient</a></li>
-                            <li><a href="form_details?str=staff">Staff</a></li>
+                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
+                            <li><a href="form_details?str=patient">Nhân viên</a></li>
+                            <li><a href="form_details?str=staff">Nhân viên</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <span>Đăng xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -145,10 +146,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col">
-                        <h3 class="page-title">Profile</h3>
+                        <h3 class="page-title">Hồ sơ</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="admin_dashboard">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Profile</li>
+                            <li class="breadcrumb-item"><a href="admin_dashboard">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active">Hồ sơ</li>
                         </ul>
                     </div>
                 </div>
@@ -173,7 +174,7 @@
                             </div>
                             <div class="col-auto profile-btn">
                                 <a href="#" class="btn btn-primary">
-                                    Edit
+                                    Chỉnh sửa
                                 </a>
                             </div>
                         </div>
@@ -195,24 +196,24 @@
                                 <%= messSuccess %>
                             </div>
                             <% } %>
-                            <h5 class="card-title">Change Password</h5>
+                            <h5 class="card-title">Đổi mật khẩu</h5>
                             <div class="row">
                                 <div class="col-md-10 col-lg-6">
                                     <form action="profile" method="post">
                                         <div class="form-group">
-                                            <label>Old Password</label>
+                                            <label>Mật khẩu cũ</label>
                                             <input type="password" class="form-control" name="old-password">
                                         </div>
                                         <div class="form-group">
-                                            <label>New Password</label>
+                                            <label>Mật khẩu mới</label>
                                             <input type="password" class="form-control" name="new-password">
                                         </div>
                                         <div class="form-group">
-                                            <label>Confirm Password</label>
+                                            <label>Xác nhận mật khẩu</label>
                                             <input type="password" class="form-control" name="re-password">
                                         </div>
                                         <div class="submit-section">
-                                            <button type="submit" class="btn btn-primary submit-btn">Save Changes
+                                            <button type="submit" class="btn btn-primary submit-btn">Lưu
                                             </button>
                                         </div>
                                     </form>
