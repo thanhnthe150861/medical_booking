@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +58,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="#">Home</a>
+								<a href="home">Trang chủ</a>
 							</li>
 						</ul>
 					</div>		 
@@ -69,7 +68,7 @@
 								<i class="far fa-hospital"></i>							
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">Contact</p>
+								<p class="contact-header">Liên hệ</p>
 								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
@@ -87,12 +86,12 @@
 											<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">
-											<h6>Administrator</h6>
+											<h6>Quản lý</h6>
 										</div>
 									</div>
-									<a class="dropdown-item" href="admin_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="profile">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
+									<a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Sửa hồ sơ</a>
+									<a class="dropdown-item" href="login">Đăng xuất</a>
 								</div>
 							</li>
 						</c:if>
@@ -113,9 +112,9 @@
 											<p class="text-muted mb-0">${sessionScope.bills.booking.doctor.ranks.name}</p>
 										</div>
 									</div>
-									<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
+									<a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Sửa hồ sơ</a>
+									<a class="dropdown-item" href="login">Đăng xuất</a>
 								</div>
 							</li>
 						</c:if>
@@ -136,9 +135,9 @@
 											<p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
 										</div>
 									</div>
-									<a class="dropdown-item" href="patient_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
+									<a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Sửa hồ sơ</a>
+									<a class="dropdown-item" href="login">Đăng xuất</a>
 								</div>
 							</li>
 						</c:if>
@@ -158,8 +157,8 @@
 											<h6>${sessionScope.staff.name}</h6>
 										</div>
 									</div>
-									<a class="dropdown-item" href="staff_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="login">Logout</a>
+									<a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+									<a class="dropdown-item" href="login">Đăng xuất</a>
 								</div>
 							</li>
 						</c:if>
@@ -176,11 +175,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Invoice View</li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Bảng điều khiển</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Xem hóa đơn</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Invoice View</h2>
+							<h2 class="breadcrumb-title">Xem hóa đơn</h2>
 						</div>
 					</div>
 				</div>
@@ -203,8 +202,8 @@
 										</div>
 										<div class="col-md-6">
 											<p class="invoice-details">
-												<strong>Order:</strong> ${requestScope.bill.bill.id}<br>
-												<strong>Issued:</strong> ${requestScope.bill.booking.date}
+												<strong>Số hóa đơn:</strong> ${requestScope.bill.bill.id}<br>
+												<strong>Ngày phát hành:</strong> ${requestScope.bill.booking.date}
 											</p>
 										</div>
 									</div>
@@ -215,7 +214,7 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="invoice-info">
-												<strong class="customer-text">Invoice From</strong>
+												<strong class="customer-text">Người tạo hóa đơn</strong>
 												<p class="invoice-details invoice-details-two">
 													${requestScope.bill.booking.doctor.name} <br>
 														${requestScope.bill.booking.doctor.specialty} <br>
@@ -224,7 +223,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class="invoice-info invoice-info2">
-												<strong class="customer-text">Invoice To</strong>
+												<strong class="customer-text">Bệnh nhân</strong>
 												<p class="invoice-details">
 													${requestScope.bill.booking.patient.name} <br>
 												</p>
@@ -242,24 +241,24 @@
 												<table class="invoice-table table table-bordered">
 													<thead>
 														<tr>
-															<th>Description</th>
+															<th>Mô tả</th>
 															<th class="text-center"></th>
 															<th class="text-center">VAT</th>
-															<th class="text-right">Total</th>
+															<th class="text-right">Tổng cộng</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<td>Price Medical</td>
+															<td>Giá y tế</td>
 															<td class="text-center"></td>
-															<td class="text-center">$0</td>
-															<td class="text-right">$${requestScope.bill.bill.priceMedical}</td>
+															<td class="text-center">0VND</td>
+															<td class="text-right">${requestScope.bill.bill.priceMedical}VND</td>
 														</tr>
 														<tr>
-															<td>Price Prescription (if any)</td>
+															<td>Đơn giá (nếu có)</td>
 															<td class="text-center"></td>
-															<td class="text-center">$0</td>
-															<td class="text-right">$${requestScope.bill.bill.pricePrescription}</td>
+															<td class="text-center">0VND</td>
+															<td class="text-right">${requestScope.bill.bill.pricePrescription}VND</td>
 														</tr>
 													</tbody>
 												</table>
@@ -270,16 +269,16 @@
 												<table class="invoice-table-two table">
 													<tbody>
 													<tr>
-														<th>Subtotal:</th>
-														<td><span>$${requestScope.bill.bill.totalPrice}</span></td>
+														<th>Tổng:</th>
+														<td><span>${requestScope.bill.bill.totalPrice}VND</span></td>
 													</tr>
 													<tr>
-														<th>Discount:</th>
+														<th>Giảm giá:</th>
 														<td><span>-0%</span></td>
 													</tr>
 													<tr>
-														<th>Total Amount:</th>
-														<td><span>$${requestScope.bill.bill.totalPrice}</span></td>
+														<th>Tổng cộng:</th>
+														<td><span>${requestScope.bill.bill.totalPrice}VND</span></td>
 													</tr>
 													</tbody>
 												</table>
@@ -320,35 +319,39 @@
 
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
-									<ul>
-										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-
-							</div>
-
-							<div class="col-lg-3 col-md-6">
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+84 868746275
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											quyetlbche160252@fpt.edu.vn
-										</p>
+									<!-- Footer Widget -->
+									<div class="footer-widget footer-menu">
+										<h2 class="footer-title">Cho bác sĩ</h2>
+										<ul>
+											<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển</a></li>
+											<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Lịch hẹn</a></li>
+											<li><a href="my_patients"><i class="fas fa-angle-double-right"></i> Bệnh nhân</a></li>
+										</ul>
 									</div>
+									<!-- /Footer Widget -->
+
 								</div>
+
+								<div class="col-lg-3 col-md-6">
+
+									<!-- Footer Widget -->
+									<div class="footer-widget footer-contact">
+										<h2 class="footer-title">Liên hệ chúng tôi</h2>
+										<div class="footer-contact-info">
+											<div class="footer-address">
+												<span><i class="fas fa-map-marker-alt"></i></span>
+												<p> FPT University<br> Hòa Lạc, Hà Nội </p>
+											</div>
+											<p>
+												<i class="fas fa-phone-alt"></i>
+												+84 868746275
+											</p>
+											<p class="mb-0">
+												<i class="fas fa-envelope"></i>
+												quyetlbche160252@fpt.edu.vn
+											</p>
+										</div>
+									</div>
 								<!-- /Footer Widget -->
 							</div>
 						</div>
