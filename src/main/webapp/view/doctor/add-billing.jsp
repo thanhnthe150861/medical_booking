@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -60,7 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Home</a>
+								<a href="home">Trang chủ</a>
 							</li>
 						</ul>
 					</div>
@@ -70,8 +69,8 @@
 								<i class="far fa-hospital"></i>							
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">Contact</p>
-								<p class="contact-info-header"> +84 868746275</p>
+								<p class="contact-header">Liên hệ</p>
+								<p class="contact-info-header"> +08669999999</p>
 							</div>
 						</li>
 						
@@ -89,12 +88,12 @@
 											<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">
-											<h6>Administrator</h6>
+											<h6>Quản lý</h6>
 										</div>
 									</div>
-									<a class="dropdown-item" href="admin_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="profile">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
+									<a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Sửa hồ sơ</a>
+									<a class="dropdown-item" href="login">Đăng xuất</a>
 								</div>
 							</li>
 						</c:if>
@@ -115,9 +114,9 @@
 											<p class="text-muted mb-0">${sessionScope.bills.booking.doctor.ranks.name}</p>
 										</div>
 									</div>
-									<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
+									<a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Sửa hồ sơ</a>
+									<a class="dropdown-item" href="login">Đăng xuất</a>
 								</div>
 							</li>
 						</c:if>
@@ -139,9 +138,9 @@
 											<p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
 										</div>
 									</div>
-									<a class="dropdown-item" href="patient_dashboard">Dashboard</a>
-									<a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
-									<a class="dropdown-item" href="login">Logout</a>
+									<a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Sửa hồ sơ</a>
+									<a class="dropdown-item" href="login">Đăng xuất</a>
 								</div>
 							</li>
 						</c:if>
@@ -161,11 +160,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Bill Details</li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Bảng điều khiển</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Chi tiết hóa đơn</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Bill Details</h2>
+							<h2 class="breadcrumb-title">Chi tiết hóa đơn</h2>
 						</div>
 					</div>
 				</div>
@@ -191,7 +190,7 @@
 												<h3>${sessionScope.bills.booking.patient.name}</h3>
 
 												<div class="patient-details">
-													<h5><b>Patient ID :</b> ${sessionScope.bills.booking.patient.id}</h5>
+													<h5><b>Mã bệnh nhân:</b> ${sessionScope.bills.booking.patient.id}</h5>
 													<h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.bills.booking.patient.dob}</h5>
 												</div>
 											</div>
@@ -206,7 +205,7 @@
 						<div class="col-md-7 col-lg-8 col-xl-9">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title mb-0">Bill Details</h4>
+									<h4 class="card-title mb-0">Chi tiết hóa đơn</h4>
 								</div>
 								<% String messSuccess = (String) request.getAttribute("messSuccess"); %>
 								<% if (messSuccess != null && !messSuccess.isEmpty()) { %>
@@ -227,10 +226,10 @@
 										<div class="col-sm-6 text-sm-right">
 											<div class="billing-info">
 												<h4 class="d-block">
-														<p>Booking Date: ${sessionScope.bills.booking.date}</p>
+														<p>Ngày đặt lịch: ${sessionScope.bills.booking.date}</p>
 												</h4>
 												<span class="d-block text-muted">
-														<p>Booking ID: ${sessionScope.bills.booking.id}</p>
+														<p>Mã đặt lịch: ${sessionScope.bills.booking.id}</p>
 													</span>
 											</div>
 										</div>
@@ -243,10 +242,10 @@
 												<table class="table table-hover table-center">
 													<thead>
 														<tr>
-															<th style="min-width:150px;">Price Medical</th>
-															<th style="min-width:150px;">Price Prescription (if any)</th>
-															<th style="min-width:100px;">Total</th>
-															<th style="min-width:50px;">Status</th>
+															<th style="min-width:150px;">Giá y tế</th>
+															<th style="min-width:150px;">Đơn giá (nếu có)</th>
+															<th style="min-width:100px;">Tổng cộng</th>
+															<th style="min-width:50px;">Trạng thái</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -280,8 +279,8 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="submit-section">
-												<button type="submit" class="btn btn-primary submit-btn">Save</button>
-												<button type="reset" class="btn btn-secondary submit-btn">Clear</button>
+												<button type="submit" class="btn btn-primary submit-btn">Lưu</button>
+												<button type="reset" class="btn btn-secondary submit-btn">Xóa</button>
 											</div>
 										</div>
 									</div>
@@ -319,10 +318,11 @@
 
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
+									<h2 class="footer-title">Cho bác sĩ</h2>
 									<ul>
-										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển</a></li>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Lịch hẹn</a></li>
+										<li><a href="my_patients"><i class="fas fa-angle-double-right"></i> Bệnh nhân</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -333,7 +333,7 @@
 
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
+									<h2 class="footer-title">Liên hệ chúng tôi</h2>
 									<div class="footer-contact-info">
 										<div class="footer-address">
 											<span><i class="fas fa-map-marker-alt"></i></span>
@@ -367,7 +367,7 @@
 							<div class="row">
 								<div class="col-md-6 col-lg-6">
 									<div class="copyright-text">
-										<p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
+										<p class="mb-0">Medical Clinic-TATQ</p>
 									</div>
 								</div>
 								<div class="col-md-6 col-lg-6">
@@ -375,8 +375,8 @@
 									<!-- Copyright Menu -->
 									<div class="copyright-menu">
 										<ul class="policy-menu">
-											<li><a href="term-condition.html">Terms and Conditions</a></li>
-											<li><a href="privacy-policy.html">Policy</a></li>
+											<li><a href="term-condition.html"></a></li>
+											<li><a href="privacy-policy.html"></a></li>
 										</ul>
 									</div>
 									<!-- /Copyright Menu -->
