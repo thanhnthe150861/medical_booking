@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -93,9 +92,9 @@
                                 <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-                        <a class="dropdown-item" href="login">Logout</a>
+                        <a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+                        <a class="dropdown-item" href="doctor_profile_settings">Sửa hồ sơ</a>
+                        <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -112,11 +111,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Appointments</li>
+                            <li class="breadcrumb-item"><a href="doctor_dashboard">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Lịch hẹn</li>
                         </ol>
                     </nav>
-                    <h2 class="breadcrumb-title">Appointments</h2>
+                    <h2 class="breadcrumb-title">lịch hẹn</h2>
                 </div>
             </div>
         </div>
@@ -152,49 +151,49 @@
                                     <li>
                                         <a href="doctor_dashboard">
                                             <i class="fas fa-columns"></i>
-                                            <span>Dashboard</span>
+                                            <span>Bảng điều khiển</span>
                                         </a>
                                     </li>
                                     <li class="active">
                                         <a href="doctor_appointments">
                                             <i class="fas fa-calendar-check"></i>
-                                            <span>Appointments</span>
+                                            <span>Lịch hẹn</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="my_patients">
                                             <i class="fas fa-user-injured"></i>
-                                            <span>My Patients</span>
+                                            <span>Bệnh nhân</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="doctor_schedule_timings">
                                             <i class="fas fa-hourglass-start"></i>
-                                            <span>Schedule Timings</span>
+                                            <span>Thời gian biểu</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="invoice_doctor">
                                             <i class="fas fa-file-invoice"></i>
-                                            <span>Invoices</span>
+                                            <span>Hóa đơn</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="doctor_profile_settings">
                                             <i class="fas fa-user-cog"></i>
-                                            <span>Profile Settings</span>
+                                            <span>Sửa hồ sơ</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="doctor_change_password">
                                             <i class="fas fa-lock"></i>
-                                            <span>Change Password</span>
+                                            <span>Đổi mật khẩu</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="login">
                                             <i class="fas fa-sign-out-alt"></i>
-                                            <span>Logout</span>
+                                            <span>Đăng xuất</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -230,11 +229,11 @@
                                 <div class="appointment-action">
                                     <a href="doctor_appointments?id=${b.id}&status=Confirmed"
                                        class="btn btn-sm bg-success-light">
-                                        <i class="fas fa-check"></i> Confirmed
+                                        <i class="fas fa-check"></i> Xác nhận
                                     </a>
                                     <a href="doctor_appointments?id=${b.id}&status=Cancelled"
                                        class="btn btn-sm bg-danger-light">
-                                        <i class="fas fa-times"></i> Cancel
+                                        <i class="fas fa-times"></i> Bỏ qua
                                     </a>
                                 </div>
                             </div>
@@ -264,8 +263,7 @@
                                 <img src="assets/img/footer-logo.png" alt="logo">
                             </div>
                             <div class="footer-about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
+
                                 <div class="social-icon">
                                     <ul>
                                         <li>
@@ -293,16 +291,6 @@
 
                     <div class="col-lg-3 col-md-6">
 
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Patients</h2>
-                            <ul>i>
-                                Register</a></li>
-                                <li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor
-                                    Dashboard</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
 
                     </div>
 
@@ -311,8 +299,23 @@
                         <div class="col-lg-3 col-md-6">
 
                             <!-- Footer Widget -->
+                            <div class="footer-widget footer-menu">
+                                <h2 class="footer-title">Cho bác sĩ</h2>
+                                <ul>
+                                    <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển</a></li>
+                                    <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Lịch hẹn</a></li>
+                                    <li><a href="my_patients"><i class="fas fa-angle-double-right"></i> Bệnh nhân</a></li>
+                                </ul>
+                            </div>
+                            <!-- /Footer Widget -->
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+
+                            <!-- Footer Widget -->
                             <div class="footer-widget footer-contact">
-                                <h2 class="footer-title">Contact Us</h2>
+                                <h2 class="footer-title">Liên hệ chúng tôi</h2>
                                 <div class="footer-contact-info">
                                     <div class="footer-address">
                                         <span><i class="fas fa-map-marker-alt"></i></span>
@@ -320,41 +323,12 @@
                                     </div>
                                     <p>
                                         <i class="fas fa-phone-alt"></i>
-                                        <li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for
-                                            Doctors</a></li>
-                                        <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a>
-                                        </li>
-                                        <li><a href="register.html"><i class="fas fa-angle-double-right"></i>
-                                            Register</a></li>
-                                        <li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a>
-                                        </li>
-                                        <li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i>
-                                            Patient
-                                            Dashboard</a></li>
-                                        </ul>
-                                </div>
-                                <!-- /Footer Widget -->
-
-                            </div>
-
-                            <div class="col-lg-3 col-md-6">
-
-                                <!-- Footer Widget -->
-                                <div class="footer-widget footer-menu">
-                                    <h2 class="footer-title">For Doctors</h2>
-                                    <ul>
-                                        <li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i>
-                                            Appointments</a></li>
-                                        <li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-                                        <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a>
-                                        </li>
-                                        <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></
-                                            +84 868746275
-                                            </p>
-                                            <p class="mb-0">
-                                                <i class="fas fa-envelope"></i>
-                                                quyetlbche160252@fpt.edu.vn
-                                            </p>
+                                        +84 868746275
+                                    </p>
+                                    <p class="mb-0">
+                                        <i class="fas fa-envelope"></i>
+                                        quyetlbche160252@fpt.edu.vn
+                                    </p>
                                 </div>
                             </div>
                             <!-- /Footer Widget -->
@@ -375,7 +349,7 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-6">
                                 <div class="copyright-text">
-                                    <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
+                                    <p class="mb-0">Medical Clinic-TATQ</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-6">
@@ -383,8 +357,8 @@
                                 <!-- Copyright Menu -->
                                 <div class="copyright-menu">
                                     <ul class="policy-menu">
-                                        <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                        <li><a href="privacy-policy.html">Policy</a></li>
+                                        <li><a href="term-condition.html"></a></li>
+                                        <li><a href="privacy-policy.html"></a></li>
                                     </ul>
                                 </div>
                                 <!-- /Copyright Menu -->
@@ -397,6 +371,7 @@
                 </div>
             </div>
             <!-- /Footer Bottom -->
+        </div>
 
     </footer>
     <!-- /Footer -->
