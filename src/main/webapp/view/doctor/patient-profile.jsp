@@ -6,10 +6,33 @@
 
 <head>
     <meta charset="utf-8">
-	<title>Clinic TQTA</title>
+    <title>Clinic TQTA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+
+    <!-- Datetimepicker CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
 <!-- Main Wrapper -->
 <div class="main-wrapper">
 
@@ -74,8 +97,8 @@
                             </div>
                         </div>
                         <a class="dropdown-item" href="doctor_dashboard">bảng điều khiển</a>
-								<a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
-								<a class="dropdown-item" href="login">Đăng xuất</a>
+                        <a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -141,7 +164,8 @@
                             <div class="user-tabs">
                                 <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Cuộc hẹn</a>
+                                        <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Cuộc
+                                            hẹn</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link"
@@ -160,12 +184,12 @@
                                                     <thead>
                                                     <tr>
                                                         <th>Bác sĩ</th>
-																	<th></th>
-																	<th>Ngày đặt lịch</th>
-																	<th></th>
-																	<th></th>
-																	<th>Trạng thái </th>
-																	<th></th>
+                                                        <th></th>
+                                                        <th>Ngày đặt lịch</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th>Trạng thái</th>
+                                                        <th></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -261,7 +285,8 @@
                             <ul>
                                 <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Cuộc hẹn</a>
                                 </li>
-                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khuyển</a></li>
+                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều
+                                    khuyển</a></li>
                             </ul>
                         </div>
                         <!-- /Footer Widget -->
@@ -353,5 +378,4 @@
 
 </body>
 
-<!-- doccure/patient-profile.jsp  30 Nov 2019 04:12:13 GMT -->
 </html>

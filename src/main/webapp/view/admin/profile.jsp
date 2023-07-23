@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -118,7 +119,8 @@
                         <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span class="menu-arrow"></span></a>
+                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span
+                                class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="form_details?str=doctor">Bác sĩ</a></li>
                             <li><a href="form_details?str=patient">Bênh nhân</a></li>

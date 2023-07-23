@@ -2,7 +2,7 @@
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
 <%@ page import="mvc.model.Account" %>
-<%@ page import="mvc.dal.StaffDBContext" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -126,7 +126,8 @@
                         <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span class="menu-arrow"></span></a>
+                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span
+                                class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="form_details?str=doctor">Bác sĩ</a></li>
                             <li><a href="form_details?str=patient">Bênh nhân</a></li>
@@ -178,7 +179,7 @@
                                         <th>Bệnh nhân ID</th>
                                         <th>Tên bệnh nhân</th>
                                         <th>Tổng cộng</th>
-                                        <th>Ngày tạo </th>
+                                        <th>Ngày tạo</th>
                                         <th class="text-center">Trạng thái</th>
                                         <th class="text-center">Hoạt động</th>
                                     </tr>
@@ -208,11 +209,13 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
-                                                <a data-toggle="modal" href="invoice_details?bid=<%= invoice.getBill().getId() %>"
+                                                <a data-toggle="modal"
+                                                   href="invoice_details?bid=<%= invoice.getBill().getId() %>"
                                                    class="btn btn-sm bg-success-light mr-2">
                                                     <i class="fe fe-pencil"></i> Chỉnh sửa
                                                 </a>
-                                                <a class="btn btn-sm bg-info-light" data-toggle="modal" href="invoice_view?bid=<%= invoice.getBill().getId() %>">
+                                                <a class="btn btn-sm bg-info-light" data-toggle="modal"
+                                                   href="invoice_view?bid=<%= invoice.getBill().getId() %>">
                                                     <i class="fe fe-trash"></i> Xem
                                                 </a>
                                             </div>
@@ -398,7 +401,8 @@
                         <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Thay đổi mật khẩu</span></a>
+                        <a href="staff_change_password"><i class="fe fe-user-plus"></i>
+                            <span>Thay đổi mật khẩu</span></a>
                     </li>
                     <li>
                         <a href="login">

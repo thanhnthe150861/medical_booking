@@ -1,6 +1,7 @@
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -123,7 +124,8 @@
                         <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span class="menu-arrow"></span></a>
+                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span
+                                class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="form_details?str=doctor">Bác sĩ</a></li>
                             <li><a href="form_details?str=patient">Bênh nhân</a></li>
@@ -168,7 +170,8 @@
                             <div class="table-responsive">
                                 <div class="table-responsive">
                                     <div class="actions text-md-right">
-                                        <a href="form_details?str=patient" class="btn btn-sm bg-success-light mr-2">Thêm mới bênh nhân</a>
+                                        <a href="form_details?str=patient" class="btn btn-sm bg-success-light mr-2">Thêm
+                                            mới bênh nhân</a>
                                     </div>
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
@@ -193,7 +196,8 @@
                                                 <h2 class="table-avatar">
                                                     <a href="#" class="avatar avatar-sm mr-2"><img
                                                             class="avatar-img rounded-circle"
-                                                            src="<%= patient.getBooking().getPatient().getUrl() %>" alt="User Image"></a>
+                                                            src="<%= patient.getBooking().getPatient().getUrl() %>"
+                                                            alt="User Image"></a>
                                                     <a href="#"><%= patient.getBooking().getPatient().getName() %>
                                                     </a>
                                                 </h2>
