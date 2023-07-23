@@ -2,7 +2,7 @@
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
 <%@ page import="mvc.model.Account" %>
-<%@ page import="mvc.dal.StaffDBContext" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -81,11 +81,11 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Người quản lý</h6>
+                            <h6>Administrator</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
-                    <a class="dropdown-item" href="login">Đăng xuất</a>
+                    <a class="dropdown-item" href="admin_dashboard">My Profile</a>
+                    <a class="dropdown-item" href="login">Logout</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -104,39 +104,44 @@
                     <li class="menu-title">
                         <span>Main</span>
                     </li>
+                    <li>
+                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                    </li>
+                    <li>
+                        <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+                    </li>
+                    <li>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+                    </li>
+                    <li>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
+                    </li>
                     <li class="active">
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
-                    </li>
-                    <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
-                    </li>
-                    <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
-                    </li>
-                    <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
-                    </li>
-                    <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span class="menu-arrow"></span></a>
+<<<<<<< HEAD
+                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span
+=======
+                        <a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span
+>>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
+                                class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
-                            <li><a href="form_details?str=patient">Bênh nhân</a></li>
-                            <li><a href="form_details?str=staff">Nhân viên</a></li>
+                            <li><a href="form_details?str=doctor">Doctor</a></li>
+                            <li><a href="form_details?str=patient">Patient</a></li>
+                            <li><a href="form_details?str=staff">Staff</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fa fa-sign-out-alt"></i>
-                            <span>Đăng xuất</span>
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
                         </a>
                     </li>
                 </ul>
@@ -153,10 +158,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Báo cáo hóa đơn</h3>
+                        <h3 class="page-title">Invoice Report</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Bảng điều khiển</a></li>
-                            <li class="breadcrumb-item active">Báo cáo hóa đơn</li>
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Invoice Report</li>
                         </ul>
                     </div>
                 </div>
@@ -174,13 +179,23 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
+<<<<<<< HEAD
                                         <th>Hóa đơn ID</th>
                                         <th>Bệnh nhân ID</th>
                                         <th>Tên bệnh nhân</th>
                                         <th>Tổng cộng</th>
-                                        <th>Ngày tạo </th>
+                                        <th>Ngày tạo</th>
                                         <th class="text-center">Trạng thái</th>
                                         <th class="text-center">Hoạt động</th>
+=======
+                                        <th>Invoice ID</th>
+                                        <th>Patient ID</th>
+                                        <th>Patient Name</th>
+                                        <th>Total Amount</th>
+                                        <th>Created Date</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Actions</th>
+>>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -204,16 +219,23 @@
                                         <td><%= invoice.getBooking().getDate() %>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-pill bg-success inv-badge">Thanh toán</span>
+                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
-                                                <a data-toggle="modal" href="invoice_details?bid=<%= invoice.getBill().getId() %>"
+                                                <a data-toggle="modal"
+                                                   href="invoice_details?bid=<%= invoice.getBill().getId() %>"
                                                    class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> Chỉnh sửa
+                                                    <i class="fe fe-pencil"></i> Edit
                                                 </a>
-                                                <a class="btn btn-sm bg-info-light" data-toggle="modal" href="invoice_view?bid=<%= invoice.getBill().getId() %>">
+<<<<<<< HEAD
+                                                <a class="btn btn-sm bg-info-light" data-toggle="modal"
+                                                   href="invoice_view?bid=<%= invoice.getBill().getId() %>">
                                                     <i class="fe fe-trash"></i> Xem
+=======
+                                                <a class="btn btn-sm bg-info-light" data-toggle="modal" href="invoice_view?bid=<%= invoice.getBill().getId() %>">
+                                                    <i class="fe fe-trash"></i> View
+>>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                                                 </a>
                                             </div>
                                         </td>
@@ -236,7 +258,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Chỉnh sửa báo cáo hóa đơn</h5>
+                    <h5 class="modal-title">Edit Invoice Report</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -246,25 +268,25 @@
                         <div class="row form-row">
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Số hóa đơn</label>
+                                    <label>Invoice Number</label>
                                     <input type="text" class="form-control" value="#INV-0001">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>bệnh nhân ID</label>
+                                    <label>Patient ID</label>
                                     <input type="text" class="form-control" value="	#PT002">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Tên bệnh nhân</label>
+                                    <label>Patient Name</label>
                                     <input type="text" class="form-control" value="R Amer">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Ảnh bệnh nhân</label>
+                                    <label>Patient Image</label>
                                     <input type="file" class="form-control">
                                 </div>
                             </div>
@@ -276,13 +298,13 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Ngày tạo</label>
+                                    <label>Created Date</label>
                                     <input type="text" class="form-control" value="29th Oct 2019">
                                 </div>
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Lưu</button>
+                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
                     </form>
                 </div>
             </div>
@@ -302,10 +324,10 @@
                     </div>-->
                 <div class="modal-body">
                     <div class="form-content p-2">
-                        <h4 class="modal-title">Xóa </h4>
-                        <p class="mb-4">Bạn có chắc chắn muốn xóa?</p>
-                        <button type="button" class="btn btn-primary">Lưu</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                        <h4 class="modal-title">Delete</h4>
+                        <p class="mb-4">Are you sure want to delete?</p>
+                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -362,8 +384,8 @@
                             <h6>Staff</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="staff_dashboard">Thông tin của tôi</a>
-                    <a class="dropdown-item" href="login">Thông tin của tôi</a>
+                    <a class="dropdown-item" href="staff_dashboard">My Profile</a>
+                    <a class="dropdown-item" href="login">Logout</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -383,27 +405,32 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
+                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Patients</span></a>
                     </li>
                     <li class="active">
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
                     </li>
                     <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Thay đổi mật khẩu</span></a>
+<<<<<<< HEAD
+                        <a href="staff_change_password"><i class="fe fe-user-plus"></i>
+                            <span>Thay đổi mật khẩu</span></a>
+=======
+                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
+>>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                     </li>
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Đăng kí</span>
+                            <span>Logout</span>
                         </a>
                     </li>
                 </ul>
@@ -420,10 +447,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Báo cáo hóa đơn</h3>
+                        <h3 class="page-title">Invoice Report</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Bảng điều khiển</a></li>
-                            <li class="breadcrumb-item active">Báo cáo hóa đơn</li>
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Invoice Report</li>
                         </ul>
                     </div>
                 </div>
@@ -441,13 +468,13 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Hóa đơn ID</th>
-                                        <th>Bệnh nhân ID</th>
-                                        <th>Tên bệnh nhân</th>
-                                        <th>Tổng cộng</th>
-                                        <th>ngày tạo</th>
-                                        <th class="text-center">Trạng</th>
-                                        <th class="text-center">Hoạt động</th>
+                                        <th>Invoice ID</th>
+                                        <th>Patient ID</th>
+                                        <th>Patient Name</th>
+                                        <th>Total Amount</th>
+                                        <th>Created Date</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -471,16 +498,16 @@
                                         <td><%= invoice.getBooking().getDate() %>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-pill bg-success inv-badge">Thanh toán</span>
+                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
                                                 <a data-toggle="modal" href="#"
                                                    class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> Chỉnh sửa
+                                                    <i class="fe fe-pencil"></i> Edit
                                                 </a>
                                                 <a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
-                                                    <i class="fe fe-trash"></i> Xóa
+                                                    <i class="fe fe-trash"></i> Delete
                                                 </a>
                                             </div>
                                         </td>
@@ -503,7 +530,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Chỉnh sửa báo cáo hóa đơn</h5>
+                    <h5 class="modal-title">Edit Invoice Report</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -513,43 +540,43 @@
                         <div class="row form-row">
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Số hóa đơn</label>
+                                    <label>Invoice Number</label>
                                     <input type="text" class="form-control" value="#INV-0001">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Bệnh nhân ID</label>
+                                    <label>Patient ID</label>
                                     <input type="text" class="form-control" value="	#PT002">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Tên bệnh nhân</label>
+                                    <label>Patient Name</label>
                                     <input type="text" class="form-control" value="R Amer">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Ảnh bệnh nhân</label>
+                                    <label>Patient Image</label>
                                     <input type="file" class="form-control">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Tổng cộng</label>
+                                    <label>Total Amount</label>
                                     <input type="text" class="form-control" value="$200.00">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Ngày tạo</label>
+                                    <label>Created Date</label>
                                     <input type="text" class="form-control" value="29th Oct 2019">
                                 </div>
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Lưu</button>
+                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
                     </form>
                 </div>
             </div>
@@ -569,10 +596,10 @@
                     </div>-->
                 <div class="modal-body">
                     <div class="form-content p-2">
-                        <h4 class="modal-title">Xóa</h4>
-                        <p class="mb-4">Bạn có chắc chắn muốn xóa?</p>
-                        <button type="button" class="btn btn-primary">Lưu</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                        <h4 class="modal-title">Delete</h4>
+                        <p class="mb-4">Are you sure want to delete?</p>
+                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

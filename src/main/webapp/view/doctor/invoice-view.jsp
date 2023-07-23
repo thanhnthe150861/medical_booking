@@ -5,7 +5,7 @@
 
 <head>
 		<meta charset="utf-8">
-		<title>Clinic TQTA</title>
+		<title>Doccure</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 		
 		<!-- Favicons -->
@@ -59,7 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="#">Trang chủ</a>
+								<a href="#">Home</a>
 							</li>
 						</ul>
 					</div>		 
@@ -69,7 +69,7 @@
 								<i class="far fa-hospital"></i>							
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">Liên hệ</p>
+								<p class="contact-header">Contact</p>
 								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
@@ -87,12 +87,12 @@
 											<img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
 										</div>
 										<div class="user-text">
-											<h6>Người quản lý</h6>
+											<h6>Administrator</h6>
 										</div>
 									</div>
-									<a class="dropdown-item" href="admin_dashboard">Bảng điều khiển</a>
-									<a class="dropdown-item" href="profile">Thông tin cá nhân</a>
-									<a class="dropdown-item" href="login">Đăng xuất</a>
+									<a class="dropdown-item" href="admin_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="profile">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
 								</div>
 							</li>
 						</c:if>
@@ -113,9 +113,9 @@
 											<p class="text-muted mb-0">${sessionScope.bills.booking.doctor.ranks.name}</p>
 										</div>
 									</div>
-									<a class="dropdown-item" href="admin_dashboard">Bảng điều khiển</a>
-									<a class="dropdown-item" href="profile">Thông tin cá nhân</a>
-									<a class="dropdown-item" href="login">Đăng xuất</a>
+									<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
 								</div>
 							</li>
 						</c:if>
@@ -136,9 +136,9 @@
 											<p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
 										</div>
 									</div>
-									<a class="dropdown-item" href="admin_dashboard">Bảng điều khiển</a>
-									<a class="dropdown-item" href="profile">Thông tin cá nhân</a>
-									<a class="dropdown-item" href="login">Đăng xuất</a>
+									<a class="dropdown-item" href="patient_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
+									<a class="dropdown-item" href="login">Logout</a>
 								</div>
 							</li>
 						</c:if>
@@ -158,8 +158,8 @@
 											<h6>${sessionScope.staff.name}</h6>
 										</div>
 									</div>
-									<a class="dropdown-item" href="admin_dashboard">Bảng điều khiển</a>
-									<a class="dropdown-item" href="login">Đăng xuất</a>
+									<a class="dropdown-item" href="staff_dashboard">Dashboard</a>
+									<a class="dropdown-item" href="login">Logout</a>
 								</div>
 							</li>
 						</c:if>
@@ -176,11 +176,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Xem hóa đơn</li>
+									<li class="breadcrumb-item"><a href="#">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Invoice View</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Xem hóa đơn</h2>
+							<h2 class="breadcrumb-title">Invoice View</h2>
 						</div>
 					</div>
 				</div>
@@ -215,7 +215,7 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="invoice-info">
-												<strong class="customer-text">Hóa đơn từ</strong>
+												<strong class="customer-text">Invoice From</strong>
 												<p class="invoice-details invoice-details-two">
 													${requestScope.bill.booking.doctor.name} <br>
 														${requestScope.bill.booking.doctor.specialty} <br>
@@ -224,7 +224,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class="invoice-info invoice-info2">
-												<strong class="customer-text">Hóa đơn đến</strong>
+												<strong class="customer-text">Invoice To</strong>
 												<p class="invoice-details">
 													${requestScope.bill.booking.patient.name} <br>
 												</p>
@@ -242,21 +242,21 @@
 												<table class="invoice-table table table-bordered">
 													<thead>
 														<tr>
-															<th>Thống kê</th>
+															<th>Description</th>
 															<th class="text-center"></th>
 															<th class="text-center">VAT</th>
-															<th class="text-right">Tổng</th>
+															<th class="text-right">Total</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<td>Giá dịch vụ</td>
+															<td>Price Medical</td>
 															<td class="text-center"></td>
 															<td class="text-center">$0</td>
 															<td class="text-right">$${requestScope.bill.bill.priceMedical}</td>
 														</tr>
 														<tr>
-															<td>Đơn giá (nếu có)</td>
+															<td>Price Prescription (if any)</td>
 															<td class="text-center"></td>
 															<td class="text-center">$0</td>
 															<td class="text-right">$${requestScope.bill.bill.pricePrescription}</td>
@@ -270,15 +270,15 @@
 												<table class="invoice-table-two table">
 													<tbody>
 													<tr>
-														<th>Yổng:</th>
+														<th>Subtotal:</th>
 														<td><span>$${requestScope.bill.bill.totalPrice}</span></td>
 													</tr>
 													<tr>
-														<th>Giảm giá:</th>
+														<th>Discount:</th>
 														<td><span>-0%</span></td>
 													</tr>
 													<tr>
-														<th>Tổng cộng:</th>
+														<th>Total Amount:</th>
 														<td><span>$${requestScope.bill.bill.totalPrice}</span></td>
 													</tr>
 													</tbody>
@@ -297,18 +297,67 @@
 
 			</div>		
 			<!-- /Page Content -->
+   
+			<!-- Footer -->
+			<footer class="footer">
+				
+				<!-- Footer Top -->
+				<div class="footer-top">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
 
-			<!-- Footer Top -->
-			<div class="footer-top">
-				<div class="container-fluid">
-					<div class="row">
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-about">
+									<a href="home" class="navbar-brand logo">
+										<span class="text-primary">Clinic</span>-TATQ
+									</a>
+								</div>
+								<!-- /Footer Widget -->
 
+							</div>
+							<div class="col-lg-3 col-md-6">
 
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Doctors</h2>
+									<ul>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
 
+							</div>
+
+							<div class="col-lg-3 col-md-6">
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact">
+									<h2 class="footer-title">Contact Us</h2>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<span><i class="fas fa-map-marker-alt"></i></span>
+											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
+										</div>
+										<p>
+											<i class="fas fa-phone-alt"></i>
+											+84 868746275
+										</p>
+										<p class="mb-0">
+											<i class="fas fa-envelope"></i>
+											quyetlbche160252@fpt.edu.vn
+										</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<!-- /Footer Top -->
+				<!-- /Footer Bottom -->
+				
+			</footer>
+			<!-- /Footer -->
 		   
 		</div>
 		<!-- /Main Wrapper -->

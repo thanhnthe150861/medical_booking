@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,12 +76,12 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Quản lý</h6>
+                            <h6>Ryan Taylor</h6>
                             <p class="text-muted mb-0">Administrator</p>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
-                    <a class="dropdown-item" href="login">Đăng xuất</a>
+                    <a class="dropdown-item" href="admin_dashboard">Hồ Sơ</a>
+                    <a class="dropdown-item" href="login">Đăng Xuất</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -100,39 +101,39 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng Điều Khiển</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
+                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc Hẹn</span></a>
                     </li>
                     <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
+                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân Viên</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác Sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh Nhân</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span>Hóa đơn</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span>Hóa Đơn</span></a>
                     </li>
                     <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ Sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span>Thêm mới/Cập nhật</span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li class="active"><a href="form_details?str=doctor">Bác sĩ</a></li>
-                            <li><a href="form_details?str=patient">Bệnh nhân</a></li>
-                            <li><a href="form_details?str=staff">Nhân viên</a></li>
+                            <li class="active"><a href="form_details?str=doctor">Bác Sĩ</a></li>
+                            <li><a href="form_details?str=patient">Bệnh Nhân</a></li>
+                            <li><a href="form_details?str=staff">Nhân Viên</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Đăng xuất</span>
+                            <span>Đăng Xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -150,10 +151,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col">
-                        <h3 class="page-title">Thêm mới/Cập nhật</h3>
+                        <h3 class="page-title">Thêm Mới/Cập Nhật</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="admin_dashboard">Bảng điều khiển</a></li>
-                            <li class="breadcrumb-item active">Thêm mới/Cập nhật</li>
+                            <li class="breadcrumb-item"><a href="admin_dashboard">Bảng Điều Khiển</a></li>
+                            <li class="breadcrumb-item active">Thêm Mới/Cập Nhật</li>
                         </ul>
                     </div>
                 </div>
@@ -164,8 +165,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><c:if test="${sessionScope.doctor eq null}">Thêm mới</c:if><c:if
-                                    test="${sessionScope.doctor ne null}">Cập nhật</c:if> bác sĩ</h4>
+                            <h4 class="card-title"><c:if test="${sessionScope.doctor eq null}">ADD NEW</c:if><c:if
+                                    test="${sessionScope.doctor ne null}">UPDATE</c:if> DOCTOR</h4>
                             <!-- Place this code where you want to display the error message -->
                             <% String errorMessage = (String) request.getAttribute("messError"); %>
                             <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
@@ -191,17 +192,18 @@
                                             </div>
                                             <div class="upload-img">
                                                 <label for="photo-upload" class="change-photo-btn">
-                                                    <span><i class="fa fa-upload"></i> Tải ảnh</span>
+                                                    <span><i class="fa fa-upload"></i> Upload Photo</span>
                                                 </label>
                                                 <input type="file" id="photo-upload" class="upload" name="file"
                                                        style="display: none;">
-                                                <small class="form-text text-muted">Ảnh không được quá 2MB</small>
+                                                <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of
+                                                    2MB</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Tên đăng nhập</label>
+                                    <label class="col-form-label col-md-2">User Name</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="username" required <c:if
                                                 test="${sessionScope.doctor ne null}"> readonly="readonly"
@@ -209,21 +211,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Mật khẩu</label>
+                                    <label class="col-form-label col-md-2">Password</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="password" required
                                                value="${sessionScope.doctor.account.password}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Tên</label>
+                                    <label class="col-form-label col-md-2">Name</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="name" required
                                                value="${sessionScope.doctor.name}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Số điện thoại</label>
+                                    <label class="col-form-label col-md-2">Phone</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="phone" required
                                                value="${sessionScope.doctor.account.phone}">
@@ -237,35 +239,35 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Ngày sinh</label>
+                                    <label class="col-form-label col-md-2">Date Of Birth</label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="date" name="dob" required
                                                value="${sessionScope.doctor.dob}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Giới tính</label>
+                                    <label class="col-form-label col-md-2">Gender</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="gender" required>
                                             <option>Select</option>
                                             <option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>
-                                                Nam
+                                                Male
                                             </option>
                                             <option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>
-                                                Nữ
+                                                Female
                                             </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Chuyên khoa</label>
+                                    <label class="col-form-label col-md-2">Speciality</label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="text" name="speciality" required
                                                value="${sessionScope.doctor.specialty}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">hạng</label>
+                                    <label class="col-form-label col-md-2">Rank</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="rank" required>
                                             <c:forEach items="${sessionScope.rankListDoctor}" var="rld">
@@ -275,7 +277,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Trạng thái</label>
+                                    <label class="col-form-label col-md-2">Status</label>
                                     <div class="col-md-10">
                                         <select class="form-control select" name="status" required>
                                             <option value="true" ${sessionScope.doctor.account.status == true ? "selected" : ""}>
@@ -288,7 +290,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-section">
-                                    <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
+                                    <button type="submit" class="btn btn-primary submit-btn">Save</button>
                                 </div>
                             </form>
                         </div>
