@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -115,11 +116,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Bảng điều khiển</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Hồ sơ</li>
+                          <li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Hồ sơ</li>
                         </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Hồ sơ</h2>
+                      </nav>
+                      <h2 class="breadcrumb-title">Hồ sơ</h2>
                 </div>
             </div>
         </div>
@@ -145,7 +146,7 @@
                                         <h3>${sessionScope.patient.name}</h3>
 
                                         <div class="patient-details">
-                                            <h5><b>Mã bệnh nhân:</b> ${sessionScope.patient.id}</h5>
+                                            <h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
                                             <h5 class="mb-0"><i
                                                     class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
                                         </div>
@@ -274,11 +275,11 @@
 
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">Cho bác sĩ</h2>
-                            <ul>
-                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển</a></li>
-                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Lịch hẹn</a></li>
-                                <li><a href="my_patients"><i class="fas fa-angle-double-right"></i> Bệnh nhân của tôi</a></li>
+                          <h2 class="footer-title">Dành cho bác sĩ</h2>
+                          <ul>
+                              <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Cuộc hẹn</a>
+                              </li>
+                              <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khuyển</a></li>
                             </ul>
                         </div>
                         <!-- /Footer Widget -->
@@ -323,7 +324,7 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-6">
                             <div class="copyright-text">
-                                <p class="mb-0">Medical Clinic-TATQ</p>
+                                <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6">
@@ -331,8 +332,8 @@
                             <!-- Copyright Menu -->
                             <div class="copyright-menu">
                                 <ul class="policy-menu">
-                                    <li><a href="term-condition.html"></a></li>
-                                    <li><a href="privacy-policy.html"></a></li>
+                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
+                                    <li><a href="privacy-policy.html">Policy</a></li>
                                 </ul>
                             </div>
                             <!-- /Copyright Menu -->

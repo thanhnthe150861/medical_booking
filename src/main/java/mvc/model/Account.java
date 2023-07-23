@@ -10,7 +10,6 @@ public class Account {
     private String phone;
     private String email;
     private int isAdmin;
-    private String code;
 
     private Boolean status;
 
@@ -73,8 +72,4 @@ public class Account {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getCode() { return code; }
-
-    public void setCode(String code) { this.code = code;}
 }

@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<!DOCTYPE html><%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 
 <head>
@@ -66,7 +66,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Bảng điều khuyển</a>
+								<a href="doctor_dashboard">Trang chủ</a>
 							</li>
 						</ul>
 					</div>
@@ -175,7 +175,7 @@
 											<li>
 												<a href="doctor_schedule_timings">
 													<i class="fas fa-hourglass-start"></i>
-													<span>Lịch làm việc</span>
+													<span>Thời gian khám</span>
 												</a>
 											</li>
 											<li>
@@ -311,7 +311,7 @@
 								</div>
 								<!-- /Footer Widget -->
 
-                            </div>
+                    </div>
 
                     <div class="col-lg-3 col-md-6">
 
@@ -351,7 +351,7 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-6">
                             <div class="copyright-text">
-                                <p class="mb-0">Medical Clinic-TATQ</p>
+                                <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6">
@@ -359,8 +359,8 @@
                             <!-- Copyright Menu -->
                             <div class="copyright-menu">
                                 <ul class="policy-menu">
-                                    <li><a href="term-condition.html"></a></li>
-                                    <li><a href="privacy-policy.html"></a></li>
+                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
+                                    <li><a href="privacy-policy.html">Policy</a></li>
                                 </ul>
                             </div>
                             <!-- /Copyright Menu -->
