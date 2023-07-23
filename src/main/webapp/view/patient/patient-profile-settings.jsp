@@ -48,43 +48,43 @@
 								<span></span>
 								<span></span>
 							</span>
-						</a>
-						<a href="home" class="navbar-brand logo">
-							<span class="text-primary">Clinic</span>-TATQ
-						</a>
-					</div>
-					<div class="main-menu-wrapper">
-						<div class="menu-header">
-							<a href="home" class="menu-logo">
-								<span class="text-primary" width="50" height="50">Clinic</span>
-							</a>
-							<a id="menu_close" class="menu-close" href="javascript:void(0);">
-								<i class="fas fa-times"></i>
-							</a>
-						</div>
-						<ul class="main-nav">
-							<li>
-								<a href="home">Home</a>
-							</li>
-							<li>
-								<a href="booking">Đặt lịch</a>
-							</li>
-						</ul>
-					</div>		 
-					<ul class="nav header-navbar-rht">
-						<li class="nav-item contact-item">
-							<div class="header-contact-img">
-								<i class="far fa-hospital"></i>							
-							</div>
-							<div class="header-contact-detail">
-								<p class="contact-header">Liên hệ</p>
-								<p class="contact-info-header"> +84 868746275</p>
-							</div>
-						</li>
-						
-						<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow logged-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                </a>
+                <a href="home" class="navbar-brand logo">
+                    <span class="text-primary">Clinic</span>-TATQ
+                </a>
+            </div>
+            <div class="main-menu-wrapper">
+                <div class="menu-header">
+                    <a href="home" class="menu-logo">
+                        <span class="text-primary" width="50" height="50">Clinic</span>
+                    </a>
+                    <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+                <ul class="main-nav">
+                    <li>
+                        <a href="home">Home</a>
+                    </li>
+                    <li>
+                        <a href="booking">Đặt lịch</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav header-navbar-rht">
+                <li class="nav-item contact-item">
+                    <div class="header-contact-img">
+                        <i class="far fa-hospital"></i>
+                    </div>
+                    <div class="header-contact-detail">
+                        <p class="contact-header">Liên hệ</p>
+                        <p class="contact-info-header"> +84 868746275</p>
+                    </div>
+                </li>
+
+                <!-- User Menu -->
+                <li class="nav-item dropdown has-arrow logged-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
 									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
 								</span>
@@ -101,8 +101,8 @@
                             </div>
                         </div>
                         <a class="dropdown-item" href="patient_dashboard">Bảng điều khiển</a>
-								<a class="dropdown-item" href="patient_profile_settings">Cài đặt </a>
-								<a class="dropdown-item" href="login">Đăng xuất</a>
+                        <a class="dropdown-item" href="patient_profile_settings">Cài đặt </a>
+                        <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -206,179 +206,191 @@
                         <div class="card-body">
 
                             <!-- Profile Settings Form -->
-									<form action="patient_profile_settings" method="post" enctype="multipart/form-data">
-										<div class="row form-row">
-											<div class="col-12 col-md-12">
-												<div class="form-group">
-													<div class="change-avatar">
-														<div class="profile-img">
-															<img src="${sessionScope.patient.url}" alt="User Image">
-														</div>
-														<div class="upload-img">
-															<div class="change-photo-btn">
-																<span><i class="fa fa-upload"></i> Tải ảnh lên </span>
-																<input type="file" class="upload" name="file">
-															</div>
-															<small class="form-text text-muted">Cho phép JPG, GIF or PNG. tối đa 2MB</small>
-														</div>
-													</div>
-												</div>
-												<!-- Place this code where you want to display the error message -->
-												<% String errorMessage = (String) request.getAttribute("messError"); %>
-												<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-												<div class="alert alert-danger" role="alert">
-													<%= errorMessage %>
-												</div>
-												<% } %>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Tên</label>
-													<input type="text" class="form-control" name="name" value="${sessionScope.patient.name}">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group mb-0">
-													<label>Ngày sinh</label>
-													<input type="date" class="form-control" name="dob" value="${sessionScope.patient.dob}">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Giới tính</label>
-													<select class="form-control select" name="gender">
-														<option>Select</option>
-														<option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>Nam</option>
-														<option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>Nữ</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Email</label>
-													<input type="email" class="form-control" name="email" value="${sessionScope.account.email}">
-												</div>
-											</div>
-											<div class="col-12 col-md-6">
-												<div class="form-group">
-													<label>Số điện thoại</label>
-													<input type="text" value="${sessionScope.account.phone}" name="phone" class="form-control">
-												</div>
-											</div>
-										</div>
-										<div class="submit-section">
-											<button type="submit" class="btn btn-primary submit-btn">Lưu</button>
-										</div>
-									</form>
-									<!-- /Profile Settings Form -->
-									
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                            <form action="patient_profile_settings" method="post" enctype="multipart/form-data">
+                                <div class="row form-row">
+                                    <div class="col-12 col-md-12">
+                                        <div class="form-group">
+                                            <div class="change-avatar">
+                                                <div class="profile-img">
+                                                    <img src="${sessionScope.patient.url}" alt="User Image">
+                                                </div>
+                                                <div class="upload-img">
+                                                    <div class="change-photo-btn">
+                                                        <span><i class="fa fa-upload"></i> Tải ảnh lên </span>
+                                                        <input type="file" class="upload" name="file">
+                                                    </div>
+                                                    <small class="form-text text-muted">Cho phép JPG, GIF or PNG. tối đa
+                                                        2MB</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Place this code where you want to display the error message -->
+                                        <% String errorMessage = (String) request.getAttribute("messError"); %>
+                                        <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+                                        <div class="alert alert-danger" role="alert">
+                                            <%= errorMessage %>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Tên</label>
+                                            <input type="text" class="form-control" name="name"
+                                                   value="${sessionScope.patient.name}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group mb-0">
+                                            <label>Ngày sinh</label>
+                                            <input type="date" class="form-control" name="dob"
+                                                   value="${sessionScope.patient.dob}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Giới tính</label>
+                                            <select class="form-control select" name="gender">
+                                                <option>Select</option>
+                                                <option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>
+                                                    Nam
+                                                </option>
+                                                <option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>
+                                                    Nữ
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" name="email"
+                                                   value="${sessionScope.account.email}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Số điện thoại</label>
+                                            <input type="text" value="${sessionScope.account.phone}" name="phone"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
+                                </div>
+                            </form>
+                            <!-- /Profile Settings Form -->
 
-			</div>		
-			<!-- /Page Content -->
-   
-			<!-- Footer -->
-			<footer class="footer">
-				
-				<!-- Footer Top -->
-				<footer class="footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-					<!-- Footer Top -->
-					<div class="footer-top">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-lg-3 col-md-6">
+    </div>
+    <!-- /Page Content -->
 
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-about">
-										<a href="home" class="navbar-brand logo">
-											<span class="text-primary">Clinic</span>-TATQ
-										</a>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
+    <!-- Footer -->
+    <footer class="footer">
 
-								<div class="col-lg-3 col-md-6">
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-menu">
-										<h2 class="footer-title">Đối với bệnh nhân</h2>
-										<ul>
-											<li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
-											<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
-											<li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
-										</ul>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
+        <!-- Footer Top -->
+        <footer class="footer">
+
+            <!-- Footer Top -->
+            <div class="footer-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+
+                            <!-- Footer Widget -->
+                            <div class="footer-widget footer-about">
+                                <a href="home" class="navbar-brand logo">
+                                    <span class="text-primary">Clinic</span>-TATQ
+                                </a>
+                            </div>
+                            <!-- /Footer Widget -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <!-- Footer Widget -->
+                            <div class="footer-widget footer-menu">
+                                <h2 class="footer-title">Đối với bệnh nhân</h2>
+                                <ul>
+                                    <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a>
+                                    </li>
+                                    <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a>
+                                    </li>
+                                    <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng
+                                        điều khiển </a></li>
+                                </ul>
+                            </div>
+                            <!-- /Footer Widget -->
+                        </div>
 
 
-								<div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6">
 
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-contact">
-										<h2 class="footer-title">Liên hệ chúng tôi</h2>
-										<div class="footer-contact-info">
-											<div class="footer-address">
-												<span><i class="fas fa-map-marker-alt"></i></span>
-												<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-											</div>
-											<p>
-												<i class="fas fa-phone-alt"></i>
-												+84 868746275
-											</p>
-											<p class="mb-0">
-												<i class="fas fa-envelope"></i>
-												quyetlbche160252@fpt.edu.vn
-											</p>
-										</div>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
+                            <!-- Footer Widget -->
+                            <div class="footer-widget footer-contact">
+                                <h2 class="footer-title">Liên hệ chúng tôi</h2>
+                                <div class="footer-contact-info">
+                                    <div class="footer-address">
+                                        <span><i class="fas fa-map-marker-alt"></i></span>
+                                        <p> FPT University<br> Hòa Lạc, Hà Nội </p>
+                                    </div>
+                                    <p>
+                                        <i class="fas fa-phone-alt"></i>
+                                        +84 868746275
+                                    </p>
+                                    <p class="mb-0">
+                                        <i class="fas fa-envelope"></i>
+                                        quyetlbche160252@fpt.edu.vn
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- /Footer Widget -->
+                        </div>
 
-							</div>
-						</div>
-					</div>
-				<!-- /Footer Top -->
-				
-				<!-- Footer Bottom -->
-                <div class="footer-bottom">
-					<div class="container-fluid">
-					
-						<!-- Copyright -->
-						<div class="copyright">
-							<div class="row">
-								<div class="col-md-6 col-lg-6">
-									<div class="copyright-text">
-										<p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-6">
-								
-									<!-- Copyright Menu -->
-									<div class="copyright-menu">
-										<ul class="policy-menu">
-											<li><a href="term-condition.html">Terms and Conditions</a></li>
-											<li><a href="privacy-policy.html">Policy</a></li>
-										</ul>
-									</div>
-									<!-- /Copyright Menu -->
-									
-								</div>
-							</div>
-						</div>
-						<!-- /Copyright -->
-						
-					</div>
-				</div>
-				<!-- /Footer Bottom -->
-				
-			</footer>
-			<!-- /Footer -->
-    <!-- /Footer -->
+                    </div>
+                </div>
+            </div>
+            <!-- /Footer Top -->
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container-fluid">
+
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6">
+                                <div class="copyright-text">
+                                    <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+
+                                <!-- Copyright Menu -->
+                                <div class="copyright-menu">
+                                    <ul class="policy-menu">
+                                        <li><a href="term-condition.html">Terms and Conditions</a></li>
+                                        <li><a href="privacy-policy.html">Policy</a></li>
+                                    </ul>
+                                </div>
+                                <!-- /Copyright Menu -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Copyright -->
+
+                </div>
+            </div>
+            <!-- /Footer Bottom -->
+
+        </footer>
+        <!-- /Footer -->
+        <!-- /Footer -->
 
 </div>
 <!-- /Main Wrapper -->

@@ -1,7 +1,6 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -89,19 +88,11 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-<<<<<<< HEAD
-                            <h6>Người quản lý</h6>
-                        </div>
-                    </div>
-                    <a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
-                    <a class="dropdown-item" href="login">Đăng xuất</a>
-=======
                             <h6>Administrator</h6>
                         </div>
                     </div>
                     <a class="dropdown-item" href="admin_dashboard">Hồ Sơ</a>
                     <a class="dropdown-item" href="login">Đăng Xuất</a>
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                 </div>
             </li>
             <!-- /User Menu -->
@@ -120,36 +111,6 @@
                     <li class="menu-title">
                         <span>Main</span>
                     </li>
-<<<<<<< HEAD
-                    <li class="active">
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
-                    </li>
-                    <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
-                    </li>
-                    <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
-                    </li>
-                    <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
-                    </li>
-                    <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
-                    </li>
-                    <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span
-                                class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
-                            <li><a href="form_details?str=patient">Bênh nhân</a></li>
-                            <li><a href="form_details?str=staff">Nhân viên</a></li>
-=======
                     <li>
                         <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng Điều Khiển</span></a>
                     </li>
@@ -178,18 +139,12 @@
                             <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
                             <li><a href="form_details?str=patient">Bệnh Nhân</a></li>
                             <li><a href="form_details?str=staff">Nhân Viên</a></li>
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                         </ul>
                     </li>
                     <li>
                         <a href="login">
-<<<<<<< HEAD
-                            <i class="fa fa-sign-out-alt"></i>
-                            <span>Đăng xuất</span>
-=======
                             <i class="fas fa-sign-out-alt"></i>
                             <span>Đăng Xuất</span>
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                         </a>
                     </li>
                 </ul>
@@ -206,17 +161,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-<<<<<<< HEAD
-                        <h3 class="page-title">Cuộc hẹn</h3>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Bảng điều khiển</a></li>
-                            <li class="breadcrumb-item active">Cuộc hẹn</li>
-=======
                         <h3 class="page-title">Cuộc Hẹn</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="admin_dashboard">Bảng Điều Khiển</a></li>
                             <li class="breadcrumb-item active">Cuộc Hẹn</li>
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                         </ul>
                     </div>
                 </div>
@@ -232,21 +180,12 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-<<<<<<< HEAD
-                                        <th>Tên bác sĩ</th>
-                                        <th>Chuyên môn</th>
-                                        <th>Tên bệnh nhân</th>
-                                        <th>Thời gian hẹn</th>
-                                        <th class="text-center">Trạng thái</th>
-                                        <th>Tổng chi phí</th>
-=======
                                         <th>Tên Bác Sĩ</th>
                                         <th>Chuyên Khoa</th>
                                         <th>Tên Bệnh Nhân</th>
                                         <th>Thời Gian Đặt Cuộc Hẹn</th>
                                         <th class="text-center">Trạng Thái</th>
                                         <th>Thanh Toán</th>
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                                     </tr>
                                     </thead>
                                     <tbody>

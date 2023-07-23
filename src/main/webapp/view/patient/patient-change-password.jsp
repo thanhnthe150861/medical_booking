@@ -268,9 +268,11 @@
                         <div class="footer-widget footer-menu">
                             <h2 class="footer-title">Đối với bệnh nhân</h2>
                             <ul>
-                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
+                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a>
+                                </li>
                                 <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
-                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
+                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều
+                                    khiển </a></li>
                             </ul>
                         </div>
                         <!-- /Footer Widget -->

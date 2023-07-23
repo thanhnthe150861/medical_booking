@@ -1,7 +1,7 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,11 +123,7 @@
                         <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ Sơ</span></a>
                     </li>
                     <li class="submenu">
-<<<<<<< HEAD
-                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span
-=======
                         <a href="#"><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
@@ -174,13 +170,8 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="actions text-md-right">
-<<<<<<< HEAD
-                                    <a href="form_details?str=doctor" class="btn btn-sm bg-success-light mr-2">Thêm bác
-                                        sĩ mới</a>
-=======
                                     <a href="form_details?str=doctor" class="btn btn-sm bg-success-light mr-2">Thêm Mới
                                         Bác Sĩ</a>
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                                 </div>
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>

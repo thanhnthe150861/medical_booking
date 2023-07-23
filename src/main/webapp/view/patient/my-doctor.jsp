@@ -44,42 +44,42 @@
 								<span></span>
 								<span></span>
 							</span>
-						</a>
-						<a href="home" class="navbar-brand logo">
-							<span class="text-primary">Clinic</span>-TATQ
-						</a>
-					</div>
-					<div class="main-menu-wrapper">
-						<div class="menu-header">
-							<a href="home" class="menu-logo">
-								<span class="text-primary" width="50" height="50">Clinic</span>
-							</a>
-							<a id="menu_close" class="menu-close" href="javascript:void(0);">
-								<i class="fas fa-times"></i>
-							</a>
-						</div>
-						<ul class="main-nav">
-							<li>
-								<a href="home">Home</a>
-							</li>
-							<li>
-								<a href="booking">Đặt lịch</a>
-							</li>
-						</ul>
-					</div>
-					<ul class="nav header-navbar-rht">
-						<li class="nav-item contact-item">
-							<div class="header-contact-img">
-								<i class="far fa-hospital"></i>
-							</div>
-							<div class="header-contact-detail">
-								<p class="contact-header">Liên hệ</p>
-								<p class="contact-info-header">+84 868746275</p>
-							</div>
-						</li>
-						<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow logged-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                </a>
+                <a href="home" class="navbar-brand logo">
+                    <span class="text-primary">Clinic</span>-TATQ
+                </a>
+            </div>
+            <div class="main-menu-wrapper">
+                <div class="menu-header">
+                    <a href="home" class="menu-logo">
+                        <span class="text-primary" width="50" height="50">Clinic</span>
+                    </a>
+                    <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+                <ul class="main-nav">
+                    <li>
+                        <a href="home">Home</a>
+                    </li>
+                    <li>
+                        <a href="booking">Đặt lịch</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav header-navbar-rht">
+                <li class="nav-item contact-item">
+                    <div class="header-contact-img">
+                        <i class="far fa-hospital"></i>
+                    </div>
+                    <div class="header-contact-detail">
+                        <p class="contact-header">Liên hệ</p>
+                        <p class="contact-info-header">+84 868746275</p>
+                    </div>
+                </li>
+                <!-- User Menu -->
+                <li class="nav-item dropdown has-arrow logged-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
 									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
                                          alt="Ryan Taylor">
@@ -109,22 +109,22 @@
     <!-- /Header -->
 
     <!-- Breadcrumb -->
-			<div class="breadcrumb-bar">
-				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-md-12 col-12">
-							<nav aria-label="breadcrumb" class="page-breadcrumb">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="home">Clinic TQTA</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Bác sĩ yêu thích</li>
-								</ol>
-							</nav>
-							<h2 class="breadcrumb-title">Bác sĩ yêu thích</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /Breadcrumb -->
+    <div class="breadcrumb-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-12 col-12">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="home">Clinic TQTA</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Bác sĩ yêu thích</li>
+                        </ol>
+                    </nav>
+                    <h2 class="breadcrumb-title">Bác sĩ yêu thích</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Breadcrumb -->
 
     <!-- Page Content -->
     <div class="content">
@@ -244,67 +244,69 @@
     <!-- /Page Content -->
 
     <!-- Footer -->
-			<footer class="footer">
-				
-				<!-- Footer Top -->
-				<div class="footer-top">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-lg-3 col-md-6">
+    <footer class="footer">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<a href="home" class="navbar-brand logo">
-										<span class="text-primary">Clinic</span>-TATQ
-									</a>
-								</div>
-								<!-- /Footer Widget -->
-							</div>
+        <!-- Footer Top -->
+        <div class="footer-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
 
-							<div class="col-lg-3 col-md-6">
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">Đối với bệnh nhân</h2>
-									<ul>
-										<li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
-										<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
-										<li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-							</div>
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-about">
+                            <a href="home" class="navbar-brand logo">
+                                <span class="text-primary">Clinic</span>-TATQ
+                            </a>
+                        </div>
+                        <!-- /Footer Widget -->
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">Đối với bệnh nhân</h2>
+                            <ul>
+                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a>
+                                </li>
+                                <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
+                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều
+                                    khiển </a></li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+                    </div>
 
 
-							<div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Liên hệ chúng tôi</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+84 868746275
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											quyetlbche160252@fpt.edu.vn
-										</p>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
-							</div>
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-contact">
+                            <h2 class="footer-title">Liên hệ chúng tôi</h2>
+                            <div class="footer-contact-info">
+                                <div class="footer-address">
+                                    <span><i class="fas fa-map-marker-alt"></i></span>
+                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
+                                </div>
+                                <p>
+                                    <i class="fas fa-phone-alt"></i>
+                                    +84 868746275
+                                </p>
+                                <p class="mb-0">
+                                    <i class="fas fa-envelope"></i>
+                                    quyetlbche160252@fpt.edu.vn
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
+                    </div>
 
-						</div>
-					</div>
-				</div>
-				<!-- /Footer Bottom -->
-				
-			</footer>
-			<!-- /Footer -->
+                </div>
+            </div>
+        </div>
+        <!-- /Footer Bottom -->
+
+    </footer>
+    <!-- /Footer -->
 
 </div>
 <!-- /Main Wrapper -->

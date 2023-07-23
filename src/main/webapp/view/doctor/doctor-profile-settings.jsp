@@ -1,4 +1,5 @@
-<!DOCTYPE html><%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 
@@ -50,36 +51,36 @@
 								<span></span>
 								<span></span>
 							</span>
-						</a>
-						<a href="doctor_dashboard" class="navbar-brand logo">
-							<span class="text-primary">Clinic</span>-TATQ
-						</a>
-					</div>
-					<div class="main-menu-wrapper">
-						<div class="menu-header">
-							<a href="doctor_dashboard" class="menu-logo">
-								<span class="text-primary" width="50" height="50">Clinic</span>
-							</a>
-							<a id="menu_close" class="menu-close" href="javascript:void(0);">
-								<i class="fas fa-times"></i>
-							</a>
-						</div>
-						<ul class="main-nav">
-							<li>
-								<a href="doctor_dashboard">Trang chủ</a>
-							</li>
-						</ul>
-					</div>
-					<ul class="nav header-navbar-rht">
-						<li class="nav-item contact-item">
-							<div class="header-contact-img">
-								<i class="far fa-hospital"></i>
-							</div>
-							<div class="header-contact-detail">
-								<p class="contact-header">Contact</p>
-								<p class="contact-info-header"> +84 868746275</p>
-							</div>
-						</li>
+                </a>
+                <a href="doctor_dashboard" class="navbar-brand logo">
+                    <span class="text-primary">Clinic</span>-TATQ
+                </a>
+            </div>
+            <div class="main-menu-wrapper">
+                <div class="menu-header">
+                    <a href="doctor_dashboard" class="menu-logo">
+                        <span class="text-primary" width="50" height="50">Clinic</span>
+                    </a>
+                    <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+                <ul class="main-nav">
+                    <li>
+                        <a href="doctor_dashboard">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav header-navbar-rht">
+                <li class="nav-item contact-item">
+                    <div class="header-contact-img">
+                        <i class="far fa-hospital"></i>
+                    </div>
+                    <div class="header-contact-detail">
+                        <p class="contact-header">Contact</p>
+                        <p class="contact-info-header"> +84 868746275</p>
+                    </div>
+                </li>
 
                 <!-- User Menu -->
                 <li class="nav-item dropdown has-arrow logged-item">
@@ -146,68 +147,68 @@
                                 <div class="profile-det-info">
                                     <h3> ${sessionScope.doctor.name}</h3>
 
-											<div class="patient-details">
-												<h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="dashboard-widget">
-									<nav class="dashboard-menu">
-										<ul>
-											<li>
-												<a href="doctor_dashboard">
-													<i class="fas fa-columns"></i>
-													<span>Bảng điều khiển</span>
-												</a>
-											</li>
-											<li class="active">
-												<a href="doctor_appointments">
-													<i class="fas fa-calendar-check"></i>
-													<span>Cuộc hẹn</span>
-												</a>
-											</li>
-											<li>
-												<a href="my_patients">
-													<i class="fas fa-user-injured"></i>
-													<span>Bệnh nhân của tôi</span>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_schedule_timings">
-													<i class="fas fa-hourglass-start"></i>
-													<span>Thời gian khám</span>
-												</a>
-											</li>
-											<li>
-												<a href="invoice_doctor">
-													<i class="fas fa-file-invoice"></i>
-													<span>Hóa đơn</span>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_profile_settings">
-													<i class="fas fa-user-cog"></i>
-													<span>Thông tin cá nhân</span>
-												</a>
-											</li>
-											<li>
-												<a href="doctor_change_password">
-													<i class="fas fa-lock"></i>
-													<span>Thay đổi mật khẩu</span>
-												</a>
-											</li>
-											<li>
-												<a href="login">
-													<i class="fas fa-sign-out-alt"></i>
-													<span>Đăng xuất</span>
-												</a>
-											</li>
-										</ul>
-									</nav>
-								</div>
-							</div>
-							<!-- /Profile Sidebar -->
+                                    <div class="patient-details">
+                                        <h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-widget">
+                            <nav class="dashboard-menu">
+                                <ul>
+                                    <li>
+                                        <a href="doctor_dashboard">
+                                            <i class="fas fa-columns"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="doctor_appointments">
+                                            <i class="fas fa-calendar-check"></i>
+                                            <span>Appointments</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="my_patients">
+                                            <i class="fas fa-user-injured"></i>
+                                            <span>My Patients</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="doctor_schedule_timings">
+                                            <i class="fas fa-hourglass-start"></i>
+                                            <span>Schedule Timings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="invoice_doctor">
+                                            <i class="fas fa-file-invoice"></i>
+                                            <span>Invoices</span>
+                                        </a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="doctor_profile_settings">
+                                            <i class="fas fa-user-cog"></i>
+                                            <span>Profile Settings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="doctor_change_password">
+                                            <i class="fas fa-lock"></i>
+                                            <span>Change Password</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="login">
+                                            <i class="fas fa-sign-out-alt"></i>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- /Profile Sidebar -->
 
                 </div>
                 <div class="col-md-7 col-lg-8 col-xl-9">
@@ -310,50 +311,52 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<a href="home" class="navbar-brand logo">
-										<span class="text-primary">Clinic</span>-TATQ
-									</a>
-								</div>
-								<!-- /Footer Widget -->
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-about">
+                            <a href="home" class="navbar-brand logo">
+                                <span class="text-primary">Clinic</span>-TATQ
+                            </a>
+                        </div>
+                        <!-- /Footer Widget -->
 
-							</div>
-							<div class="col-lg-3 col-md-6">
+                    </div>
+                    <div class="col-lg-3 col-md-6">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
-									<ul>
-										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Doctors</h2>
+                            <ul>
+                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a>
+                                </li>
+                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor
+                                    Dashboard</a></li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
 
                     </div>
 
                     <div class="col-lg-3 col-md-6">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+84 868746275
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											quyetlbche160252@fpt.edu.vn
-										</p>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-contact">
+                            <h2 class="footer-title">Contact Us</h2>
+                            <div class="footer-contact-info">
+                                <div class="footer-address">
+                                    <span><i class="fas fa-map-marker-alt"></i></span>
+                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
+                                </div>
+                                <p>
+                                    <i class="fas fa-phone-alt"></i>
+                                    +84 868746275
+                                </p>
+                                <p class="mb-0">
+                                    <i class="fas fa-envelope"></i>
+                                    quyetlbche160252@fpt.edu.vn
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
 
                     </div>
 

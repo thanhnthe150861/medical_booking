@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Clinic TQTA</title>
+    <title>Doccure</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
@@ -84,7 +84,6 @@
 									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31"
                                          alt="Darren Elder">
 								</span>
-<<<<<<< HEAD
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
@@ -97,9 +96,9 @@
                                 <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="doctor_dashboard">bảng điều khiển</a>
-                        <a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
-                        <a class="dropdown-item" href="login">Đăng xuất</a>
+                        <a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+                        <a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+                        <a class="dropdown-item" href="login">Logout</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -116,11 +115,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Thời gian khám</li>
+                            <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Schedule Timings</li>
                         </ol>
                     </nav>
-                    <h2 class="breadcrumb-title">Thời gian khám</h2>
+                    <h2 class="breadcrumb-title">Schedule Timings</h2>
                 </div>
             </div>
         </div>
@@ -156,49 +155,49 @@
                                     <li>
                                         <a href="doctor_dashboard">
                                             <i class="fas fa-columns"></i>
-                                            <span>Bảng điều khiển</span>
+                                            <span>Dashboard</span>
                                         </a>
                                     </li>
-                                    <li class="active">
+                                    <li>
                                         <a href="doctor_appointments">
                                             <i class="fas fa-calendar-check"></i>
-                                            <span>Cuộc hẹn</span>
+                                            <span>Appointments</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="my_patients">
                                             <i class="fas fa-user-injured"></i>
-                                            <span>Bệnh nhân của tôi</span>
+                                            <span>My Patients</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="active">
                                         <a href="doctor_schedule_timings">
                                             <i class="fas fa-hourglass-start"></i>
-                                            <span>Thời gian khám</span>
+                                            <span>Schedule Timings</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="invoice_doctor">
                                             <i class="fas fa-file-invoice"></i>
-                                            <span>Hóa đơn</span>
+                                            <span>Invoices</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="doctor_profile_settings">
                                             <i class="fas fa-user-cog"></i>
-                                            <span>Thông tin cá nhân</span>
+                                            <span>Profile Settings</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="doctor_change_password">
                                             <i class="fas fa-lock"></i>
-                                            <span>Thay đổi mật khẩu</span>
+                                            <span>Change Password</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="login">
                                             <i class="fas fa-sign-out-alt"></i>
-                                            <span>Đăng xuất</span>
+                                            <span>Logout</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -215,7 +214,7 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Thời gian khám</h4>
+                                    <h4 class="card-title">Schedule Timings</h4>
                                     <div class="profile-box">
                                         <div class="row">
 
@@ -225,7 +224,7 @@
                                                         <input type="date" id="datePicker" class="form-control"
                                                                name="datePicker" value="${date}">
                                                     </div>
-                                                    <button class="form-control">Tìm kiếm</button>
+                                                    <button class="form-control">Search</button>
                                                 </form>
                                             </div>
 
@@ -248,6 +247,9 @@
                                                         <div id="slot_monday" class="tab-pane fade show active">
                                                             <h4 class="card-title d-flex justify-content-between">
                                                                 <span>Time Slots</span>
+                                                                <a class="edit-link" data-toggle="modal"
+                                                                   href="#edit_time_slot"><i
+                                                                        class="fa fa-edit mr-1"></i>Edit</a>
                                                             </h4>
 
                                                             <!-- Slot List -->
@@ -289,12 +291,61 @@
         <div class="footer-top">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-lg-3 col-md-6">
 
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-about">
+                            <a href="home" class="navbar-brand logo">
+                                <span class="text-primary">Clinic</span>-TATQ
+                            </a>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Doctors</h2>
+                            <ul>
+                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a>
+                                </li>
+                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor
+                                    Dashboard</a></li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-contact">
+                            <h2 class="footer-title">Contact Us</h2>
+                            <div class="footer-contact-info">
+                                <div class="footer-address">
+                                    <span><i class="fas fa-map-marker-alt"></i></span>
+                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
+                                </div>
+                                <p>
+                                    <i class="fas fa-phone-alt"></i>
+                                    +84 868746275
+                                </p>
+                                <p class="mb-0">
+                                    <i class="fas fa-envelope"></i>
+                                    quyetlbche160252@fpt.edu.vn
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
 
                 </div>
             </div>
         </div>
-        <!-- /Footer Top -->
+        <!-- /Footer Bottom -->
 
     </footer>
     <!-- /Footer -->
@@ -302,6 +353,188 @@
 </div>
 <!-- /Main Wrapper -->
 
+<!-- Add Time Slot Modal -->
+<div class="modal fade custom-modal" id="add_time_slot">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Time Slots</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="hours-info">
+                        <div class="row form-row hours-cont">
+                            <div class="col-12 col-md-10">
+                                <div class="row form-row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Start Time</label>
+                                            <select class="form-control">
+                                                <option>-</option>
+                                                <option>12.00 am</option>
+                                                <option>12.30 am</option>
+                                                <option>1.00 am</option>
+                                                <option>1.30 am</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>End Time</label>
+                                            <select class="form-control">
+                                                <option>-</option>
+                                                <option>12.00 am</option>
+                                                <option>12.30 am</option>
+                                                <option>1.00 am</option>
+                                                <option>1.30 am</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="add-more mb-3">
+                        <a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i> Add More</a>
+                    </div>
+                    <div class="submit-section text-center">
+                        <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Add Time Slot Modal -->
+
+<!-- Edit Time Slot Modal -->
+<div class="modal fade custom-modal" id="edit_time_slot">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Time Slots</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="hours-info">
+                        <div class="row form-row hours-cont">
+                            <div class="col-12 col-md-10">
+                                <div class="row form-row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Start Time</label>
+                                            <select class="form-control">
+                                                <option>-</option>
+                                                <option selected>12.00 am</option>
+                                                <option>12.30 am</option>
+                                                <option>1.00 am</option>
+                                                <option>1.30 am</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>End Time</label>
+                                            <select class="form-control">
+                                                <option>-</option>
+                                                <option>12.00 am</option>
+                                                <option selected>12.30 am</option>
+                                                <option>1.00 am</option>
+                                                <option>1.30 am</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row form-row hours-cont">
+                            <div class="col-12 col-md-10">
+                                <div class="row form-row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Start Time</label>
+                                            <select class="form-control">
+                                                <option>-</option>
+                                                <option>12.00 am</option>
+                                                <option selected>12.30 am</option>
+                                                <option>1.00 am</option>
+                                                <option>1.30 am</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>End Time</label>
+                                            <select class="form-control">
+                                                <option>-</option>
+                                                <option>12.00 am</option>
+                                                <option>12.30 am</option>
+                                                <option selected>1.00 am</option>
+                                                <option>1.30 am</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a
+                                    href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>
+                        </div>
+
+                        <div class="row form-row hours-cont">
+                            <div class="col-12 col-md-10">
+                                <div class="row form-row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Start Time</label>
+                                            <select class="form-control">
+                                                <option>-</option>
+                                                <option>12.00 am</option>
+                                                <option>12.30 am</option>
+                                                <option selected>1.00 am</option>
+                                                <option>1.30 am</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>End Time</label>
+                                            <select class="form-control">
+                                                <option>-</option>
+                                                <option>12.00 am</option>
+                                                <option>12.30 am</option>
+                                                <option>1.00 am</option>
+                                                <option selected>1.30 am</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a
+                                    href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>
+                        </div>
+
+                    </div>
+
+                    <div class="add-more mb-3">
+                        <a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i> Add More</a>
+                    </div>
+                    <div class="submit-section text-center">
+                        <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Edit Time Slot Modal -->
 
 <!-- jQuery -->
 <script src="assets/js/jquery.min.js"></script>
@@ -322,4 +555,5 @@
 
 </body>
 
+<!-- doccure/schedule-timings.html  30 Nov 2019 04:12:09 GMT -->
 </html>

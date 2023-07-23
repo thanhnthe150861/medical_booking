@@ -2,7 +2,7 @@
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
 <%@ page import="mvc.model.Account" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="mvc.dal.StaffDBContext" %>
 <!DOCTYPE html>
 <html>
 
@@ -126,11 +126,7 @@
                         <a href="profile"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
                     </li>
                     <li class="submenu">
-<<<<<<< HEAD
-                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span
-=======
                         <a href="#"><i class="fe fe-document"></i> <span> Form Details </span> <span
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="form_details?str=doctor">Doctor</a></li>
@@ -179,15 +175,6 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-<<<<<<< HEAD
-                                        <th>Hóa đơn ID</th>
-                                        <th>Bệnh nhân ID</th>
-                                        <th>Tên bệnh nhân</th>
-                                        <th>Tổng cộng</th>
-                                        <th>Ngày tạo</th>
-                                        <th class="text-center">Trạng thái</th>
-                                        <th class="text-center">Hoạt động</th>
-=======
                                         <th>Invoice ID</th>
                                         <th>Patient ID</th>
                                         <th>Patient Name</th>
@@ -195,7 +182,6 @@
                                         <th>Created Date</th>
                                         <th class="text-center">Status</th>
                                         <th class="text-center">Actions</th>
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -228,14 +214,9 @@
                                                    class="btn btn-sm bg-success-light mr-2">
                                                     <i class="fe fe-pencil"></i> Edit
                                                 </a>
-<<<<<<< HEAD
                                                 <a class="btn btn-sm bg-info-light" data-toggle="modal"
                                                    href="invoice_view?bid=<%= invoice.getBill().getId() %>">
-                                                    <i class="fe fe-trash"></i> Xem
-=======
-                                                <a class="btn btn-sm bg-info-light" data-toggle="modal" href="invoice_view?bid=<%= invoice.getBill().getId() %>">
                                                     <i class="fe fe-trash"></i> View
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                                                 </a>
                                             </div>
                                         </td>
@@ -420,12 +401,7 @@
                         <a href="invoice_list"><i class="fe fe-document"></i> <span> Invoice</span></a>
                     </li>
                     <li>
-<<<<<<< HEAD
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i>
-                            <span>Thay đổi mật khẩu</span></a>
-=======
                         <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Change Password</span></a>
->>>>>>> parent of 9de2a28... Merge branch 'QuyetJS'
                     </li>
                     <li>
                         <a href="login">

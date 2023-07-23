@@ -55,17 +55,17 @@
         <div class="container">
             <a class="navbar-brand" href="home"><span class="text-primary">Clinic</span>-TATQ</a>
 
-<%--            <form action="#">--%>
-<%--                <div class="input-group input-navbar">--%>
-<%--                    <div class="input-group-prepend">--%>
-<%--                        <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>--%>
-<%--                    </div>--%>
-<%--                    <div>--%>
-<%--                    <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"--%>
-<%--                           aria-describedby="icon-addon1">--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </form>--%>
+            <%--            <form action="#">--%>
+            <%--                <div class="input-group input-navbar">--%>
+            <%--                    <div class="input-group-prepend">--%>
+            <%--                        <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>--%>
+            <%--                    </div>--%>
+            <%--                    <div>--%>
+            <%--                    <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"--%>
+            <%--                           aria-describedby="icon-addon1">--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--            </form>--%>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
                     aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,7 +91,7 @@
                     </li>
                     <li class="nav-item" id="myB">
                         <c:if test="${sessionScope.account eq null}">
-                            <a  class="btn btn-primary ml-lg-3" href="login">Đăng nhập/Đăng kí</a>
+                            <a class="btn btn-primary ml-lg-3" href="login">Đăng nhập/Đăng kí</a>
                         </c:if>
                         <c:if test="${sessionScope.account ne null}">
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
@@ -150,16 +150,23 @@
                 <div class="col-lg-8 wow fadeInUp">
                     <h1 class="text-center mb-3">Chào mừng đến với clinic TATQ</h1>
                     <div class="text-lg">
-                        <p>Phòng khám của chúng tôi là một nơi chuyên nghiệp, đáng tin cậy và tận tâm được thiết kế để đáp ứng nhu cầu chăm sóc sức khỏe
-                            nhu cầu của bệnh nhân của chúng tôi. Với đội ngũ bác sĩ giàu kinh nghiệm, nhiệt tình chúng tôi cam kết
+                        <p>Phòng khám của chúng tôi là một nơi chuyên nghiệp, đáng tin cậy và tận tâm được thiết kế để
+                            đáp ứng nhu cầu chăm sóc sức khỏe
+                            nhu cầu của bệnh nhân của chúng tôi. Với đội ngũ bác sĩ giàu kinh nghiệm, nhiệt tình chúng
+                            tôi cam kết
                             nhằm mang đến cho khách hàng trải nghiệm khám và điều trị tốt nhất.</p>
-                        <p>Phòng khám của chúng tôi được trang bị các thiết bị tiên tiến và hiện đại, cũng như không gian sạch, đẹp và
-                            môi trường thoải mái. Chúng tôi luôn làm việc theo tiêu chuẩn cao nhất để đảm bảo an toàn và đáp ứng
+                        <p>Phòng khám của chúng tôi được trang bị các thiết bị tiên tiến và hiện đại, cũng như không
+                            gian sạch, đẹp và
+                            môi trường thoải mái. Chúng tôi luôn làm việc theo tiêu chuẩn cao nhất để đảm bảo an toàn và
+                            đáp ứng
                             yêu cầu của khách hàng.</p>
-                        <p>Phòng khám của chúng tôi được trang bị các thiết bị tiên tiến và hiện đại, cũng như không gian sạch, đẹp và
-                            môi trường thoải mái. Chúng tôi luôn làm việc theo tiêu chuẩn cao nhất để đảm bảo an toàn và đáp ứng
+                        <p>Phòng khám của chúng tôi được trang bị các thiết bị tiên tiến và hiện đại, cũng như không
+                            gian sạch, đẹp và
+                            môi trường thoải mái. Chúng tôi luôn làm việc theo tiêu chuẩn cao nhất để đảm bảo an toàn và
+                            đáp ứng
                             yêu cầu của khách hàng.</p>
-                        <p>Nếu bạn đang tìm kiếm một nơi chăm sóc sức khỏe đáng tin cậy và chuyên nghiệp, hãy đến với phòng khám của chúng tôi. Chúng tôi là
+                        <p>Nếu bạn đang tìm kiếm một nơi chăm sóc sức khỏe đáng tin cậy và chuyên nghiệp, hãy đến với
+                            phòng khám của chúng tôi. Chúng tôi là
                             cam kết mang đến cho bạn một sức khỏe tốt nhất!</p>
                     </div>
                 </div>
@@ -227,13 +234,13 @@
                     </div>
                 </div>
                 <div class="col-lg-8 wow fadeInRight">
-                    <h1 class="font-weight-normal mb-3">Sức khỏe của bạn là ưu tiên hàng đầu của chúng tôi - hãy tin tưởng để chúng tôi chăm sóc
+                    <h1 class="font-weight-normal mb-3">Sức khỏe của bạn là ưu tiên hàng đầu của chúng tôi - hãy tin
+                        tưởng để chúng tôi chăm sóc
                         bạn.</h1>
                 </div>
             </div>
         </div>
     </div> <!-- .banner-Home -->
-
 
 
     <script src="js/jquery-3.5.1.min.js"></script>

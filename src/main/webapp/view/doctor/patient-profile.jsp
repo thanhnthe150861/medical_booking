@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Clinic TQTA</title>
+    <title>Doccure</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
@@ -33,6 +33,7 @@
 
 </head>
 <body>
+
 <!-- Main Wrapper -->
 <div class="main-wrapper">
 
@@ -96,9 +97,9 @@
                                 <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="doctor_dashboard">bảng điều khiển</a>
-                        <a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
-                        <a class="dropdown-item" href="login">Đăng xuất</a>
+                        <a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
+                        <a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
+                        <a class="dropdown-item" href="login">Logout</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -115,8 +116,8 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Hồ sơ</li>
+                            <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Profile</li>
                         </ol>
                     </nav>
                     <h2 class="breadcrumb-title">Profile</h2>
@@ -164,8 +165,7 @@
                             <div class="user-tabs">
                                 <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Cuộc
-                                            hẹn</a>
+                                        <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}">Appointments</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link"
@@ -183,13 +183,13 @@
                                                 <table class="table table-hover table-center mb-0">
                                                     <thead>
                                                     <tr>
-                                                        <th>Bác sĩ</th>
+                                                        <th>Doctor</th>
                                                         <th></th>
-                                                        <th>Ngày đặt lịch</th>
+                                                        <th>Booking Date</th>
                                                         <th></th>
                                                         <th></th>
-                                                        <th>Trạng thái</th>
-                                                        <th></th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -266,7 +266,32 @@
         <div class="footer-top">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-lg-3 col-md-6">
 
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-about">
+                            <a href="home" class="navbar-brand logo">
+                                <span class="text-primary">Clinic</span>-TATQ
+                            </a>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Doctors</h2>
+                            <ul>
+                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a>
+                                </li>
+                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor
+                                    Dashboard</a></li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
 
                     <div class="col-lg-3 col-md-6">
 
@@ -333,6 +358,39 @@
 </div>
 <!-- /Main Wrapper -->
 
+<!-- Add Medical Records Modal -->
+<div class="modal fade custom-modal" id="add_medical_records">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Medical Records</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="text" class="form-control datetimepicker" value="31-10-2019">
+                    </div>
+                    <div class="form-group">
+                        <label>Description ( Optional )</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload File</label>
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="submit-section text-center">
+                        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+                        <button type="button" class="btn btn-secondary submit-btn" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /Add Medical Records Modal -->
 
 <!-- jQuery -->
 <script src="assets/js/jquery.min.js"></script>
@@ -354,4 +412,5 @@
 
 </body>
 
+<!-- doccure/patient-profile.jsp  30 Nov 2019 04:12:13 GMT -->
 </html>
