@@ -3,37 +3,37 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Doccure</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-
-    <!-- Datetimepicker CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-
-    <!-- Select2 CSS -->
-    <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.min.js"></script>
-    <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-<body>
+		<meta charset="utf-8">
+	<title>Clinic TQTA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		
+		<!-- Favicons -->
+		<link href="assets/img/favicon.png" rel="icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		
+		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="assets/css/style.css">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body>
 
 <!-- Main Wrapper -->
 <div class="main-wrapper">
@@ -283,98 +283,18 @@
    
 			<!-- Footer -->
 			<footer class="footer">
-				
+
 				<!-- Footer Top -->
-				<footer class="footer">
-
-					<!-- Footer Top -->
-					<div class="footer-top">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-lg-3 col-md-6">
-
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-about">
-										<a href="home" class="navbar-brand logo">
-											<span class="text-primary">Clinic</span>-TATQ
-										</a>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
-
-								<div class="col-lg-3 col-md-6">
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-menu">
-										<h2 class="footer-title">Đối với bệnh nhân</h2>
-										<ul>
-											<li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
-											<li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
-											<li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
-										</ul>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
-
-
-								<div class="col-lg-3 col-md-6">
-
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-contact">
-										<h2 class="footer-title">Liên hệ chúng tôi</h2>
-										<div class="footer-contact-info">
-											<div class="footer-address">
-												<span><i class="fas fa-map-marker-alt"></i></span>
-												<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-											</div>
-											<p>
-												<i class="fas fa-phone-alt"></i>
-												+84 868746275
-											</p>
-											<p class="mb-0">
-												<i class="fas fa-envelope"></i>
-												quyetlbche160252@fpt.edu.vn
-											</p>
-										</div>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
-
-							</div>
-						</div>
-					</div>
-				<!-- /Footer Top -->
-				
-				<!-- Footer Bottom -->
-                <div class="footer-bottom">
+				<div class="footer-top">
 					<div class="container-fluid">
-					
-						<!-- Copyright -->
-						<div class="copyright">
-							<div class="row">
-								<div class="col-md-6 col-lg-6">
-									<div class="copyright-text">
-										<p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-6">
-								
-									<!-- Copyright Menu -->
-									<div class="copyright-menu">
-										<ul class="policy-menu">
-											<li><a href="term-condition.html">Terms and Conditions</a></li>
-											<li><a href="privacy-policy.html">Policy</a></li>
-										</ul>
-									</div>
-									<!-- /Copyright Menu -->
-									
-								</div>
-							</div>
+						<div class="row">
+
+
+
 						</div>
-						<!-- /Copyright -->
-						
 					</div>
 				</div>
-				<!-- /Footer Bottom -->
+				<!-- /Footer Top -->
 				
 			</footer>
 			<!-- /Footer -->

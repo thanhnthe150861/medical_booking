@@ -77,11 +77,11 @@
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Administrator</h6>
+                            <h6>Người quản lý</h6>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="admin_dashboard">Hồ Sơ</a>
-                    <a class="dropdown-item" href="login">Đăng Xuất</a>
+                    <a class="dropdown-item" href="admin_dashboard">Thông tin của tôi</a>
+                    <a class="dropdown-item" href="login">Đăng xuất</a>
                 </div>
             </li>
 
@@ -101,40 +101,39 @@
                     <li class="menu-title">
                         <span>Main</span>
                     </li>
-                    <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng Điều Khiển</span></a>
-                    </li>
-                    <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc Hẹn</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân Viên</span></a>
-                    </li>
                     <li class="active">
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác Sĩ</span></a>
+                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh Nhân</span></a>
+                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span>Hóa Đơn</span></a>
+                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
                     </li>
                     <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ Sơ</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
+                    </li>
+                    <li>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
+                    </li>
+                    <li>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
+                    </li>
+                    <li>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
-                                class="menu-arrow"></span></a>
+                        <a href="#"><i class="fe fe-document"></i> <span> Thêm tài khoản </span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
-                            <li><a href="form_details?str=patient">Bệnh Nhân</a></li>
-                            <li><a href="form_details?str=staff">Nhân Viên</a></li>
+                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
+                            <li><a href="form_details?str=patient">Bênh nhân</a></li>
+                            <li><a href="form_details?str=staff">Nhân viên</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="login">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>Đăng Xuất</span>
+                            <i class="fa fa-sign-out-alt"></i>
+                            <span>Đăng xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -154,10 +153,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Danh Sách Bác Sĩ</h3>
+                        <h3 class="page-title">Danh sách bác sĩ</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="admin_dashboard">Bảng Điều Khiển</a></li>
-                            <li class="breadcrumb-item active">Bác Sĩ</li>
+                            <li class="breadcrumb-item"><a href="admin_dashboard">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active">Bác sĩ</li>
                         </ul>
                     </div>
                 </div>
@@ -170,18 +169,17 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="actions text-md-right">
-                                    <a href="form_details?str=doctor" class="btn btn-sm bg-success-light mr-2">Thêm Mới
-                                        Bác Sĩ</a>
+                                    <a href="form_details?str=doctor" class="btn btn-sm bg-success-light mr-2">Thêm bác sĩ mới</a>
                                 </div>
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Tên Bác Sĩ</th>
-                                        <th>Chuyên Khoa</th>
-                                        <th>Ngày Sinh</th>
-                                        <th>Doanh Thu</th>
-                                        <th class="text-center">Trạng Thái</th>
-                                        <th class="text-center">Xử Lý</th>
+                                        <th>Tên bác sĩ</th>
+                                        <th>Chuyên môn</th>
+                                        <th>Ngày sinh</th>
+                                        <th>Doanh thu</th>
+                                        <th class="text-center">Trạng thái</th>
+                                        <th class="text-center">Hoạt động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -216,7 +214,7 @@
                                                 <a data-toggle="modal"
                                                    href="form_details?did=<%= doctor.getBooking().getDoctor().getId() %>"
                                                    class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> Sửa
+                                                    <i class="fe fe-pencil"></i> Chỉnh sửa
                                                 </a>
                                             </div>
                                         </td>

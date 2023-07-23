@@ -5,7 +5,7 @@
 
 <head>
 		<meta charset="utf-8">
-		<title>Doccure</title>
+	<title>Clinic TQTA</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 		
 		<!-- Favicons -->
@@ -35,7 +35,7 @@
 
 		<!-- Main Wrapper -->
 		<div class="main-wrapper">
-		
+
 			<!-- Header -->
 			<header class="header">
 				<nav class="navbar navbar-expand-lg header-nav">
@@ -65,18 +65,18 @@
 								<a href="doctor_dashboard">Home</a>
 							</li>
 						</ul>
-					</div>		 
+					</div>
 					<ul class="nav header-navbar-rht">
 						<li class="nav-item contact-item">
 							<div class="header-contact-img">
-								<i class="far fa-hospital"></i>							
+								<i class="far fa-hospital"></i>
 							</div>
 							<div class="header-contact-detail">
 								<p class="contact-header">Contact</p>
 								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
-						
+
 						<!-- User Menu -->
 						<li class="nav-item dropdown has-arrow logged-item">
 							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -94,13 +94,13 @@
 										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
 									</div>
 								</div>
-								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-								<a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-								<a class="dropdown-item" href="login">Logout</a>
+								<a class="dropdown-item" href="doctor_dashboard">bảng điều khiển</a>
+								<a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
+								<a class="dropdown-item" href="login">Đăng xuất</a>
 							</div>
 						</li>
 						<!-- /User Menu -->
-						
+
 					</ul>
 				</nav>
 			</header>
@@ -113,11 +113,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Schedule Timings</li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Thời gian khám</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Schedule Timings</h2>
+							<h2 class="breadcrumb-title">Thời gian khám</h2>
 						</div>
 					</div>
 				</div>
@@ -153,49 +153,49 @@
 											<li>
 												<a href="doctor_dashboard">
 													<i class="fas fa-columns"></i>
-													<span>Dashboard</span>
+													<span>Bảng điều khiển</span>
 												</a>
 											</li>
-											<li>
+											<li class="active">
 												<a href="doctor_appointments">
 													<i class="fas fa-calendar-check"></i>
-													<span>Appointments</span>
+													<span>Cuộc hẹn</span>
 												</a>
 											</li>
 											<li>
 												<a href="my_patients">
 													<i class="fas fa-user-injured"></i>
-													<span>My Patients</span>
+													<span>Bệnh nhân của tôi</span>
 												</a>
 											</li>
-											<li class="active">
+											<li>
 												<a href="doctor_schedule_timings">
 													<i class="fas fa-hourglass-start"></i>
-													<span>Schedule Timings</span>
+													<span>Thời gian khám</span>
 												</a>
 											</li>
 											<li>
 												<a href="invoice_doctor">
 													<i class="fas fa-file-invoice"></i>
-													<span>Invoices</span>
+													<span>Hóa đơn</span>
 												</a>
 											</li>
 											<li>
 												<a href="doctor_profile_settings">
 													<i class="fas fa-user-cog"></i>
-													<span>Profile Settings</span>
+													<span>Thông tin cá nhân</span>
 												</a>
 											</li>
 											<li>
 												<a href="doctor_change_password">
 													<i class="fas fa-lock"></i>
-													<span>Change Password</span>
+													<span>Thay đổi mật khẩu</span>
 												</a>
 											</li>
 											<li>
 												<a href="login">
 													<i class="fas fa-sign-out-alt"></i>
-													<span>Logout</span>
+													<span>Đăng xuất</span>
 												</a>
 											</li>
 										</ul>
@@ -212,7 +212,7 @@
 								<div class="col-sm-12">
 									<div class="card">
 										<div class="card-body">
-											<h4 class="card-title">Schedule Timings</h4>
+											<h4 class="card-title">Thời gian khám</h4>
 											<div class="profile-box">
 												<div class="row">
 
@@ -221,7 +221,7 @@
 														<div class="form-group">
 																<input type="date" id="datePicker" class="form-control"  name="datePicker" value="${date}">
 														</div>
-														<button class="form-control">Search</button>
+														<button class="form-control">Tìm kiếm</button>
 														</form>
 													</div>
 
@@ -244,7 +244,7 @@
 																<div id="slot_monday" class="tab-pane fade show active">
 																	<h4 class="card-title d-flex justify-content-between">
 																		<span>Time Slots</span>
-																		<a class="edit-link" data-toggle="modal" href="#edit_time_slot"><i class="fa fa-edit mr-1"></i>Edit</a>
+																		<a class="edit-link" data-toggle="modal" href="#edit_time_slot"><i class="fa fa-edit mr-1"></i>Chỉnh sửa</a>
 																	</h4>
 
 																	<!-- Slot List -->
@@ -281,64 +281,18 @@
    
 			<!-- Footer -->
 			<footer class="footer">
-				
+
 				<!-- Footer Top -->
 				<div class="footer-top">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-lg-3 col-md-6">
 
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<a href="home" class="navbar-brand logo">
-										<span class="text-primary">Clinic</span>-TATQ
-									</a>
-								</div>
-								<!-- /Footer Widget -->
 
-							</div>
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
-									<ul>
-										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-
-							</div>
-
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+84 868746275
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											quyetlbche160252@fpt.edu.vn
-										</p>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
-
-							</div>
 
 						</div>
 					</div>
 				</div>
-				<!-- /Footer Bottom -->
+				<!-- /Footer Top -->
 				
 			</footer>
 			<!-- /Footer -->
@@ -351,7 +305,7 @@
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">Add Time Slots</h5>
+						<h5 class="modal-title">Thêm thời gian khám </h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -364,7 +318,7 @@
 										<div class="row form-row">
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>Start Time</label>
+													<label>Thời gian bắt đầu</label>
 													<select class="form-control">
 														<option>-</option>
 														<option>12.00 am</option>
@@ -376,7 +330,7 @@
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>End Time</label>
+													<label>Thời gian kết thúc</label>
 													<select class="form-control">
 														<option>-</option>
 														<option>12.00 am</option>
@@ -392,10 +346,10 @@
 							</div>
 							
 							<div class="add-more mb-3">
-								<a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i> Add More</a>
+								<a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i>Bổ sung thêm</a>
 							</div>
 							<div class="submit-section text-center">
-								<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+								<button type="submit" class="btn btn-primary submit-btn">Lưu</button>
 							</div>
 						</form>
 					</div>
@@ -409,7 +363,7 @@
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">Edit Time Slots</h5>
+						<h5 class="modal-title">Chỉnh sửa thời gian khám </h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -422,7 +376,7 @@
 										<div class="row form-row">
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>Start Time</label>
+													<label>Thời gian bắt đầu</label>
 													<select class="form-control">
 														<option>-</option>
 														<option selected>12.00 am</option>
@@ -434,7 +388,7 @@
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>End Time</label>
+													<label>Thời gian kết thúc</label>
 													<select class="form-control">
 														<option>-</option>
 														<option>12.00 am</option>
@@ -453,7 +407,7 @@
 										<div class="row form-row">
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>Start Time</label>
+													<label>Thời gian bắt đầu</label>
 													<select class="form-control">
 														<option>-</option>
 														<option>12.00 am</option>
@@ -465,7 +419,7 @@
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>End Time</label>
+													<label>Thời gian kết thúc</label>
 													<select class="form-control">
 														<option>-</option>
 														<option>12.00 am</option>
@@ -485,7 +439,7 @@
 										<div class="row form-row">
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>Start Time</label>
+													<label>Thời gian bắt đầu</label>
 													<select class="form-control">
 														<option>-</option>
 														<option>12.00 am</option>
@@ -497,7 +451,7 @@
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>End Time</label>
+													<label>Thời gian kết thúc</label>
 													<select class="form-control">
 														<option>-</option>
 														<option>12.00 am</option>
@@ -515,10 +469,10 @@
 							</div>
 							
 							<div class="add-more mb-3">
-								<a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i> Add More</a>
+								<a href="javascript:void(0);" class="add-hours"><i class="fa fa-plus-circle"></i> Bổ xung thêm </a>
 							</div>
 							<div class="submit-section text-center">
-								<button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+								<button type="submit" class="btn btn-primary submit-btn">Lưu</button>
 							</div>
 						</form>
 					</div>

@@ -33,7 +33,7 @@
           <% } %>
           <form action="forgot" class="login-form" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Mật khẩu" name="username" required>
+              <input type="text" class="form-control" placeholder="Tài khoản" name="username" required>
             </div>
             <div class="form-group">
               <input  type="text" class="form-control" name="email" placeholder="Email" required>

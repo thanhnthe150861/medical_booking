@@ -5,9 +5,9 @@
 
 <!-- doccure/patient-profile.jsp  30 Nov 2019 04:12:09 GMT -->
 <head>
-    <meta charset="utf-8">
-    <title>Doccure</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta charset="utf-8">
+  <title>Clinic TQTA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
@@ -47,36 +47,36 @@
 								<span></span>
 								<span></span>
 							</span>
-                </a>
-                <a href="doctor_dashboard" class="navbar-brand logo">
-                    <span class="text-primary">Clinic</span>-TATQ
-                </a>
-            </div>
-            <div class="main-menu-wrapper">
-                <div class="menu-header">
-                    <a href="doctor_dashboard" class="menu-logo">
-                        <span class="text-primary" width="50" height="50">Clinic</span>
-                    </a>
-                    <a id="menu_close" class="menu-close" href="javascript:void(0);">
-                        <i class="fas fa-times"></i>
-                    </a>
-                </div>
-                <ul class="main-nav">
-                    <li>
-                        <a href="doctor_dashboard">Dash Board</a>
-                    </li>
-                </ul>
-            </div>
-            <ul class="nav header-navbar-rht">
-                <li class="nav-item contact-item">
-                    <div class="header-contact-img">
-                        <i class="far fa-hospital"></i>
-                    </div>
-                    <div class="header-contact-detail">
-                        <p class="contact-header">Contact</p>
-                        <p class="contact-info-header"> +84 868746275</p>
-                    </div>
-                </li>
+        </a>
+        <a href="doctor_dashboard" class="navbar-brand logo">
+          <span class="text-primary">Clinic</span>-TATQ
+        </a>
+      </div>
+      <div class="main-menu-wrapper">
+        <div class="menu-header">
+          <a href="doctor_dashboard" class="menu-logo">
+            <span class="text-primary" width="50" height="50">Clinic</span>
+          </a>
+          <a id="menu_close" class="menu-close" href="javascript:void(0);">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+        <ul class="main-nav">
+          <li>
+            <a href="doctor_dashboard">Bảng điều khiển</a>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav header-navbar-rht">
+        <li class="nav-item contact-item">
+          <div class="header-contact-img">
+            <i class="far fa-hospital"></i>
+          </div>
+          <div class="header-contact-detail">
+            <p class="contact-header">Liên hệ</p>
+            <p class="contact-info-header"> +84 868746275</p>
+          </div>
+        </li>
 
                 <!-- User Menu -->
                 <li class="nav-item dropdown has-arrow logged-item">
@@ -97,9 +97,9 @@
                                 <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-                        <a class="dropdown-item" href="login">Logout</a>
+                        <a class="dropdown-item" href="doctor_dashboard">bảng điều khiển</a>
+            <a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
+            <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -116,11 +116,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                          <li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Hồ sơ</li>
                         </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Profile</h2>
+                      </nav>
+                      <h2 class="breadcrumb-title">Hồ sơ</h2>
                 </div>
             </div>
         </div>
@@ -164,12 +164,12 @@
                             <div class="user-tabs">
                                 <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}">Appointments</a>
+                                        <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}">Cuộc hẹn</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link active"
                                            href="patient_profile?id=${sessionScope.patient.id}&medical=true"><span
-                                                class="med-records">Medical Records</span></a>
+                                                class="med-records">Hồ sơ bệnh án</span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -182,13 +182,13 @@
                                                 <table class="table table-hover table-center mb-0">
                                                     <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>Date</th>
-                                                        <th>Diagnosis</th>
-                                                        <th>Attachment</th>
-                                                        <th>Prescription</th>
-                                                        <th>Created</th>
-                                                        <th></th>
+                                                      <th>ID</th>
+                                                      <th>Ngày </th>
+                                                      <th>Chẩn đoán</th>
+                                                      <th>Tập tin</th>
+                                                      <th>Đơn thuốc</th>
+                                                      <th>Tạo</th>
+                                                      <th></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -217,17 +217,17 @@
                                                                         <c:if test="${m.id == 0}">
                                                                             <a href="medical_record_details?bid=${m.booking.id}"
                                                                                class="btn btn-sm bg-success-light">
-                                                                                <i class="far fa-eye"></i> Edit
+                                                                                <i class="far fa-eye"></i> Tạo hồ sơ
                                                                             </a>
                                                                         </c:if>
                                                                         <c:if test="${m.id != 0}">
                                                                             <a href="medical_record_details?mid=${m.id}"
                                                                                class="btn btn-sm bg-success-light">
-                                                                                <i class="far fa-eye"></i> Edit
+                                                                                <i class="far fa-eye"></i> Chỉnh sửa
                                                                             </a>
                                                                             <a href="medical_record_details?mid=${m.id}"
                                                                                class="btn btn-sm bg-info-light">
-                                                                                <i class="far fa-eye"></i> View
+                                                                                <i class="far fa-eye"></i> Xem
                                                                             </a>
                                                                         </c:if>
                                                                     </div>
@@ -275,12 +275,11 @@
 
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Doctors</h2>
-                            <ul>
-                                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a>
-                                </li>
-                                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor
-                                    Dashboard</a></li>
+                          <h2 class="footer-title">Dành cho bác sĩ</h2>
+                          <ul>
+                              <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Cuộc hẹn</a>
+                              </li>
+                              <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khuyển</a></li>
                             </ul>
                         </div>
                         <!-- /Footer Widget -->
@@ -291,7 +290,7 @@
 
                         <!-- Footer Widget -->
                         <div class="footer-widget footer-contact">
-                            <h2 class="footer-title">Contact Us</h2>
+                            <h2 class="footer-title">Liên hệ</h2>
                             <div class="footer-contact-info">
                                 <div class="footer-address">
                                     <span><i class="fas fa-map-marker-alt"></i></span>
@@ -353,40 +352,6 @@
 
 </div>
 <!-- /Main Wrapper -->
-
-<!-- Add Medical Records Modal -->
-<div class="modal fade custom-modal" id="add_medical_records">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Medical Records</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input type="text" class="form-control datetimepicker" value="31-10-2019">
-                    </div>
-                    <div class="form-group">
-                        <label>Description ( Optional )</label>
-                        <textarea class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Upload File</label>
-                        <input type="file" class="form-control">
-                    </div>
-                    <div class="submit-section text-center">
-                        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
-                        <button type="button" class="btn btn-secondary submit-btn" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- /Add Medical Records Modal -->
 
 <!-- jQuery -->
 <script src="assets/js/jquery.min.js"></script>

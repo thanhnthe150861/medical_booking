@@ -6,7 +6,7 @@
 <!-- doccure/patient-dashboard.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Doccure</title>
+    <title>Clinic TQTA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
@@ -294,61 +294,13 @@
         <div class="footer-top">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-about">
-                            <a href="home" class="navbar-brand logo">
-                                <span class="text-primary">Clinic</span>-TATQ
-                            </a>
-                        </div>
-                        <!-- /Footer Widget -->
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">Đối với bệnh nhân</h2>
-                            <ul>
-                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
-                                <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
-                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
-                    </div>
 
 
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-contact">
-                            <h2 class="footer-title">Liên hệ chúng tôi</h2>
-                            <div class="footer-contact-info">
-                                <div class="footer-address">
-                                    <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> FPT University<br> Hòa Lạc, Hà Nội </p>
-                                </div>
-                                <p>
-                                    <i class="fas fa-phone-alt"></i>
-                                    +84 868746275
-                                </p>
-                                <p class="mb-0">
-                                    <i class="fas fa-envelope"></i>
-                                    quyetlbche160252@fpt.edu.vn
-                                </p>
-                            </div>
-                        </div>
-                        <!-- /Footer Widget -->
-                    </div>
 
                 </div>
             </div>
         </div>
-        <!-- /Footer Bottom -->
-
-    </footer>
-    <!-- /Footer -->
+        <!-- /Footer Top -->
 
 </div>
 <!-- /Main Wrapper -->

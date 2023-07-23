@@ -3,34 +3,34 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Doccure</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-
-    <!-- Fancybox CSS -->
-    <link rel="stylesheet" href="assets/plugins/fancybox/jquery.fancybox.min.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.min.js"></script>
-    <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-<body>
+		<meta charset="utf-8">
+	<title>Clinic TQTA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		
+		<!-- Favicons -->
+		<link href="assets/img/favicon.png" rel="icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		
+		<!-- Fancybox CSS -->
+		<link rel="stylesheet" href="assets/plugins/fancybox/jquery.fancybox.min.css">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="assets/css/style.css">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body>
 
 <!-- Main Wrapper -->
 <div class="main-wrapper">
@@ -175,70 +175,25 @@
 				</div>
 			</div>		
 			<!-- /Page Content -->
-   
+
 			<!-- Footer -->
 			<footer class="footer">
-				
+
 				<!-- Footer Top -->
 				<div class="footer-top">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<a href="home" class="navbar-brand logo">
-										<span class="text-primary">Clinic</span>-TATQ
-									</a>
-								</div>
-								<!-- /Footer Widget -->
-							</div>
-
-							<div class="col-lg-3 col-md-6">
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">Đối với bệnh nhân</h2>
-									<ul>
-										<li><a href="my_doctor"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
-										<li><a href="booking"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
-										<li><a href="patient_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-							</div>
 
 
-							<div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Liên hệ chúng tôi</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+84 868746275
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											quyetlbche160252@fpt.edu.vn
-										</p>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
-							</div>
 
 						</div>
 					</div>
 				</div>
-				<!-- /Footer Bottom -->
-				
+				<!-- /Footer Top -->
+
 			</footer>
 			<!-- /Footer -->
-		   
+
 		</div>
 		<!-- /Main Wrapper -->
 

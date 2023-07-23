@@ -3,9 +3,9 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Doccure</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<meta charset="utf-8">
+	<title>Clinic TQTA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
@@ -66,7 +66,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="doctor_dashboard">Home</a>
+								<a href="doctor_dashboard">Trang chủ</a>
 							</li>
 						</ul>
 					</div>
@@ -76,7 +76,7 @@
 								<i class="far fa-hospital"></i>
 							</div>
 							<div class="header-contact-detail">
-								<p class="contact-header">Contact</p>
+								<p class="contact-header">Liên hệ</p>
 								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
@@ -88,47 +88,46 @@
 									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31"
                                          alt="Darren Elder">
 								</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <div class="user-header">
-                            <div class="avatar avatar-sm">
-                                <img src="${sessionScope.doctor.url}" alt="User Image"
-                                     class="avatar-img rounded-circle">
-                            </div>
-                            <div class="user-text">
-                                <h6>${sessionScope.doctor.name}</h6>
-                                <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
-                            </div>
-                        </div>
-                        <a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="doctor_profile_settings">Profile Settings</a>
-                        <a class="dropdown-item" href="login">Logout</a>
-                    </div>
-                </li>
-                <!-- /User Menu -->
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="${sessionScope.doctor.url}" alt="User Image" class="avatar-img rounded-circle">
+									</div>
+									<div class="user-text">
+										<h6>${sessionScope.doctor.name}</h6>
+										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
+									</div>
+								</div>
+								<a class="dropdown-item" href="doctor_dashboard">bảng điều khiển</a>
+								<a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
+								<a class="dropdown-item" href="login">Đăng xuất</a>
+							</div>
+						</li>
+						<!-- /User Menu -->
 
             </ul>
         </nav>
     </header>
     <!-- /Header -->
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-12 col-12">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Profile Settings</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Breadcrumb -->
+			<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Trang chủ</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Thông tin cá nhân</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Thông tin cá nhân</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
 
     <!-- Page Content -->
     <div class="content">
@@ -146,160 +145,150 @@
                                 <div class="profile-det-info">
                                     <h3> ${sessionScope.doctor.name}</h3>
 
-                                    <div class="patient-details">
-                                        <h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dashboard-widget">
-                            <nav class="dashboard-menu">
-                                <ul>
-                                    <li>
-                                        <a href="doctor_dashboard">
-                                            <i class="fas fa-columns"></i>
-                                            <span>Dashboard</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="doctor_appointments">
-                                            <i class="fas fa-calendar-check"></i>
-                                            <span>Appointments</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="my_patients">
-                                            <i class="fas fa-user-injured"></i>
-                                            <span>My Patients</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="doctor_schedule_timings">
-                                            <i class="fas fa-hourglass-start"></i>
-                                            <span>Schedule Timings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="invoice_doctor">
-                                            <i class="fas fa-file-invoice"></i>
-                                            <span>Invoices</span>
-                                        </a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="doctor_profile_settings">
-                                            <i class="fas fa-user-cog"></i>
-                                            <span>Profile Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="doctor_change_password">
-                                            <i class="fas fa-lock"></i>
-                                            <span>Change Password</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="login">
-                                            <i class="fas fa-sign-out-alt"></i>
-                                            <span>Logout</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <!-- /Profile Sidebar -->
+											<div class="patient-details">
+												<h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dashboard-widget">
+									<nav class="dashboard-menu">
+										<ul>
+											<li>
+												<a href="doctor_dashboard">
+													<i class="fas fa-columns"></i>
+													<span>Bảng điều khiển</span>
+												</a>
+											</li>
+											<li class="active">
+												<a href="doctor_appointments">
+													<i class="fas fa-calendar-check"></i>
+													<span>Cuộc hẹn</span>
+												</a>
+											</li>
+											<li>
+												<a href="my_patients">
+													<i class="fas fa-user-injured"></i>
+													<span>Bệnh nhân của tôi</span>
+												</a>
+											</li>
+											<li>
+												<a href="doctor_schedule_timings">
+													<i class="fas fa-hourglass-start"></i>
+													<span>Thời gian khám</span>
+												</a>
+											</li>
+											<li>
+												<a href="invoice_doctor">
+													<i class="fas fa-file-invoice"></i>
+													<span>Hóa đơn</span>
+												</a>
+											</li>
+											<li>
+												<a href="doctor_profile_settings">
+													<i class="fas fa-user-cog"></i>
+													<span>Thông tin cá nhân</span>
+												</a>
+											</li>
+											<li>
+												<a href="doctor_change_password">
+													<i class="fas fa-lock"></i>
+													<span>Thay đổi mật khẩu</span>
+												</a>
+											</li>
+											<li>
+												<a href="login">
+													<i class="fas fa-sign-out-alt"></i>
+													<span>Đăng xuất</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+							<!-- /Profile Sidebar -->
 
-                </div>
-                <div class="col-md-7 col-lg-8 col-xl-9">
-                    <!-- Basic Information -->
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Basic Information</h4>
-                            <div class="row form-row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div class="change-avatar">
-                                            <div class="profile-img">
-                                                <img src="${sessionScope.doctor.url}" alt="User Image">
-                                            </div>
-                                            <div class="upload-img">
-                                                <div class="change-photo-btn">
-                                                    <span><i class="fa fa-upload"></i> Upload Photo</span>
-                                                    <input type="file" class="upload" name="file">
-                                                </div>
-                                                <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of
-                                                    2MB</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Place this code where you want to display the error message -->
-                                    <% String errorMessage = (String) request.getAttribute("messError"); %>
-                                    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-                                    <div class="alert alert-danger" role="alert">
-                                        <%= errorMessage %>
-                                    </div>
-                                    <% } %>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Username <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" value="${sessionScope.account.username}"
-                                               readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Email <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" value="${sessionScope.account.email}"
-                                               readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="name"
-                                               value="${sessionScope.doctor.name}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Phone Number</label>
-                                        <input type="text" class="form-control" name="phone"
-                                               value="${sessionScope.account.phone}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Gender</label>
-                                        <select class="form-control select" name="gender">
-                                            <option>Select</option>
-                                            <option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>
-                                                Male
-                                            </option>
-                                            <option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>
-                                                Female
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-0">
-                                        <label>Date of Birth</label>
-                                        <input type="date" class="form-control" name="dob"
-                                               value="${sessionScope.doctor.dob}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="submit-section submit-btn-bottom">
-                        <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- /Page Content -->
+						</div>
+						<div class="col-md-7 col-lg-8 col-xl-9">
+							<!-- Basic Information -->
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title">Thông tin cơ bản</h4>
+									<div class="row form-row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<div class="change-avatar">
+													<div class="profile-img">
+														<img src="${sessionScope.doctor.url}" alt="User Image">
+													</div>
+													<div class="upload-img">
+														<div class="change-photo-btn">
+															<span><i class="fa fa-upload"></i> Tải ảnh lên</span>
+															<input type="file" class="upload" name="file">
+														</div>
+														<small class="form-text text-muted">Cho phép JPG, GIF or PNG. Kích thước tối đa của 2MB</small>
+													</div>
+												</div>
+											</div>
+											<!-- Place this code where you want to display the error message -->
+											<% String errorMessage = (String) request.getAttribute("messError"); %>
+											<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+											<div class="alert alert-danger" role="alert">
+												<%= errorMessage %>
+											</div>
+											<% } %>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Tài khoản <span class="text-danger">*</span></label>
+												<input type="text" class="form-control" value="${sessionScope.account.username}" readonly>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Email <span class="text-danger">*</span></label>
+												<input type="email" class="form-control" value="${sessionScope.account.email}" readonly>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Tên <span class="text-danger">*</span></label>
+												<input type="text" class="form-control" name="name" value="${sessionScope.doctor.name}">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Số điện thoại</label>
+												<input type="text" class="form-control" name="phone" value="${sessionScope.account.phone}">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Gender</label>
+												<select class="form-control select" name="gender">
+													<option>Select</option>
+													<option value="Male" ${sessionScope.doctor.gender == "Male" ? "selected" : ""}>Nam</option>
+													<option value="Female" ${sessionScope.doctor.gender == "Female" ? "selected" : ""}>Nữ</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group mb-0">
+												<label>Ngày sinh</label>
+												<input type="date" class="form-control" name="dob" value="${sessionScope.doctor.dob}">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="submit-section submit-btn-bottom">
+								<button type="submit" class="btn btn-primary submit-btn">lưu</button>
+							</div>
+						</div>
+				</form>
+				</div>
+			</div>
+			<!-- /Page Content -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -309,24 +298,15 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
-
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<a href="home" class="navbar-brand logo">
-										<span class="text-primary">Clinic</span>-TATQ
-									</a>
-								</div>
-								<!-- /Footer Widget -->
-
 							</div>
 							<div class="col-lg-3 col-md-6">
 
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
+									<h2 class="footer-title">Dành cho bác sĩ</h2>
 									<ul>
-										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Cuộc hẹn</a></li>
+										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều khuyển</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -337,7 +317,7 @@
 
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
+									<h2 class="footer-title">Liên hệ</h2>
 									<div class="footer-contact-info">
 										<div class="footer-address">
 											<span><i class="fas fa-map-marker-alt"></i></span>
