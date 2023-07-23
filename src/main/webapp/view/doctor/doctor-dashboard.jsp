@@ -1,8 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
-	
-<!-- doccure/doctor-dashboard.jsp  30 Nov 2019 04:12:03 GMT -->
+<html>
+
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -44,13 +44,13 @@
 								<span></span>
 							</span>
 						</a>
-						<a href="home" class="navbar-brand logo">
+						<a href="doctor_dashboard" class="navbar-brand logo">
 							<span class="text-primary">Clinic</span>-TATQ
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
-							<a href="home" class="menu-logo">
+							<a href="doctor_dashboard" class="menu-logo">
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -59,7 +59,7 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="home">Home</a>
+								<a href="doctor_dashboard">Home</a>
 							</li>
 						</ul>	 
 					</div>		 
@@ -70,7 +70,7 @@
 							</div>
 							<div class="header-contact-detail">
 								<p class="contact-header">Contact</p>
-								<p class="contact-info-header"> +1 315 369 5943</p>
+								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
 						
@@ -78,17 +78,17 @@
 						<li class="nav-item dropdown has-arrow logged-item">
 							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31" alt="Darren Elder">
 								</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<div class="user-header">
 									<div class="avatar avatar-sm">
-										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+										<img src="${sessionScope.doctor.url}" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>Darren Elder</h6>
-										<p class="text-muted mb-0">Doctor</p>
+										<h6>${sessionScope.doctor.name}</h6>
+										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
 									</div>
 								</div>
 								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
@@ -110,7 +110,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
 								</ol>
 							</nav>
@@ -133,13 +133,13 @@
 								<div class="widget-profile pro-widget-content">
 									<div class="profile-info-widget">
 										<a href="#" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+											<img src="${sessionScope.doctor.url}" alt="User Image">
 										</a>
 										<div class="profile-det-info">
-											<h3>Dr. Darren Elder</h3>
-											
+											<h3> ${sessionScope.doctor.name}</h3>
+
 											<div class="patient-details">
-												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+												<h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
 											</div>
 										</div>
 									</div>
@@ -172,22 +172,9 @@
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="invoice_doctor">
 													<i class="fas fa-file-invoice"></i>
 													<span>Invoices</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-star"></i>
-													<span>Reviews</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-comments"></i>
-													<span>Message</span>
-													<small class="unread-msg">23</small>
 												</a>
 											</li>
 											<li>
@@ -217,62 +204,6 @@
 						</div>
 						
 						<div class="col-md-7 col-lg-8 col-xl-9">
-
-							<div class="row">
-								<div class="col-md-12">
-									<div class="card dash-card">
-										<div class="card-body">
-											<div class="row">
-												<div class="col-md-12 col-lg-4">
-													<div class="dash-widget dct-border-rht">
-														<div class="circle-bar circle-bar1">
-															<div class="circle-graph1" data-percent="75">
-																<img src="assets/img/icon-01.png" class="img-fluid" alt="patient">
-															</div>
-														</div>
-														<div class="dash-widget-info">
-															<h6>Total Patient</h6>
-															<h3>1500</h3>
-															<p class="text-muted">Till Today</p>
-														</div>
-													</div>
-												</div>
-												
-												<div class="col-md-12 col-lg-4">
-													<div class="dash-widget dct-border-rht">
-														<div class="circle-bar circle-bar2">
-															<div class="circle-graph2" data-percent="65">
-																<img src="assets/img/icon-02.png" class="img-fluid" alt="Patient">
-															</div>
-														</div>
-														<div class="dash-widget-info">
-															<h6>Today Patient</h6>
-															<h3>160</h3>
-															<p class="text-muted">06, Nov 2019</p>
-														</div>
-													</div>
-												</div>
-												
-												<div class="col-md-12 col-lg-4">
-													<div class="dash-widget">
-														<div class="circle-bar circle-bar3">
-															<div class="circle-graph3" data-percent="50">
-																<img src="assets/img/icon-03.png" class="img-fluid" alt="Patient">
-															</div>
-														</div>
-														<div class="dash-widget-info">
-															<h6>Appoinments</h6>
-															<h3>85</h3>
-															<p class="text-muted">06, Apr 2019</p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
 							<div class="row">
 								<div class="col-md-12">
 									<h4 class="mb-4">Patient Appoinment</h4>
@@ -307,8 +238,8 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
-																				<a href="#">${b.patient.name}<span>Patient ID: ${b.patient.id}</span></a>
+																				<a href="patient_profile?id=${b.patient.id}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="${b.patient.url}" alt="User Image"></a>
+																				<a href="patient_profile?id=${b.patient.id}">${b.patient.name}<span>Patient ID: ${b.patient.id}</span></a>
 																			</h2>
 																		</td>
 																		<td>${b.date}<span class="d-block text-info">${b.slots.name}</span></td>
@@ -356,63 +287,20 @@
 							
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-about">
-									<div class="footer-logo">
-										<img src="assets/img/footer-logo.png" alt="logo">
-									</div>
-									<div class="footer-about-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-										<div class="social-icon">
-											<ul>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-												</li>
-											</ul>
-										</div>
-									</div>
+									<a href="home" class="navbar-brand logo">
+										<span class="text-primary">Clinic</span>-TATQ
+									</a>
 								</div>
 								<!-- /Footer Widget -->
 								
 							</div>
-							
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Patients</h2>
-									<ul>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
-							
 							<div class="col-lg-3 col-md-6">
 							
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For Doctors</h2>
 									<ul>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="#"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-<%--										<li><a href="Login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>--%>
-<%--										<li><a href="doctor-Register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>--%>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
 										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
 									</ul>
 								</div>
@@ -428,15 +316,15 @@
 									<div class="footer-contact-info">
 										<div class="footer-address">
 											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
 										</div>
 										<p>
 											<i class="fas fa-phone-alt"></i>
-											+1 315 369 5943
+											+84 868746275
 										</p>
 										<p class="mb-0">
 											<i class="fas fa-envelope"></i>
-											doccure@example.com
+											quyetlbche160252@fpt.edu.vn
 										</p>
 									</div>
 								</div>

@@ -1,8 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<!-- doccure/patient-profile.jsp  30 Nov 2019 04:12:09 GMT -->
 <head>
   <meta charset="utf-8">
   <title>Doccure</title>
@@ -47,14 +47,13 @@
 								<span></span>
 							</span>
         </a>
-        <a href="home" class="navbar-brand logo">
+        <a href="doctor_dashboard" class="navbar-brand logo">
           <span class="text-primary">Clinic</span>-TATQ
         </a>
       </div>
       <div class="main-menu-wrapper">
         <div class="menu-header">
-          <a href="home" class="menu-logo">
-            <%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
+          <a href="doctor_dashboard" class="menu-logo">
             <span class="text-primary" width="50" height="50">Clinic</span>
           </a>
           <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -62,9 +61,6 @@
           </a>
         </div>
         <ul class="main-nav">
-          <li>
-            <a href="home">Home</a>
-          </li>
           <li>
             <a href="doctor_dashboard">Dash Board</a>
           </li>
@@ -77,7 +73,7 @@
           </div>
           <div class="header-contact-detail">
             <p class="contact-header">Contact</p>
-            <p class="contact-info-header"> +1 315 369 5943</p>
+            <p class="contact-info-header"> +84 868746275</p>
           </div>
         </li>
 
@@ -85,17 +81,17 @@
         <li class="nav-item dropdown has-arrow logged-item">
           <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31" alt="Darren Elder">
 								</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="user-header">
               <div class="avatar avatar-sm">
-                <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+                <img src="${sessionScope.doctor.url}" alt="User Image" class="avatar-img rounded-circle">
               </div>
               <div class="user-text">
-                <h6>Darren Elder</h6>
-                <p class="text-muted mb-0">Doctor</p>
+                <h6>${sessionScope.doctor.name}</h6>
+                <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
               </div>
             </div>
             <a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
@@ -117,7 +113,7 @@
         <div class="col-md-12 col-12">
           <nav aria-label="breadcrumb" class="page-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="home">Home</a></li>
+              <li class="breadcrumb-item"><a href="doctor_dashboard">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">Profile</li>
             </ol>
           </nav>
@@ -141,14 +137,14 @@
               <div class="pro-widget-content">
                 <div class="profile-info-widget">
                   <a href="#" class="booking-doc-img">
-                    <img src="assets/img/patients/patient.jpg" alt="User Image">
+                    <img src="${sessionScope.patient.url}" alt="User Image">
                   </a>
                   <div class="profile-det-info">
-                    <h3>${requestScope.patient.name}</h3>
+                    <h3>${sessionScope.patient.name}</h3>
 
                     <div class="patient-details">
-                      <h5><b>Patient ID :</b> ${requestScope.patient.id}</h5>
-                      <h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${requestScope.patient.dob}</h5>
+                      <h5><b>Patient ID :</b> ${sessionScope.patient.id}</h5>
+                      <h5 class="mb-0"><i class="fas fa-birthday-cake"></i> ${sessionScope.patient.dob}</h5>
                     </div>
                   </div>
                 </div>
@@ -165,13 +161,13 @@
               <div class="user-tabs">
                 <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                   <li class="nav-item">
-                    <a class="nav-link" href="patient_profile?id=${requestScope.patient.id}">Appointments</a>
+                    <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}">Appointments</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="patient_profile?id=${requestScope.patient.id}&medical=true"><span class="med-records">Medical Records</span></a>
+                    <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}&medical=true"><span class="med-records">Medical Records</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="patient_profile?id=${requestScope.patient.id}&bill=true"><span>Billing</span></a>
+                    <a class="nav-link active" href="patient_profile?id=${sessionScope.patient.id}&bill=true"><span>Billing</span></a>
                   </li>
                 </ul>
               </div>
@@ -179,13 +175,9 @@
 
                 <!-- Billing Tab -->
                 <div class="tab-pane fade show active" id="billing">
-                  <div class="text-right">
-                    <a class="add-new-btn" href="#">Add Billing</a>
-                  </div>
                   <div class="card card-table mb-0">
                     <div class="card-body">
                       <div class="table-responsive">
-
                         <table class="table table-hover table-center mb-0">
                           <thead>
                           <tr>
@@ -199,29 +191,43 @@
                           </thead>
                           <tbody>
                           <c:forEach items="${requestScope.medicalRecordList}" var="m">
+                            <c:if test="${m.booking.status eq 'Completed' && m.id != 0}">
                           <tr>
                             <td>
                               <a href="#">${m.bill.id}</a>
                             </td>
                             <td>
                               <h2 class="table-avatar">
-                                <a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-                                  <img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+                                <a href="#" class="avatar avatar-sm mr-2">
+                                  <img class="avatar-img rounded-circle" src="${m.booking.doctor.url}" alt="User Image">
                                 </a>
                                 <a href="#">${m.booking.doctor.name} <span>${m.booking.doctor.specialty}</span></a>
                               </h2>
                             </td>
-                            <td>${m.bill.price}</td>
+                            <td>${m.bill.totalPrice}</td>
                             <td>${m.booking.date}</td>
-                            <td><span class="badge badge-pill bg-${m.bill.payment_status == 'Paid' ? 'success-light' : m.bill.payment_status == 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span></td>
+                            <td><span class="badge badge-pill bg-${m.bill.payment_status eq 'Paid' ? 'success-light' : m.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span></td>
                             <td class="text-right">
                               <div class="table-action">
-                                <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                                  <i class="far fa-eye"></i> View
-                                </a>
+                                <div class="table-action">
+                                  <c:if test="${m.bill.id == 0}">
+                                    <a href="invoice_details?mid=${m.id}" class="btn btn-sm bg-success-light">
+                                      <i class="far fa-eye"></i> Edit
+                                    </a>
+                                  </c:if>
+                                  <c:if test="${m.bill.id != 0}">
+                                    <a href="invoice_details?bid=${m.bill.id}" class="btn btn-sm bg-success-light">
+                                      <i class="far fa-eye"></i> Edit
+                                    </a>
+                                    <a href="invoice_view?bid=${m.bill.id}" class="btn btn-sm bg-info-light">
+                                      <i class="far fa-eye"></i> View
+                                    </a>
+                                  </c:if>
+                                </div>
                               </div>
                             </td>
                           </tr>
+                            </c:if>
                           </c:forEach>
                           </tbody>
                         </table>
@@ -253,64 +259,21 @@
 
             <!-- Footer Widget -->
             <div class="footer-widget footer-about">
-              <div class="footer-logo">
-                <img src="assets/img/footer-logo.png" alt="logo">
-              </div>
-              <div class="footer-about-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                <div class="social-icon">
-                  <ul>
-                    <li>
-                      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <a href="home" class="navbar-brand logo">
+                <span class="text-primary">Clinic</span>-TATQ
+              </a>
             </div>
             <!-- /Footer Widget -->
 
           </div>
-
-          <div class="col-lg-3 col-md-6">
-
-            <!-- Footer Widget -->
-            <div class="footer-widget footer-menu">
-              <h2 class="footer-title">For Patients</h2>
-              <ul>
-                <li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
-                <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                <li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-                <li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-                <li><a href="../patient/patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
-              </ul>
-            </div>
-            <!-- /Footer Widget -->
-
-          </div>
-
           <div class="col-lg-3 col-md-6">
 
             <!-- Footer Widget -->
             <div class="footer-widget footer-menu">
               <h2 class="footer-title">For Doctors</h2>
               <ul>
-                <li><a href="appointments.html"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-                <li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-                <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-                <li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+                <li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+                <li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
               </ul>
             </div>
             <!-- /Footer Widget -->
@@ -325,15 +288,15 @@
               <div class="footer-contact-info">
                 <div class="footer-address">
                   <span><i class="fas fa-map-marker-alt"></i></span>
-                  <p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+                  <p> FPT University<br> Hòa Lạc, Hà Nội </p>
                 </div>
                 <p>
                   <i class="fas fa-phone-alt"></i>
-                  +1 315 369 5943
+                  +84 868746275
                 </p>
                 <p class="mb-0">
                   <i class="fas fa-envelope"></i>
-                  doccure@example.com
+                  quyetlbche160252@fpt.edu.vn
                 </p>
               </div>
             </div>

@@ -1,0 +1,15 @@
+
+`
+java:S1192"JDefine a constant instead of duplicating this literal "messError" 4 times.(Ó²ò­
+s
+java:S1192"XDefine a constant instead of duplicating this literal "view/login/register.jsp" 6 times.(Œ™Âóúÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—ÿ¿†ûÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶¸ò‡ÿÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ•†ªüÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¥ÙÊþÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(ŒÆ Ž
+Y
+java:S6353"CUse concise character class syntax '\\w' instead of '[a-zA-Z0-9_]'.(ýñõ©
+b
+java:S5998("LRefactor this repetition that can lead to a stack overflow for large inputs.(˜çûŠ
+V	java:S1252"<This block of commented-out lines of code should be removed.(ì‰Áßúÿÿÿÿ

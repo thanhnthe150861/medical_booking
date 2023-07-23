@@ -1,0 +1,125 @@
+
+@
+java:S5786"Remove this 'public' modifier.(Ö±å¾ÿÿÿÿÿ8‹æ±••1
+;
+java:S5786)"Remove this 'public' modifier.(ê­×ï8‹æ±••1
+@
+java:S5786E"Remove this 'public' modifier.(©¿—ªúÿÿÿÿ8‹æ±••1
+;
+java:S5786b"Remove this 'public' modifier.(±¨ñè8‹æ±••1
+;
+java:S5786"Remove this 'public' modifier.(ß‹¡Ö8‹æ±••1
+A
+java:S5786…"Remove this 'public' modifier.(ˆÎ«üÿÿÿÿ8‹æ±••1
+A
+java:S5786Œ"Remove this 'public' modifier.(òù óşÿÿÿÿ8‹æ±••1
+A
+java:S5786’"Remove this 'public' modifier.(´àÆ‚ûÿÿÿÿ8‹æ±••1
+A
+java:S5786˜"Remove this 'public' modifier.(å–«¿ùÿÿÿÿ8‹æ±••1
+<
+java:S5786"Remove this 'public' modifier.(ÄÑòß8‹æ±••1
+A
+java:S5786¥"Remove this 'public' modifier.(‘ıİËûÿÿÿÿ8‹æ±••1
+A
+java:S5786«"Remove this 'public' modifier.(‘ÍÃÍıÿÿÿÿ8‹æ±••1
+<
+java:S5786²"Remove this 'public' modifier.(ìÕÔÉ8‹æ±••1
+<
+java:S5786¼"Remove this 'public' modifier.(«ô÷8‹æ±••1
+A
+java:S5786Å"Remove this 'public' modifier.(ùèÑŞùÿÿÿÿ8‹æ±••1
+<
+java:S5786ğ"Remove this 'public' modifier.(â£¬8‹æ±••1
+<
+java:S5786š"Remove this 'public' modifier.(œŠâÔ8‹æ±••1
+A
+java:S5786½"Remove this 'public' modifier.(Ó¼ãèşÿÿÿÿ8Œæ±••1
+<
+java:S5786á"Remove this 'public' modifier.( ±§8Œæ±••1
+<
+java:S5786…"Remove this 'public' modifier.(óô»İ8Œæ±••1
+<
+java:S5786©"Remove this 'public' modifier.(òîÕ8Œæ±••1
+<
+java:S5786Á"Remove this 'public' modifier.(ÇÉ“¦8Œæ±••1
+<
+java:S5786Ø"Remove this 'public' modifier.(¡‰Ùß8Œæ±••1
+;
+java:S5786ó"Remove this 'public' modifier.(¼Æ¼u8Œæ±••1
+x
+java:S3415&"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ıĞ®Òüÿÿÿÿ8æ±••1
+>
+java:S5785B"Use assertNotEquals instead.(ºÏ°ïÿÿÿÿÿ8æ±••1
+s
+java:S3415^"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(Î Í‘8æ±••1
+9
+java:S5785{"Use assertNotEquals instead.(ğ·ê³8æ±••1
+:
+java:S5785ˆ"Use assertNotEquals instead.(í†°’8æ±••1
+?
+java:S5785•"Use assertNotEquals instead.(òÓ¢´ıÿÿÿÿ8æ±••1
+<
+java:S5785›"Use assertEquals instead.(‡¿ÃÒşÿÿÿÿ8æ±••1
+?
+java:S5785¡"Use assertNotEquals instead.(¥óÃ¶ûÿÿÿÿ8æ±••1
+:
+java:S5785®"Use assertNotEquals instead.(´ª¹8æ±••1
+:
+java:S5785Â"Use assertNotEquals instead.(ªÙ¼›8æ±••1
+y
+java:S3415ê"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ûÈòùÿÿÿÿ8‘æ±••1
+y
+java:S3415ë"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(Â£¤ûûÿÿÿÿ8‘æ±••1
+:
+java:S5785•"Use assertNotEquals instead.(’÷¢—8‘æ±••1
+?
+java:S5785–"Use assertNotEquals instead.(¤Ğã¸úÿÿÿÿ8‘æ±••1
+s
+java:S3415¶"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(½ˆœU8’æ±••1
+s
+java:S3415·"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ô«´,8’æ±••1
+y
+java:S3415¸"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¦¼ûóøÿÿÿÿ8’æ±••1
+y
+java:S3415¹"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(©ÿÒ’ûÿÿÿÿ8’æ±••1
+?
+java:S5785Ù"Use assertNotEquals instead.(£šòÂıÿÿÿÿ8“æ±••1
+?
+java:S5785Ú"Use assertNotEquals instead.(÷¤È»ıÿÿÿÿ8“æ±••1
+:
+java:S5785Û"Use assertNotEquals instead.(Ùïö8“æ±••1
+:
+java:S5785Ü"Use assertNotEquals instead.(Êéˆã8“æ±••1
+y
+java:S3415ı"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(—Ô¿Éúÿÿÿÿ8”æ±••1
+t
+java:S3415ş"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(‘ø²8”æ±••1
+y
+java:S3415ÿ"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¦²¥ùÿÿÿÿ8”æ±••1
+t
+java:S3415€"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(»ÉŞ»8”æ±••1
+t
+java:S3415"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(Ò¯Ñ8”æ±••1
+:
+java:S5785¡"Use assertNotEquals instead.(¨Ÿ¯²8•æ±••1
+?
+java:S5785¢"Use assertNotEquals instead.(šòûôûÿÿÿÿ8•æ±••1
+:
+java:S5785£"Use assertNotEquals instead.(‹çáË8•æ±••1
+9
+java:S5785¤"Use assertNotEquals instead.(øî€m8•æ±••1
+:
+java:S5785¥"Use assertNotEquals instead.(ñïµ†8•æ±••1
+t
+java:S3415¼"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¯îï8•æ±••1
+y
+java:S3415½"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ËÈ‘ºøÿÿÿÿ8•æ±••1
+?
+java:S5785Ô"Use assertNotEquals instead.(Íâ”ìÿÿÿÿÿ8–æ±••1
+:
+java:S5785Õ"Use assertNotEquals instead.(¾îİ 8–æ±••1
+y
+java:S3415ï"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(—Ô¿Éúÿÿÿÿ8–æ±••1
+?
+java:S5785Š"Use assertNotEquals instead.(ÄÙœÿÿÿÿÿ8—æ±••1

@@ -1,8 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
-	
-<!-- doccure/my-patients.jsp  30 Nov 2019 04:12:09 GMT -->
+<html>
+
 <head>
 		<meta charset="utf-8">
 		<title>Doccure</title>
@@ -44,14 +44,13 @@
 								<span></span>
 							</span>
 						</a>
-						<a href="home" class="navbar-brand logo">
+						<a href="doctor_dashboard" class="navbar-brand logo">
 							<span class="text-primary">Clinic</span>-TATQ
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
-							<a href="home" class="menu-logo">
-								<%--								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">--%>
+							<a href="doctor_dashboard" class="menu-logo">
 								<span class="text-primary" width="50" height="50">Clinic</span>
 							</a>
 							<a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -60,65 +59,8 @@
 						</div>
 						<ul class="main-nav">
 							<li>
-								<a href="home">Home</a>
+								<a href="doctor_dashboard">Home</a>
 							</li>
-							<%--							<li class="has-submenu active">--%>
-							<%--								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li class="active"><a href="doctor-dashboard.jsp">Doctor Dashboard</a></li>--%>
-							<%--									<li><a href="appointments.jsp">Appointments</a></li>--%>
-							<%--									<li><a href="schedule-timings.html">Schedule Timing</a></li>--%>
-							<%--									<li><a href="my-patients.jsp">Patients List</a></li>--%>
-							<%--									<li><a href="patient-profile.jsp">Patients Profile</a></li>--%>
-							<%--									<li><a href="chat-doctor.html">Chat</a></li>--%>
-							<%--									<li><a href="invoices.jsp">Invoices</a></li>--%>
-							<%--									<li><a href="doctor-profile-settings.jsp">Profile Settings</a></li>--%>
-							<%--									<li><a href="reviews.jsp">Reviews</a></li>--%>
-							<%--									<li><a href="doctor-Register.html">Doctor Register</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>	--%>
-							<%--							<li class="has-submenu">--%>
-							<%--								<a href="#">Patients <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li><a href="search.html">Search Doctor</a></li>--%>
-							<%--									<li><a href="doctor-profile.jsp">Doctor Profile</a></li>--%>
-							<%--									<li><a href="Booking.html">Booking</a></li>--%>
-							<%--									<li><a href="CheckOut.html">Checkout</a></li>--%>
-							<%--									<li><a href="Booking-success.html">Booking Success</a></li>--%>
-							<%--									<li><a href="patient-dashboard.html">Patient Dashboard</a></li>--%>
-							<%--									<li><a href="favourites.html">Favourites</a></li>--%>
-							<%--									<li><a href="chat.html">Chat</a></li>--%>
-							<%--									<li><a href="profile-settings.html">Profile Settings</a></li>--%>
-							<%--									<li><a href="change-password.html">Change Password</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>	--%>
-							<%--							<li class="has-submenu">--%>
-							<%--								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>--%>
-							<%--								<ul class="submenu">--%>
-							<%--									<li><a href="voice-call.html">Voice Call</a></li>--%>
-							<%--									<li><a href="video-call.html">Video Call</a></li>--%>
-							<%--									<li><a href="search.html">Search Doctors</a></li>--%>
-							<%--									<li><a href="calendar.html">Calendar</a></li>--%>
-							<%--									<li><a href="components.jsp">Components</a></li>--%>
-							<%--									<li class="has-submenu">--%>
-							<%--										<a href="invoices.jsp">Invoices</a>--%>
-							<%--										<ul class="submenu">--%>
-							<%--											<li><a href="invoices.jsp">Invoices</a></li>--%>
-							<%--											<li><a href="invoice-view.jsp">Invoice View</a></li>--%>
-							<%--										</ul>--%>
-							<%--									</li>--%>
-							<%--									<li><a href="blank-page.html">Starter Page</a></li>--%>
-							<%--									<li><a href="Login.html">Login</a></li>--%>
-							<%--									<li><a href="Register.html">Register</a></li>--%>
-							<%--									<li><a href="Forgot-password.html">Forgot Password</a></li>--%>
-							<%--								</ul>--%>
-							<%--							</li>--%>
-							<%--							<li>--%>
-							<%--								<a href="admin/index.html" target="_blank">Admin</a>--%>
-							<%--							</li>--%>
-							<%--							<li class="Login-link">--%>
-							<%--								<a href="Login.html">Login / Signup</a>--%>
-							<%--							</li>--%>
 						</ul>
 					</div>		 
 					<ul class="nav header-navbar-rht">
@@ -128,7 +70,7 @@
 							</div>
 							<div class="header-contact-detail">
 								<p class="contact-header">Contact</p>
-								<p class="contact-info-header"> +1 315 369 5943</p>
+								<p class="contact-info-header"> +84 868746275</p>
 							</div>
 						</li>
 						
@@ -136,17 +78,17 @@
 						<li class="nav-item dropdown has-arrow logged-item">
 							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31" alt="Darren Elder">
 								</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
 								<div class="user-header">
 									<div class="avatar avatar-sm">
-										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+										<img src="${sessionScope.doctor.url}" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>Darren Elder</h6>
-										<p class="text-muted mb-0">Doctor</p>
+										<h6>${sessionScope.doctor.name}</h6>
+										<p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
 									</div>
 								</div>
 								<a class="dropdown-item" href="doctor_dashboard">Dashboard</a>
@@ -168,7 +110,7 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item"><a href="index-2.html">doctor_dashboard</a></li>
 									<li class="breadcrumb-item active" aria-current="page">My Patients</li>
 								</ol>
 							</nav>
@@ -191,13 +133,13 @@
 								<div class="widget-profile pro-widget-content">
 									<div class="profile-info-widget">
 										<a href="#" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+											<img src="${sessionScope.doctor.url}" alt="User Image">
 										</a>
 										<div class="profile-det-info">
-											<h3>Dr. Darren Elder</h3>
+											<h3> ${sessionScope.doctor.name}</h3>
 
 											<div class="patient-details">
-												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+												<h5 class="mb-0">${sessionScope.doctor.specialty}</h5>
 											</div>
 										</div>
 									</div>
@@ -230,22 +172,9 @@
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="invoice_doctor">
 													<i class="fas fa-file-invoice"></i>
 													<span>Invoices</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-star"></i>
-													<span>Reviews</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fas fa-comments"></i>
-													<span>Message</span>
-													<small class="unread-msg">23</small>
 												</a>
 											</li>
 											<li>
@@ -277,27 +206,28 @@
 						
 							<div class="row row-grid">
 								<!-- -->
-								<c:forEach items="${requestScope.bookingList}" var="b">
+								<c:forEach items="${requestScope.patientList}" var="p">
 								<div class="col-md-6 col-lg-4 col-xl-3">
 									<div class="card widget-profile pat-widget-profile">
 										<div class="card-body">
 											<div class="pro-widget-content">
 												<div class="profile-info-widget">
-													<a href="patient_profile?id=${b.patient.id}" class="booking-doc-img">
-														<img src="assets/img/patients/patient.jpg" alt="User Image">
+													<a href="patient_profile?id=${p.id}" class="booking-doc-img">
+														<img src="${p.url}" alt="User Image">
 													</a>
 													<div class="profile-det-info">
-														<h3><a href="patient_profile?id=${b.patient.id}">${b.patient.name}</a></h3>
+														<h3><a href="patient_profile?id=${p.id}">${p.name}</a></h3>
 														<div class="patient-details">
-															<h5><b>Patient ID :</b> ${b.patient.id}</h5>
+															<h5><b>Patient ID :</b> ${p.id}</h5>
+															<h5><b>Rank :</b> ${p.ranks.name}</h5>
 														</div>
 													</div>
 												</div>
 											</div>
 											<div class="patient-info">
 												<ul>
-													<li><i class="fas fa-${b.patient.gender eq 'Male' ? 'mars' : 'venus'}"></i><span>${b.patient.gender}</span></li>
-													<li><i class="fas fa-birthday-cake"></i><span>${b.patient.dob}</span></li>
+													<li><i class="fas fa-${p.gender eq 'Male' ? 'mars' : 'venus'}"></i><span>${p.gender}</span></li>
+													<li><i class="fas fa-birthday-cake"></i><span>${p.dob}</span></li>
 												</ul>
 											</div>
 										</div>
@@ -322,97 +252,54 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-lg-3 col-md-6">
-							
+
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-about">
-									<div class="footer-logo">
-										<img src="assets/img/footer-logo.png" alt="logo">
-									</div>
-									<div class="footer-about-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-										<div class="social-icon">
-											<ul>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-												</li>
-											</ul>
-										</div>
-									</div>
+									<a href="home" class="navbar-brand logo">
+										<span class="text-primary">Clinic</span>-TATQ
+									</a>
 								</div>
 								<!-- /Footer Widget -->
-								
+
 							</div>
-							
 							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Patients</h2>
-									<ul>
-										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
-										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
-							
-							<div class="col-lg-3 col-md-6">
-							
+
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">For Doctors</h2>
 									<ul>
-										<li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
+										<li><a href="doctor_appointments"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
+										<li><a href="doctor_dashboard"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
-								
+
 							</div>
-							
+
 							<div class="col-lg-3 col-md-6">
-							
+
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-contact">
 									<h2 class="footer-title">Contact Us</h2>
 									<div class="footer-contact-info">
 										<div class="footer-address">
 											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+											<p> FPT University<br> Hòa Lạc, Hà Nội </p>
 										</div>
 										<p>
 											<i class="fas fa-phone-alt"></i>
-											+1 315 369 5943
+											+84 868746275
 										</p>
 										<p class="mb-0">
 											<i class="fas fa-envelope"></i>
-											doccure@example.com
+											quyetlbche160252@fpt.edu.vn
 										</p>
 									</div>
 								</div>
 								<!-- /Footer Widget -->
-								
+
 							</div>
-							
+
 						</div>
 					</div>
 				</div>

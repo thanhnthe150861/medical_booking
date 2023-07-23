@@ -1,0 +1,78 @@
+
+g	java:S112*"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ŸÅƒ•1
+g	java:S112F"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 Åƒ•1
+h	java:S112‡"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 Åƒ•1
+h	java:S112«"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 Åƒ•1
+h	java:S112·"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 Åƒ•1
+h	java:S112Ğ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 Åƒ•1
+h	java:S112ì"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 Åƒ•1
+h	java:S112ş"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¢Åƒ•1
+h	java:S112˜"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8öÄİó•1
+h	java:S112³"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8öÄİó•1
+h	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8÷Äİó•1
+h	java:S112Ğ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8øÄİó•1
+h	java:S112Ü"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8øÄİó•1
+h	java:S112ê"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ùÄİó•1
+h	java:S112†"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8úÄİó•1
+e
+java:S1192""HDefine a constant instead of duplicating this literal "rank_id" 3 times.(ÊĞ–8£Åƒ•1
+d
+java:S1192"GDefine a constant instead of duplicating this literal "gender" 4 times.(èšÂ8£Åƒ•1
+n
+java:S1192™"KDefine a constant instead of duplicating this literal "booking_id" 3 times.(¬„™ºøÿÿÿÿ8şÄİó•1
+j
+java:S1192c"HDefine a constant instead of duplicating this literal "slot_id" 4 times.(Ñ‹ªÖşÿÿÿÿ8£Åƒ•1
+s	java:S117ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤²Ê¬üÿÿÿÿ8¤Åƒ•1
+S
+java:S2696"6Make the enclosing method "static" or remove this set.(–À°ø8öÅƒ•1
+X
+java:S2696"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8öÅƒ•1
+S
+java:S26964"6Make the enclosing method "static" or remove this set.(–À°ø8üÅƒ•1
+X
+java:S26966"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8ıÅƒ•1
+S
+java:S2696\"6Make the enclosing method "static" or remove this set.(–À°ø8„Æƒ•1
+X
+java:S2696_"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8†Æƒ•1
+T
+java:S2696“"6Make the enclosing method "static" or remove this set.(–À°ø8Æƒ•1
+Y
+java:S2696–"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8Æƒ•1
+T
+java:S2696²"6Make the enclosing method "static" or remove this set.(–À°ø8’Æƒ•1
+Y
+java:S2696¾"6Make the enclosing method "static" or remove this set.(á‘¨—úÿÿÿÿ8•Æƒ•1
+Y
+java:S2696Æ"6Make the enclosing method "static" or remove this set.(À¨£Úùÿÿÿÿ8–Æƒ•1
+T
+java:S2696Û"6Make the enclosing method "static" or remove this set.(–À°ø8™Æƒ•1
+Y
+java:S2696Ş"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8™Æƒ•1
+T
+java:S2696ô"6Make the enclosing method "static" or remove this set.(–À°ø8œÆƒ•1
+Y
+java:S2696÷"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8Æƒ•1
+[	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(İÅÑéÿÿÿÿÿ8¢Æƒ•1
+T
+java:S2696"6Make the enclosing method "static" or remove this set.(–À°ø8ŠÈİó•1
+Y
+java:S2696"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8ŠÈİó•1
+T
+java:S2696£"6Make the enclosing method "static" or remove this set.(–À°ø8Èİó•1
+Y
+java:S2696¥"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8Èİó•1
+T
+java:S2696º"6Make the enclosing method "static" or remove this set.(–À°ø8“Èİó•1
+k	java:S100Ä"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ¼—¸8–Èİó•1
+T
+java:S2696É"6Make the enclosing method "static" or remove this set.(–À°ø8—Èİó•1
+T
+java:S2696Ö"6Make the enclosing method "static" or remove this set.(–À°ø8›Èİó•1
+p	java:S100ß"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªØšòıÿÿÿÿ8Èİó•1
+T
+java:S2696ä"6Make the enclosing method "static" or remove this set.(–À°ø8ŸÈİó•1
+T
+java:S2696õ"6Make the enclosing method "static" or remove this set.(–À°ø8¤Èİó•1
+Y
+java:S2696÷"6Make the enclosing method "static" or remove this set.(í’æúÿÿÿÿ8¥Èİó•1
