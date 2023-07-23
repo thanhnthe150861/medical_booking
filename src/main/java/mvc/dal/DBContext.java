@@ -24,10 +24,10 @@ public class DBContext {
             String serverName = "localhost";//đang kết nối với database localhost
             //Acc localhost
             String user = "root";           //Account mySQL
-            String pass = "123456";      //Password mySQL
+            String pass = "Thanh1742001.";      //Password mySQL
 
 
-            String url = "jdbc:mysql://"+serverName+":"+portNumber+"/"+dbName;
+            String url = "jdbc:mysql://" + serverName + ":" + portNumber + "/" + dbName;
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException ex) {

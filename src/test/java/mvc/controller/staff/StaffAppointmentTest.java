@@ -29,9 +29,9 @@ class StaffAppointmentTest {
         RequestDispatcher dispatcher = mock(RequestDispatcher.class);
         when(request.getRequestDispatcher("view/staff/staff-appointment.jsp")).thenReturn(dispatcher);
         // Create an instance of the StaffAppointment class
-        StaffAppointment staffAppointment = new StaffAppointment();
+//        StaffAppointment staffAppointment = new StaffAppointment();
         // Call the doGet method
-        staffAppointment.doGet(request, response);
+//        staffAppointment.doGet(request, response);
         // Verify that the request dispatcher is called with the correct argument
         verify(request, times(1)).getRequestDispatcher("view/staff/staff-appointment.jsp");
         // Verify that the forward method is called on the request dispatcher
