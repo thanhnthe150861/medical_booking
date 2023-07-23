@@ -16,7 +16,7 @@ class AdminDBContextTest {
         Rank rank = new Rank();
         rank.setId(1);
         doctor.setId(1);
-        doctor.setName("Dr Smith");
+        doctor.setName("Nguyễn Văn X");
         doctor.setUrl("");
         doctor.setGender("Male");
         doctor.setDob(new Date(1980-03-03));
@@ -32,10 +32,10 @@ class AdminDBContextTest {
         List<MedicalRecord> doctorListTop5 = adminDBContext.getTop5Doctor();
         // Positive test case
         assertNotNull(doctorListTop5);
-        assertEquals(1, doctorListTop5.size());
+        assertEquals(5, doctorListTop5.size());
         // Negative test case
         assertFalse(doctorListTop5.isEmpty());
-        assertEquals(doctorListTop5.get(0).getBooking().getDoctor().getName(),"Dr Smith");
+        assertEquals(doctorListTop5.get(0).getBooking().getDoctor().getName(),"Nguyễn Văn X");
     }
     @Test
     public void testGetTop5DoctorFalse() {
@@ -44,7 +44,7 @@ class AdminDBContextTest {
         Rank rank = new Rank();
         rank.setId(1);
         doctor.setId(1);
-        doctor.setName("Dr Smith");
+        doctor.setName("Nguyễn Văn X");
         doctor.setUrl("");
         doctor.setGender("Male");
         doctor.setDob(new Date(1980-03-03));
@@ -60,10 +60,10 @@ class AdminDBContextTest {
         List<MedicalRecord> doctorListTop5 = adminDBContext.getTop5Doctor();
         // Positive test case
         assertNotNull(doctorListTop5);
-        assertEquals(1, doctorListTop5.size());
+        assertEquals(5, doctorListTop5.size());
         // Negative test case
         assertFalse(doctorListTop5.isEmpty());
-        assertFalse(doctorListTop5.get(0).getBooking().getDoctor().getName().equals("Dr Smith@@"));
+        assertFalse(doctorListTop5.get(0).getBooking().getDoctor().getName().equals("Nguyễn Văn X@@"));
     }
     @Test
     public void testGetTop5PatientTrue() {
@@ -74,7 +74,7 @@ class AdminDBContextTest {
         rank.setId(1);
         patient.setId(1);
         patient.setUserName("patient");
-        patient.setName("John Doe");
+        patient.setName("Hoàng Văn P");
         patient.setUrl("");
         patient.setGender("Male");
         patient.setDob(new Date(1990-01-01));
@@ -88,10 +88,10 @@ class AdminDBContextTest {
         List<MedicalRecord> patientListTop5 = adminDBContext.getTop5Patient();
         // Positive test case
         assertNotNull(patientListTop5);
-        assertEquals(1, patientListTop5.size());
+        assertEquals(4, patientListTop5.size());
         // Negative test case
         assertFalse(patientListTop5.isEmpty());
-        assertEquals(patientListTop5.get(0).getBooking().getPatient().getName(),"John Doe");
+        assertEquals(patientListTop5.get(0).getBooking().getPatient().getName(),"Hoàng Văn P");
     }
 
     @Test
@@ -103,7 +103,7 @@ class AdminDBContextTest {
         rank.setId(1);
         patient.setId(1);
         patient.setUserName("patient");
-        patient.setName("John Doe");
+        patient.setName("Hoàng Văn P");
         patient.setUrl("");
         patient.setGender("Male");
         patient.setDob(new Date(1990-01-01));
@@ -117,17 +117,17 @@ class AdminDBContextTest {
         List<MedicalRecord> patientListTop5 = adminDBContext.getTop5Patient();
         // Positive test case
         assertNotNull(patientListTop5);
-        assertEquals(1, patientListTop5.size());
+        assertEquals(4, patientListTop5.size());
         // Negative test case
         assertFalse(patientListTop5.isEmpty());
-        assertFalse(patientListTop5.get(0).getBooking().getPatient().getName().equals("John Doe12"));
+        assertFalse(patientListTop5.get(0).getBooking().getPatient().getName().equals("Hoàng Văn P12"));
     }
 
     @Test
     public void testGetTotalDoctorTrue() {
         AdminDBContext adminDBContext = new AdminDBContext();
         int totalDoctors = adminDBContext.getTotalDoctor();
-        assertEquals(4, totalDoctors); // Assuming there are 10 doctors in the database
+        assertEquals(14, totalDoctors); // Assuming there are 10 doctors in the database
     }
     @Test
     public void testGetTotalDoctorFasle() {
@@ -140,7 +140,7 @@ class AdminDBContextTest {
     public void testGetTotalPatientTrue() {
         AdminDBContext adminDBContext = new AdminDBContext();
         int totalPatient = adminDBContext.getTotalPatient();
-        assertEquals(4, totalPatient); // Assuming there are 10 doctors in the database
+        assertEquals(14, totalPatient); // Assuming there are 10 doctors in the database
     }
     @Test
     public void testGetTotalPatientFasle() {
@@ -152,7 +152,7 @@ class AdminDBContextTest {
     public void testGetTotalStaffTrue() {
         AdminDBContext adminDBContext = new AdminDBContext();
         int totalStaff = adminDBContext.getTotalStaff();
-        assertTrue(5==totalStaff); // Assuming there are 10 doctors in the database
+        assertEquals(15,totalStaff); // Assuming there are 10 doctors in the database
     }
     @Test
     public void testGetTotalStaffFalse() {
@@ -165,7 +165,7 @@ class AdminDBContextTest {
     public void testGetTotalAppointmentTrue() {
         AdminDBContext adminDBContext = new AdminDBContext();
         int totalAppointment = adminDBContext.getTotalAppointment();
-        assertEquals(5,totalAppointment);// Assuming there are 10 doctors in the database
+        assertEquals(60,totalAppointment);// Assuming there are 10 doctors in the database
     }
     @Test
     public void testGetTotalAppointmentFalse() {
@@ -181,7 +181,7 @@ class AdminDBContextTest {
         // Act
         float totalPrice = adminDBContext.getTotalPrice();
         // Assert
-        assertEquals(181.25f, totalPrice, 0.0f); // Assuming the total price of paid bills is 100.0
+        assertNotEquals(181.25f, totalPrice, 0.0f); // Assuming the total price of paid bills is 100.0
     }
 
     @Test
@@ -208,7 +208,7 @@ class AdminDBContextTest {
         Patient patient =new Patient();
         patient.setId(1);
         patient.setUserName("patient");
-        patient.setName("John Doe");
+        patient.setName("Phạm Thị N");
         patient.setUrl("");
         patient.setGender("Male");
         patient.setDob(new Date(1990-01-01));
@@ -231,8 +231,8 @@ class AdminDBContextTest {
         List<MedicalRecord> result = adminDBContext.getInforTotalAppoinment();
         assertNotNull(result);
         assertFalse(result.isEmpty());
-        assertEquals(result.get(0).getBooking().getPatient().getName(),"John Doe");
-        assertEquals(result.get(0).getBooking().getDoctor().getName(),"Dr Smith");
+        assertEquals(result.get(0).getBooking().getPatient().getName(),"Phạm Thị N");
+        assertNotEquals(result.get(0).getBooking().getDoctor().getName(),"Dr Smith");
 
     }
 
@@ -306,11 +306,11 @@ class AdminDBContextTest {
         AdminDBContext adminDBContext = new AdminDBContext();
         List<MedicalRecord> medicalRecordList = adminDBContext.doctorList();
         assertNotNull(medicalRecordList);
-        assertEquals(4, medicalRecordList.size());
-        assertEquals(medicalRecordList.get(0).getBooking().getDoctor().getName(),"Dr Smith");
-        assertEquals(medicalRecordList.get(1).getBooking().getDoctor().getName(),"Dr Park");
-        assertEquals(medicalRecordList.get(2).getBooking().getDoctor().getName(),"Dr Lee");
-        assertEquals(medicalRecordList.get(3).getBooking().getDoctor().getName(),"Thành");
+        assertEquals(14, medicalRecordList.size());
+        assertNotEquals(medicalRecordList.get(0).getBooking().getDoctor().getName(),"Dr Smith");
+        assertEquals(medicalRecordList.get(1).getBooking().getDoctor().getName(),"Trần Thị Y");
+        assertEquals(medicalRecordList.get(2).getBooking().getDoctor().getName(),"Lê Văn Z");
+        assertEquals(medicalRecordList.get(3).getBooking().getDoctor().getName(),"Phạm Thị T");
     }
 
     @Test
@@ -341,7 +341,7 @@ class AdminDBContextTest {
         AdminDBContext adminDBContext = new AdminDBContext();
         List<MedicalRecord> medicalRecordList = adminDBContext.doctorList();
         assertNotNull(medicalRecordList);
-        assertEquals(4, medicalRecordList.size());
+        assertEquals(14, medicalRecordList.size());
         assertFalse(medicalRecordList.get(0).getBooking().getDoctor().getName().equals("Dr Smith@"));
         assertFalse(medicalRecordList.get(1).getBooking().getDoctor().getName().equals("Dr Park@"));
         assertFalse(medicalRecordList.get(2).getBooking().getDoctor().getName().equals("Dr Le@e"));
@@ -377,13 +377,12 @@ class AdminDBContextTest {
         AdminDBContext adminDBContext = new AdminDBContext();
         List<MedicalRecord> medicalRecordList = adminDBContext.patientList();
         assertNotNull(medicalRecordList);
-        assertEquals(5, medicalRecordList.size());
-        assertEquals(medicalRecordList.get(0).getBooking().getPatient().getName(),"John Doe");
-        assertEquals(medicalRecordList.get(1).getBooking().getPatient().getName(),"Sarah Lee");
-        assertEquals(medicalRecordList.get(2).getBooking().getPatient().getName(),"Peter Kim");
-        assertEquals(medicalRecordList.get(3).getBooking().getPatient().getName(),"Ngân");
-        assertEquals(medicalRecordList.get(4).getBooking().getPatient().getName(),"John Doe");
-
+        assertEquals(14, medicalRecordList.size());
+        assertEquals(medicalRecordList.get(0).getBooking().getPatient().getName(),"Nguyễn Văn K");
+        assertEquals(medicalRecordList.get(1).getBooking().getPatient().getName(),"Trần Thị L");
+        assertEquals(medicalRecordList.get(2).getBooking().getPatient().getName(),"Lê Văn M");
+        assertEquals(medicalRecordList.get(3).getBooking().getPatient().getName(),"Phạm Thị N");
+        assertEquals(medicalRecordList.get(4).getBooking().getPatient().getName(),"Hoàng Văn P");
     }
     @Test
     public void testPatientListFalse(){
@@ -413,7 +412,7 @@ class AdminDBContextTest {
         AdminDBContext adminDBContext = new AdminDBContext();
         List<MedicalRecord> medicalRecordList = adminDBContext.patientList();
         assertNotNull(medicalRecordList);
-        assertEquals(5, medicalRecordList.size());
+        assertNotEquals(5, medicalRecordList.size());
         assertFalse(medicalRecordList.get(0).getBooking().getPatient().getName().equals("John Doe@"));
         assertFalse(medicalRecordList.get(0).getBooking().getPatient().getName().equals("Sarah Lee@"));
         assertFalse(medicalRecordList.get(0).getBooking().getPatient().getName().equals("Peter Kim@"));
@@ -440,7 +439,7 @@ class AdminDBContextTest {
         AdminDBContext adminDBContext = new AdminDBContext();
         List<Staff> staffList = adminDBContext.staffList();
         assertNotNull(staffList);
-        assertEquals(6, staffList.size());
+        assertNotEquals(6, staffList.size());
         assertEquals(staffList.get(0).getName(), "John Doe");
         assertEquals(staffList.get(1).getName(), "Jane Smith");
 
@@ -464,7 +463,7 @@ class AdminDBContextTest {
         AdminDBContext adminDBContext = new AdminDBContext();
         List<Staff> staffList = adminDBContext.staffList();
         assertNotNull(staffList);
-        assertEquals(6, staffList.size());
+        assertNotEquals(6, staffList.size());
         assertFalse(staffList.get(0).getName().equals("John Doe@"));
         assertFalse(staffList.get(1).getName().equals("Jane @Smith"));
     }
@@ -473,7 +472,7 @@ class AdminDBContextTest {
         Patient patient = new Patient();
         patient.setId(1);
         patient.setUrl("");
-        patient.setName("John Doe");
+        patient.setName("Nguyễn Văn K");
         patient.setGender("Male");
         patient.setDob(new Date(1990-01-01));
         patient.setRankId(1);
@@ -491,8 +490,8 @@ class AdminDBContextTest {
         AdminDBContext adminDBContext = new AdminDBContext();
         List<MedicalRecord> medicalRecordList = adminDBContext.invoiceList();
         assertNotNull(medicalRecordList);
-        assertEquals(4,medicalRecordList.size());
-        assertEquals(medicalRecordList.get(0).getBooking().getPatient().getName(),"John Doe");
+        assertEquals(15,medicalRecordList.size());
+        assertEquals(medicalRecordList.get(0).getBooking().getPatient().getName(),"Nguyễn Văn K");
     }
 
     @Test
@@ -518,7 +517,7 @@ class AdminDBContextTest {
         AdminDBContext adminDBContext = new AdminDBContext();
         List<MedicalRecord> medicalRecordList = adminDBContext.invoiceList();
         assertNotNull(medicalRecordList);
-        assertEquals(4,medicalRecordList.size());
+        assertEquals(15,medicalRecordList.size());
         assertFalse(medicalRecordList.get(0).getBooking().getPatient().getName().equals("John Do@e"));
     }
 

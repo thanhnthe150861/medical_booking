@@ -209,11 +209,13 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
-                                                <a data-toggle="modal" href="invoice_details?bid=<%= invoice.getBill().getId() %>"
+                                                <a data-toggle="modal"
+                                                   href="invoice_details?bid=<%= invoice.getBill().getId() %>"
                                                    class="btn btn-sm bg-success-light mr-2">
                                                     <i class="fe fe-pencil"></i> Edit
                                                 </a>
-                                                <a class="btn btn-sm bg-info-light" data-toggle="modal" href="invoice_view?bid=<%= invoice.getBill().getId() %>">
+                                                <a class="btn btn-sm bg-info-light" data-toggle="modal"
+                                                   href="invoice_view?bid=<%= invoice.getBill().getId() %>">
                                                     <i class="fe fe-trash"></i> View
                                                 </a>
                                             </div>

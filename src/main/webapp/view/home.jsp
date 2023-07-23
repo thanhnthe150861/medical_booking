@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,9 +34,9 @@
             <div class="row">
                 <div class="col-sm-8 text-sm">
                     <div class="site-info">
-                        <a href="#"><span class="mai-call text-primary"></span> +08669999999</a>
+                        <a href="#"><span class="mai-call text-primary"></span> +84 868746275</a>
                         <span class="divider">|</span>
-                        <a href="#"><span class="mai-mail text-primary"></span> Phongkham@fpt.edu.vn</a>
+                        <a href="#"><span class="mai-mail text-primary"></span> quyetlbche160252@fpt.edu.vn</a>
                     </div>
                 </div>
                 <div class="col-sm-4 text-right text-sm">
@@ -54,17 +55,17 @@
         <div class="container">
             <a class="navbar-brand" href="home"><span class="text-primary">Clinic</span>-TATQ</a>
 
-<%--            <form action="#">--%>
-<%--                <div class="input-group input-navbar">--%>
-<%--                    <div class="input-group-prepend">--%>
-<%--                        <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>--%>
-<%--                    </div>--%>
-<%--                    <div>--%>
-<%--                    <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"--%>
-<%--                           aria-describedby="icon-addon1">--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </form>--%>
+            <%--            <form action="#">--%>
+            <%--                <div class="input-group input-navbar">--%>
+            <%--                    <div class="input-group-prepend">--%>
+            <%--                        <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>--%>
+            <%--                    </div>--%>
+            <%--                    <div>--%>
+            <%--                    <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"--%>
+            <%--                           aria-describedby="icon-addon1">--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--            </form>--%>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
                     aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,15 +75,15 @@
             <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="home">Home</a>
+                        <a class="nav-link" href="home">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#'">About Us</a>
+                        <a class="nav-link" href="#'">Về chúng tôi</a>
                     </li>
                     <li class="nav-item">
                         <c:if test="${sessionScope.account ne null}">
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
-                                <a class="nav-link" href="booking">Booking</a>
+                                <a class="nav-link" href="booking">Đặt lịch</a>
                             </c:if>
                         </c:if>
                     </li>
@@ -90,13 +91,13 @@
                     </li>
                     <li class="nav-item" id="myB">
                         <c:if test="${sessionScope.account eq null}">
-                            <a  class="btn btn-primary ml-lg-3" href="login">Login / Register</a>
+                            <a class="btn btn-primary ml-lg-3" href="login">Đăng nhập/Đăng kí</a>
                         </c:if>
                         <c:if test="${sessionScope.account ne null}">
                             <c:if test="${sessionScope.account.isAdmin eq 2}">
                                 <a class="btn btn-primary ml-lg-3"
                                    href="patient_dashboard">${sessionScope.patient.name}</a>
-                                <a class="btn btn-primary ml-lg-3" href="login">Log out</a>
+                                <a class="btn btn-primary ml-lg-3" href="login">Đăng xuất</a>
                             </c:if>
                         </c:if>
                     </li>
@@ -109,14 +110,14 @@
 <div class="page-hero bg-image overlay-dark" style="background-image: url(images/bg_image_1.jpg);">
     <div class="hero-section">
         <div class="container text-center wow zoomIn">
-            <span class="subhead">Let's make your life happier</span>
-            <h1 class="display-4">Healthy Living</h1>
+            <span class="subhead">Hãy làm cho cuộc sống của bạn hạnh phúc hơn</span>
+            <h1 class="display-4">Lối sống lành mạnh</h1>
             <c:if test="${sessionScope.account eq null}">
-                <a href="login" class="btn btn-primary">Booking</a>
+                <a href="login" class="btn btn-primary">Đặt lịch</a>
             </c:if>
             <c:if test="${sessionScope.account ne null}">
                 <c:if test="${sessionScope.account.isAdmin eq 2}">
-                    <a href="booking" class="btn btn-primary">Booking</a>
+                    <a href="booking" class="btn btn-primary">Bảng điều kiển</a>
                 </c:if>
             </c:if>
         </div>
@@ -134,7 +135,7 @@
                             <span class="mai-logo-xbox"></span>
                         </div>
                         <c:if test="${sessionScope.account.isAdmin eq 2}">
-                            <p><a href="patient_dashboard" class=""><span></span> Dashboard</a></p>
+                            <p><a href="patient_dashboard" class=""><span></span> Bảng điều kiển</a></p>
                         </c:if>
                     </div>
                 </div>
@@ -147,23 +148,30 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 wow fadeInUp">
-                    <h1 class="text-center mb-3">Welcome to the clinic TATQ</h1>
+                    <h1 class="text-center mb-3">Chào mừng đến với clinic TATQ</h1>
                     <div class="text-lg">
-                        <p>Our clinic is a professional, trustworthy and dedicated place designed to meet the healthcare
-                            needs of our patients. With a team of experienced and enthusiastic doctors, we are committed
-                            to giving our customers the best examination and treatment experience.</p>
-                        <p>Our clinic is equipped with advanced and modern equipment, as well as a clean, beautiful and
-                            comfortable environment. We always work to the highest standards to ensure safety and meet
-                            customer requirements.</p>
-                        <p>We are committed to providing our customers with a professional and dedicated service. We
-                            understand that health is priceless, so we will constantly strive to meet the most demanding
-                            requirements of our customers.</p>
-                        <p>If you are looking for a reliable and professional healthcare, come to our clinic. We are
-                            committed to bringing you the best health!</p>
+                        <p>Phòng khám của chúng tôi là một nơi chuyên nghiệp, đáng tin cậy và tận tâm được thiết kế để
+                            đáp ứng nhu cầu chăm sóc sức khỏe
+                            nhu cầu của bệnh nhân của chúng tôi. Với đội ngũ bác sĩ giàu kinh nghiệm, nhiệt tình chúng
+                            tôi cam kết
+                            nhằm mang đến cho khách hàng trải nghiệm khám và điều trị tốt nhất.</p>
+                        <p>Phòng khám của chúng tôi được trang bị các thiết bị tiên tiến và hiện đại, cũng như không
+                            gian sạch, đẹp và
+                            môi trường thoải mái. Chúng tôi luôn làm việc theo tiêu chuẩn cao nhất để đảm bảo an toàn và
+                            đáp ứng
+                            yêu cầu của khách hàng.</p>
+                        <p>Phòng khám của chúng tôi được trang bị các thiết bị tiên tiến và hiện đại, cũng như không
+                            gian sạch, đẹp và
+                            môi trường thoải mái. Chúng tôi luôn làm việc theo tiêu chuẩn cao nhất để đảm bảo an toàn và
+                            đáp ứng
+                            yêu cầu của khách hàng.</p>
+                        <p>Nếu bạn đang tìm kiếm một nơi chăm sóc sức khỏe đáng tin cậy và chuyên nghiệp, hãy đến với
+                            phòng khám của chúng tôi. Chúng tôi là
+                            cam kết mang đến cho bạn một sức khỏe tốt nhất!</p>
                     </div>
                 </div>
                 <div class="col-lg-10 mt-5">
-                    <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
+                    <h1 class="text-center mb-5 wow fadeInUp">Top bác sĩ</h1>
                     <div class="row justify-content-center">
                         <div class="col-md-6 col-lg-4 wow zoomIn">
                             <div class="card-doctor">
@@ -215,11 +223,6 @@
             </div>
         </div>
     </div>
-    <div class="maps-container wow fadeInUp">
-        <a href="https://goo.gl/maps/gWzXpy7XisLX3xQLA?coh=178572&entry=tt"><img
-                src="https://scontent.fhan2-5.fna.fbcdn.net/v/t1.15752-9/348387688_824547325805226_4870617880354541066_n.png?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=BmCsPzL_1EgAX9Mxoj2&_nc_oc=AQmrxsbyWbDB8KhFNNm8zF3RLa3VNKIcX_JU47j15FnFqu4VGUiOT-EPrvgfFe36-y0&_nc_ht=scontent.fhan2-5.fna&oh=03_AdRwjXuNnaDPFoRsg4mgwOuHHtUG8lV7zgEikNqwL1lrsQ&oe=649649D3"
-                alt=""></a>
-    </div>
 
     <div class="page-section banner-home bg-image" style="background-image: url(images/banner-pattern.svg);">
         <div class="container py-5 py-lg-0">
@@ -231,65 +234,14 @@
                     </div>
                 </div>
                 <div class="col-lg-8 wow fadeInRight">
-                    <h1 class="font-weight-normal mb-3">Your health is our top priority - trust us to take care of
-                        you.</h1>
+                    <h1 class="font-weight-normal mb-3">Sức khỏe của bạn là ưu tiên hàng đầu của chúng tôi - hãy tin
+                        tưởng để chúng tôi chăm sóc
+                        bạn.</h1>
                 </div>
             </div>
         </div>
     </div> <!-- .banner-Home -->
 
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row px-md-3">
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Company</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Editorial Team</a></li>
-                        <li><a href="#">Protection</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>More</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">Join as Doctors</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Our partner</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">One-Fitness</a></li>
-                        <li><a href="#">One-Drugs</a></li>
-                        <li><a href="#">One-Live</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Contact</h5>
-                    <p class="footer-link mt-2">351 Willow Street Franklin, MA 02038</p>
-                    <a href="#" class="footer-link">701-573-7582</a>
-                    <a href="#" class="footer-link">healthcare@temporary.net</a>
-
-                    <h5 class="mt-3">Social Media</h5>
-                    <div class="footer-sosmed mt-3">
-                        <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-google-plus-g"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-linkedin"></span></a>
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-
-            <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All
-                right reserved</p>
-        </div>
-    </footer>
 
     <script src="js/jquery-3.5.1.min.js"></script>
 

@@ -15,7 +15,7 @@ public class RunLogin {
     private Setup setup;
 
     private LoginPage loginPage;
-    private By login = By.linkText("Login / Register");
+    private By login = By.linkText("btn-login");
 
     @BeforeMethod
     public void setUp() {
@@ -29,13 +29,12 @@ public class RunLogin {
 
     @Test
     public void testRunlogin() throws InterruptedException {
-        webDriver.get("http://13.250.120.40:8090/");
+        webDriver.get("https://anhtester.com/");
         setup.clickElement(login);
         setup.waitForPageloaded();
         webDriver.findElement(By.name("username")).sendKeys("doctor");
         webDriver.findElement(By.name("password")).sendKeys("123");
         webDriver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
-        Thread.sleep(5000);
-        webDriver.quit();
+        Thread.sleep(2000);
     }
 }

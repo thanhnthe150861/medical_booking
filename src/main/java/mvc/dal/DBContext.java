@@ -27,7 +27,7 @@ public class DBContext {
 //            String pass = "Tuan@3006";      //Password mySQL
 
 
-            String url = "jdbc:mysql://"+serverName+":"+portNumber+"/"+dbName;
+            String url = "jdbc:mysql://" + serverName + ":" + portNumber + "/" + dbName;
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException ex) {

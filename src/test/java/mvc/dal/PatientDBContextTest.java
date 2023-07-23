@@ -68,7 +68,7 @@ class PatientDBContextTest {
         patient.setId(1);
         PatientDBContext patientDBContext = new PatientDBContext();
         List<MedicalRecord> medicalRecords = patientDBContext.getInforMyPatients(patient);
-        assertEquals(1, medicalRecords.size());
+        assertEquals(14, medicalRecords.size());
 
     }
     @Test
@@ -86,7 +86,7 @@ class PatientDBContextTest {
         PatientDBContext patientDBContext = new PatientDBContext();
         // Mock other ResultSet methods
         List<Booking> bookings = patientDBContext.getBooking(patient, "Completed");
-        assertEquals(1, bookings.size());
+        assertEquals(4, bookings.size());
     }
     @Test
     public void testGetBookingFasle() throws SQLException {
@@ -136,7 +136,7 @@ class PatientDBContextTest {
         List<Doctor> doctorList = patientDBContext.getListDoctorEmpty(date, slot, status);
         assertNotNull(doctorList);
         assertFalse(doctorList.isEmpty());
-        assertEquals(4, doctorList.size());
+        assertEquals(14, doctorList.size());
 
     }
     @Test
@@ -221,8 +221,8 @@ class PatientDBContextTest {
         patient.setRankId(1);
         List<Doctor> doctors = patientDBContext.getMyDoctor(patient, "Completed");
         assertNotNull(doctors);
-        assertEquals(1,doctors.size());
-        assertEquals(doctors.get(0).getName(),"Dr Smith");
+        assertEquals(2,doctors.size());
+        assertEquals(doctors.get(0).getName(),"Nguyễn Văn X");
     }
     @Test
     public void testGetMyDoctorFalse() {
@@ -237,8 +237,8 @@ class PatientDBContextTest {
         patient.setRankId(1);
         List<Doctor> doctors = patientDBContext.getMyDoctor(patient, "Completed");
         assertNotNull(doctors);
-        assertEquals(1,doctors.size());
-        assertEquals(doctors.get(0).getName(),"Dr Smith");
+        assertEquals(2,doctors.size());
+        assertEquals(doctors.get(0).getName(),"Nguyễn Văn X");
         assertFalse(doctors.get(0).getGender().equals("Female"));
     }
 }

@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Đăng nhập</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
-                <h2 class="heading-section">Medical Booking</h2>
+                <h2 class="heading-section">Clinic TQTA</h2>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -34,18 +34,24 @@
                     <% } %>
                     <form action="login" class="login-form" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username" name="username" required>
+                            <input type="text" class="form-control" placeholder="Tài khoản" name="username" required>
                         </div>
                         <div class="form-group">
-                            <input id="password-field" type="password" class="form-control" name="password" placeholder="Password" required>
+                            <input id="password-field" type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="form-control btn btn-primary submit px-3">Login</button>
+                            <button type="submit" class="form-control btn btn-primary submit px-3">Đăng nhập</button>
                         </div>
                         <div class="form-group d-md-flex">
-                            <div class="w-50 text-md-left">
-                                <a href="register" style="color: #fff">Tạo tài khoản</a><br>
+                            <div class="w-50">
+                                <label class="checkbox-wrap checkbox-primary">Lưu đăng nhập
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="w-50 text-md-right">
+                                <a href="register" style="color: #fff">Đăng kí</a><br>
                                 <a href="forgot" style="color: #fff">Quên mật khẩu</a>
                             </div>
                         </div>

@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import mvc.model.Account;
-import mvc.model.Booking;
 import mvc.model.Doctor;
+import mvc.model.MedicalRecord;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,7 +21,7 @@ public class DoctorAppointments extends HttpServlet {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
-        if (account != null && account.getIsAdmin() == 1){
+        if (account != null && account.getIsAdmin() == 1) {
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
             // Lấy giá trị của các tham số id và status từ liên kết
@@ -32,9 +32,9 @@ public class DoctorAppointments extends HttpServlet {
                 // Cập nhật trạng thái của đặt lịch
                 doctorDBContext.updateBookingStatus(id, status);
             }
-            List<Booking> bookingList = doctorDBContext.getBooking(doctor, "Pending");
+            List<MedicalRecord> bookingList = doctorDBContext.bookingList(doctor);
             req.setAttribute("bookingList", bookingList);
-            req.getRequestDispatcher("view/doctor/doctor-appointments.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/doctor/doctor-appointments.jsp").forward(req, resp);
         }
         req.getRequestDispatcher("login");
     }

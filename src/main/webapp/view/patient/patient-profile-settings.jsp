@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
 <head>
@@ -66,7 +67,7 @@
                         <a href="home">Home</a>
                     </li>
                     <li>
-                        <a href="booking">Booking</a>
+                        <a href="booking">Đặt lịch</a>
                     </li>
                 </ul>
             </div>
@@ -76,8 +77,8 @@
                         <i class="far fa-hospital"></i>
                     </div>
                     <div class="header-contact-detail">
-                        <p class="contact-header">Contact</p>
-                        <p class="contact-info-header"> +1 315 369 5943</p>
+                        <p class="contact-header">Liên hệ</p>
+                        <p class="contact-info-header"> +84 868746275</p>
                     </div>
                 </li>
 
@@ -99,9 +100,9 @@
                                 <p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="patient_dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
-                        <a class="dropdown-item" href="login">Logout</a>
+                        <a class="dropdown-item" href="patient_dashboard">Bảng điều khiển</a>
+                        <a class="dropdown-item" href="patient_profile_settings">Cài đặt </a>
+                        <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -118,11 +119,11 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="home">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+                            <li class="breadcrumb-item"><a href="home">Clinic TATQ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Thông tin cá nhân</li>
                         </ol>
                     </nav>
-                    <h2 class="breadcrumb-title">Profile Settings</h2>
+                    <h2 class="breadcrumb-title">Thông tin cá nhân</h2>
                 </div>
             </div>
         </div>
@@ -159,37 +160,37 @@
                                     <li>
                                         <a href="patient_dashboard">
                                             <i class="fas fa-columns"></i>
-                                            <span>Dashboard</span>
+                                            <span>Bảng điều khiển</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="my_doctor">
                                             <i class="fas fa-user-md"></i>
-                                            <span>My Doctor</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="invoice_patient">
-                                            <i class="fas fa-file-invoice"></i>
-                                            <span>Invoices</span>
+                                            <span>Bác sĩ của tôi</span>
                                         </a>
                                     </li>
                                     <li class="active">
+                                        <a href="invoice_patient">
+                                            <i class="fas fa-file-invoice"></i>
+                                            <span>Hóa đơn</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="patient_profile_settings">
                                             <i class="fas fa-user-cog"></i>
-                                            <span>Profile Settings</span>
+                                            <span>Thông tin cá nhân</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="patient_change_password">
                                             <i class="fas fa-lock"></i>
-                                            <span>Change Password</span>
+                                            <span>Thay đổi mật khẩu</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="login">
                                             <i class="fas fa-sign-out-alt"></i>
-                                            <span>Logout</span>
+                                            <span>Đăng xuất</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -215,11 +216,11 @@
                                                 </div>
                                                 <div class="upload-img">
                                                     <div class="change-photo-btn">
-                                                        <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                                        <span><i class="fa fa-upload"></i> Tải ảnh lên </span>
                                                         <input type="file" class="upload" name="file">
                                                     </div>
-                                                    <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max
-                                                        size of 2MB</small>
+                                                    <small class="form-text text-muted">Cho phép JPG, GIF or PNG. tối đa
+                                                        2MB</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,28 +234,28 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Name</label>
+                                            <label>Tên</label>
                                             <input type="text" class="form-control" name="name"
                                                    value="${sessionScope.patient.name}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group mb-0">
-                                            <label>Date of Birth</label>
+                                            <label>Ngày sinh</label>
                                             <input type="date" class="form-control" name="dob"
                                                    value="${sessionScope.patient.dob}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Gender</label>
+                                            <label>Giới tính</label>
                                             <select class="form-control select" name="gender">
                                                 <option>Select</option>
                                                 <option value="Male" ${sessionScope.patient.gender == "Male" ? "selected" : ""}>
-                                                    Male
+                                                    Nam
                                                 </option>
                                                 <option value="Female" ${sessionScope.patient.gender == "Female" ? "selected" : ""}>
-                                                    Female
+                                                    Nữ
                                                 </option>
                                             </select>
                                         </div>
@@ -268,14 +269,14 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Phone</label>
+                                            <label>Số điện thoại</label>
                                             <input type="text" value="${sessionScope.account.phone}" name="phone"
                                                    class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="submit-section">
-                                    <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                                    <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
                                 </div>
                             </form>
                             <!-- /Profile Settings Form -->
@@ -293,146 +294,103 @@
     <footer class="footer">
 
         <!-- Footer Top -->
-        <div class="footer-top">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
+        <footer class="footer">
 
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-about">
-                            <div class="footer-logo">
-                                <img src="assets/img/footer-logo.png" alt="logo">
-                            </div>
-                            <div class="footer-about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Patients</h2>
-                            <ul>
-                                <li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for
-                                    Doctors</a></li>
-                                <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-                                <li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Patient
-                                    Dashboard</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-menu">
-                            <h2 class="footer-title">For Doctors</h2>
-                            <ul>
-                                <li><a href="appointments.html"><i class="fas fa-angle-double-right"></i>
-                                    Appointments</a></li>
-                                <li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-                                <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i>
-                                    Register</a></li>
-                                <li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor
-                                    Dashboard</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-contact">
-                            <h2 class="footer-title">Contact Us</h2>
-                            <div class="footer-contact-info">
-                                <div class="footer-address">
-                                    <span><i class="fas fa-map-marker-alt"></i></span>
-                                    <p> 3556 Beech Street, San Francisco,<br> California, CA 94108 </p>
-                                </div>
-                                <p>
-                                    <i class="fas fa-phone-alt"></i>
-                                    +1 315 369 5943
-                                </p>
-                                <p class="mb-0">
-                                    <i class="fas fa-envelope"></i>
-                                    doccure@example.com
-                                </p>
-                            </div>
-                        </div>
-                        <!-- /Footer Widget -->
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- /Footer Top -->
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container-fluid">
-
-                <!-- Copyright -->
-                <div class="copyright">
+            <!-- Footer Top -->
+            <div class="footer-top">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                                <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
+                        <div class="col-lg-3 col-md-6">
 
-                            <!-- Copyright Menu -->
-                            <div class="copyright-menu">
-                                <ul class="policy-menu">
-                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                    <li><a href="privacy-policy.html">Policy</a></li>
+                            <!-- Footer Widget -->
+                            <div class="footer-widget footer-about">
+                                <a href="home" class="navbar-brand logo">
+                                    <span class="text-primary">Clinic</span>-TATQ
+                                </a>
+                            </div>
+                            <!-- /Footer Widget -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <!-- Footer Widget -->
+                            <div class="footer-widget footer-menu">
+                                <h2 class="footer-title">Đối với bệnh nhân</h2>
+                                <ul>
+                                    <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a>
+                                    </li>
+                                    <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a>
+                                    </li>
+                                    <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng
+                                        điều khiển </a></li>
                                 </ul>
                             </div>
-                            <!-- /Copyright Menu -->
-
+                            <!-- /Footer Widget -->
                         </div>
+
+
+                        <div class="col-lg-3 col-md-6">
+
+                            <!-- Footer Widget -->
+                            <div class="footer-widget footer-contact">
+                                <h2 class="footer-title">Liên hệ chúng tôi</h2>
+                                <div class="footer-contact-info">
+                                    <div class="footer-address">
+                                        <span><i class="fas fa-map-marker-alt"></i></span>
+                                        <p> FPT University<br> Hòa Lạc, Hà Nội </p>
+                                    </div>
+                                    <p>
+                                        <i class="fas fa-phone-alt"></i>
+                                        +84 868746275
+                                    </p>
+                                    <p class="mb-0">
+                                        <i class="fas fa-envelope"></i>
+                                        quyetlbche160252@fpt.edu.vn
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- /Footer Widget -->
+                        </div>
+
                     </div>
                 </div>
-                <!-- /Copyright -->
-
             </div>
-        </div>
-        <!-- /Footer Bottom -->
+            <!-- /Footer Top -->
 
-    </footer>
-    <!-- /Footer -->
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container-fluid">
+
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6">
+                                <div class="copyright-text">
+                                    <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+
+                                <!-- Copyright Menu -->
+                                <div class="copyright-menu">
+                                    <ul class="policy-menu">
+                                        <li><a href="term-condition.html">Terms and Conditions</a></li>
+                                        <li><a href="privacy-policy.html">Policy</a></li>
+                                    </ul>
+                                </div>
+                                <!-- /Copyright Menu -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Copyright -->
+
+                </div>
+            </div>
+            <!-- /Footer Bottom -->
+
+        </footer>
+        <!-- /Footer -->
+        <!-- /Footer -->
 
 </div>
 <!-- /Main Wrapper -->
