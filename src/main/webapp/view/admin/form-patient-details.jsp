@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Dashboard</title>
+    <title>TATQ Clinic</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -101,39 +101,39 @@
                         <span>Main</span>
                     </li>
                     <li>
-                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>bảng điều khiển</span></a>
+                        <a href="admin_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>các cuộc hẹn</span></a>
+                        <a href="appointment_list"><i class="fe fe-layout"></i> <span>Các cuộc hẹn</span></a>
                     </li>
                     <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân viên</span></a>
+                        <a href="staff_list"><i class="fe fe-users"></i> <span>Nhân Viên</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác Sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Người bệnh</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Người Bệnh</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa Đơn</span></a>
                     </li>
                     <li>
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ Sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Chi tiết biểu mẫu </span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span> Thêm mới/Cập Nhật </span> <span
                                 class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
-                            <li class="active"><a href="form_details?str=patient">Bệnh nhân</a></li>
-                            <li><a href="form_details?str=staff">Nhân viên</a></li>
+                        <ul style="display: none;" class="active">
+                            <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
+                            <li><a href="form_details?str=patient">Bệnh Nhân</a></li>
+                            <li><a href="form_details?str=staff">Nhân Vên</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <span> Đăng Xuất </span>
                         </a>
                     </li>
                 </ul>
@@ -153,7 +153,7 @@
                     <div class="col">
                         <h3 class="page-title">Chi tiết biểu mẫu</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="admin_dashboard">bảng điều khiển</a></li>
+                            <li class="breadcrumb-item"><a href="admin_dashboard">Bảng điều khiển</a></li>
                             <li class="breadcrumb-item active">Chi tiết biểu mẫu</li>
                         </ul>
                     </div>
@@ -312,6 +312,4 @@
 <script src="view/admin/assets/js/script.js"></script>
 
 </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
 </html>

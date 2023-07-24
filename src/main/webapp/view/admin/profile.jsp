@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Dashboard</title>
+    <title>TATQ Clinic</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -104,22 +104,22 @@
                         <a href="appointment_list"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
                     </li>
                     <li>
-                        <a href="staff_list"><i class="fe fe-users"></i> <span>Staff</span></a>
+                        <a href="staff_list"><i class="fe fe-users"></i> <span> Nhân Viên</span></a>
                     </li>
                     <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
+                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác Sĩ</span></a>
                     </li>
                     <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh nhân</span></a>
+                        <a href="patient_list"><i class="fe fe-user"></i> <span>Bệnh Nhân</span></a>
                     </li>
                     <li>
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
+                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa Đơn</span></a>
                     </li>
                     <li class="active">
-                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
+                        <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ Sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Chi tiết biểu mẫu </span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span> Thêm Mới/Cập Nhật </span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="form_details?str=doctor">Bác sĩ</a></li>
@@ -130,7 +130,7 @@
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Đăng xuất</span>
+                            <span>Đăng Xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -248,6 +248,4 @@
 <script src="assets/js/script.js"></script>
 
 </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/profile.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:46 GMT -->
 </html>

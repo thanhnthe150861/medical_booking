@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Doccure</title>
+    <title>TATQ Clinic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
@@ -352,6 +352,4 @@
 
 
 </body>
-
-<!-- doccure/add-billing.jsp  30 Nov 2019 04:12:37 GMT -->
 </html>

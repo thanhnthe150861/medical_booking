@@ -2,11 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
-
-<!-- doccure/patient-dashboard.jsp  30 Nov 2019 04:12:16 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Doccure</title>
+    <title>TATQ Clinic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
@@ -60,7 +58,7 @@
                 </div>
                 <ul class="main-nav">
                     <li>
-                        <a href="home">Home</a>
+                        <a href="home">Trang chủ</a>
                     </li>
                     <li>
                         <a href="booking">Đặt lịch</a>
@@ -93,7 +91,7 @@
                             </div>
                             <div class="user-text">
                                 <h6>${sessionScope.patient.name}</h6>
-                                <p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
+                                <p class="text-muted mb-0">Xếp hạng: ${sessionScope.patient.ranks.name}</p>
                             </div>
                         </div>
                         <a class="dropdown-item" href="patient_dashboard">Bảng Điều Khiển</a>
@@ -154,7 +152,7 @@
                         <div class="dashboard-widget">
                             <nav class="dashboard-menu">
                                 <ul>
-                                    <li>
+                                    <li  class="active">
                                         <a href="patient_dashboard">
                                             <i class="fas fa-columns"></i>
                                             <span>Bảng điều khiển</span>
@@ -166,7 +164,7 @@
                                             <span>Bác sĩ của tôi</span>
                                         </a>
                                     </li>
-                                    <li class="active">
+                                    <li>
                                         <a href="invoice_patient">
                                             <i class="fas fa-file-invoice"></i>
                                             <span>Hóa đơn</span>
@@ -408,6 +406,4 @@
 <script src="assets/js/script.js"></script>
 
 </body>
-
-<!-- doccure/patient-dashboard.jsp  30 Nov 2019 04:12:16 GMT -->
 </html>

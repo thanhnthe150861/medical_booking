@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Doccure</title>
+    <title>TATQ Clinic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
@@ -59,7 +59,7 @@
                 </div>
                 <ul class="main-nav">
                     <li>
-                        <a href="home">Home</a>
+                        <a href="home">Trang chủ</a>
                     </li>
                     <li>
                         <a href="booking">Đặt lịch</a>
@@ -288,31 +288,6 @@
         <!-- Footer Bottom -->
         <div class="footer-bottom">
             <div class="container-fluid">
-
-                <!-- Copyright -->
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                                <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-
-                            <!-- Copyright Menu -->
-                            <div class="copyright-menu">
-                                <ul class="policy-menu">
-                                    <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                    <li><a href="privacy-policy.html">Policy</a></li>
-                                </ul>
-                            </div>
-                            <!-- /Copyright Menu -->
-
-                        </div>
-                    </div>
-                </div>
-                <!-- /Copyright -->
-
             </div>
         </div>
         <!-- /Footer Bottom -->

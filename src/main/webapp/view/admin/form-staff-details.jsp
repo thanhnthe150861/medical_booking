@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Doccure - Dashboard</title>
+    <title>TATQ Clinic</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -122,18 +122,18 @@
                         <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Chi tiết biểu mẫu </span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span> Thêm mới/Cập Nhật </span> <span
                                 class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="form_details?str=doctor">Bác sĩ</a></li>
-                            <li><a href="form_details?str=patient">Bệnh nhân</a></li>
-                            <li class="active"><a href="form_details?str=staff">Nhân viên</a></li>
+                        <ul style="display: none;"  class="active">
+                            <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
+                            <li><a href="form_details?str=patient">Bệnh Nhân</a></li>
+                            <li><a href="form_details?str=staff">Nhân Viên</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="login">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <span>Đăng Xuất</span>
                         </a>
                     </li>
                 </ul>
@@ -302,6 +302,4 @@
 <script src="view/admin/assets/js/script.js"></script>
 
 </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/form-basic-inputs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:54 GMT -->
 </html>

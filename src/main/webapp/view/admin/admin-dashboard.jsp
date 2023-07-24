@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Clinic TATQ - Dashboard</title>
+    <title>TATQ Clinic</title>
 
 
     <!-- Favicon -->
@@ -128,7 +128,7 @@
                     <li class="submenu">
                         <a href="#"><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
                                 class="menu-arrow"></span></a>
-                        <ul style="display: none;">
+                        <ul style="display: none;"  class="active">
                             <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
                             <li><a href="form_details?str=patient">Bệnh Nhân</a></li>
                             <li><a href="form_details?str=staff">Nhân Viên</a></li>
@@ -389,6 +389,4 @@
 <script src="view/admin/assets/js/script.js"></script>
 
 </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:34 GMT -->
 </html>

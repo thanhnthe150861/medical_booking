@@ -249,6 +249,4 @@
 <script src="assets/js/script.js"></script>
 
 </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/appointment-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:49 GMT -->
 </html>

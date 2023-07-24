@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Clinic TATQ - Dashboard</title>
+    <title>TATQ Clinic</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -57,13 +57,6 @@
         <a href="javascript:void(0);" id="toggle_btn">
             <i class="fe fe-text-align-left"></i>
         </a>
-
-        <div class="top-nav-search">
-            <form>
-                <input type="text" class="form-control" placeholder="Search here">
-                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
 
         <!-- Mobile Menu Toggle -->
         <a class="mobile_btn" id="mobile_btn">
@@ -267,6 +260,4 @@
 <script src="assets/js/script.js"></script>
 
 </body>
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/appointment-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:49 GMT -->
 </html>

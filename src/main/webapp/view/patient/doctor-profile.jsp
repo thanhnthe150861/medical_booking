@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Doccure</title>
+    <title>TATQ Clinic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
@@ -61,7 +61,7 @@
                 </div>
                 <ul class="main-nav">
                     <li>
-                        <a href="home">Home</a>
+                        <a href="home">Trang chủ</a>
                     </li>
                     <li>
                         <a href="booking">Đặt lịch</a>
@@ -101,74 +101,75 @@
                         <a class="dropdown-item" href="patient_profile_settings">Cài đặt </a>
                         <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
-</div>
-</li>
-<!-- /User Menu -->
-</ul>
-</nav>
-</header>
-<!-- /Header -->
+                    /div>
+                </li>
+                <!-- /User Menu -->
+            </ul>
+        </nav>
+    </header>
+    <!-- /Header -->
 
-<!-- Breadcrumb -->
-<div class="breadcrumb-bar">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-12 col-12">
-                <nav aria-label="breadcrumb" class="page-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="home">Clinic TQTA</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Thông tin bác sĩ</li>
-                    </ol>
-                </nav>
-                <h2 class="breadcrumb-title">Thông tin bác sĩ</h2>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-12 col-12">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="home">Clinic TQTA</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Thông tin bác sĩ</li>
+                        </ol>
+                    </nav>
+                    <h2 class="breadcrumb-title">Thông tin bác sĩ</h2>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- /Breadcrumb -->
+    <!-- /Breadcrumb -->
 
-<!-- Page Content -->
-<div class="content">
-    <div class="container">
+    <!-- Page Content -->
+    <div class="content">
+        <div class="container">
 
-        <!-- Doctor Widget -->
-        <div class="card">
-            <div class="card-body">
-                <div class="doctor-widget">
-                    <div class="doc-info-left">
-                        <div class="doctor-img">
-                            <img src="${sessionScope.doctor.url}" class="img-fluid" alt="User Image">
+            <!-- Doctor Widget -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="doctor-widget">
+                        <div class="doc-info-left">
+                            <div class="doctor-img">
+                                <img src="${sessionScope.doctor.url}" class="img-fluid" alt="User Image">
+                            </div>
+                            <div class="doc-info-cont">
+                                <h4 class="doc-name">${sessionScope.doctor.name}</h4>
+                                <p class="doc-speciality">${sessionScope.doctor.specialty}</p>
+                            </div>
                         </div>
-                        <div class="doc-info-cont">
-                            <h4 class="doc-name">${sessionScope.doctor.name}</h4>
-                            <p class="doc-speciality">${sessionScope.doctor.specialty}</p>
-                        </div>
-                    </div>
-                    <div class="doc-info-right">
-                        <div class="clini-infos">
-                            <ul>
-                                <li>
-                                    <i class="fas fa-birthday-cake"></i>${sessionScope.doctor.dob}
-                                </li>
-                                <li>
-                                    <i class="fas fa-${sessionScope.doctor.gender eq 'Male' ? 'mars' : 'venus'}"></i>${sessionScope.doctor.gender}
-                                </li>
-                                <li>
-                                    <i class="fas fa-medal"></i>${sessionScope.doctor.ranks.name}
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="clinic-booking">
-                            <a class="apt-btn" href="booking_again?did=${sessionScope.doctor.id}">Đặt lịch hẹn</a>
+                        <div class="doc-info-right">
+                            <div class="clini-infos">
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-birthday-cake"></i>${sessionScope.doctor.dob}
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-${sessionScope.doctor.gender eq 'Male' ? 'mars' : 'venus'}"></i>
+                                        ${sessionScope.doctor.gender eq 'Male' ? 'Nam' : 'Nữ'}
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-medal"></i>${sessionScope.doctor.ranks.name}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clinic-booking">
+                                <a class="apt-btn" href="booking_again?did=${sessionScope.doctor.id}">Đặt lịch hẹn</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /Doctor Widget -->
+            <!-- /Doctor Widget -->
 
+        </div>
     </div>
-</div>
 </div>
 <!-- /Doctor Details Tab -->
 
@@ -241,196 +242,6 @@
 <!-- /Footer -->
 
 </div>
-<!-- /Main Wrapper -->
-
-<!-- Doctor Widget -->
-<div class="card">
-    <div class="card-body">
-        <div class="doctor-widget">
-            <div class="doc-info-left">
-                <div class="doctor-img">
-                    <img src="${sessionScope.doctor.url}" class="img-fluid" alt="User Image">
-                </div>
-                <div class="doc-info-cont">
-                    <h4 class="doc-name">${sessionScope.doctor.name}</h4>
-                    <p class="doc-speciality">${sessionScope.doctor.specialty}</p>
-                </div>
-            </div>
-            <div class="doc-info-right">
-                <div class="clini-infos">
-                    <ul>
-                        <li>
-                            <i class="fas fa-birthday-cake"></i>${sessionScope.doctor.dob}
-                        </li>
-                        <li>
-                            <i class="fas fa-${sessionScope.doctor.gender eq 'Male' ? 'mars' : 'venus'}"></i>${sessionScope.doctor.gender}
-                        </li>
-                        <li>
-                            <i class="fas fa-medal"></i>${sessionScope.doctor.ranks.name}
-                        </li>
-                    </ul>
-                </div>
-                <div class="clinic-booking">
-                    <a class="apt-btn" href="booking_again?did=${sessionScope.doctor.id}">Book
-                        Appointment</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /Doctor Widget -->
-
-</div>
-</div>
-<!-- /Page Content -->
-
-<!-- Footer -->
-<footer class="footer">
-
-    <!-- Footer Top -->
-    <div class="footer-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-
-                    <!-- Footer Widget -->
-                    <div class="footer-widget footer-about">
-                        <div class="footer-logo">
-                            <img src="assets/img/footer-logo.png" alt="logo">
-                        </div>
-                        <div class="footer-about-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. </p>
-                            <div class="social-icon">
-                                <ul>
-                                    <li>
-                                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Footer Widget -->
-
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-
-                    <!-- Footer Widget -->
-                    <div class="footer-widget footer-menu">
-                        <h2 class="footer-title">For Patients</h2>
-                        <ul>
-                            <li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for
-                                Doctors</a></li>
-                            <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                            <li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-                            <li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-                            <li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient
-                                Dashboard</a></li>
-                        </ul>
-                    </div>
-                    <!-- /Footer Widget -->
-
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-
-                    <!-- Footer Widget -->
-                    <div class="footer-widget footer-menu">
-                        <h2 class="footer-title">For Doctors</h2>
-                        <ul>
-                            <li><a href="appointments.jsp"><i class="fas fa-angle-double-right"></i>
-                                Appointments</a></li>
-                            <li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-                            <li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-                            <li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i>
-                                Register</a></li>
-                            <li><a href="../doctor/doctor-dashboard.jsp"><i class="fas fa-angle-double-right"></i>
-                                Doctor Dashboard</a></li>
-                        </ul>
-                    </div>
-                    <!-- /Footer Widget -->
-
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-
-                    <!-- Footer Widget -->
-                    <div class="footer-widget footer-contact">
-                        <h2 class="footer-title">Contact Us</h2>
-                        <div class="footer-contact-info">
-                            <div class="footer-address">
-                                <span><i class="fas fa-map-marker-alt"></i></span>
-                                <p> 3556 Beech Street, San Francisco,<br> California, CA 94108 </p>
-                            </div>
-                            <p>
-                                <i class="fas fa-phone-alt"></i>
-                                +1 315 369 5943
-                            </p>
-                            <p class="mb-0">
-                                <i class="fas fa-envelope"></i>
-                                doccure@example.com
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /Footer Widget -->
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- /Footer Top -->
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-        <div class="container-fluid">
-
-            <!-- Copyright -->
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="copyright-text">
-                            <p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6">
-
-                        <!-- Copyright Menu -->
-                        <div class="copyright-menu">
-                            <ul class="policy-menu">
-                                <li><a href="term-condition.html">Terms and Conditions</a></li>
-                                <li><a href="privacy-policy.html">Policy</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Copyright Menu -->
-
-                    </div>
-                </div>
-            </div>
-            <!-- /Copyright -->
-
-        </div>
-    </div>
-    <!-- /Footer Bottom -->
-
-</footer>
-<!-- /Footer -->
-
-</div>
-<!-- /Main Wrapper -->
 
 
 <!-- jQuery -->

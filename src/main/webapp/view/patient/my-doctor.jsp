@@ -2,11 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
-
-<!-- doccure/favourites.html  30 Nov 2019 04:12:16 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Doccure</title>
+    <title>TATQ Clinic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
@@ -60,7 +58,7 @@
                 </div>
                 <ul class="main-nav">
                     <li>
-                        <a href="home">Home</a>
+                        <a href="home">Trang chủ</a>
                     </li>
                     <li>
                         <a href="booking">Đặt lịch</a>
@@ -96,9 +94,9 @@
                                 <p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="patient_dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="patient_profile_settings">Profile Settings</a>
-                        <a class="dropdown-item" href="login">Logout</a>
+                        <a class="dropdown-item" href="patient_dashboard">Bảng điều khiển</a>
+                        <a class="dropdown-item" href="patient_profile_settings">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -157,13 +155,13 @@
                                             <span>Bảng điều khiển</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="active">
                                         <a href="my_doctor">
                                             <i class="fas fa-user-md"></i>
                                             <span>Bác sĩ của tôi</span>
                                         </a>
                                     </li>
-                                    <li class="active">
+                                    <li>
                                         <a href="invoice_patient">
                                             <i class="fas fa-file-invoice"></i>
                                             <span>Hóa đơn</span>
@@ -326,6 +324,4 @@
 <script src="assets/js/script.js"></script>
 
 </body>
-
-<!-- doccure/favourites.html  30 Nov 2019 04:12:17 GMT -->
 </html>
