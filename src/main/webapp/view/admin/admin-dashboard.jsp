@@ -72,12 +72,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -128,7 +128,7 @@
                     <li class="submenu">
                         <a href="#"><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
                                 class="menu-arrow"></span></a>
-                        <ul style="display: none;"  class="active">
+                        <ul style="display: none;" class="active">
                             <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
                             <li><a href="form_details?str=patient">Bệnh Nhân</a></li>
                             <li><a href="form_details?str=staff">Nhân Viên</a></li>
@@ -297,7 +297,7 @@
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= doctor.getBooking().getDoctor().getUrl() %>"
-                                                        alt="User Image"></a>
+                                                ></a>
                                                 <a href="#"><%= doctor.getBooking().getDoctor().getName() %>
                                                 </a>
                                             </h2>
@@ -341,8 +341,7 @@
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
-                                                        src="<%= patient.getBooking().getPatient().getUrl() %>"
-                                                        alt="User Image"></a>
+                                                        src="<%= patient.getBooking().getPatient().getUrl() %>"></a>
                                                 <a href="#"><%= patient.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>

@@ -71,12 +71,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="${sessionScope.staff.url}" width="31"
-                                                alt="${sessionScope.staff.name}"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="${sessionScope.staff.url}" alt="User Image"
+                            <img src="${sessionScope.staff.url}"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -102,6 +102,10 @@
                 <ul>
                     <li class="active">
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="create_invoice"><i class="fe fe-edit"></i>
+                            <span>Tạo hóa đơn</span></a>
                     </li>
                     <li>
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
@@ -145,7 +149,7 @@
                         <h3 class="page-title">Xin chào ${sessionScope.staff.name}</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="staff_dashboard">Bảng điều khiển</a></li>
-                            <li class="breadcrumb-item active">Danh sách Bác sĩ</li>
+                            <li class="breadcrumb-item active">Danh sách lịch đặt chưa xử lý</li>
                         </ul>
                     </div>
                 </div>
@@ -153,49 +157,85 @@
             <!-- /Page Header -->
 
             <div class="content container-fluid">
-                <%
-                    StaffDBContext staffDBContext = new StaffDBContext();
-                    List<MedicalRecord> doctorList = staffDBContext.doctorList();
-                %>
-
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
+                                    <% String errorMessage = (String) request.getAttribute("messError"); %>
+                                    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%= errorMessage %>
+                                    </div>
+                                    <% } %>
+                                    <% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+                                    <% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+                                    <div class="alert alert-success" role="alert">
+                                        <%= messSuccess %>
+                                    </div>
+                                    <% } %>
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
                                         <tr>
+                                            <th>Mã lịch đặt</th>
                                             <th>Tên bác sĩ</th>
-                                            <th>Chuyên môn</th>
+                                            <th>Tên bệnh nhân</th>
+                                            <th>Đặt ngày</th>
+                                            <th>Mục đích</th>
                                             <th class="text-center">Trạng thái</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <% for (MedicalRecord doctor : doctorList) { %>
-                                        <tr>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="#" class="avatar avatar-sm mr-2">
-                                                        <img class="avatar-img rounded-circle"
-                                                             src="<%= doctor.getBooking().getDoctor().getUrl() %>"
-                                                             alt="User Image">
-                                                    </a>
-                                                    <a href="#"><%= doctor.getBooking().getDoctor().getName() %>
-                                                    </a>
-                                                </h2>
-                                            </td>
-                                            <td><%= doctor.getBooking().getDoctor().getSpecialty() %>
-                                            </td>
-                                            <td class="text-center">
-                                                <% if (doctor.getBooking().getDoctor().getAccount().getStatus()) { %>
-                                                <span class="badge badge-pill bg-success inv-badge">Active</span>
-                                                <% } else { %>
-                                                <span class="badge badge-pill bg-danger inv-badge">Deactive</span>
-                                                <% } %>
-                                            </td>
-                                        </tr>
-                                        <% } %>
+                                        <c:forEach items="${sessionScope.bookingList}" var="bl">
+                                            <tr>
+                                                <td>${bl.id}</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="#" class="avatar avatar-sm mr-2">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="${bl.doctor.url}"
+                                                            >
+                                                        </a>
+                                                        <a href="#">${bl.doctor.name}
+                                                        </a>
+                                                    </h2>
+                                                </td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="#" class="avatar avatar-sm mr-2">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="${bl.patient.url}"
+                                                            >
+                                                        </a>
+                                                        <a href="#">${bl.patient.name}
+                                                        </a>
+                                                    </h2>
+                                                </td>
+                                                <td>${bl.date}<span
+                                                        class="d-block text-info">${bl.slots.name}</span>
+                                                </td>
+                                                <td>${bl.booking_reason}
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="badge badge-pill bg-${bl.status == 'Confirmed' ? 'success-light' : bl.status == 'Pending' ? 'warning-light' : bl.status == 'Cancelled' ? 'danger-light' : bl.status == 'Completed' ? 'info-light' : ''}">
+                                                            ${bl.status}
+                                                    </span>
+                                                </td>
+                                                <td class="text-right">
+                                                    <div class="table-action">
+                                                        <a href="staff_dashboard?bid=${bl.id}&status=Confirmed"
+                                                           class="btn btn-sm bg-success-light">
+                                                            <i class="far fa-trash-alt"></i> Chấp nhận
+                                                        </a>
+                                                        <a href="staff_dashboard?bid=${bl.id}&status=Cancelled"
+                                                           class="btn btn-sm bg-danger-light">
+                                                            <i class="far fa-trash-alt"></i> Hủy
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>

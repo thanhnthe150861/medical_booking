@@ -79,14 +79,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
-                                         alt="${sessionScope.patient.name}">
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.patient.url}" alt="User Image"
+                                <img src="${sessionScope.patient.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -136,7 +135,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="${sessionScope.patient.url}" alt="User Image">
+                                    <img src="${sessionScope.patient.url}">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3>${sessionScope.patient.name}</h3>
@@ -152,7 +151,7 @@
                         <div class="dashboard-widget">
                             <nav class="dashboard-menu">
                                 <ul>
-                                    <li  class="active">
+                                    <li class="active">
                                         <a href="patient_dashboard">
                                             <i class="fas fa-columns"></i>
                                             <span>Bảng điều khiển</span>
@@ -232,65 +231,54 @@
                                                 <table class="table table-hover table-center mb-0">
                                                     <thead>
                                                     <tr>
-                                                        <th>Bác sĩ</th>
-                                                        <th></th>
-                                                        <th>Thời gian đặt lịch</th>
-                                                        <th></th>
-                                                        <th></th>
+                                                        <th>Tên bác sĩ</th>
+                                                        <th>Ngày đặt</th>
+                                                        <th>Mục đích</th>
                                                         <th>Trạng thái</th>
-                                                        <th></th>
+                                                        <th>Hoạt động</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <c:if test="${not empty sessionScope.medicalRecordList}">
-                                                        <c:forEach items="${sessionScope.medicalRecordList}" var="m">
-                                                            <tr>
-                                                                <td>
-                                                                    <h2 class="table-avatar">
-                                                                        <a href="doctor_profile?id=${m.booking.doctor.id}"
-                                                                           class="avatar avatar-sm mr-2">
-                                                                            <img class="avatar-img rounded-circle"
-                                                                                 src="${m.booking.doctor.url}"
-                                                                                 alt="User Image">
+                                                    <c:forEach items="${sessionScope.medicalRecordList}" var="m">
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="table-avatar">
+                                                                    <a href="doctor_profile?id=${m.booking.doctor.id}"
+                                                                       class="avatar avatar-sm mr-2">
+                                                                        <img class="avatar-img rounded-circle"
+                                                                             src="${m.booking.doctor.url}">
+                                                                    </a>
+                                                                    <a href="doctor_profile?id=${m.booking.doctor.id}">${m.booking.doctor.name}
+                                                                        <span>${m.booking.doctor.specialty}</span></a>
+                                                                </h2>
+                                                            </td>
+                                                            <td>${m.booking.date}<span
+                                                                    class="d-block text-info">${m.booking.slots.name}</span>
+                                                            </td>
+                                                            <td>${m.booking.booking_reason}</td>
+                                                            <td>
+                                                                <span class="badge badge-pill bg-${m.booking.status == 'Confirmed' ? 'success-light' : m.booking.status == 'Pending' ? 'warning-light' : m.booking.status == 'Cancelled' ? 'danger-light' : m.booking.status == 'Completed' ? 'info-light' : ''}">
+                                                                        ${m.booking.status}
+                                                                </span>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <div class="table-action">
+                                                                    <c:if test="${m.booking.status == 'Pending'}">
+                                                                        <a href="patient_dashboard?id=${m.booking.id}&status=Cancelled"
+                                                                           class="btn btn-sm bg-danger-light">
+                                                                            <i class="far fa-trash-alt"></i> Hủy
                                                                         </a>
-                                                                        <a href="doctor_profile?id=${m.booking.doctor.id}">${m.booking.doctor.name}
-                                                                            <span>${m.booking.doctor.specialty}</span></a>
-                                                                    </h2>
-                                                                </td>
-                                                                <td></td>
-                                                                <td>${m.booking.date} <span
-                                                                        class="d-block text-info">${m.booking.slots.name} </span>
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td>
-																		<span class="badge badge-pill bg-${m.booking.status == 'Confirmed' ? 'success-light' : m.booking.status == 'Pending' ? 'warning-light' : m.booking.status == 'Cancelled' ? 'danger-light' : m.booking.status == 'Completed' ? 'info-light' : ''}">
-                                                                                ${m.booking.status}
-                                                                        </span>
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    <div class="table-action">
-                                                                        <a href="javascript:void(0);"
-                                                                           class="btn btn-sm bg-info-light">
-                                                                            <i class="far fa-eye"></i> Xem
+                                                                    </c:if>
+                                                                    <c:if test="${m.booking.status == 'Completed'}">
+                                                                        <a href="booking_again?did=${m.booking.doctor.id}"
+                                                                           class="btn btn-sm bg-primary-light">
+                                                                            <i class="far fa-clock"></i> Đặt Lại
                                                                         </a>
-                                                                        <c:if test="${m.booking.status == 'Pending'}">
-                                                                            <a href="patient_dashboard?id=${m.booking.id}&status=Cancelled"
-                                                                               class="btn btn-sm bg-danger-light">
-                                                                                <i class="far fa-trash-alt"></i> Hủy
-                                                                            </a>
-                                                                        </c:if>
-                                                                        <c:if test="${m.booking.status == 'Completed'}">
-                                                                            <a href="javascript:void(0);"
-                                                                               class="btn btn-sm bg-primary-light">
-                                                                                <i class="far fa-clock"></i> Đặt Lại
-                                                                            </a>
-                                                                        </c:if>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                    </c:if>
+                                                                    </c:if>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
                                                     </tbody>
                                                 </table>
                                             </div>

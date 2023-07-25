@@ -92,7 +92,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.patient.url}" alt="User Image"
+                                <img src="${sessionScope.patient.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -141,7 +141,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="${sessionScope.patient.url}" alt="User Image">
+                                    <img src="${sessionScope.patient.url}">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3>${sessionScope.patient.name}</h3>
@@ -204,7 +204,19 @@
                 <div class="col-md-7 col-lg-8 col-xl-9">
                     <div class="card">
                         <div class="card-body">
-
+                            <!-- Place this code where you want to display the error message -->
+                            <% String errorMessage = (String) request.getAttribute("messError"); %>
+                            <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= errorMessage %>
+                            </div>
+                            <% } %>
+                            <% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+                            <% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+                            <div class="alert alert-success" role="alert">
+                                <%= messSuccess %>
+                            </div>
+                            <% } %>
                             <!-- Profile Settings Form -->
                             <form action="patient_profile_settings" method="post" enctype="multipart/form-data">
                                 <div class="row form-row">
@@ -212,7 +224,7 @@
                                         <div class="form-group">
                                             <div class="change-avatar">
                                                 <div class="profile-img">
-                                                    <img src="${sessionScope.patient.url}" alt="User Image">
+                                                    <img src="${sessionScope.patient.url}">
                                                 </div>
                                                 <div class="upload-img">
                                                     <div class="change-photo-btn">
@@ -224,13 +236,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Place this code where you want to display the error message -->
-                                        <% String errorMessage = (String) request.getAttribute("messError"); %>
-                                        <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-                                        <div class="alert alert-danger" role="alert">
-                                            <%= errorMessage %>
-                                        </div>
-                                        <% } %>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">

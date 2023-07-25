@@ -18,6 +18,7 @@ import java.util.List;
 @WebServlet(name = "BookingAgain", value = "/booking_again")
 public class BookingAgain extends HttpServlet {
     private final PatientDBContext patientDBContext = new PatientDBContext();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -32,7 +33,7 @@ public class BookingAgain extends HttpServlet {
             session.setAttribute("selectedSlot", req.getParameter("selectedSlot"));
             //lấy doctor
             String did = req.getParameter("did");
-            if (did == null){//check session xem nếu không null thì set lại vào did
+            if (did == null) {//check session xem nếu không null thì set lại vào did
                 did = (String) session.getAttribute("did");
             }
 
@@ -66,21 +67,21 @@ public class BookingAgain extends HttpServlet {
             return;
         }
 
-        Booking booking = patientDBContext.checkBookingExist(patient, selectedDate, selectedSlot);
+        Booking booking = patientDBContext.checkBookingExist(patient, selectedDate);
 
         if (booking != null) {
-            req.setAttribute("messError", "Bạn đã lịch đặt vào ca này");
+            req.setAttribute("messError", "Bạn đã đặt lịch vào ca này");
         } else {
-                Booking bookings = new Booking();
-                bookings.setDoctor_id(Integer.parseInt(did));
-                bookings.setPatient_id(patient.getId());
-                bookings.setSlot_id(Integer.parseInt(selectedSlot));
-                bookings.setDate(Date.valueOf(selectedDate));
-                bookings.setBooking_reason(textReason);
-                bookings.setStatus("Pending");
-                patientDBContext.addNewBooking(bookings);
-                resp.sendRedirect("patient_dashboard");
-                return;
+            Booking bookings = new Booking();
+            bookings.setDoctor_id(Integer.parseInt(did));
+            bookings.setPatient_id(patient.getId());
+            bookings.setSlot_id(Integer.parseInt(selectedSlot));
+            bookings.setDate(Date.valueOf(selectedDate));
+            bookings.setBooking_reason(textReason);
+            bookings.setStatus("Pending");
+            patientDBContext.addNewBooking(bookings);
+            resp.sendRedirect("patient_dashboard");
+            return;
         }
         req.getRequestDispatcher("view/patient/booking-again.jsp").forward(req, resp);
     }

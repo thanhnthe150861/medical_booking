@@ -70,12 +70,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -171,7 +171,8 @@
                             <div class="table-responsive">
                                 <div class="table-responsive">
                                     <div class="actions text-md-right">
-                                        <a href="form_details?str=patient" class="btn btn-sm bg-success-light mr-2">Thêm vào bệnh nhân mới</a>
+                                        <a href="form_details?str=patient" class="btn btn-sm bg-success-light mr-2">Thêm
+                                            vào bệnh nhân mới</a>
                                     </div>
                                     <table class="datatable table table-hover table-center mb-0">
                                         <thead>
@@ -197,7 +198,7 @@
                                                     <a href="#" class="avatar avatar-sm mr-2"><img
                                                             class="avatar-img rounded-circle"
                                                             src="<%= patient.getBooking().getPatient().getUrl() %>"
-                                                            alt="User Image"></a>
+                                                    ></a>
                                                     <a href="#"><%= patient.getBooking().getPatient().getName() %>
                                                     </a>
                                                 </h2>
@@ -214,9 +215,9 @@
                                             </td>
                                             <td class="text-center">
                                                 <% if (patient.getBooking().getPatient().getAccount().getStatus()) { %>
-                                                <span class="badge badge-pill bg-success inv-badge">Kích hoạt</span>
+                                                <span class="badge badge-pill bg-success inv-badge">Active</span>
                                                 <% } else { %>
-                                                <span class="badge badge-pill bg-danger inv-badge">Hủy kích hoạt</span>
+                                                <span class="badge badge-pill bg-danger inv-badge">Deactive</span>
                                                 <% } %>
                                             </td>
                                             <td class="text-center">

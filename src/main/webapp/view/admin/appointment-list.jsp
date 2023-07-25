@@ -73,12 +73,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -190,7 +190,7 @@
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= appointment.getBooking().getDoctor().getUrl() %>"
-                                                        alt="User Image"></a>
+                                                ></a>
                                                 <a href="#"><%= appointment.getBooking().getDoctor().getName() %>
                                                 </a>
                                             </h2>
@@ -202,7 +202,7 @@
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= appointment.getBooking().getPatient().getUrl() %>"
-                                                        alt="User Image"></a>
+                                                ></a>
                                                 <a href="#"><%= appointment.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>

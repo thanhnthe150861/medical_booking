@@ -229,7 +229,7 @@ VALUES
     (1, 5, 2, 'Viêm xoang', '2023-07-15', 'Completed'),
     (3, 4, 1, 'Dị ứng mũi', '2023-07-20', 'Completed'),
     (2, 4, 4, 'Dị ứng mũi', '2023-07-09', 'Completed'),
-    (4, 1, 6, 'Viêm tai giữa', '2023-07-11', 'Completed'),
+    (4, 1, 6, 'Viêm tai giữa', '2023-07-11', 'Confirmed'),
 	(7, 4, 6, 'Viêm tai giữa', '2023-07-12', 'Completed'),
     (5, 4, 2, 'Dị ứng mũi', '2023-09-03', 'Confirmed'),
     (3, 5, 3, 'Viêm xoang', '2023-09-04', 'Confirmed'),
@@ -338,10 +338,7 @@ VALUES (15, 'Paid', 100.0, 110.0, 210.0);
 
 
 
-use medical_booking;
-select * from medical_record;
-select * from bill;
-select * from account;
-select * from doctor;
-select * from patient;
-select * from booking;
+
+
+
+

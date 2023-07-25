@@ -20,27 +20,22 @@ public class InvoiceDetails extends HttpServlet {
         DoctorDBContext doctorDBContext = new DoctorDBContext();
         String bid = req.getParameter("bid");
         String mid = req.getParameter("mid");
-        if (account != null && account.getIsAdmin() == 0){
-            MedicalRecord bill = doctorDBContext.getTTByBillID(bid);
-            session.setAttribute("bills", bill);
-            req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req,resp);
-        }
-        if (account != null && account.getIsAdmin() == 1) {
-            Doctor doctor = doctorDBContext.getDoctor(account);
-            session.setAttribute("doctor", doctor);
-            if(mid != null){
-                session.removeAttribute("bid");
-                session.setAttribute("mid", mid);
-                MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
-                session.setAttribute("bills", medicalRecord);
-                req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
-            }
-            if(bid != null){
-                session.removeAttribute("mid");
-                session.setAttribute("bid", bid);
-                MedicalRecord bills = doctorDBContext.getTTByBillID(bid);
-                session.setAttribute("bills", bills);
-                req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
+        if (account != null) {
+            if (account.getIsAdmin() == 0 || account.getIsAdmin() == 1 || account.getIsAdmin() == 3) {
+                if (mid != null) {
+                    session.removeAttribute("bid");
+                    session.setAttribute("mid", mid);
+                    MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
+                    session.setAttribute("bills", medicalRecord);
+                    req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
+                }
+                if (bid != null) {
+                    session.removeAttribute("mid");
+                    session.setAttribute("bid", bid);
+                    MedicalRecord bills = doctorDBContext.getTTByBillID(bid);
+                    session.setAttribute("bills", bills);
+                    req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
+                }
             }
         }
         req.getRequestDispatcher("login");
@@ -55,7 +50,7 @@ public class InvoiceDetails extends HttpServlet {
         float totalPrice = Float.parseFloat(pricePrescription) + Float.parseFloat(priceMedical);
         String status = req.getParameter("status");
         String mid = req.getParameter("mid");
-        if(!mid.isEmpty()){
+        if (!mid.isEmpty()) {
             MedicalRecord bills = dbContext.getTTByMedicalID(mid);
             Bill bill = new Bill();
             bill.setMedical_record_id(Integer.parseInt(mid));
@@ -63,9 +58,9 @@ public class InvoiceDetails extends HttpServlet {
             bill.setPricePrescription(Float.parseFloat(pricePrescription));
             bill.setTotalPrice(totalPrice);
             bill.setPayment_status(status);
-            if(bills.getBill().getId() == 0){
+            if (bills.getBill().getId() == 0) {
                 dbContext.addBill(bill);
-            }else {
+            } else {
                 bill.setId(bills.getBill().getId());
                 dbContext.UpdateBill(bill);
             }
@@ -78,7 +73,7 @@ public class InvoiceDetails extends HttpServlet {
             req.getRequestDispatcher("view/doctor/add-billing.jsp").forward(req, resp);
         }
         String bid = req.getParameter("bid");
-        if(!bid.isEmpty()){
+        if (!bid.isEmpty()) {
             Bill bill = new Bill();
             bill.setId(Integer.parseInt(bid));
             bill.setPriceMedical(Float.parseFloat(priceMedical));

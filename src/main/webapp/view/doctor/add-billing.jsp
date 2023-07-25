@@ -79,19 +79,18 @@
                 <c:if test="${sessionScope.account.isAdmin == 0}">
                     <li class="nav-item dropdown has-arrow logged-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpgg"
-                                         width="31" alt="Admin">
-								</span>
+            <span class="user-img">
+                <img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31">
+            </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
-                                    <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                                    <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                          class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
-                                    <h6>Administrator</h6>
+                                    <h6>Người quản lý</h6>
                                 </div>
                             </div>
                             <a class="dropdown-item" href="admin_dashboard">Bảng điều khiển</a>
@@ -103,15 +102,14 @@
                 <c:if test="${sessionScope.account.isAdmin == 1}">
                     <li class="nav-item dropdown has-arrow logged-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.bills.booking.doctor.url}"
-                                         width="31">
-								</span>
+            <span class="user-img">
+                <img class="rounded-circle" src="${sessionScope.bills.booking.doctor.url}" width="31">
+            </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
-                                    <img src="${sessionScope.bills.booking.doctor.url}" alt="User Image"
+                                    <img src="${sessionScope.bills.booking.doctor.url}"
                                          class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
@@ -128,14 +126,14 @@
                 <c:if test="${sessionScope.account.isAdmin == 2}">
                     <li class="nav-item dropdown has-arrow logged-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
-								</span>
+            <span class="user-img">
+                <img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
+            </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
-                                    <img src="${sessionScope.patient.url}" alt="User Image"
+                                    <img src="${sessionScope.patient.url}"
                                          class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
@@ -150,6 +148,26 @@
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.account.isAdmin == 3}">
+                    <li class="nav-item dropdown has-arrow logged-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="${sessionScope.staff.url}" width="31">
+            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="user-header">
+                                <div class="avatar avatar-sm">
+                                    <img src="${sessionScope.staff.url}"
+                                         class="avatar-img rounded-circle">
+                                </div>
+                                <div class="user-text">
+                                    <h6>${sessionScope.staff.name}</h6>
+                                </div>
+                            </div>
+                            <a class="dropdown-item" href="staff_dashboard">Bảng điều khiển</a>
+                            <a class="dropdown-item" href="login">Đăng xuất</a>
+                        </div>
+                    </li>
                 </c:if>
                 <!-- /User Menu -->
 
@@ -189,7 +207,7 @@
                             <div class="pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="assets/img/patients/patient.jpg" alt="User Image">
+                                        <img src="assets/img/patients/patient.jpg">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>${sessionScope.bills.booking.patient.name}</h3>
@@ -249,8 +267,8 @@
                                             <table class="table table-hover table-center">
                                                 <thead>
                                                 <tr>
-                                                    <th style="min-width:150px;">Giá y tế</th>
-                                                    <th style="min-width:150px;">Đơn giá (nếu có)</th>
+                                                    <th style="min-width:150px;">Giá dịch vụ</th>
+                                                    <th style="min-width:150px;">Giá đơn thuốc (nếu có)</th>
                                                     <th style="min-width:100px;">Tổng</th>
                                                     <th style="min-width:50px;">Trạng thái</th>
                                                 </tr>
@@ -300,7 +318,8 @@
                                     <div class="col-md-12">
                                         <div class="submit-section">
                                             <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
-                                            <button type="reset" class="btn btn-secondary submit-btn">Xóa</button>
+                                            <a href="${sessionScope.account.isAdmin == 0 ? 'invoice_list' : sessionScope.account.isAdmin == 2 ? 'invoice_patient' : sessionScope.account.isAdmin == 3 ? 'list_invoice' : '#'}"
+                                               class="btn btn-secondary submit-btn" id="cancel-btn">Quay lại</a>
                                         </div>
                                     </div>
                                 </div>

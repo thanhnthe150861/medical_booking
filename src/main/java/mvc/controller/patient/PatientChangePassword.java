@@ -19,11 +19,11 @@ public class PatientChangePassword extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
-        if (account != null && account.getIsAdmin() == 2){
+        if (account != null && account.getIsAdmin() == 2) {
             PatientDBContext patientDBContext = new PatientDBContext();
             Patient patient = patientDBContext.getPatient(account);
             session.setAttribute("patient", patient);
-            req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
         }
         req.getRequestDispatcher("login");
     }
@@ -38,19 +38,19 @@ public class PatientChangePassword extends HttpServlet {
         Account account = (Account) session.getAttribute("account");
         if (account.getPassword().equals(oldpassword)) {
             if (newpassword.equals(oldpassword)) {
-                req.setAttribute("messError", "New password must not be same with old password");
+                req.setAttribute("messError", "Mật khẩu mới không được trùng mật khẩu cũ");
                 req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
             } else if (newpassword.equals(repassword)) {
                 account.setPassword(newpassword);
                 adb.UpdateAccount(account);
-                req.setAttribute("messSuccess", "Update successful");
+                req.setAttribute("messSuccess", "Cập nhật thành công");
                 req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
             } else {
-                req.setAttribute("messError", "Confirm password incorrect");
+                req.setAttribute("messError", "Xác nhận mật khẩu mới phải trùng mật khẩu mới");
                 req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
             }
         } else {
-            req.setAttribute("messError", "Password incorrect");
+            req.setAttribute("messError", "Mật khẩu cũ sai");
             req.getRequestDispatcher("view/patient/patient-change-password.jsp").forward(req, resp);
         }
     }

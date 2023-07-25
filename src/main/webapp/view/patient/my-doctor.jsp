@@ -79,14 +79,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
-                                         alt="Ryan Taylor">
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.patient.url}" alt="User Image"
+                                <img src="${sessionScope.patient.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -133,7 +132,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="${sessionScope.patient.url}" alt="User Image">
+                                    <img src="${sessionScope.patient.url}">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3>${sessionScope.patient.name}</h3>
@@ -199,7 +198,7 @@
                                 <div class="profile-widget">
                                     <div class="doc-img">
                                         <a href="doctor_profile?id=${b.id}">
-                                            <img class="img-fluid" alt="User Image" src="${b.url}">
+                                            <img class="img-fluid" src="${b.url}">
                                         </a>
                                     </div>
                                     <div class="pro-content">

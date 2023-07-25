@@ -75,29 +75,99 @@
                 </li>
 
                 <!-- User Menu -->
-                <li class="nav-item dropdown has-arrow logged-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.medicalRecord.booking.doctor.url}"
-                                         width="31" alt="Darren Elder">
-								</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <div class="user-header">
-                            <div class="avatar avatar-sm">
-                                <img src="${sessionScope.medicalRecord.booking.doctor.url}" alt="User Image"
-                                     class="avatar-img rounded-circle">
+                <c:if test="${sessionScope.account.isAdmin == 0}">
+                    <li class="nav-item dropdown has-arrow logged-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31">
+            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="user-header">
+                                <div class="avatar avatar-sm">
+                                    <img src="view/admin/assets/img/profiles/avatar-01.jpg"
+                                         class="avatar-img rounded-circle">
+                                </div>
+                                <div class="user-text">
+                                    <h6>Người quản lý</h6>
+                                </div>
                             </div>
-                            <div class="user-text">
-                                <h6>${sessionScope.medicalRecord.booking.doctor.name}</h6>
-                                <p class="text-muted mb-0">${sessionScope.medicalRecord.booking.doctor.ranks.name}</p>
-                            </div>
+                            <a class="dropdown-item" href="admin_dashboard">Bảng điều khiển</a>
+                            <a class="dropdown-item" href="profile">Thông tin cá nhân</a>
+                            <a class="dropdown-item" href="login">Đăng xuất</a>
                         </div>
-                        <a class="dropdown-item" href="doctor_dashboard">Bảng điểu khiển</a>
-                        <a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
-                        <a class="dropdown-item" href="login">Đăng xuất</a>
-                    </div>
-                </li>
+                    </li>
+                </c:if>
+                <c:if test="${sessionScope.account.isAdmin == 1}">
+                    <li class="nav-item dropdown has-arrow logged-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="${sessionScope.doctor.url}" width="31">
+            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="user-header">
+                                <div class="avatar avatar-sm">
+                                    <img src="${sessionScope.doctor.url}"
+                                         class="avatar-img rounded-circle">
+                                </div>
+                                <div class="user-text">
+                                    <h6>${sessionScope.doctor.name}</h6>
+                                    <p class="text-muted mb-0">${sessionScope.doctor.ranks.name}</p>
+                                </div>
+                            </div>
+                            <a class="dropdown-item" href="doctor_dashboard">Bảng điều khiển</a>
+                            <a class="dropdown-item" href="doctor_profile_settings">Thông tin cá nhân</a>
+                            <a class="dropdown-item" href="login">Đăng xuất</a>
+                        </div>
+                    </li>
+                </c:if>
+                <c:if test="${sessionScope.account.isAdmin == 2}">
+                    <li class="nav-item dropdown has-arrow logged-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
+            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="user-header">
+                                <div class="avatar avatar-sm">
+                                    <img src="${sessionScope.patient.url}"
+                                         class="avatar-img rounded-circle">
+                                </div>
+                                <div class="user-text">
+                                    <h6>${sessionScope.patient.name}</h6>
+                                    <p class="text-muted mb-0">Rank: ${sessionScope.patient.ranks.name}</p>
+                                </div>
+                            </div>
+                            <a class="dropdown-item" href="patient_dashboard">Bảng điều khiển</a>
+                            <a class="dropdown-item" href="patient_profile_settings">Thông tin cá nhân</a>
+                            <a class="dropdown-item" href="login">Đăng xuất</a>
+                        </div>
+                    </li>
+                </c:if>
+                <c:if test="${sessionScope.account.isAdmin == 3}">
+                    <li class="nav-item dropdown has-arrow logged-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <span class="user-img">
+                <img class="rounded-circle" src="${sessionScope.staff.url}" width="31">
+            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="user-header">
+                                <div class="avatar avatar-sm">
+                                    <img src="${sessionScope.staff.url}"
+                                         class="avatar-img rounded-circle">
+                                </div>
+                                <div class="user-text">
+                                    <h6>${sessionScope.staff.name}</h6>
+                                </div>
+                            </div>
+                            <a class="dropdown-item" href="staff_dashboard">Bảng điều khiển</a>
+                            <a class="dropdown-item" href="login">Đăng xuất</a>
+                        </div>
+                    </li>
+                </c:if>
                 <!-- /User Menu -->
 
             </ul>
@@ -136,7 +206,7 @@
                             <div class="pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="${sessionScope.medicalRecord.booking.patient.url}" alt="User Image">
+                                        <img src="${sessionScope.medicalRecord.booking.patient.url}">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>
@@ -204,22 +274,29 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <input type="text" hidden="hidden" class="form-control" name="mid"
+                                                    <input type="hidden" class="form-control" name="mid"
                                                            value="${sessionScope.mid}">
-                                                    <input type="text" hidden="hidden" class="form-control" name="bid"
+                                                    <input type="hidden" class="form-control" name="bid"
                                                            value="${sessionScope.bid}">
                                                     <td>
                                                         <input type="text" class="form-control" name="diagnosis"
-                                                               value="${sessionScope.medicalRecord.diagnosis}">
+                                                               value="${sessionScope.medicalRecord.diagnosis}" ${sessionScope.account.isAdmin == 2 ? 'readonly' : ''}>
                                                     </td>
                                                     <td>
-                                                        <input type="file" class="form-control" name="url"
-                                                               value="${sessionScope.medicalRecord.url}">
+                                                        <input type="${sessionScope.account.isAdmin == 2 ? 'text' : 'file'}"
+                                                               class="form-control"
+                                                               name="url" ${sessionScope.account.isAdmin == 2 ? 'readonly' : ''}>
                                                     </td>
                                                     <td>
                                                         <input type="text" class="form-control" name="prescription"
-                                                               value="${sessionScope.medicalRecord.prescription}">
+                                                               value="${sessionScope.medicalRecord.prescription}" ${sessionScope.account.isAdmin == 2 ? 'readonly' : ''}>
                                                     </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td></td>
+                                                    <td><img src="${sessionScope.medicalRecord.url}" alt=""></td>
+                                                    <td></td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -232,9 +309,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="submit-section">
-                                            <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
-                                            <a href="doctor_appointments"
-                                               class="btn btn-secondary submit-btn" id="cancel-btn">Xóa</a>
+                                            <c:if test="${sessionScope.account.isAdmin != 2}">
+                                                <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
+                                            </c:if>
+                                            <a href="${sessionScope.account.isAdmin == 1 ? 'doctor_appointments' : sessionScope.account.isAdmin == 2 ? 'patient_dashboard' : sessionScope.account.isAdmin == 3 ? 'staff_appointments' : '#'}"
+                                               class="btn btn-secondary submit-btn" id="cancel-btn">Quay lại</a>
                                         </div>
                                     </div>
                                 </div>

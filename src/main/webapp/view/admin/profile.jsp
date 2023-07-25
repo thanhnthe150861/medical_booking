@@ -66,12 +66,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -162,7 +162,7 @@
                         <div class="row align-items-center">
                             <div class="col-auto profile-image">
                                 <a href="#">
-                                    <img class="rounded-circle" alt="User Image"
+                                    <img class="rounded-circle"
                                          src="view/admin/assets/img/profiles/avatar-01.jpg">
                                 </a>
                             </div>

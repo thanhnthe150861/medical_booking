@@ -80,14 +80,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31"
-                                         alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.doctor.url}" alt="User Image"
+                                <img src="${sessionScope.doctor.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -138,7 +137,7 @@
                             <div class="pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="${sessionScope.patient.url}" alt="User Image">
+                                        <img src="${sessionScope.patient.url}">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>${sessionScope.patient.name}</h3>
@@ -162,7 +161,8 @@
                             <div class="user-tabs">
                                 <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}">Cuộc hẹn</a>
+                                        <a class="nav-link" href="patient_profile?id=${sessionScope.patient.id}">Cuộc
+                                            hẹn</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link active"
@@ -203,8 +203,7 @@
                                                                         <a href="doctor-profile.html"
                                                                            class="avatar avatar-sm mr-2">
                                                                             <img class="avatar-img rounded-circle"
-                                                                                 src="${m.booking.doctor.url}"
-                                                                                 alt="User Image">
+                                                                                 src="${m.booking.doctor.url}">
                                                                         </a>
                                                                         <a href="#">${m.booking.doctor.name}
                                                                             <span>${m.booking.doctor.specialty}</span></a>
@@ -215,13 +214,13 @@
                                                                         <c:if test="${m.id == 0}">
                                                                             <a href="medical_record_details?bid=${m.booking.id}"
                                                                                class="btn btn-sm bg-success-light">
-                                                                                <i class="far fa-eye"></i> Chỉnh sửa
+                                                                                <i class="far fa-edit"></i> Chỉnh sửa
                                                                             </a>
                                                                         </c:if>
                                                                         <c:if test="${m.id != 0}">
                                                                             <a href="medical_record_details?mid=${m.id}"
                                                                                class="btn btn-sm bg-success-light">
-                                                                                <i class="far fa-eye"></i> Chỉnh sửa
+                                                                                <i class="far fa-edit"></i> Chỉnh sửa
                                                                             </a>
                                                                             <a href="medical_record_details?mid=${m.id}"
                                                                                class="btn btn-sm bg-info-light">
@@ -259,9 +258,9 @@
             <div class="container-fluid">
                 <div class="row">
 
-                        </div>
-                    </div>
                 </div>
+            </div>
+        </div>
 
 
     </footer>

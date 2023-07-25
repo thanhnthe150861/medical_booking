@@ -18,6 +18,7 @@ import java.util.Random;
 @WebServlet(name = "Bookings", value = "/booking")
 public class Bookings extends HttpServlet {
     private final PatientDBContext patientDBContext = new PatientDBContext();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -58,10 +59,10 @@ public class Bookings extends HttpServlet {
 
         String status = "Cancelled";
 
-        Booking booking = patientDBContext.checkBookingExist(patient, selectedDate, selectedSlot);
+        Booking booking = patientDBContext.checkBookingExist(patient, selectedDate);
 
         if (booking != null) {
-            req.setAttribute("messError", "Bạn đã lịch đặt vào ca này");
+            req.setAttribute("messError", "Bạn đã đặt lịch vào ngày này");
         } else {
             List<Doctor> doctorList = patientDBContext.getListDoctorEmpty(selectedDate, selectedSlot, status);
             if (!doctorList.isEmpty()) {

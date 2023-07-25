@@ -37,14 +37,11 @@ public class PatientDashboard extends HttpServlet {
             }
             session.setAttribute("patient", patient);
             session.setAttribute("medicalRecordList", medicalRecordList);
-            String bill = req.getParameter("bill");
             String medical = req.getParameter("medical");
             String forwardUrl = "view/patient/patient-dashboard.jsp"; // Trang mặc định
-
             if (medical != null && medical.equals("true")) {
                 forwardUrl = "view/patient/dashboard-medical-record.jsp";
             }
-
             req.getRequestDispatcher(forwardUrl).forward(req, resp);
         } else {
             req.getRequestDispatcher("login").forward(req, resp);

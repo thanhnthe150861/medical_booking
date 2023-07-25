@@ -79,14 +79,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
-                                         alt="Ryan Taylor">
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.patient.url}" alt="User Image"
+                                <img src="${sessionScope.patient.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -136,7 +135,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="${sessionScope.patient.url}" alt="User Image">
+                                    <img src="${sessionScope.patient.url}">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3>${sessionScope.patient.name}</h3>
@@ -214,8 +213,8 @@
                                                         <th>ID</th>
                                                         <th>Đặt lịch ID</th>
                                                         <th>Giá Tiền</th>
-                                                        <th>Đã thanh toán</th>
-                                                        <th>Trạng thái</th>
+                                                        <th>Ngày tạo đơn</th>
+                                                        <th class="text-center">Trạng thái</th>
                                                         <th>Hoạt động</th>
                                                     </tr>
                                                     </thead>
@@ -224,9 +223,9 @@
                                                         <tr>
                                                             <td>${invoice.bill.id}</td>
                                                             <td>${invoice.booking.id}</td>
-                                                            <td>${invoice.bill.totalPrice}</td>
+                                                            <td>${invoice.bill.totalPrice} VND</td>
                                                             <td>${invoice.booking.date}</td>
-                                                            <td><span
+                                                            <td class="text-center"><span
                                                                     class="badge badge-pill bg-${invoice.bill.payment_status eq 'Paid' ? 'success-light' : invoice.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">${invoice.bill.payment_status}</span>
                                                             </td>
                                                             <td>

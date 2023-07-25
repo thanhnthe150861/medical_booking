@@ -68,12 +68,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="${sessionScope.staff.url}" width="31"
-                                                alt="${sessionScope.staff.name}"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="${sessionScope.staff.url}" alt="User Image"
+                            <img src="${sessionScope.staff.url}"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -99,6 +99,10 @@
                 <ul>
                     <li>
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="create_invoice"><i class="fe fe-edit"></i>
+                            <span>Tạo hóa đơn</span></a>
                     </li>
                     <li>
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
@@ -158,14 +162,16 @@
                                     <div class="form-group">
                                         <div class="change-avatar">
                                             <div class="profile-img">
-                                                <img src="${sessionScope.staff.url}" alt="User Image" style="width: 200px; height: 200px; object-fit: cover;">
+                                                <img src="${sessionScope.staff.url}"
+                                                     style="width: 200px; height: 200px; object-fit: cover;">
                                             </div>
                                             <div class="upload-img">
                                                 <div class="change-photo-btn">
                                                     <span><i class="fa fa-upload"></i> Tải ảnh lên</span>
                                                     <input type="file" class="upload" name="file">
                                                 </div>
-                                                <small class="form-text text-muted">Sử dụng loại ảnh JPG, GIF or PNG. Dung lượng tối đa 2MB</small>
+                                                <small class="form-text text-muted">Sử dụng loại ảnh JPG, GIF or PNG.
+                                                    Dung lượng tối đa 2MB</small>
                                             </div>
                                         </div>
                                     </div>
@@ -180,25 +186,29 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Username <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" value="${sessionScope.account.username}" readonly>
+                                        <input type="text" class="form-control" value="${sessionScope.account.username}"
+                                               readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" value="${sessionScope.account.email}" readonly>
+                                        <input type="email" class="form-control" value="${sessionScope.account.email}"
+                                               readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Tên <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="name" value="${sessionScope.staff.name}">
+                                        <input type="text" class="form-control" name="name"
+                                               value="${sessionScope.staff.name}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Số điện thoại</label>
-                                        <input type="text" class="form-control" name="phone" value="${sessionScope.account.phone}">
+                                        <input type="text" class="form-control" name="phone"
+                                               value="${sessionScope.account.phone}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -206,15 +216,20 @@
                                         <label>Giới tính</label>
                                         <select class="form-control select" name="gender">
                                             <option>Select</option>
-                                            <option value="Male" ${sessionScope.staff.gender == "Male" ? "selected" : ""}>Nam</option>
-                                            <option value="Female" ${sessionScope.staff.gender == "Female" ? "selected" : ""}>Nữ</option>
+                                            <option value="Male" ${sessionScope.staff.gender == "Male" ? "selected" : ""}>
+                                                Nam
+                                            </option>
+                                            <option value="Female" ${sessionScope.staff.gender == "Female" ? "selected" : ""}>
+                                                Nữ
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group mb-0">
                                         <label>Ngày sinh</label>
-                                        <input type="date" class="form-control" name="dob" value="${sessionScope.staff.dob}">
+                                        <input type="date" class="form-control" name="dob"
+                                               value="${sessionScope.staff.dob}">
                                     </div>
                                 </div>
                             </div>
