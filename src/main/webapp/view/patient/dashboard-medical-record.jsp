@@ -79,14 +79,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
-                                         alt="Ryan Taylor">
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.patient.url}" alt="User Image"
+                                <img src="${sessionScope.patient.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -136,7 +135,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="${sessionScope.patient.url}" alt="User Image">
+                                    <img src="${sessionScope.patient.url}">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3>${sessionScope.patient.name}</h3>
@@ -207,7 +206,8 @@
                                         <a class="nav-link" href="patient_dashboard">Cuộc hẹn</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="patient_dashboard?medical=true" ><span class="med-records">Hồ sơ bệnh án</span></a>
+                                        <a class="nav-link active" href="patient_dashboard?medical=true"><span
+                                                class="med-records">Hồ sơ bệnh án</span></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -225,7 +225,7 @@
                                                     <thead>
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>Ngày </th>
+                                                        <th>Ngày</th>
                                                         <th>Chẩn đoán</th>
                                                         <th>Tập tin đính kèm</th>
                                                         <th>Đơn thuốc</th>
@@ -246,8 +246,7 @@
                                                                     <h2 class="table-avatar">
                                                                         <a href="#" class="avatar avatar-sm mr-2">
                                                                             <img class="avatar-img rounded-circle"
-                                                                                 src="${m.booking.doctor.url}"
-                                                                                 alt="User Image">
+                                                                                 src="${m.booking.doctor.url}">
                                                                         </a>
                                                                         <a href="#">${m.booking.doctor.name}
                                                                             <span>${m.booking.doctor.specialty}</span></a>
@@ -255,7 +254,7 @@
                                                                 </td>
                                                                 <td class="text-right">
                                                                     <div class="table-action">
-                                                                        <a href="javascript:void(0);"
+                                                                        <a href="medical_record_details?mid=${m.id}"
                                                                            class="btn btn-sm bg-info-light">
                                                                             <i class="far fa-eye"></i> Xem
                                                                         </a>
@@ -308,9 +307,11 @@
                         <div class="footer-widget footer-menu">
                             <h2 class="footer-title">Đối với bệnh nhân</h2>
                             <ul>
-                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a></li>
+                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a>
+                                </li>
                                 <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
-                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều khiển </a></li>
+                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều
+                                    khiển </a></li>
                             </ul>
                         </div>
                         <!-- /Footer Widget -->

@@ -87,7 +87,7 @@ public class PatientProfileSettings extends HttpServlet {
         if (fileSize > maxSize) {
             // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
             req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
-            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+            req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req, resp);
             return;
         }
         if (part != null && part.getSize() > 0) {
@@ -144,6 +144,7 @@ public class PatientProfileSettings extends HttpServlet {
         patient.setAccount(account);
         PatientDBContext patientDBContext = new PatientDBContext();
         patientDBContext.UpdatePatient(patient);
-        resp.sendRedirect("patient_profile_settings");
+        req.setAttribute("messSuccess", "Cập nhật thành công");
+        req.getRequestDispatcher("view/patient/patient-profile-settings.jsp").forward(req, resp);
     }
 }

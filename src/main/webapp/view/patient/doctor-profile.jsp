@@ -82,14 +82,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31"
-                                         alt="Ryan Taylor">
+									<img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.patient.url}" alt="User Image"
+                                <img src="${sessionScope.patient.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -137,7 +136,7 @@
                     <div class="doctor-widget">
                         <div class="doc-info-left">
                             <div class="doctor-img">
-                                <img src="${sessionScope.doctor.url}" class="img-fluid" alt="User Image">
+                                <img src="${sessionScope.doctor.url}" class="img-fluid">
                             </div>
                             <div class="doc-info-cont">
                                 <h4 class="doc-name">${sessionScope.doctor.name}</h4>

@@ -58,7 +58,7 @@
                     </a>
                 </div>
                 <ul class="main-nav">
-                    <li>v
+                    <li>
                         <a href="home">Trang chủ</a>
                     </li>
                 </ul>
@@ -78,13 +78,13 @@
                     <li class="nav-item dropdown has-arrow logged-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
-                <img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31" alt="Admin">
+                <img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31">
             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
-                                    <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                                    <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                          class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
@@ -101,14 +101,13 @@
                     <li class="nav-item dropdown has-arrow logged-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
-                <img class="rounded-circle" src="${sessionScope.bills.booking.doctor.url}" width="31"
-                     alt="Darren Elder">
+                <img class="rounded-circle" src="${sessionScope.bills.booking.doctor.url}" width="31">
             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
-                                    <img src="${sessionScope.bills.booking.doctor.url}" alt="User Image"
+                                    <img src="${sessionScope.bills.booking.doctor.url}"
                                          class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
@@ -126,13 +125,13 @@
                     <li class="nav-item dropdown has-arrow logged-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
-                <img class="rounded-circle" src="${sessionScope.patient.url}" width="31" alt="Ryan Taylor">
+                <img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
-                                    <img src="${sessionScope.patient.url}" alt="User Image"
+                                    <img src="${sessionScope.patient.url}"
                                          class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
@@ -150,13 +149,13 @@
                     <li class="nav-item dropdown has-arrow logged-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
-                <img class="rounded-circle" src="${sessionScope.staff.url}" width="31" alt="Ryan Taylor">
+                <img class="rounded-circle" src="${sessionScope.staff.url}" width="31">
             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-header">
                                 <div class="avatar avatar-sm">
-                                    <img src="${sessionScope.staff.url}" alt="User Image"
+                                    <img src="${sessionScope.staff.url}"
                                          class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
@@ -209,8 +208,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <p class="invoice-details">
-                                        <strong>Order:</strong> ${requestScope.bill.bill.id}<br>
-                                        <strong>Issued:</strong> ${requestScope.bill.booking.date}
+                                        <strong>Mã lịch đặt:</strong> ${requestScope.bill.bill.id}<br>
+                                        <strong>Ngày tạo đơn:</strong> ${requestScope.bill.booking.date}
                                     </p>
                                 </div>
                             </div>
@@ -221,7 +220,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="invoice-info">
-                                        <strong class="customer-text">Hóa đơn từ</strong>
+                                        <strong class="customer-text">Bác sĩ khám</strong>
                                         <p class="invoice-details invoice-details-two">
                                             ${requestScope.bill.booking.doctor.name} <br>
                                             ${requestScope.bill.booking.doctor.specialty} <br>
@@ -230,7 +229,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="invoice-info invoice-info2">
-                                        <strong class="customer-text">Hóa đến đến</strong>
+                                        <strong class="customer-text">Người khám</strong>
                                         <p class="invoice-details">
                                             ${requestScope.bill.booking.patient.name} <br>
                                         </p>
@@ -248,24 +247,19 @@
                                         <table class="invoice-table table table-bordered">
                                             <thead>
                                             <tr>
-                                                <th>Sự miêu tả</th>
-                                                <th class="text-center"></th>
-                                                <th class="text-center">VAT</th>
+                                                <th>Dịch vụ</th>
                                                 <th class="text-right">Tổng</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>Giá y tế</td>
-                                                <td class="text-center"></td>
-                                                <td class="text-center">$0</td>
-                                                <td class="text-right">$${requestScope.bill.bill.priceMedical}</td>
+                                                <td>Giá dịch vụ</td>
+                                                <td class="text-right">${requestScope.bill.bill.priceMedical} VND</td>
                                             </tr>
                                             <tr>
-                                                <td>Đơn giá (nếu có)</td>
-                                                <td class="text-center"></td>
-                                                <td class="text-center">$0</td>
-                                                <td class="text-right">$${requestScope.bill.bill.pricePrescription}</td>
+                                                <td>Giá đơn thuốc (nếu có)</td>
+                                                <td class="text-right">${requestScope.bill.bill.pricePrescription} VND
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -276,16 +270,8 @@
                                         <table class="invoice-table-two table">
                                             <tbody>
                                             <tr>
-                                                <th>Tổng:</th>
-                                                <td><span>$${requestScope.bill.bill.totalPrice}</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Giảm giá:</th>
-                                                <td><span>-0%</span></td>
-                                            </tr>
-                                            <tr>
                                                 <th>Tổng cộng:</th>
-                                                <td><span>$${requestScope.bill.bill.totalPrice}</span></td>
+                                                <td><span>${requestScope.bill.bill.totalPrice} VND</span></td>
                                             </tr>
                                             </tbody>
                                         </table>

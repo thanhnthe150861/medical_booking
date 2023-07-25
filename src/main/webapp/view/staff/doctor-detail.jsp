@@ -67,12 +67,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="${sessionScope.staff.url}" width="31"
-                                                alt="${sessionScope.staff.name}"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="${sessionScope.staff.url}" alt="User Image"
+                            <img src="${sessionScope.staff.url}"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -98,6 +98,10 @@
                 <ul>
                     <li>
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="create_invoice"><i class="fe fe-edit"></i>
+                            <span>Tạo hóa đơn</span></a>
                     </li>
                     <li>
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
@@ -174,7 +178,7 @@
                                     <div class="col-md-2">
                                         <div class="change-avatar">
                                             <div class="profile-img">
-                                                <img src="${sessionScope.doctor.url}" alt="User Image"
+                                                <img src="${sessionScope.doctor.url}"
                                                      style="width: 200px; height: 200px; object-fit: cover;">
                                             </div>
                                             <div class="upload-img">
@@ -183,7 +187,8 @@
                                                 </label>
                                                 <input type="file" id="photo-upload" class="upload" name="file"
                                                        style="display: none;">
-                                                <small class="form-text text-muted">Sử dụng loại ảnh JPG, GIF or PNG. Dung lượng tối đa 2MB</small>
+                                                <small class="form-text text-muted">Sử dụng loại ảnh JPG, GIF or PNG.
+                                                    Dung lượng tối đa 2MB</small>
                                             </div>
                                         </div>
                                     </div>

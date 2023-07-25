@@ -58,13 +58,13 @@ public class DoctorProfileSettings extends HttpServlet {
         String dob = req.getParameter("dob");
         // Validate name_raw: should not contain special characters
         if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-            req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+            req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
             req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
             return;
         }
         // Validate phone_raw: should only contain numbers and not exceed 10 digits
         if (!phone.matches("^[0-9]{10}$")) {
-            req.setAttribute("messError", "Phone sai định dạng");
+            req.setAttribute("messError", "Số điện thoạt sai định dạng");
             req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
             return;
         }
@@ -82,8 +82,8 @@ public class DoctorProfileSettings extends HttpServlet {
         long maxSize = 1024 * 1024 * 2; // 2MB
         if (fileSize > maxSize) {
             // Kích thước file vượt quá 2MB, xử lý thông báo lỗi tại đây
-            req.setAttribute("messError", "Kích thước file không được vượt quá 2MB");
-            req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
+            req.setAttribute("messError", "Kích thước ảnh không được vượt quá 2MB");
+            req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
             return;
         }
         if (part != null && part.getSize() > 0) {
@@ -140,6 +140,7 @@ public class DoctorProfileSettings extends HttpServlet {
         doctor.setAccount(account);
         DoctorDBContext doctorDBContext = new DoctorDBContext();
         doctorDBContext.updateDoctor(doctor);
-        resp.sendRedirect("doctor_profile_settings");
+        req.setAttribute("messSuccess", "Cập nhật thành công");
+        req.getRequestDispatcher("view/doctor/doctor-profile-settings.jsp").forward(req, resp);
     }
 }

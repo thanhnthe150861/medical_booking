@@ -75,12 +75,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="${sessionScope.staff.url}" width="31"
-                                                alt="${sessionScope.staff.name}"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="${sessionScope.staff.url}" alt="User Image"
+                            <img src="${sessionScope.staff.url}"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -106,6 +106,10 @@
                 <ul>
                     <li>
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="create_invoice"><i class="fe fe-edit"></i>
+                            <span>Tạo hóa đơn</span></a>
                     </li>
                     <li class="active">
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
@@ -147,7 +151,8 @@
                     <div class="col-sm-12">
                         <h3 class="page-title">Lịch hẹn</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="view/staff/staff-dashboard.jsp">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item"><a href="view/staff/staff-dashboard.jsp">Bảng điều khiển</a>
+                            </li>
                             <li class="breadcrumb-item active">Lịch hẹn</li>
                         </ul>
                     </div>
@@ -180,7 +185,7 @@
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= appointment.getBooking().getDoctor().getUrl() %>"
-                                                        alt="User Image"></a>
+                                                ></a>
                                                 <a href="#"><%= appointment.getBooking().getDoctor().getName() %>
                                                 </a>
                                             </h2>
@@ -191,7 +196,7 @@
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
-                                                        src="<%= appointment.getBooking().getPatient().getUrl() %>" alt="User Image"></a>
+                                                        src="<%= appointment.getBooking().getPatient().getUrl() %>"></a>
                                                 <a href="#"><%= appointment.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>

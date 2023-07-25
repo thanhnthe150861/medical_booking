@@ -36,19 +36,19 @@ public class StaffChangePassword extends HttpServlet {
         Account acc = (Account) session.getAttribute("account");
         if (acc.getPassword().equals(oldPass)) {
             if (newPass.equals(oldPass)) {
-                request.setAttribute("messError", "New password must not be same with old password");
+                request.setAttribute("messError", "Mật khẩu mới không được trùng mật khẩu cũ");
                 request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
             } else if (newPass.equals(rePass)) {
                 acc.setPassword(newPass);
                 accountDB.UpdateAccount(acc);
-                request.setAttribute("messSuccess", "Update successful");
+                request.setAttribute("messSuccess", "Cập nhật thành công");
                 request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
             } else {
-                request.setAttribute("messError", "Confirm password incorrect");
+                request.setAttribute("messError", "Xác nhận mật khẩu mới phải trùng mật khẩu mới");
                 request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
             }
         } else {
-            request.setAttribute("messError", "Password incorrect");
+            request.setAttribute("messError", "Mật khẩu cũ sai");
             request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
         }
     }

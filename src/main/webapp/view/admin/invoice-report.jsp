@@ -1,8 +1,6 @@
 <%@ page import="mvc.dal.AdminDBContext" %>
 <%@ page import="mvc.model.MedicalRecord" %>
 <%@ page import="java.util.List" %>
-<%@ page import="mvc.model.Account" %>
-<%@ page import="mvc.dal.StaffDBContext" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -35,8 +33,6 @@
     <![endif]-->
 </head>
 <body>
-<% Account account = (Account) session.getAttribute("account");
-    if (account.getIsAdmin() == 0) {%>
 <!-- Main Wrapper -->
 <div class="main-wrapper">
 
@@ -73,12 +69,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -177,7 +173,6 @@
                                     <thead>
                                     <tr>
                                         <th>Hóa đơn ID</th>
-                                        <th>Bệnh nhân ID</th>
                                         <th>Tên bệnh nhân</th>
                                         <th>Tổng cộng</th>
                                         <th>Ngày tạo</th>
@@ -190,13 +185,12 @@
                                     <tr>
                                         <td><a href="#"><%= invoice.getBill().getId() %>
                                         </a></td>
-                                        <td><%= invoice.getBooking().getPatient().getId() %>
-                                        </td>
                                         <td>
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
-                                                        src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+                                                        src="<%= invoice.getBooking().getPatient().getUrl() %>"
+                                                ></a>
                                                 <a href="#"><%= invoice.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>
@@ -206,7 +200,11 @@
                                         <td><%= invoice.getBooking().getDate() %>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-pill bg-success inv-badge">Thanh toán</span>
+                                            <% if (invoice.getBill().getPayment_status().equals("Paid")) {%>
+                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
+                                            <%} else {%>
+                                            <span class="badge badge-pill bg-danger inv-badge">Unpaid</span>
+                                            <%}%>
                                         </td>
                                         <td class="text-center">
                                             <div class="actions">
@@ -307,7 +305,7 @@
                 <div class="modal-body">
                     <div class="form-content p-2">
                         <h4 class="modal-title">Xóa</h4>
-                        <p class="mb-4">Abạn có chắc chắn muốn xóa không?</p>
+                        <p class="mb-4">Bạn có chắc chắn muốn xóa không?</p>
                         <button type="button" class="btn btn-primary">Lưu</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                     </div>
@@ -318,274 +316,6 @@
     <!-- /Delete Modal -->
 </div>
 <!-- /Main Wrapper -->
-<% } else { %>
-<!-- Main Wrapper -->
-<div class="main-wrapper">
-
-    <!-- Header -->
-    <div class="header">
-
-        <!-- Logo -->
-        <div class="header-left">
-            <a href="staff_dashboard" class="logo">
-                <span class="text-primary">Clinic</span>-TATQ
-            </a>
-            <a href="staff_dashboard" class="logo logo-small">
-                <span class="text-primary" width="50" height="50">Clinic</span>
-            </a>
-        </div>
-        <!-- /Logo -->
-
-        <a href="javascript:void(0);" id="toggle_btn">
-            <i class="fe fe-text-align-left"></i>
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <a class="mobile_btn" id="mobile_btn">
-            <i class="fa fa-bars"></i>
-        </a>
-        <!-- /Mobile Menu Toggle -->
-
-        <!-- Header Right Menu -->
-        <ul class="nav user-menu">
-
-            <!-- User Menu -->
-            <li class="nav-item dropdown has-arrow">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                    <span class="user-img"><img class="rounded-circle"
-                                                src="images/staff/staff1.jpg" width="31"
-                                                alt="Swift Taylor"></span>
-                </a>
-                <div class="dropdown-menu">
-                    <div class="user-header">
-                        <div class="avatar avatar-sm">
-                            <img src="images/staff/staff1.jpg" alt="User Image"
-                                 class="avatar-img rounded-circle">
-                        </div>
-                        <div class="user-text">
-                            <h6>Staff</h6>
-                        </div>
-                    </div>
-                    <a class="dropdown-item" href="staff_dashboard">Thông tin của tôi</a>
-                    <a class="dropdown-item" href="login">Đăng kí</a>
-                </div>
-            </li>
-            <!-- /User Menu -->
-
-        </ul>
-        <!-- /Header Right Menu -->
-
-    </div>
-    <!-- /Header -->
-
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-inner slimscroll">
-            <div id="sidebar-menu" class="sidebar-menu">
-                <ul>
-                    <li class="menu-title">
-                        <span>Main</span>
-                    </li>
-                    <li>
-                        <a href="staff_dashboard"><i class="fe fe-home"></i> <span>bảng điều khiển</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Cuộc hẹn</span></a>
-                    </li>
-                    <li>
-                        <a href="doctor_list"><i class="fe fe-user-plus"></i> <span>Bác sĩ</span></a>
-                    </li>
-                    <li>
-                        <a href="patient_list"><i class="fe fe-user"></i> <span>Người bệnh</span></a>
-                    </li>
-                    <li class="active">
-                        <a href="invoice_list"><i class="fe fe-document"></i> <span> Hóa đơn</span></a>
-                    </li>
-                    <li>
-                        <a href="staff_change_password"><i class="fe fe-user-plus"></i> <span>Đổi mật khẩu</span></a>
-                    </li>
-                    <li>
-                        <a href="login">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>Đăng kí</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /Sidebar -->
-
-    <!-- Page Wrapper -->
-    <div class="page-wrapper">
-        <div class="content container-fluid">
-
-            <!-- Page Header -->
-            <div class="page-header">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h3 class="page-title">Báo cáo hóa đơn</h3>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Báo cáo hóa đơn</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- /Page Header -->
-            <%
-                AdminDBContext adminDBContext = new AdminDBContext();
-                List<MedicalRecord> invoiceList = adminDBContext.invoiceList();
-            %>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="datatable table table-hover table-center mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th>Hóa đơnID</th>
-                                        <th>Bệnh nhân ID</th>
-                                        <th>Tên bệnh nhân</th>
-                                        <th>Total Amount</th>
-                                        <th>Ngày tạo</th>
-                                        <th class="text-center">Trạng thái</th>
-                                        <th class="text-center">Hoạt động</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <% for (MedicalRecord invoice : invoiceList) { %>
-                                    <tr>
-                                        <td><a href="#"><%= invoice.getBill().getId() %>
-                                        </a></td>
-                                        <td><%= invoice.getBooking().getPatient().getId() %>
-                                        </td>
-                                        <td>
-                                            <h2 class="table-avatar">
-                                                <a href="#" class="avatar avatar-sm mr-2"><img
-                                                        class="avatar-img rounded-circle"
-                                                        src="assets/img/patients/patient1.jpg" alt="User Image"></a>
-                                                <a href="#"><%= invoice.getBooking().getPatient().getName() %>
-                                                </a>
-                                            </h2>
-                                        </td>
-                                        <td>$<%= invoice.getBill().getTotalPrice() %>
-                                        </td>
-                                        <td><%= invoice.getBooking().getDate() %>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="badge badge-pill bg-success inv-badge">Thanh toán</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="actions">
-                                                <a data-toggle="modal" href="#"
-                                                   class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fe fe-pencil"></i> Chính sửa
-                                                </a>
-                                                <a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#">
-                                                    <i class="fe fe-trash"></i> Xóa
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <% } %>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <!-- /Page Wrapper -->
-
-    <!-- Edit Details Modal -->
-    <div class="modal fade" id="edit_invoice_report" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Chỉnh sửa báo cáo hóa đơn</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Số hóa đơn</label>
-                                    <input type="text" class="form-control" value="#INV-0001">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Bệnh nhân ID</label>
-                                    <input type="text" class="form-control" value="	#PT002">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Tên bệnh nhân</label>
-                                    <input type="text" class="form-control" value="R Amer">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Ảnh bệnh nhân</label>
-                                    <input type="file" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Total Amount</label>
-                                    <input type="text" class="form-control" value="$200.00">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Created Date</label>
-                                    <input type="text" class="form-control" value="29th Oct 2019">
-                                </div>
-                            </div>
-
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Lưu</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Edit Details Modal -->
-
-    <!-- Delete Modal -->
-    <div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <!--	<div class="modal-header">
-                        <h5 class="modal-title">Delete</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>-->
-                <div class="modal-body">
-                    <div class="form-content p-2">
-                        <h4 class="modal-title">Xóa</h4>
-                        <p class="mb-4">Bạn có chắc chắn muốn xóa?</p>
-                        <button type="button" class="btn btn-primary">Lưu</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Delete Modal -->
-</div>
-<!-- /Main Wrapper -->
-<% } %>
 
 <!-- jQuery -->
 <script src="assets/js/jquery-3.2.1.min.js"></script>

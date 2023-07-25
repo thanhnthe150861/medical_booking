@@ -69,12 +69,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -193,7 +193,7 @@
                                                 <a href="#" class="avatar avatar-sm mr-2">
                                                     <img class="avatar-img rounded-circle"
                                                          src="<%= doctor.getBooking().getDoctor().getUrl() %>"
-                                                         alt="User Image">
+                                                    >
                                                 </a>
                                                 <a href="#"><%= doctor.getBooking().getDoctor().getName() %>
                                                 </a>
@@ -207,9 +207,9 @@
                                         </td>
                                         <td class="text-center">
                                             <% if (doctor.getBooking().getDoctor().getAccount().getStatus()) { %>
-                                            <span class="badge badge-pill bg-success inv-badge">Hoạt Động</span>
+                                            <span class="badge badge-pill bg-success inv-badge">Active</span>
                                             <% } else { %>
-                                            <span class="badge badge-pill bg-danger inv-badge">Ngưng Hoạt Động</span>
+                                            <span class="badge badge-pill bg-danger inv-badge">Deactive</span>
                                             <% } %>
                                         </td>
                                         <td class="text-center">

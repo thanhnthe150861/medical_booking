@@ -78,14 +78,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31"
-                                         alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.doctor.url}" alt="User Image"
+                                <img src="${sessionScope.doctor.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -135,7 +134,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="${sessionScope.doctor.url}" alt="User Image">
+                                    <img src="${sessionScope.doctor.url}">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3> ${sessionScope.doctor.name}</h3>
@@ -170,7 +169,7 @@
                                     <li>
                                         <a href="doctor_schedule_timings">
                                             <i class="fas fa-hourglass-start"></i>
-                                            <span>Thời gian khám</span>
+                                            <span>Lịch làm việc</span>
                                         </a>
                                     </li>
                                     <li>
@@ -208,13 +207,14 @@
                 <div class="col-md-7 col-lg-8 col-xl-9">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="mb-4">Patient Appoinment</h4>
+                            <h4 class="mb-4">Các lịch hẹn</h4>
                             <div class="appointment-tab">
 
                                 <!-- Appointment Tab -->
                                 <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#upcoming-appointments" data-toggle="tab">Sắp tới</a>
+                                        <a class="nav-link active" href="#upcoming-appointments" data-toggle="tab">Sắp
+                                            tới</a>
                                     </li>
                                 </ul>
                                 <!-- /Appointment Tab -->
@@ -232,6 +232,7 @@
                                                             <th>Tên bệnh nhân</th>
                                                             <th>Ngày đặt</th>
                                                             <th>Mục đích</th>
+                                                            <th>Trạng thái</th>
                                                             <th></th>
                                                         </tr>
                                                         </thead>
@@ -243,7 +244,7 @@
                                                                         <a href="patient_profile?id=${b.patient.id}"
                                                                            class="avatar avatar-sm mr-2"><img
                                                                                 class="avatar-img rounded-circle"
-                                                                                src="${b.patient.url}" alt="User Image"></a>
+                                                                                src="${b.patient.url}"></a>
                                                                         <a href="patient_profile?id=${b.patient.id}">${b.patient.name}<span>Bệnh nhân ID: ${b.patient.id}</span></a>
                                                                     </h2>
                                                                 </td>
@@ -251,6 +252,11 @@
                                                                         class="d-block text-info">${b.slots.name}</span>
                                                                 </td>
                                                                 <td>${b.booking_reason}</td>
+                                                                <td>
+																		<span class="badge badge-pill bg-${b.status eq 'Confirmed' ? 'success-light' : b.status eq 'Pending' ? 'warning-light' : b.status eq 'Cancelled' ? 'danger-light' : b.status eq 'Completed' ? 'info-light' : ''}">
+                                                                                ${b.status}
+                                                                        </span>
+                                                                </td>
                                                                 <td class="text-right">
                                                                     <div class="table-action">
                                                                         <a href="doctor_appointments?id=${b.id}&status=Confirmed"
@@ -296,7 +302,6 @@
             </div>
         </div>
         <!-- /Footer Top -->
-
 
 
     </footer>

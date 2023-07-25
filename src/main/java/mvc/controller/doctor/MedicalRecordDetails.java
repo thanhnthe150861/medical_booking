@@ -19,20 +19,26 @@ public class MedicalRecordDetails extends HttpServlet {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
-        if (account != null && account.getIsAdmin() == 1) {
+        if (account != null) {
             String mid = req.getParameter("mid");
-            if(mid != null){
-                session.removeAttribute("bid");
-                session.setAttribute("mid", mid);
+            if (account.getIsAdmin() == 1 || account.getIsAdmin() == 3) {
+                if (mid != null) {
+                    session.removeAttribute("bid");
+                    session.setAttribute("mid", mid);
+                    MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
+                    session.setAttribute("medicalRecord", medicalRecord);
+                    req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
+                }
+                String bid = req.getParameter("bid");
+                if (bid != null) {
+                    session.removeAttribute("mid");
+                    session.setAttribute("bid", bid);
+                    MedicalRecord medicalRecord = doctorDBContext.getTTByBookingID(bid);
+                    session.setAttribute("medicalRecord", medicalRecord);
+                    req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
+                }
+            } else if (account.getIsAdmin() == 2) {
                 MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
-                session.setAttribute("medicalRecord", medicalRecord);
-                req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
-            }
-            String bid = req.getParameter("bid");
-            if(bid != null){
-                session.removeAttribute("mid");
-                session.setAttribute("bid", bid);
-                MedicalRecord medicalRecord = doctorDBContext.getTTByBookingID(bid);
                 session.setAttribute("medicalRecord", medicalRecord);
                 req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
             }
@@ -48,7 +54,7 @@ public class MedicalRecordDetails extends HttpServlet {
         String url = req.getParameter("url");
         String prescription = req.getParameter("prescription");
         String mid = req.getParameter("mid");
-        if(!mid.isEmpty()){
+        if (!mid.isEmpty()) {
             MedicalRecord medicalRecord = doctorDBContext.getTTByMedicalID(mid);
             medicalRecord.setDiagnosis(diagnosis);
             medicalRecord.setPrescription(prescription);
@@ -60,14 +66,15 @@ public class MedicalRecordDetails extends HttpServlet {
             req.getRequestDispatcher("view/doctor/add-medical-record.jsp").forward(req, resp);
         }
         String bid = req.getParameter("bid");
-        if(!bid.isEmpty()){
+        if (!bid.isEmpty()) {
             MedicalRecord medicalRecord = doctorDBContext.getTTByBookingID(bid);
             medicalRecord.setDiagnosis(diagnosis);
             medicalRecord.setPrescription(prescription);
             medicalRecord.setUrl(url);
-            if(medicalRecord.getId() == 0){
+            if (medicalRecord.getId() == 0) {
                 doctorDBContext.addMedical(medicalRecord);
-            }else{
+                doctorDBContext.updateBookingStatus(bid, "Completed");
+            } else {
                 doctorDBContext.UpdateMedical(medicalRecord);
             }
 

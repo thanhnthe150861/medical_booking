@@ -1,14 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="mvc.model.MedicalRecord" %>
-<%@ page import="java.util.List" %>
-<%@ page import="mvc.dal.StaffDBContext" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/appointment-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:46 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>TATQ CLINIC - INVOICE</title>
+    <title>TATQ CLINIC - APPOINTMENT</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/admin/assets/img/favicon.png">
@@ -101,7 +100,7 @@
                     <li>
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="create_invoice"><i class="fe fe-edit"></i>
                             <span>Tạo hóa đơn</span></a>
                     </li>
@@ -114,7 +113,7 @@
                     <li>
                         <a href="list_patient"><i class="fe fe-user"></i> <span>Danh sách bệnh nhân</span></a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="list_invoice"><i class="fe fe-document"></i> <span>Hóa đơn</span></a>
                     </li>
                     <li>
@@ -143,99 +142,109 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Hóa đơn</h3>
+                        <h3 class="page-title">Tạo hóa đơn cho lịch đã hoàn thành trong ngày</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="view/staff/staff-dashboard.jsp">Bảng điều khiển</a>
+                            <li class="breadcrumb-item"><a href="staff_dashboard">Bảng điều khiển</a>
                             </li>
-                            <li class="breadcrumb-item active">Hóa đơn</li>
+                            <li class="breadcrumb-item active">Tạo hóa đơn</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- /Page Header -->
-            <%
-                StaffDBContext staffDBContext = new StaffDBContext();
-                List<MedicalRecord> invoiceList = staffDBContext.invoiceList();
-            %>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
+
+                    <!-- Recent Orders -->
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>ID Hóa đơn</th>
+                                        <th>Mã lịch đặt</th>
+                                        <th>Tên bác sĩ</th>
+                                        <th>Chuyên khoa</th>
                                         <th>Tên bệnh nhân</th>
-                                        <th>Tổng chi phí</th>
-                                        <th>Ngày lập</th>
+                                        <th>Thời gian hẹn</th>
                                         <th class="text-center">Trạng thái</th>
-                                        <th class="text-center">Hành động</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <% for (MedicalRecord invoice : invoiceList) { %>
-                                    <tr>
-                                        <td><a href="#"><%= invoice.getBill().getId() %>
-                                        </a></td>
-                                        <td>
-                                            <h2 class="table-avatar">
-                                                <a href="#" class="avatar avatar-sm mr-2"><img
-                                                        class="avatar-img rounded-circle"
-                                                        src="<%= invoice.getBooking().getPatient().getUrl()%>"></a>
-                                                <a href="#"><%= invoice.getBooking().getPatient().getName() %>
-                                                </a>
-                                            </h2>
-                                        </td>
-                                        <td>$<%= invoice.getBill().getTotalPrice() %>
-                                        </td>
-                                        <td><%= invoice.getBooking().getDate() %>
-                                        </td>
-                                        <td class="text-center">
-                                            <% if (invoice.getBill().getPayment_status().equals("Paid")) {%>
-                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
-                                            <%} else {%>
-                                            <span class="badge badge-pill bg-danger inv-badge">Unpaid</span>
-                                            <%}%>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="actions">
-                                                <% if (invoice.getBill().getId() == 0) { %>
-                                                <a href="invoice_details?mid=<%= invoice.getId() %>"
-                                                   class="btn btn-sm bg-success-light">
-                                                    <i class="far fa-edit"></i> Tạo hóa đơn
-                                                </a>
-                                                <%}%>
-                                                <% if (invoice.getBill().getId() != 0) { %>
-                                                <a href="invoice_details?mid=<%= invoice.getId() %>"
-                                                   class="btn btn-sm bg-success-light">
-                                                    <i class="far fa-edit"></i> Sửa
-                                                </a>
-                                                <a href="invoice_view?bid=<%= invoice.getBill().getId() %>"
-                                                   class="btn btn-sm bg-info-light">
-                                                    <i class="far fa-eye"></i> Xem
-                                                </a>
-                                                <%}%>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <% } %>
+                                    <c:forEach items="${sessionScope.bookingList}" var="bl">
+                                        <tr>
+                                            <td>${bl.booking.id}</td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="#" class="avatar avatar-sm mr-2">
+                                                        <img class="avatar-img rounded-circle"
+                                                             src="${bl.booking.doctor.url}"
+                                                        >
+                                                    </a>
+                                                    <a href="#">${bl.booking.doctor.name}
+                                                    </a>
+                                                </h2>
+                                            </td>
+                                            <td>${bl.booking.doctor.specialty}</td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="#" class="avatar avatar-sm mr-2">
+                                                        <img class="avatar-img rounded-circle"
+                                                             src="${bl.booking.patient.url}"
+                                                        >
+                                                    </a>
+                                                    <a href="#">${bl.booking.patient.name}
+                                                    </a>
+                                                </h2>
+                                            </td>
+                                            <td>${bl.booking.date}<span
+                                                    class="d-block text-info">${bl.booking.slots.name}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                    <span class="badge badge-pill bg-${bl.booking.status == 'Confirmed' ? 'success-light' : bl.booking.status == 'Pending' ? 'warning-light' : bl.booking.status == 'Cancelled' ? 'danger-light' : bl.booking.status == 'Completed' ? 'info-light' : ''}">
+                                                            ${bl.booking.status}
+                                                    </span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="table-action">
+                                                    <c:if test="${bl.booking.status == 'Completed'}">
+                                                        <c:if test="${bl.bill.id == 0}">
+                                                            <a href="invoice_details?mid=${bl.id}"
+                                                               class="btn btn-sm bg-success-light">
+                                                                <i class="far fa-edit"></i> Tạo hóa đơn
+                                                            </a>
+                                                        </c:if>
+                                                        <c:if test="${bl.bill.id != 0}">
+                                                            <a href="invoice_view?bid=${bl.bill.id}"
+                                                               class="btn btn-sm bg-success-light">
+                                                                <i class="far fa-eye"></i> Xem hóa đơn
+                                                            </a>
+                                                        </c:if>
+                                                    </c:if>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                    <!-- /Recent Orders -->
+
                 </div>
             </div>
-
         </div>
     </div>
     <!-- /Page Wrapper -->
+
 </div>
 <!-- /Main Wrapper -->
 
 <!-- jQuery -->
 <script src="assets/js/jquery-3.2.1.min.js"></script>
+
 <!-- Bootstrap Core JS -->
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>

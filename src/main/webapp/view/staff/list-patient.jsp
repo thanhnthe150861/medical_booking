@@ -71,12 +71,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="${sessionScope.staff.url}" width="31"
-                                                alt="${sessionScope.staff.name}"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="${sessionScope.staff.url}" alt="User Image"
+                            <img src="${sessionScope.staff.url}"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -102,6 +102,10 @@
                 <ul>
                     <li>
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="create_invoice"><i class="fe fe-edit"></i>
+                            <span>Tạo hóa đơn</span></a>
                     </li>
                     <li>
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
@@ -178,7 +182,7 @@
                                                 <h2 class="table-avatar">
                                                     <a href="#" class="avatar avatar-sm mr-2"><img
                                                             class="avatar-img rounded-circle"
-                                                            src="<%= patient.getBooking().getPatient().getUrl()%>" alt="User Image"></a>
+                                                            src="<%= patient.getBooking().getPatient().getUrl()%>"></a>
                                                     <a href="#"><%= patient.getBooking().getPatient().getName() %>
                                                     </a>
                                                 </h2>

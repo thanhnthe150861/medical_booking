@@ -67,12 +67,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -124,7 +124,7 @@
                     <li class="submenu">
                         <a href="#"><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
                                 class="menu-arrow"></span></a>
-                        <ul style="display: none;"  class="active">
+                        <ul style="display: none;" class="active">
                             <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
                             <li><a href="form_details?str=patient">Bệnh Nhân</a></li>
                             <li><a href="form_details?str=staff">Nhân Viên</a></li>
@@ -187,7 +187,7 @@
                                     <div class="col-md-2">
                                         <div class="change-avatar">
                                             <div class="profile-img">
-                                                <img src="${sessionScope.doctor.url}" alt="User Image"
+                                                <img src="${sessionScope.doctor.url}"
                                                      style="width: 200px; height: 200px; object-fit: cover;">
                                             </div>
                                             <div class="upload-img">
@@ -196,7 +196,8 @@
                                                 </label>
                                                 <input type="file" id="photo-upload" class="upload" name="file"
                                                        style="display: none;">
-                                                <small class="form-text text-muted">Cho phép JPG, GIF or PNG. Kích thước tối đa
+                                                <small class="form-text text-muted">Cho phép JPG, GIF or PNG. Kích thước
+                                                    tối đa
                                                     2MB</small>
                                             </div>
                                         </div>

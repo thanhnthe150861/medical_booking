@@ -81,14 +81,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31"
-                                         alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.doctor.url}" alt="User Image"
+                                <img src="${sessionScope.doctor.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -138,7 +137,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="${sessionScope.doctor.url}" alt="User Image">
+                                    <img src="${sessionScope.doctor.url}">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3> ${sessionScope.doctor.name}</h3>
@@ -173,7 +172,7 @@
                                     <li>
                                         <a href="doctor_schedule_timings">
                                             <i class="fas fa-hourglass-start"></i>
-                                            <span>Thời gian khám</span>
+                                            <span>Lịch làm việc</span>
                                         </a>
                                     </li>
                                     <li class="active">
@@ -239,8 +238,7 @@
                                                 <a href="patient_profile?id=<%= invoice.getBooking().getPatient().getId() %>"
                                                    class="avatar avatar-sm mr-2">
                                                     <img class="avatar-img rounded-circle"
-                                                         src="<%= invoice.getBooking().getPatient().getUrl() %>"
-                                                         alt="User Image">
+                                                         src="<%= invoice.getBooking().getPatient().getUrl() %>">
                                                 </a>
                                                 <a href="patient_profile?id=<%= invoice.getBooking().getPatient().getId() %>"><%= invoice.getBooking().getPatient().getName() %>
                                                     <span><%= invoice.getBooking().getPatient().getId() %></span></a>
@@ -285,7 +283,6 @@
             </div>
         </div>
         <!-- /Footer Top -->
-
 
 
     </footer>

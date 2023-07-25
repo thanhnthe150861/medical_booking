@@ -67,12 +67,12 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
-                                                alt="Ryan Taylor"></span>
+                    ></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="view/admin/assets/img/profiles/avatar-01.jpg" alt="User Image"
+                            <img src="view/admin/assets/img/profiles/avatar-01.jpg"
                                  class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
@@ -187,7 +187,7 @@
                                     <div class="col-md-2">
                                         <div class="change-avatar">
                                             <div class="profile-img">
-                                                <img src="${sessionScope.patient.url}" alt="User Image"
+                                                <img src="${sessionScope.patient.url}"
                                                      style="width: 200px; height: 200px; object-fit: cover;">
                                             </div>
                                             <div class="upload-img">
@@ -196,7 +196,8 @@
                                                 </label>
                                                 <input type="file" id="photo-upload" class="upload" name="file"
                                                        style="display: none;">
-                                                <small class="form-text text-muted">Cho phép JPG, GIF or PNG. Kích thước tối đa
+                                                <small class="form-text text-muted">Cho phép JPG, GIF or PNG. Kích thước
+                                                    tối đa
                                                     2MB</small>
                                             </div>
                                         </div>

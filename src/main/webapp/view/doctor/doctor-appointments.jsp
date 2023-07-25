@@ -82,14 +82,13 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31"
-                                         alt="Darren Elder">
+									<img class="rounded-circle" src="${sessionScope.doctor.url}" width="31">
 								</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.doctor.url}" alt="User Image"
+                                <img src="${sessionScope.doctor.url}"
                                      class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
@@ -139,7 +138,7 @@
                         <div class="widget-profile pro-widget-content">
                             <div class="profile-info-widget">
                                 <a href="#" class="booking-doc-img">
-                                    <img src="${sessionScope.doctor.url}" alt="User Image">
+                                    <img src="${sessionScope.doctor.url}">
                                 </a>
                                 <div class="profile-det-info">
                                     <h3> ${sessionScope.doctor.name}</h3>
@@ -174,7 +173,7 @@
                                     <li>
                                         <a href="doctor_schedule_timings">
                                             <i class="fas fa-hourglass-start"></i>
-                                            <span>Thời gian khám</span>
+                                            <span>Lịch làm việc</span>
                                         </a>
                                     </li>
                                     <li>
@@ -226,62 +225,64 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${requestScope.bookingList}" var="bl">
-                                        <tr>
-                                            <td>
-                                                <a href="#">${bl.bill.id}</a>
-                                            </td>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="patient_profile?id=${bl.booking.patient.id}"
-                                                       class="avatar avatar-sm mr-2">
-                                                        <img class="avatar-img rounded-circle"
-                                                             src="${bl.booking.patient.url}" alt="User Image">
-                                                    </a>
-                                                    <a href="patient_profile?id=${bl.booking.patient.id}">${bl.booking.patient.name}</a>
-                                                </h2>
-                                            </td>
-                                            <td>${bl.booking.date}</td>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="doctor_profile?id=${bl.booking.doctor.id}"
-                                                       class="avatar avatar-sm mr-2">
-                                                        <img class="avatar-img rounded-circle"
-                                                             src="${bl.booking.doctor.url}" alt="User Image">
-                                                    </a>
-                                                    <a href="doctor_profile?id=${bl.booking.doctor.id}">${bl.booking.doctor.name}</a>
-                                                </h2>
-                                            </td>
-                                            <td>
+                                    <c:if test="${empty requestScope.bookingList}">
+                                        <c:forEach items="${requestScope.bookingList}" var="bl">
+                                            <tr>
+                                                <td>
+                                                    <a href="#">${bl.booking.id}</a>
+                                                </td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="patient_profile?id=${bl.booking.patient.id}"
+                                                           class="avatar avatar-sm mr-2">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="${bl.booking.patient.url}">
+                                                        </a>
+                                                        <a href="patient_profile?id=${bl.booking.patient.id}">${bl.booking.patient.name}</a>
+                                                    </h2>
+                                                </td>
+                                                <td>${bl.booking.date}</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="doctor_profile?id=${bl.booking.doctor.id}"
+                                                           class="avatar avatar-sm mr-2">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="${bl.booking.doctor.url}">
+                                                        </a>
+                                                        <a href="doctor_profile?id=${bl.booking.doctor.id}">${bl.booking.doctor.name}</a>
+                                                    </h2>
+                                                </td>
+                                                <td>
             <span class="badge badge-pill bg-${bl.booking.status eq 'Confirmed' ? 'success-light' : bl.booking.status eq 'Pending' ? 'warning-light' : bl.booking.status eq 'Cancelled' ? 'danger-light' : bl.booking.status eq 'Completed' ? 'info-light' : ''}">
                     ${bl.booking.status}
             </span>
-                                            </td>
-                                            <td>${bl.bill.totalPrice} VND</td>
-                                            <td class="text-right">
-                                                <div class="table-action">
-                                                    <c:choose>
-                                                        <c:when test="${bl.booking.status eq 'Confirmed'}">
-                                                            <a href="medical_record_details?bid=${bl.booking.id}"
-                                                               class="btn btn-sm bg-info-light">
-                                                                <i class="fas fa-check"></i> Tạo hồ sơ bệnh án
-                                                            </a>
-                                                            <a href="doctor_appointments?id=${bl.booking.id}&status=Cancelled"
-                                                               class="btn btn-sm bg-danger-light">
-                                                                <i class="far fa-trash-alt"></i> Hủy
-                                                            </a>
-                                                        </c:when>
-                                                        <c:when test="${bl.booking.status eq 'Completed'}">
-                                                            <a href="medical_record_details?mid=${bl.id}"
-                                                               class="btn btn-sm bg-info-light">
-                                                                <i class="far fa-eye"></i> Xem hồ sơ bệnh án
-                                                            </a>
-                                                        </c:when>
-                                                    </c:choose>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+                                                </td>
+                                                <td>${bl.bill.totalPrice} VND</td>
+                                                <td class="text-right">
+                                                    <div class="table-action">
+                                                        <c:choose>
+                                                            <c:when test="${bl.booking.status eq 'Confirmed'}">
+                                                                <a href="medical_record_details?bid=${bl.booking.id}"
+                                                                   class="btn btn-sm bg-info-light">
+                                                                    <i class="fas fa-check"></i> Tạo hồ sơ bệnh án
+                                                                </a>
+                                                                <a href="doctor_appointments?id=${bl.booking.id}&status=Cancelled"
+                                                                   class="btn btn-sm bg-danger-light">
+                                                                    <i class="far fa-trash-alt"></i> Hủy
+                                                                </a>
+                                                            </c:when>
+                                                            <c:when test="${bl.booking.status eq 'Completed'}">
+                                                                <a href="medical_record_details?mid=${bl.id}"
+                                                                   class="btn btn-sm bg-info-light">
+                                                                    <i class="far fa-eye"></i> Xem hồ sơ bệnh án
+                                                                </a>
+                                                            </c:when>
+                                                        </c:choose>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </c:if>
                                     </tbody>
                                 </table>
                             </div>
