@@ -34,17 +34,9 @@
             <div class="row">
                 <div class="col-sm-8 text-sm">
                     <div class="site-info">
-                        <a href="#"><span class="mai-call text-primary"></span> +84 868746275</a>
+                        <a href="+84868746275"><span class="mai-call text-primary"></span> +84 868746275</a>
                         <span class="divider">|</span>
-                        <a href="#"><span class="mai-mail text-primary"></span> quyetlbche160252@fpt.edu.vn</a>
-                    </div>
-                </div>
-                <div class="col-sm-4 text-right text-sm">
-                    <div class="social-mini-button">
-                        <a href="#"><span class="mai-logo-facebook-f"></span></a>
-                        <a href="#"><span class="mai-logo-twitter"></span></a>
-                        <a href="#"><span class="mai-logo-dribbble"></span></a>
-                        <a href="#"><span class="mai-logo-instagram"></span></a>
+                        <a href="quyetlbche160252@fpt.edu.vn"><span class="mai-mail text-primary"></span> quyetlbche160252@fpt.edu.vn</a>
                     </div>
                 </div>
             </div> <!-- .row -->
@@ -63,9 +55,6 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="home">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#'">Về chúng tôi</a>
                     </li>
                     <li class="nav-item">
                         <c:if test="${sessionScope.account ne null}">

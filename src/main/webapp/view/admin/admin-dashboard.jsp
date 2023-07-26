@@ -69,7 +69,7 @@
 
             <!-- User Menu -->
             <li class="nav-item dropdown has-arrow">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <a class="dropdown-toggle nav-link" data-toggle="dropdown">
                     <span class="user-img"><img class="rounded-circle"
                                                 src="view/admin/assets/img/profiles/avatar-01.jpg" width="31"
                     ></span>
@@ -126,7 +126,7 @@
                         <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ Sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
+                        <a><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;" class="active">
                             <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
@@ -254,7 +254,7 @@
 											<i class="fe fe-folder"></i>
 										</span>
                                 <div class="dash-count">
-                                    <h3>$<%= totalPrice %>
+                                    <h3><%= totalPrice %> VND
                                     </h3>
                                 </div>
                             </div>
@@ -294,11 +294,11 @@
                                     <tr>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a href="#" class="avatar avatar-sm mr-2"><img
+                                                <a class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= doctor.getBooking().getDoctor().getUrl() %>"
                                                 ></a>
-                                                <a href="#"><%= doctor.getBooking().getDoctor().getName() %>
+                                                <a><%= doctor.getBooking().getDoctor().getName() %>
                                                 </a>
                                             </h2>
                                         </td>
@@ -339,10 +339,10 @@
                                     <tr>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a href="#" class="avatar avatar-sm mr-2"><img
+                                                <a class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= patient.getBooking().getPatient().getUrl() %>"></a>
-                                                <a href="#"><%= patient.getBooking().getPatient().getName() %>
+                                                <a><%= patient.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>
                                         </td>
