@@ -78,7 +78,7 @@
                 <!-- User Menu -->
                 <c:if test="${sessionScope.account.isAdmin == 0}">
                     <li class="nav-item dropdown has-arrow logged-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
                 <img class="rounded-circle" src="view/admin/assets/img/profiles/avatar-01.jpg" width="31">
             </span>
@@ -101,7 +101,7 @@
                 </c:if>
                 <c:if test="${sessionScope.account.isAdmin == 1}">
                     <li class="nav-item dropdown has-arrow logged-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
                 <img class="rounded-circle" src="${sessionScope.bills.booking.doctor.url}" width="31">
             </span>
@@ -125,7 +125,7 @@
                 </c:if>
                 <c:if test="${sessionScope.account.isAdmin == 2}">
                     <li class="nav-item dropdown has-arrow logged-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
                 <img class="rounded-circle" src="${sessionScope.patient.url}" width="31">
             </span>
@@ -149,7 +149,7 @@
                 </c:if>
                 <c:if test="${sessionScope.account.isAdmin == 3}">
                     <li class="nav-item dropdown has-arrow logged-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown">
             <span class="user-img">
                 <img class="rounded-circle" src="${sessionScope.staff.url}" width="31">
             </span>
@@ -206,8 +206,8 @@
                         <div class="card-body">
                             <div class="pro-widget-content">
                                 <div class="profile-info-widget">
-                                    <a href="#" class="booking-doc-img">
-                                        <img src="assets/img/patients/patient.jpg">
+                                    <a class="booking-doc-img">
+                                        <img src="${sessionScope.bills.booking.patient.url}">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>${sessionScope.bills.booking.patient.name}</h3>
