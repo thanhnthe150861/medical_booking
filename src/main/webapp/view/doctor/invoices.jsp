@@ -244,7 +244,7 @@
                                                     <span><%= invoice.getBooking().getPatient().getId() %></span></a>
                                             </h2>
                                         </td>
-                                        <td>$<%= invoice.getBill().getTotalPrice() %>
+                                        <td><%= invoice.getBill().getTotalPrice() %> VND
                                         </td>
                                         <td><%= invoice.getBooking().getDate() %>
                                         </td>

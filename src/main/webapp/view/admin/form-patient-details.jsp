@@ -166,7 +166,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title"><c:if test="${sessionScope.patient eq null}">Thêm mới</c:if><c:if
-                                    test="${sessionScope.patient ne null}">UPDATE</c:if> Bệnh nhân</h4>
+                                    test="${sessionScope.patient ne null}">Cập nhật thông tin</c:if> Bệnh nhân</h4>
                             <!-- Place this code where you want to display the error message -->
                             <% String errorMessage = (String) request.getAttribute("messError"); %>
                             <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
@@ -197,8 +197,7 @@
                                                 <input type="file" id="photo-upload" class="upload" name="file"
                                                        style="display: none;">
                                                 <small class="form-text text-muted">Cho phép JPG, GIF or PNG. Kích thước
-                                                    tối đa
-                                                    2MB</small>
+                                                    tối đa 2MB</small>
                                             </div>
                                         </div>
                                     </div>

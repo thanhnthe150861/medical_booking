@@ -282,26 +282,26 @@
                                                     <td>
                                                         <input type="number" min="0" class="form-control"
                                                                name="priceMedical" id="priceMedical"
-                                                               value="${sessionScope.bills.bill.priceMedical}">
+                                                               value="${sessionScope.bills.bill.priceMedical}"> VND
                                                     </td>
                                                     <td>
                                                         <input type="number" min="0" class="form-control"
                                                                name="pricePrescription" id="pricePrescription"
-                                                               value="${sessionScope.bills.bill.pricePrescription}">
+                                                               value="${sessionScope.bills.bill.pricePrescription}"> VND
                                                     </td>
                                                     <td>
                                                         <input type="number" min="0" class="form-control"
                                                                name="totalPrice" id="totalPrice"
                                                                value="${sessionScope.bills.bill.priceMedical + sessionScope.bills.bill.pricePrescription}"
-                                                               readonly>
+                                                               readonly> VND
                                                     </td>
                                                     <td class="text-center">
                                                         <select name="status">
                                                             <option ${sessionScope.bills.bill.payment_status == "Paid" ? "selected" : ""}
-                                                                    value="Paid">Paid
+                                                                    value="Paid">Đã thanh toán
                                                             </option>
                                                             <option ${sessionScope.bills.bill.payment_status == "Unpaid" ? "selected" : ""}
-                                                                    value="Unpaid">Unpaid
+                                                                    value="Unpaid">Chưa thanh toán
                                                             </option>
                                                         </select>
                                                     </td>

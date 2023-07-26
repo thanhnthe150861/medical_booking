@@ -304,7 +304,7 @@
                                         </td>
                                         <td><%= doctor.getBooking().getDoctor().getSpecialty() %>
                                         </td>
-                                        <td>$<%= doctor.getBill().getTotalPrice() %>
+                                        <td><%= doctor.getBill().getTotalPrice() %> VND
                                         </td>
                                     </tr>
                                     <% } %>
@@ -349,7 +349,7 @@
                                         <td></td>
                                         <td><%= patient.getBooking().getDate() %>
                                         </td>
-                                        <td class="text-right">$<%= patient.getBill().getTotalPrice() %>
+                                        <td class="text-right"><%= patient.getBill().getTotalPrice() %> VND
                                         </td>
                                     </tr>
                                     <% } %>

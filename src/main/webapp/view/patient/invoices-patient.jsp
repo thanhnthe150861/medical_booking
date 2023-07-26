@@ -226,7 +226,8 @@
                                                             <td>${invoice.bill.totalPrice} VND</td>
                                                             <td>${invoice.booking.date}</td>
                                                             <td class="text-center"><span
-                                                                    class="badge badge-pill bg-${invoice.bill.payment_status eq 'Paid' ? 'success-light' : invoice.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">${invoice.bill.payment_status}</span>
+                                                                    class="badge badge-pill bg-${invoice.bill.payment_status eq 'Paid' ? 'success-light' : 'danger-light' }">
+                                                                    ${invoice.bill.payment_status eq 'Paid' ? 'Đã thanh toán' : 'Chưa thanh toán'}</span>
                                                             </td>
                                                             <td>
                                                                 <div class="table-action">

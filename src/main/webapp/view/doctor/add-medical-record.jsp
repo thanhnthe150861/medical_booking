@@ -210,7 +210,8 @@
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>
-                                            <a href="patient_profile?${sessionScope.medicalRecord.booking.patient.id}">${sessionScope.medicalRecord.booking.patient.name}</a>
+                                            <a href="patient_profile?${sessionScope.medicalRecord.booking.patient.id}">
+                                                ${sessionScope.medicalRecord.booking.patient.name}</a>
                                         </h3>
                                         <div class="patient-details">
                                             <h5><b>Bệnh nhân ID :</b> ${sessionScope.medicalRecord.booking.patient.id}

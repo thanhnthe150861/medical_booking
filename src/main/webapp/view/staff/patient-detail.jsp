@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -102,8 +102,7 @@
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="create_invoice"><i class="fe fe-edit"></i>
-                            <span>Tạo hóa đơn</span></a>
+                        <a href="create_invoice"><i class="fe fe-edit"></i> <span>Tạo hóa đơn</span></a>
                     </li>
                     <li>
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
@@ -158,7 +157,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><c:if test="${sessionScope.patient eq null}">THÊM</c:if><c:if
+                            <h4 class="card-title"><c:if test="${sessionScope.patient eq null}">Thêm mới</c:if><c:if
                                     test="${sessionScope.patient ne null}">CẬP NHẬT THÔNG TIN</c:if> BỆNH NHÂN</h4>
                             <!-- Place this code where you want to display the error message -->
                             <% String errorMessage = (String) request.getAttribute("messError"); %>
@@ -189,25 +188,18 @@
                                                 </label>
                                                 <input type="file" id="photo-upload" class="upload" name="file"
                                                        style="display: none;">
-                                                <small class="form-text text-muted"> Sử dụng loại ảnh JPG, GIF or PNG.
+                                                <small class="form-text text-muted"> Cho phép JPG, GIF or PNG.
                                                     Dung lượng tối đa 2MB </small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Username</label>
+                                    <label class="col-form-label col-md-2">Tài khoản</label>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="username" required <c:if
                                                 test="${sessionScope.patient ne null}"> readonly="readonly"
                                                value="${sessionScope.patient.account.username}"</c:if>>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Mật khẩu</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="password" required
-                                               value="${sessionScope.patient.account.password}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -276,7 +268,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-section">
-                                    <button type="submit" class="btn btn-primary submit-btn">LƯU</button>
+                                    <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
                                 </div>
                             </form>
                         </div>

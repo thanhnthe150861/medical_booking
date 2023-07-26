@@ -108,6 +108,7 @@ public class FormDetails extends HttpServlet {
         String did = (String) session.getAttribute("did");
         String pid = (String) session.getAttribute("pid");
         String sid = (String) session.getAttribute("sid");
+        String hash_pass = null;
         if (did != null) {
             String pass = req.getParameter("password");
             String name = req.getParameter("name");
@@ -120,7 +121,6 @@ public class FormDetails extends HttpServlet {
             Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
             //Mã hóa password
-            String hash_pass = null;
             try {
                 hash_pass = HashMD5.hashMD5(pass);
             } catch (NoSuchAlgorithmException e) {
@@ -252,7 +252,6 @@ public class FormDetails extends HttpServlet {
             Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
             //Mã hóa password
-            String hash_pass = null;
             try {
                 hash_pass = HashMD5.hashMD5(pass);
             } catch (NoSuchAlgorithmException e) {
@@ -373,7 +372,6 @@ public class FormDetails extends HttpServlet {
             Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
             //Mã hóa password
-            String hash_pass = null;
             try {
                 hash_pass = HashMD5.hashMD5(pass);
             } catch (NoSuchAlgorithmException e) {
@@ -500,7 +498,6 @@ public class FormDetails extends HttpServlet {
                 Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
                 //Mã hóa password
-                String hash_pass = null;
                 try {
                     hash_pass = HashMD5.hashMD5(pass);
                 } catch (NoSuchAlgorithmException e) {
@@ -642,7 +639,6 @@ public class FormDetails extends HttpServlet {
                 Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
                 //Mã hóa password
-                String hash_pass = null;
                 try {
                     hash_pass = HashMD5.hashMD5(pass);
                 } catch (NoSuchAlgorithmException e) {
@@ -775,7 +771,6 @@ public class FormDetails extends HttpServlet {
                 Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
                 //Mã hóa password
-                String hash_pass = null;
                 try {
                     hash_pass = HashMD5.hashMD5(pass);
                 } catch (NoSuchAlgorithmException e) {

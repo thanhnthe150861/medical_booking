@@ -126,6 +126,7 @@ public class StaffDBContext extends DBContext {
                 doctor.setSpecialty(rs.getString("doctor_specialty"));
                 doctor.setDob(rs.getDate("doctor_dob"));
                 doctor.setGender(rs.getString("doctor_gender"));
+                booking.setDoctor(doctor);
                 Patient patient = new Patient();
                 patient.setId(rs.getInt("patient_id"));
                 patient.setName(rs.getString("patient_name"));
