@@ -10,7 +10,7 @@
 
     <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-    <title>TATQ  CLINIC</title>
+    <title>TATQ CLINIC</title>
 
     <link rel="stylesheet" href="css/maicons.css">
 
@@ -36,7 +36,8 @@
                     <div class="site-info">
                         <a href="+84868746275"><span class="mai-call text-primary"></span> +84 868746275</a>
                         <span class="divider">|</span>
-                        <a href="quyetlbche160252@fpt.edu.vn"><span class="mai-mail text-primary"></span> quyetlbche160252@fpt.edu.vn</a>
+                        <a href="quyetlbche160252@fpt.edu.vn"><span class="mai-mail text-primary"></span>
+                            quyetlbche160252@fpt.edu.vn</a>
                     </div>
                 </div>
             </div> <!-- .row -->
@@ -149,51 +150,19 @@
                 <div class="col-lg-10 mt-5">
                     <h1 class="text-center mb-5 wow fadeInUp">Top bác sĩ</h1>
                     <div class="row justify-content-center">
-                        <div class="col-md-6 col-lg-4 wow zoomIn">
-                            <div class="card-doctor">
-                                <div class="header">
-                                    <img src="images/doctors/doctor_1.jpg" alt="">
-                                    <div class="meta">
-                                        <a href="#"><span class="mai-call"></span></a>
-                                        <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                        <c:forEach items="${requestScope.topDoctor}" var="td">
+                            <div class="col-md-6 col-lg-4 wow zoomIn">
+                                <div class="card-doctor">
+                                    <div class="header">
+                                        <img src="${td.booking.doctor.url}">
+                                    </div>
+                                    <div class="body">
+                                        <p class="text-xl mb-0">${td.booking.doctor.name}</p>
+                                        <span class="text-sm text-grey">${td.booking.doctor.specialty}</span>
                                     </div>
                                 </div>
-                                <div class="body">
-                                    <p class="text-xl mb-0">Dr. Stein Albert</p>
-                                    <span class="text-sm text-grey">Cardiology</span>
-                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 wow zoomIn">
-                            <div class="card-doctor">
-                                <div class="header">
-                                    <img src="images/doctors/doctor_2.jpg" alt="">
-                                    <div class="meta">
-                                        <a href="#"><span class="mai-call"></span></a>
-                                        <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                                    </div>
-                                </div>
-                                <div class="body">
-                                    <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-                                    <span class="text-sm text-grey">Dental</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 wow zoomIn">
-                            <div class="card-doctor">
-                                <div class="header">
-                                    <img src="images/doctors/doctor_3.jpg" alt="">
-                                    <div class="meta">
-                                        <a href="#"><span class="mai-call"></span></a>
-                                        <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                                    </div>
-                                </div>
-                                <div class="body">
-                                    <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-                                    <span class="text-sm text-grey">General Health</span>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

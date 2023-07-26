@@ -41,7 +41,7 @@ public class BookingAgain extends HttpServlet {
                 session.setAttribute("did", did);
                 DoctorDBContext dbContext = new DoctorDBContext();
                 Doctor doctor = patientDBContext.getDoctorByPatient(did);
-                req.setAttribute("doctor", doctor);
+                session.setAttribute("doctor", doctor);
                 List<Slot> slotExist = dbContext.checkSlotExist(did, date.toString());
                 session.setAttribute("slotExist", slotExist);
             }

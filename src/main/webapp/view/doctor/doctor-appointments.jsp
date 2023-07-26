@@ -225,7 +225,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:if test="${empty requestScope.bookingList}">
+                                    <c:if test="${ not empty requestScope.bookingList}">
                                         <c:forEach items="${requestScope.bookingList}" var="bl">
                                             <tr>
                                                 <td>

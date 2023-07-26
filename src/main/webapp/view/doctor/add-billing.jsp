@@ -45,13 +45,15 @@
 								<span></span>
 							</span>
                 </a>
-                <a href="doctor_dashboard" class="navbar-brand logo">
+                <a href="${sessionScope.account.isAdmin == 0 ? 'admin_dashboard' : sessionScope.account.isAdmin == 1 ? 'doctor_dashboard' : sessionScope.account.isAdmin == 2 ? 'home' : sessionScope.account.isAdmin == 3 ? 'staff_dashboard' : '#'}"
+                   class="navbar-brand logo">
                     <span class="text-primary">Clinic</span>-TATQ
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
-                    <a href="doctor_dashboard" class="menu-logo">
+                    <a href="${sessionScope.account.isAdmin == 0 ? 'admin_dashboard' : sessionScope.account.isAdmin == 1 ? 'doctor_dashboard' : sessionScope.account.isAdmin == 2 ? 'home' : sessionScope.account.isAdmin == 3 ? 'staff_dashboard' : '#'}"
+                       class="menu-logo">
                         <span class="text-primary" width="50" height="50">Clinic</span>
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -60,7 +62,8 @@
                 </div>
                 <ul class="main-nav">
                     <li>
-                        <a href="doctor_dashboard">Trang chủ</a>
+                        <a href="${sessionScope.account.isAdmin == 0 ? 'admin_dashboard' : sessionScope.account.isAdmin == 1 ? 'doctor_dashboard' : sessionScope.account.isAdmin == 2 ? 'patient_dashboard' : sessionScope.account.isAdmin == 3 ? 'staff_dashboard' : '#'}">Trang
+                            chủ</a>
                     </li>
                 </ul>
             </div>
@@ -318,7 +321,7 @@
                                     <div class="col-md-12">
                                         <div class="submit-section">
                                             <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
-                                            <a href="${sessionScope.account.isAdmin == 0 ? 'invoice_list' : sessionScope.account.isAdmin == 2 ? 'invoice_patient' : sessionScope.account.isAdmin == 3 ? 'list_invoice' : '#'}"
+                                            <a href="${sessionScope.account.isAdmin == 0 ? 'invoice_list' : sessionScope.account.isAdmin == 1 ? 'invoice_doctor' : sessionScope.account.isAdmin == 2 ? 'invoice_patient' : sessionScope.account.isAdmin == 3 ? 'list_invoice' : '#'}"
                                                class="btn btn-secondary submit-btn" id="cancel-btn">Quay lại</a>
                                         </div>
                                     </div>

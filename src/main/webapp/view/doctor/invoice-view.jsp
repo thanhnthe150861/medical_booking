@@ -44,13 +44,15 @@
 								<span></span>
 							</span>
                 </a>
-                <a href="home" class="navbar-brand logo">
+                <a href="${sessionScope.account.isAdmin == 0 ? 'admin_dashboard' : sessionScope.account.isAdmin == 1 ? 'doctor_dashboard' : sessionScope.account.isAdmin == 2 ? 'home' : sessionScope.account.isAdmin == 3 ? 'staff_dashboard' : '#'}"
+                   class="navbar-brand logo">
                     <span class="text-primary">Clinic</span>-TATQ
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
-                    <a href="home" class="menu-logo">
+                    <a href="${sessionScope.account.isAdmin == 0 ? 'admin_dashboard' : sessionScope.account.isAdmin == 1 ? 'doctor_dashboard' : sessionScope.account.isAdmin == 2 ? 'home' : sessionScope.account.isAdmin == 3 ? 'staff_dashboard' : '#'}"
+                       class="menu-logo">
                         <span class="text-primary" width="50" height="50">Clinic</span>
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -58,8 +60,14 @@
                     </a>
                 </div>
                 <ul class="main-nav">
+                    <c:if test="${sessionScope.account.isAdmin == 2}">
+                        <li>
+                            <a href="home">Trang chủ</a>
+                        </li>
+                    </c:if>
                     <li>
-                        <a href="home">Trang chủ</a>
+                        <a href="${sessionScope.account.isAdmin == 0 ? 'admin_dashboard' : sessionScope.account.isAdmin == 1 ? 'doctor_dashboard' : sessionScope.account.isAdmin == 2 ? 'patient_dashboard' : sessionScope.account.isAdmin == 3 ? 'staff_dashboard' : '#'}">Bảng
+                            điều khiển</a>
                     </li>
                 </ul>
             </div>

@@ -232,7 +232,7 @@
                                                             <th>Ngày đặt</th>
                                                             <th>Mục đích</th>
                                                             <th>Trạng thái</th>
-                                                            <th></th>
+                                                            <%--                                                            <th></th>--%>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
@@ -256,18 +256,18 @@
                                                                                 ${b.status}
                                                                         </span>
                                                                 </td>
-                                                                <td class="text-right">
-                                                                    <div class="table-action">
-                                                                        <a href="doctor_appointments?id=${b.id}&status=Confirmed"
-                                                                           class="btn btn-sm bg-success-light">
-                                                                            <i class="fas fa-check"></i> Chấp nhận
-                                                                        </a>
-                                                                        <a href="doctor_appointments?id=${b.id}&status=Cancelled"
-                                                                           class="btn btn-sm bg-danger-light">
-                                                                            <i class="fas fa-times"></i> Hủy
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
+                                                                    <%--                                                                <td class="text-right">--%>
+                                                                    <%--                                                                    <div class="table-action">--%>
+                                                                    <%--                                                                        <a href="doctor_appointments?id=${b.id}&status=Confirmed"--%>
+                                                                    <%--                                                                           class="btn btn-sm bg-success-light">--%>
+                                                                    <%--                                                                            <i class="fas fa-check"></i> Chấp nhận--%>
+                                                                    <%--                                                                        </a>--%>
+                                                                    <%--                                                                        <a href="doctor_appointments?id=${b.id}&status=Cancelled"--%>
+                                                                    <%--                                                                           class="btn btn-sm bg-danger-light">--%>
+                                                                    <%--                                                                            <i class="fas fa-times"></i> Hủy--%>
+                                                                    <%--                                                                        </a>--%>
+                                                                    <%--                                                                    </div>--%>
+                                                                    <%--                                                                </td>--%>
                                                             </tr>
                                                         </c:forEach>
                                                         </tbody>

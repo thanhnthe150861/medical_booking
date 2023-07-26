@@ -129,7 +129,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <c:if test="${requestScope.doctor ne null}">
+                    <c:if test="${sessionScope.doctor ne null}">
                         <div class="card">
                             <div class="card-body">
                                 <div class="booking-doc-info">
@@ -137,8 +137,8 @@
                                         <img src="${sessionScope.doctor.url}">
                                     </a>
                                     <div class="booking-info">
-                                        <h4><a href="#">${requestScope.doctor.name}</a></h4>
-                                        <p class="text-muted mb-0"> ${requestScope.doctor.specialty}
+                                        <h4><a href="#">${sessionScope.doctor.name}</a></h4>
+                                        <p class="text-muted mb-0"> ${sessionScope.doctor.specialty}
                                         </p>
                                     </div>
                                 </div>
@@ -312,10 +312,10 @@
                         <div class="footer-widget footer-menu">
                             <h2 class="footer-title">Đối với bệnh nhân</h2>
                             <ul>
-                                <li><a href="my-doctor.jsp"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a>
+                                <li><a href="my_doctor"><i class="fas fa-angle-double-right"></i>Bác sĩ của tôi</a>
                                 </li>
-                                <li><a href="booking.jsp"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
-                                <li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i> Bảng điều
+                                <li><a href="booking"><i class="fas fa-angle-double-right"></i> Đặt lịch</a></li>
+                                <li><a href="patient_dashboard"><i class="fas fa-angle-double-right"></i> Bảng điều
                                     khiển </a></li>
                             </ul>
                         </div>

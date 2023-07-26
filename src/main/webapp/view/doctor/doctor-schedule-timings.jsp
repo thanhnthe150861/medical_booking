@@ -288,23 +288,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
-
-                        <!-- Footer Widget -->
-                        <div class="footer-widget footer-about">
-                            <a href="home" class="navbar-brand logo">
-                                <span class="text-primary">Clinic</span>-TATQ
-                            </a>
-                        </div>
-                        <!-- /Footer Widget -->
-
                     </div>
                     <div class="col-lg-3 col-md-6">
                     </div>
-
                     <div class="col-lg-3 col-md-6">
-
                     </div>
-
                 </div>
             </div>
         </div>
