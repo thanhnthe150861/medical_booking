@@ -905,3 +905,4 @@ out/artifacts/medical_booking_war_exploded/WEB-INF/classes/mvc/controller/staff/
 out/artifacts/medical_booking_war_exploded/WEB-INF/classes/mvc/controller/staff/EditDetail$2.class
 out/artifacts/medical_booking_war_exploded/WEB-INF/classes/mvc/controller/staff/EditDetail$3.class
 out/artifacts/medical_booking_war_exploded/WEB-INF/classes/mvc/controller/staff/EditDetail$4.class
+*.MF
