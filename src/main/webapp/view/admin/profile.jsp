@@ -172,11 +172,6 @@
                                 <div class="user-Location"><i class="fa fa-phone"></i> ${sessionScope.account.phone}
                                 </div>
                             </div>
-                            <div class="col-auto profile-btn">
-                                <a href="#" class="btn btn-primary">
-                                    Chỉnh sửa
-                                </a>
-                            </div>
                         </div>
                     </div>
 

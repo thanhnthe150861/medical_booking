@@ -126,7 +126,7 @@
                         <a href="profile"><i class="fe fe-user-plus"></i> <span>Hồ Sơ</span></a>
                     </li>
                     <li class="submenu">
-                        <a><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
+                        <a href="#"><i class="fe fe-document"></i> <span>Thêm Mới/Cập Nhật</span> <span
                                 class="menu-arrow"></span></a>
                         <ul style="display: none;" class="active">
                             <li><a href="form_details?str=doctor">Bác Sĩ</a></li>
