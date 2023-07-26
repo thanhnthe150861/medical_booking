@@ -182,11 +182,11 @@
                                     <tr>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a class="avatar avatar-sm mr-2"><img
+                                                <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= appointment.getBooking().getDoctor().getUrl() %>"
                                                 ></a>
-                                                <a><%= appointment.getBooking().getDoctor().getName() %>
+                                                <a href="#"><%= appointment.getBooking().getDoctor().getName() %>
                                                 </a>
                                             </h2>
                                         </td>
@@ -194,10 +194,10 @@
                                         </td>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a class="avatar avatar-sm mr-2"><img
+                                                <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= appointment.getBooking().getPatient().getUrl() %>"></a>
-                                                <a><%= appointment.getBooking().getPatient().getName() %>
+                                                <a href="#"><%= appointment.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>
                                         </td>
