@@ -203,7 +203,7 @@
                                         </td>
                                         <td><%= doctor.getBooking().getDoctor().getDob() %>
                                         </td>
-                                        <td>$<%= doctor.getBill().getTotalPrice() %>
+                                        <td><%= doctor.getBill().getTotalPrice() %> VND
                                         </td>
                                         <td class="text-center">
                                             <% if (doctor.getBooking().getDoctor().getAccount().getStatus()) { %>

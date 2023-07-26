@@ -276,8 +276,8 @@
                 <div class="col-md-6 d-flex">
                     <!-- Recent Orders -->
                     <div class="card card-table flex-fill">
-                        <div class="card-header">
-                            <h4 class="card-title">Bảng Xếp Hạng 5 Bác Sĩ Có Doanh Thu Cao Nhất</h4>
+                        <div class="card-header text-center">
+                            <h4 class="card-title">5 Bác Sĩ Có Doanh Thu Cao Nhất</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -320,8 +320,8 @@
 
                     <!-- Feed Activity -->
                     <div class="card  card-table flex-fill">
-                        <div class="card-header">
-                            <h4 class="card-title">Bảng Xếp Hạng 5 Bệnh Nhân Có Chi Tiêu Cao Nhất</h4>
+                        <div class="card-header text-center">
+                            <h4 class="card-title">5 Bệnh Nhân Có Chi Tiêu Cao Nhất</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -330,7 +330,7 @@
                                     <tr>
                                         <th>Tên Bệnh Nhân</th>
                                         <th></th>
-                                        <th>Lần Cuối Đến Khám</th>
+                                        <th>Ngày khám gần nhất</th>
                                         <th>Chi Tiêu</th>
                                     </tr>
                                     </thead>
@@ -349,7 +349,7 @@
                                         <td></td>
                                         <td><%= patient.getBooking().getDate() %>
                                         </td>
-                                        <td class="text-right"><%= patient.getBill().getTotalPrice() %> VND
+                                        <td><%= patient.getBill().getTotalPrice() %> VND
                                         </td>
                                     </tr>
                                     <% } %>

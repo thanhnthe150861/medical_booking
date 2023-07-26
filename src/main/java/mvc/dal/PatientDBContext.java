@@ -127,7 +127,9 @@ public class PatientDBContext extends DBContext {
                     "LEFT JOIN slot ON booking.slot_id = slot.id\n" +
                     "LEFT JOIN medical_record ON booking.id = medical_record.booking_id\n" +
                     "LEFT JOIN bill ON medical_record.id = bill.medical_record_id\n" +
-                    "WHERE patient.id = ?;";
+                    "WHERE patient.id = ?\n" +
+                    "ORDER BY\n" +
+                    "    booking.date DESC;\n";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, patients.getId());
             rs = stm.executeQuery();
@@ -368,7 +370,9 @@ public class PatientDBContext extends DBContext {
                     "LEFT JOIN medical_record mr ON b.medical_record_id = mr.id\n" +
                     "LEFT JOIN booking bd ON mr.booking_id = bd.id\n" +
                     "LEFT JOIN patient p ON bd.patient_id = p.id\n" +
-                    "WHERE p.id = ?";
+                    "WHERE p.id = ?\n" +
+                    "ORDER BY\n" +
+                    "    bd.date DESC;\n";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, patient.getId());
             rs = stm.executeQuery();

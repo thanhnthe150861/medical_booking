@@ -222,7 +222,7 @@
                                             <% } %>
                                         </td>
                                         <td class="text-left">
-                                            $<%= appointment.getBill().getTotalPrice() %>
+                                            <%= appointment.getBill().getTotalPrice() %> VND
                                         </td>
                                     </tr>
                                     <% } %>

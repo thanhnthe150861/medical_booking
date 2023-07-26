@@ -182,7 +182,7 @@
                                             <th>Ngày sinh</th>
                                             <th>Số điện thoai</th>
                                             <th>Email</th>
-                                            <th>Lần truy cập trước</th>
+                                            <th>Ngày khám gần nhất</th>
                                             <th>Thanh toán</th>
                                             <th class="text-center">Trạng thái</th>
                                             <th class="text-center">Hoạt động</th>
@@ -209,9 +209,9 @@
                                             </td>
                                             <td><%= patient.getBooking().getPatient().getAccount().getEmail() %>
                                             </td>
-                                            <td><%= patient.getBooking().getDate() %>
+                                            <td class="text-center"><%= patient.getBooking().getDate() %>
                                             </td>
-                                            <td>$<%= patient.getBill().getTotalPrice() %>
+                                            <td class="text-center"><%= patient.getBill().getTotalPrice() %> VND
                                             </td>
                                             <td class="text-center">
                                                 <% if (patient.getBooking().getPatient().getAccount().getStatus()) { %>

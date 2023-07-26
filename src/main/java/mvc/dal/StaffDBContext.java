@@ -383,7 +383,9 @@ public class StaffDBContext extends DBContext {
                     "FROM bill b\n" +
                     "JOIN medical_record mr ON b.medical_record_id = mr.id\n" +
                     "JOIN booking bd ON mr.booking_id = bd.id\n" +
-                    "JOIN patient p ON bd.patient_id = p.id;";
+                    "JOIN patient p ON bd.patient_id = p.id \n" +
+                    "ORDER BY\n" +
+                    "    bd.date DESC;\n";
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
             while (rs.next()) {
