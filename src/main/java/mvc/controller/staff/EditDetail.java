@@ -89,7 +89,6 @@ public class EditDetail extends HttpServlet {
         String did = (String) session.getAttribute("did");
         String pid = (String) session.getAttribute("pid");
         if (did != null) {
-            String pass = req.getParameter("password");
             String name = req.getParameter("name");
             String gender = req.getParameter("gender");
             String dob = req.getParameter("dob");
@@ -196,8 +195,6 @@ public class EditDetail extends HttpServlet {
             doctor.getAccount().setStatus(status);
             doctor.getAccount().setPhone(phone);
             doctor.getAccount().setEmail(email);
-            doctor.getAccount().setPassword(pass);
-            //
             doctor.setName(name);
             doctor.setGender(gender);
             doctor.setDob(Date.valueOf(dob));
@@ -212,7 +209,6 @@ public class EditDetail extends HttpServlet {
             req.getRequestDispatcher("view/staff/doctor-detail.jsp").forward(req, resp);
 
         } else if (pid != null) {
-            String pass = req.getParameter("password");
             String name = req.getParameter("name");
             String gender = req.getParameter("gender");
             String dob = req.getParameter("dob");
@@ -311,8 +307,6 @@ public class EditDetail extends HttpServlet {
             patient.getAccount().setStatus(status);
             patient.getAccount().setPhone(phone);
             patient.getAccount().setEmail(email);
-            patient.getAccount().setPassword(pass);
-            //
             patient.setName(name);
             patient.setGender(gender);
             patient.setDob(Date.valueOf(dob));

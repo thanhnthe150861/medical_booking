@@ -84,8 +84,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="${sessionScope.doctor.url}"
-                                     class="avatar-img rounded-circle">
+                                <img src="${sessionScope.doctor.url}" class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
                                 <h6>${sessionScope.doctor.name}</h6>

@@ -187,15 +187,15 @@
                                                 </a>
                                             </h2>
                                         </td>
-                                        <td>$<%= invoice.getBill().getTotalPrice() %>
+                                        <td><%= invoice.getBill().getTotalPrice() %> VND
                                         </td>
                                         <td><%= invoice.getBooking().getDate() %>
                                         </td>
                                         <td class="text-center">
                                             <% if (invoice.getBill().getPayment_status().equals("Paid")) {%>
-                                            <span class="badge badge-pill bg-success inv-badge">Paid</span>
+                                            <span class="badge badge-pill bg-success inv-badge">Đã thanh toán</span>
                                             <%} else {%>
-                                            <span class="badge badge-pill bg-danger inv-badge">Unpaid</span>
+                                            <span class="badge badge-pill bg-danger inv-badge">Chưa thanh toán</span>
                                             <%}%>
                                         </td>
                                         <td class="text-center">

@@ -166,7 +166,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title"><c:if test="${sessionScope.staff eq null}">Thêm mưới</c:if><c:if
-                                    test="${sessionScope.staff ne null}">UPDATE</c:if> Nhân viên</h4>
+                                    test="${sessionScope.staff ne null}">Cập nhật thông tin</c:if> Nhân viên</h4>
                             <!-- Place this code where you want to display the error message -->
                             <% String errorMessage = (String) request.getAttribute("messError"); %>
                             <% if (errorMessage != null && !errorMessage.isEmpty()) { %>

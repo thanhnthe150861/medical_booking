@@ -7,8 +7,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import mvc.model.Account;
+import service.HashMD5;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @WebServlet(name = "Register", value = "/register")
 public class Register extends HttpServlet {
@@ -22,8 +24,8 @@ public class Register extends HttpServlet {
         String user_raw = req.getParameter("username");
         String pass_raw = req.getParameter("password");
         String name_raw = req.getParameter("name");
-//        String phone_raw = req.getParameter("phone");
         String email_raw = req.getParameter("email");
+
         // Validate user_raw: should not contain special characters
         if (!user_raw.matches("^[a-zA-Z0-9_]*$")) {
             req.setAttribute("messError", "User không được chứa ký tự đặc biệt");
@@ -32,7 +34,7 @@ public class Register extends HttpServlet {
         }
         // Validate name_raw: should not contain special characters
         if (!name_raw.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-            req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+            req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
             req.getRequestDispatcher("view/login/register.jsp").forward(req,resp);
             return;
         }
@@ -42,17 +44,27 @@ public class Register extends HttpServlet {
             req.getRequestDispatcher("view/login/register.jsp").forward(req,resp);
             return;
         }
+
+
         AccountDB adb = new AccountDB();
         if (adb.checkAccountExist(user_raw) == null) {
             Account account = new Account();
             account.setUsername(user_raw);
-            account.setPassword(pass_raw);
+
+            // Mã hóa password
+            try {
+                account.setPassword(HashMD5.hashMD5(pass_raw));
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            };
+
             account.setEmail(email_raw);
             account.setIsAdmin(2);
             account.setStatus(Boolean.TRUE);
             adb.Register(account, name_raw);
             req.setAttribute("messSuccess", "Tạo tài khoản thành công");
             req.getRequestDispatcher("view/login/register.jsp").forward(req,resp);
+
         } else {
             req.setAttribute("messError", "User đã tồn tại");
             req.getRequestDispatcher("view/login/register.jsp").forward(req,resp);

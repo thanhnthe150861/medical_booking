@@ -36,11 +36,11 @@ public class StaffDashboard extends HttpServlet {
                 List<Booking> bookingList1 = sdb.getBooking("Pending");
                 session.setAttribute("bookingList", bookingList1);
                 req.getRequestDispatcher("view/staff/staff-dashboard.jsp").forward(req, resp);
-                return;
+            } else {
+                req.getRequestDispatcher("view/staff/staff-dashboard.jsp").forward(req, resp);
             }
-            req.getRequestDispatcher("view/staff/staff-dashboard.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("login").forward(req, resp);
+        req.getRequestDispatcher("login");
     }
 
     @Override

@@ -7,8 +7,10 @@ import mvc.dal.AccountDB;
 import mvc.dal.StaffDBContext;
 import mvc.model.Account;
 import mvc.model.Staff;
+import service.HashMD5;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @WebServlet(name = "StaffChangePassword", value = "/staff_change_password")
 public class StaffChangePassword extends HttpServlet {
@@ -39,7 +41,11 @@ public class StaffChangePassword extends HttpServlet {
                 request.setAttribute("messError", "Mật khẩu mới không được trùng mật khẩu cũ");
                 request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);
             } else if (newPass.equals(rePass)) {
-                acc.setPassword(newPass);
+                try {
+                    acc.setPassword(HashMD5.hashMD5(newPass));
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                }
                 accountDB.UpdateAccount(acc);
                 request.setAttribute("messSuccess", "Cập nhật thành công");
                 request.getRequestDispatcher("view/staff/staff-change-password.jsp").forward(request, response);

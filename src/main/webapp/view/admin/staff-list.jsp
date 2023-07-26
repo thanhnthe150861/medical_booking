@@ -177,9 +177,9 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Bệnh nhân ID</th>
-                                        <th>Tên bệnh nhân</th>
+                                        <th>Tên nhân viên</th>
                                         <th>Ngày sinh</th>
+                                        <th>Giới tính</th>
                                         <th>Số điện thoai</th>
                                         <th>Email</th>
                                         <th class="text-center">Trạng thái</th>

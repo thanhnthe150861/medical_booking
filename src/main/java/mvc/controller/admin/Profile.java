@@ -8,8 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import mvc.dal.AccountDB;
 import mvc.model.Account;
+import service.HashMD5;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @WebServlet(name = "Profile", value = "/profile")
 public class Profile extends HttpServlet {
@@ -36,7 +38,11 @@ public class Profile extends HttpServlet {
                 req.setAttribute("messError", "New password must not be same with old password");
                 req.getRequestDispatcher("view/admin/profile.jsp").forward(req, resp);
             } else if (newpassword.equals(repassword)) {
-                account.setPassword(newpassword);
+                try {
+                    account.setPassword(HashMD5.hashMD5(newpassword));
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                }
                 adb.UpdateAccount(account);
                 req.setAttribute("messSuccess", "Update successful");
                 req.getRequestDispatcher("view/admin/profile.jsp").forward(req, resp);

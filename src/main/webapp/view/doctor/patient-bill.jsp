@@ -212,10 +212,11 @@
                                                                             <span>${m.booking.doctor.specialty}</span></a>
                                                                     </h2>
                                                                 </td>
-                                                                <td>${m.bill.totalPrice}</td>
+                                                                <td>${m.bill.totalPrice}</td> VND
                                                                 <td>${m.booking.date}</td>
                                                                 <td><span
-                                                                        class="badge badge-pill bg-${m.bill.payment_status eq 'Paid' ? 'success-light' : m.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">${m.bill.payment_status}</span>
+                                                                        class="badge badge-pill bg-${m.bill.payment_status eq 'Paid' ? 'success-light' : m.bill.payment_status eq 'Unpaid' ? 'danger-light' : ''}">
+                                                                        ${m.bill.payment_status eq 'Paid' ? 'Đã thanh toán' : 'Chưa thanh toán' } </span>
                                                                 </td>
                                                                 <td class="text-right">
                                                                     <div class="table-action">

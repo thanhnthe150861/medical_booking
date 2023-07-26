@@ -7,6 +7,7 @@ import jakarta.servlet.http.*;
 import mvc.dal.AccountDB;
 import mvc.model.*;
 import service.AWSS3Client;
+import service.HashMD5;
 import software.amazon.awssdk.auth.credentials.AwsCredentials;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -17,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.time.Duration;
 import java.util.List;
@@ -106,6 +108,7 @@ public class FormDetails extends HttpServlet {
         String did = (String) session.getAttribute("did");
         String pid = (String) session.getAttribute("pid");
         String sid = (String) session.getAttribute("sid");
+        String hash_pass = null;
         if (did != null) {
             String pass = req.getParameter("password");
             String name = req.getParameter("name");
@@ -117,21 +120,28 @@ public class FormDetails extends HttpServlet {
             String rank = req.getParameter("rank");
             Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
+            //Mã hóa password
+            try {
+                hash_pass = HashMD5.hashMD5(pass);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+                req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
                 req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                 return;
             }
             // Validate specialty: should not contain special characters
             if (!specialty.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                req.setAttribute("messError", "Speciality không được chứa ký tự đặc biệt");
+                req.setAttribute("messError", "Chuyên môn không được chứa ký tự đặc biệt");
                 req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
-                req.setAttribute("messError", "Phone sai định dạng");
+                req.setAttribute("messError", "Số điện thoại sai định dạng");
                 req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                 return;
             }
@@ -214,7 +224,7 @@ public class FormDetails extends HttpServlet {
             doctor.getAccount().setStatus(status);
             doctor.getAccount().setPhone(phone);
             doctor.getAccount().setEmail(email);
-            doctor.getAccount().setPassword(pass);
+            doctor.getAccount().setPassword(hash_pass);
             //
             doctor.setName(name);
             doctor.setGender(gender);
@@ -241,15 +251,22 @@ public class FormDetails extends HttpServlet {
             String rank = req.getParameter("rank");
             Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
+            //Mã hóa password
+            try {
+                hash_pass = HashMD5.hashMD5(pass);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+                req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
                 req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
-                req.setAttribute("messError", "Phone sai định dạng");
+                req.setAttribute("messError", "Số điện thoại sai định dạng");
                 req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
                 return;
             }
@@ -331,7 +348,7 @@ public class FormDetails extends HttpServlet {
             patient.getAccount().setStatus(status);
             patient.getAccount().setPhone(phone);
             patient.getAccount().setEmail(email);
-            patient.getAccount().setPassword(pass);
+            patient.getAccount().setPassword(hash_pass);
             //
             patient.setName(name);
             patient.setGender(gender);
@@ -354,15 +371,22 @@ public class FormDetails extends HttpServlet {
             String email = req.getParameter("email");
             Boolean status = Boolean.parseBoolean(req.getParameter("status"));
 
+            //Mã hóa password
+            try {
+                hash_pass = HashMD5.hashMD5(pass);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+
             // Validate name: should not contain special characters
             if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+                req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
                 req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
                 return;
             }
             // Validate phone: should only contain numbers and not exceed 10 digits
             if (!phone.matches("^[0-9]{10}$")) {
-                req.setAttribute("messError", "Phone sai định dạng");
+                req.setAttribute("messError", "Số điện thoại sai định dạng");
                 req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
                 return;
             }
@@ -444,7 +468,7 @@ public class FormDetails extends HttpServlet {
             staff.getAccount().setStatus(status);
             staff.getAccount().setPhone(phone);
             staff.getAccount().setEmail(email);
-            staff.getAccount().setPassword(pass);
+            staff.getAccount().setPassword(hash_pass);
             //
             staff.setName(name);
             staff.setGender(gender);
@@ -472,6 +496,14 @@ public class FormDetails extends HttpServlet {
                 String email = req.getParameter("email");
                 String rank = req.getParameter("rank");
                 Boolean status = Boolean.parseBoolean(req.getParameter("status"));
+
+                //Mã hóa password
+                try {
+                    hash_pass = HashMD5.hashMD5(pass);
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                }
+
                 // Validate user: should not contain special characters
                 if (!user.matches("^[a-zA-Z0-9_]*$")) {
                     req.setAttribute("messError", "User không được chứa ký tự đặc biệt");
@@ -480,19 +512,19 @@ public class FormDetails extends HttpServlet {
                 }
                 // Validate name: should not contain special characters
                 if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                    req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+                    req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
                     req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                     return;
                 }
                 // Validate specialty: should not contain special characters
                 if (!specialty.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                    req.setAttribute("messError", "Speciality không được chứa ký tự đặc biệt");
+                    req.setAttribute("messError", "Chuyên môn không được chứa ký tự đặc biệt");
                     req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                     return;
                 }
                 // Validate phone: should only contain numbers and not exceed 10 digits
                 if (!phone.matches("^[0-9]{10}$")) {
-                    req.setAttribute("messError", "Phone sai định dạng");
+                    req.setAttribute("messError", "Số điện thoại sai định dạng");
                     req.getRequestDispatcher("view/admin/form-doctor-details.jsp").forward(req, resp);
                     return;
                 }
@@ -509,7 +541,7 @@ public class FormDetails extends HttpServlet {
                     account.setPhone(phone);
                     account.setEmail(email);
                     account.setUsername(user);
-                    account.setPassword(pass);
+                    account.setPassword(hash_pass);
                     account.setIsAdmin(1);
                     Doctor doctor = new Doctor();
                     doctor.setUserName(user);
@@ -605,6 +637,14 @@ public class FormDetails extends HttpServlet {
                 String email = req.getParameter("email");
                 String rank = req.getParameter("rank");
                 Boolean status = Boolean.parseBoolean(req.getParameter("status"));
+
+                //Mã hóa password
+                try {
+                    hash_pass = HashMD5.hashMD5(pass);
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                }
+
                 // Validate user: should not contain special characters
                 if (!user.matches("^[a-zA-Z0-9_]*$")) {
                     req.setAttribute("messError", "User không được chứa ký tự đặc biệt");
@@ -613,13 +653,13 @@ public class FormDetails extends HttpServlet {
                 }
                 // Validate name: should not contain special characters
                 if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                    req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+                    req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
                     req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
                     return;
                 }
                 // Validate phone: should only contain numbers and not exceed 10 digits
                 if (!phone.matches("^[0-9]{10}$")) {
-                    req.setAttribute("messError", "Phone sai định dạng");
+                    req.setAttribute("messError", "Số điện thoại sai định dạng");
                     req.getRequestDispatcher("view/admin/form-patient-details.jsp").forward(req, resp);
                     return;
                 }
@@ -636,7 +676,7 @@ public class FormDetails extends HttpServlet {
                     account.setPhone(phone);
                     account.setEmail(email);
                     account.setUsername(user);
-                    account.setPassword(pass);
+                    account.setPassword(hash_pass);
                     account.setIsAdmin(2);
                     Patient patient = new Patient();
                     patient.setUserName(user);
@@ -729,6 +769,14 @@ public class FormDetails extends HttpServlet {
                 String phone = req.getParameter("phone");
                 String email = req.getParameter("email");
                 Boolean status = Boolean.parseBoolean(req.getParameter("status"));
+
+                //Mã hóa password
+                try {
+                    hash_pass = HashMD5.hashMD5(pass);
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                }
+
                 // Validate user: should not contain special characters
                 if (!user.matches("^[a-zA-Z0-9_]*$")) {
                     req.setAttribute("messError", "User không được chứa ký tự đặc biệt");
@@ -737,13 +785,13 @@ public class FormDetails extends HttpServlet {
                 }
                 // Validate name: should not contain special characters
                 if (!name.matches("^[a-zA-Z0-9_\\p{L} ]*$")) {
-                    req.setAttribute("messError", "Name không được chứa ký tự đặc biệt");
+                    req.setAttribute("messError", "Tên không được chứa ký tự đặc biệt");
                     req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
                     return;
                 }
                 // Validate phone: should only contain numbers and not exceed 10 digits
                 if (!phone.matches("^[0-9]{10}$")) {
-                    req.setAttribute("messError", "Phone sai định dạng");
+                    req.setAttribute("messError", "Số điện thoại sai định dạng");
                     req.getRequestDispatcher("view/admin/form-staff-details.jsp").forward(req, resp);
                     return;
                 }
@@ -760,7 +808,7 @@ public class FormDetails extends HttpServlet {
                     account.setPhone(phone);
                     account.setEmail(email);
                     account.setUsername(user);
-                    account.setPassword(pass);
+                    account.setPassword(hash_pass);
                     account.setIsAdmin(3);
                     Staff staff = new Staff();
                     staff.setUserName(user);

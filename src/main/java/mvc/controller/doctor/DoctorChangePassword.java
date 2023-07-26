@@ -10,8 +10,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import mvc.model.Account;
 import mvc.model.Doctor;
+import service.HashMD5;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @WebServlet(name = "DoctorChangePassword", value = "/doctor_change_password")
 public class DoctorChangePassword extends HttpServlet {
@@ -42,7 +44,11 @@ public class DoctorChangePassword extends HttpServlet {
                 req.setAttribute("messError", "Mật khẩu mới không được trùng mật khẩu cũ");
                 req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req, resp);
             } else if (newpassword.equals(repassword)) {
-                account.setPassword(newpassword);
+                try {
+                    account.setPassword(HashMD5.hashMD5(newpassword));
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                }
                 adb.UpdateAccount(account);
                 req.setAttribute("messSuccess", "Cập nhật thành công");
                 req.getRequestDispatcher("view/doctor/doctor-change-password.jsp").forward(req, resp);

@@ -147,6 +147,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h3 class="page-title">Xin chào ${sessionScope.staff.name}</h3>
+                        <span>Nhân viên</span>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="staff_dashboard">Bảng điều khiển</a></li>
                             <li class="breadcrumb-item active">Danh sách lịch đặt chưa xử lý</li>
@@ -192,23 +193,23 @@
                                                 <td>${bl.id}</td>
                                                 <td>
                                                     <h2 class="table-avatar">
-                                                        <a href="#" class="avatar avatar-sm mr-2">
+                                                        <a class="avatar avatar-sm mr-2">
                                                             <img class="avatar-img rounded-circle"
                                                                  src="${bl.doctor.url}"
                                                             >
                                                         </a>
-                                                        <a href="#">${bl.doctor.name}
+                                                        <a>${bl.doctor.name}
                                                         </a>
                                                     </h2>
                                                 </td>
                                                 <td>
                                                     <h2 class="table-avatar">
-                                                        <a href="#" class="avatar avatar-sm mr-2">
+                                                        <a class="avatar avatar-sm mr-2">
                                                             <img class="avatar-img rounded-circle"
                                                                  src="${bl.patient.url}"
                                                             >
                                                         </a>
-                                                        <a href="#">${bl.patient.name}
+                                                        <a>${bl.patient.name}
                                                         </a>
                                                     </h2>
                                                 </td>

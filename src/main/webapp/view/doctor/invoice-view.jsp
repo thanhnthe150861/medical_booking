@@ -88,7 +88,7 @@
                                          class="avatar-img rounded-circle">
                                 </div>
                                 <div class="user-text">
-                                    <h6>Người quản lý</h6>
+                                    <h6>Bác sĩ</h6>
                                 </div>
                             </div>
                             <a class="dropdown-item" href="admin_dashboard">Bảng điều khiển</a>

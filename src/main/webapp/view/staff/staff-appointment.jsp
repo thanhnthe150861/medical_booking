@@ -182,11 +182,11 @@
                                     <tr>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a href="#" class="avatar avatar-sm mr-2"><img
+                                                <a class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= appointment.getBooking().getDoctor().getUrl() %>"
                                                 ></a>
-                                                <a href="#"><%= appointment.getBooking().getDoctor().getName() %>
+                                                <a><%= appointment.getBooking().getDoctor().getName() %>
                                                 </a>
                                             </h2>
                                         </td>
@@ -194,10 +194,10 @@
                                         </td>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a href="#" class="avatar avatar-sm mr-2"><img
+                                                <a class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
                                                         src="<%= appointment.getBooking().getPatient().getUrl() %>"></a>
-                                                <a href="#"><%= appointment.getBooking().getPatient().getName() %>
+                                                <a><%= appointment.getBooking().getPatient().getName() %>
                                                 </a>
                                             </h2>
                                         </td>
@@ -216,7 +216,7 @@
                                             <% } %>
                                         </td>
                                         <td class="text-left">
-                                            <%= appointment.getBill().getTotalPrice() %>.000 VND
+                                            <%= appointment.getBill().getTotalPrice() %> VND
                                         </td>
                                     </tr>
                                     <% } %>

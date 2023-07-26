@@ -100,8 +100,7 @@
                         <a href="staff_dashboard"><i class="fe fe-home"></i> <span>Bảng điều khiển</span></a>
                     </li>
                     <li>
-                        <a href="create_invoice"><i class="fe fe-edit"></i>
-                            <span>Tạo hóa đơn</span></a>
+                        <a href="create_invoice"><i class="fe fe-edit"></i> <span>Tạo hóa đơn</span></a>
                     </li>
                     <li>
                         <a href="staff_appointment"><i class="fe fe-layout"></i> <span>Lịch hẹn</span></a>
@@ -144,7 +143,7 @@
                     <div class="col">
                         <h3 class="page-title">Thông tin bác sĩ</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="staff_dashboard">Bảng iều khiển</a></li>
+                            <li class="breadcrumb-item"><a href="staff_dashboard">Bảng điều khiển</a></li>
                             <li class="breadcrumb-item active">Thông tin bác sĩ</li>
                         </ul>
                     </div>
@@ -199,13 +198,6 @@
                                         <input type="text" class="form-control" name="username" required <c:if
                                                 test="${sessionScope.doctor ne null}"> readonly="readonly"
                                                value="${sessionScope.doctor.account.username}"</c:if>>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Mật khẩu</label>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="password" required
-                                               value="${sessionScope.doctor.account.password}">
                                     </div>
                                 </div>
                                 <div class="form-group row">

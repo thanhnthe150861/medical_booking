@@ -181,7 +181,7 @@
                                                     <thead>
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>NGày</th>
+                                                        <th>Ngày</th>
                                                         <th>Chẩn đoán</th>
                                                         <th>Tập tin đính kèm</th>
                                                         <th>Đơn thuốc</th>

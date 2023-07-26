@@ -12,8 +12,10 @@ import mvc.dal.StaffDBContext;
 import mvc.model.Account;
 import mvc.model.Patient;
 import mvc.model.Staff;
+import service.HashMD5;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @WebServlet(name = "Login", value = "/login")
 public class Login extends HttpServlet {
@@ -28,9 +30,19 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userRaw = req.getParameter("username");
         String passRaw = req.getParameter("password");
-        AccountDB adb = new AccountDB();
-        Account account = adb.getAccount(userRaw, passRaw);
+
+        String hash_pass = null;
+        Account account;
         HttpSession session = req.getSession();
+        try {
+            hash_pass = HashMD5.hashMD5(passRaw);
+
+
+            AccountDB adb = new AccountDB();
+            account = adb.getAccount(userRaw, hash_pass);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
         if (account == null) {
             req.setAttribute("messError", "Tài khoản hoặc mật khẩu sai");
             req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
