@@ -70,7 +70,7 @@ public class BookingAgain extends HttpServlet {
         Booking booking = patientDBContext.checkBookingExist(patient, selectedDate);
 
         if (booking != null) {
-            req.setAttribute("messError", "Bạn đã đặt lịch vào ca này");
+            req.setAttribute("messError", "Bạn đã đặt lịch vào ngày này");
         } else {
             Booking bookings = new Booking();
             bookings.setDoctor_id(Integer.parseInt(did));
