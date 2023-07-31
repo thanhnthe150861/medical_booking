@@ -23,7 +23,8 @@ public class Bookings extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
-
+        List<Specialty> listSp = patientDBContext.getAllSpecialties();
+        session.setAttribute("listSp", listSp);
         if (account != null && account.getIsAdmin() == 2) {
             //lấy date đã trọn, nếu ko có set mặc định ngày hôm nay
             LocalDate date = req.getParameter("datePicker") != null ? LocalDate.parse(req.getParameter("datePicker")) : LocalDate.now();
@@ -51,38 +52,29 @@ public class Bookings extends HttpServlet {
         String selectedDate = (String) session.getAttribute("date");
         String selectedSlot = (String) session.getAttribute("selectedSlot");
         String textReason = req.getParameter("textReason");
-
-        if (selectedDate == null || selectedSlot == null) {
-            resp.sendRedirect("patient_dashboard");
+        String diseaseGroup = req.getParameter("diseaseGroup");
+        if (selectedSlot == null) {
+            req.setAttribute("messError", "Bạn chưa chọn khung giờ đặt lịch");
+            req.getRequestDispatcher("view/patient/booking.jsp").forward(req, resp);
             return;
         }
-
-        String status = "Cancelled";
 
         Booking booking = patientDBContext.checkBookingExist(patient, selectedDate);
 
         if (booking != null) {
             req.setAttribute("messError", "Bạn đã đặt lịch vào ngày này");
         } else {
-            List<Doctor> doctorList = patientDBContext.getListDoctorEmpty(selectedDate, selectedSlot, status);
-            if (!doctorList.isEmpty()) {
-                Random random = new Random();
-                int randomIndex = random.nextInt(doctorList.size());
-                Doctor randomDoctor = doctorList.get(randomIndex);
-                Booking bookings = new Booking();
-                bookings.setDoctor_id(randomDoctor.getId());
-                bookings.setPatient_id(patient.getId());
-                bookings.setSlot_id(Integer.parseInt(selectedSlot));
-                bookings.setDate(Date.valueOf(selectedDate));
-                bookings.setBooking_reason(textReason);
-                bookings.setStatus("Pending");
-                patientDBContext.addNewBooking(bookings);
-                resp.sendRedirect("patient_dashboard");
-                return;
-            }
-            req.setAttribute("messError", "Không có bác sĩ nào trống lịch khám vào ca này");
+            Booking bookings = new Booking();
+            bookings.setPatient_id(patient.getId());
+            bookings.setSlot_id(Integer.parseInt(selectedSlot));
+            bookings.setDate(Date.valueOf(selectedDate));
+            bookings.setSpecialty_id(Integer.parseInt(diseaseGroup));
+            bookings.setBooking_reason(textReason);
+            bookings.setStatus("Pending");
+            patientDBContext.addNewBooking(bookings);
+            resp.sendRedirect("patient_dashboard");
+            return;
         }
-
         req.getRequestDispatcher("view/patient/booking.jsp").forward(req, resp);
     }
 }

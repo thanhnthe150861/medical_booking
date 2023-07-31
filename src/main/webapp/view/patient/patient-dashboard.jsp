@@ -231,8 +231,9 @@
                                                 <table class="table table-hover table-center mb-0">
                                                     <thead>
                                                     <tr>
-                                                        <th>Tên bác sĩ</th>
+                                                        <th>Bác sĩ khám</th>
                                                         <th>Ngày đặt</th>
+                                                        <th>Nhóm bệnh</th>
                                                         <th>Mục đích</th>
                                                         <th>Trạng thái</th>
                                                         <th>Hoạt động</th>
@@ -242,19 +243,22 @@
                                                     <c:forEach items="${sessionScope.medicalRecordList}" var="m">
                                                         <tr>
                                                             <td>
-                                                                <h2 class="table-avatar">
-                                                                    <a href="doctor_profile?id=${m.booking.doctor.id}"
-                                                                       class="avatar avatar-sm mr-2">
-                                                                        <img class="avatar-img rounded-circle"
-                                                                             src="${m.booking.doctor.url}">
-                                                                    </a>
-                                                                    <a href="doctor_profile?id=${m.booking.doctor.id}">${m.booking.doctor.name}
-                                                                        <span>${m.booking.doctor.specialty}</span></a>
-                                                                </h2>
+                                                                <c:if test="${m.booking.doctor.id != 0}">
+                                                                    <h2 class="table-avatar">
+                                                                        <a href="doctor_profile?id=${m.booking.doctor.id}"
+                                                                           class="avatar avatar-sm mr-2">
+                                                                            <img class="avatar-img rounded-circle"
+                                                                                 src="${m.booking.doctor.url}">
+                                                                        </a>
+                                                                        <a href="doctor_profile?id=${m.booking.doctor.id}">${m.booking.doctor.name}
+                                                                            <span>${m.booking.doctor.specialty}</span></a>
+                                                                    </h2>
+                                                                </c:if>
                                                             </td>
                                                             <td>${m.booking.date}<span
                                                                     class="d-block text-info">${m.booking.slots.name}</span>
                                                             </td>
+                                                            <td>${m.booking.specialty.name}</td>
                                                             <td>${m.booking.booking_reason}</td>
                                                             <td>
                                                                 <span class="badge badge-pill bg-${m.booking.status == 'Confirmed' ? 'success-light' : m.booking.status == 'Pending' ? 'warning-light' : m.booking.status == 'Cancelled' ? 'danger-light' : m.booking.status == 'Completed' ? 'info-light' : ''}">
@@ -263,16 +267,15 @@
                                                             </td>
                                                             <td class="text-right">
                                                                 <div class="table-action">
-                                                                    <c:if test="${m.booking.status == 'Pending'}">
-                                                                        <a href="patient_dashboard?id=${m.booking.id}&status=Cancelled"
-                                                                           class="btn btn-sm bg-danger-light">
-                                                                            <i class="far fa-trash-alt"></i> Hủy
-                                                                        </a>
-                                                                    </c:if>
                                                                     <c:if test="${m.booking.status == 'Completed'}">
                                                                         <a href="booking_again?did=${m.booking.doctor.id}"
                                                                            class="btn btn-sm bg-primary-light">
                                                                             <i class="far fa-clock"></i> Đặt Lại
+                                                                        </a>
+                                                                    </c:if>
+                                                                    <c:if test="${m.booking.status == 'Pending'}">
+                                                                        <a href="patient_dashboard?id=${m.booking.id}&status=Cancelled"
+                                                                           class="btn btn-sm bg-danger-light">Hủy
                                                                         </a>
                                                                     </c:if>
                                                                 </div>
@@ -281,6 +284,7 @@
                                                     </c:forEach>
                                                     </tbody>
                                                 </table>
+
                                             </div>
                                         </div>
                                     </div>

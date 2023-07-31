@@ -7,14 +7,17 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountDBTest {
     private AccountDB accountDB;
+
     @Before
     public void setUp() {
         accountDB = new AccountDB();
     }
+
     @Test
     public void testGetRoleTrue() {
         AccountDB accountDB = new AccountDB();
@@ -25,6 +28,7 @@ class AccountDBTest {
         assertEquals(0, role.getId());
         assertEquals("Admin", role.getName());
     }
+
     @Test
     public void testGetRoleFalse() {
         AccountDB accountDB = new AccountDB();
@@ -46,6 +50,7 @@ class AccountDBTest {
         assertEquals("admin", account.getUsername());
         assertEquals("123", account.getPassword());
     }
+
     @Test
     public void testGetAccountFasle() {
         AccountDB accountDB = new AccountDB();
@@ -69,6 +74,7 @@ class AccountDBTest {
         assertNotNull(updatedAccount);
         assertEquals("1232", updatedAccount.getPassword());
     }
+
     @Test
     public void testUpdateAccountFaslse() {
         AccountDB accountDB = new AccountDB();
@@ -81,6 +87,7 @@ class AccountDBTest {
         assertNotNull(updatedAccount);
         assertFalse(updatedAccount.getPassword().equals("123"));
     }
+
     @Test
     public void testCheckAccountExistTrue() {
         AccountDB accountDB = new AccountDB();
@@ -89,6 +96,7 @@ class AccountDBTest {
         assertNotNull(account);
         assertEquals("admin", account.getUsername());
     }
+
     @Test
     public void testCheckAccountExistFalse() {
         AccountDB accountDB = new AccountDB();
@@ -97,6 +105,7 @@ class AccountDBTest {
         assertNotNull(account);
         assertFalse(account.getUsername().equals("admin@"));
     }
+
     @Test
     public void testRegisterTrue() {
         // vì phone trong database để NotNull, cách pass là vào chỉnh lại thành Null
@@ -112,6 +121,7 @@ class AccountDBTest {
         accountDB.Register(account, "Test User");
         assertEquals(account.getUsername(), "testuser123121");
     }
+
     @Test
     public void testRegisterFalse() {
 // vì phone trong database để NotNull, cách pass là vào chỉnh lại thành Null
@@ -127,6 +137,7 @@ class AccountDBTest {
         accountDB.Register(account, "Test User");
         assertFalse(account.getUsername().equals("quyet"));
     }
+
     @Test
     public void testAddNewDoctorTrue() {
 // Create a sample Patient object
@@ -136,7 +147,7 @@ class AccountDBTest {
         doctor.setName("John Doe");
         doctor.setGender("Male");
         doctor.setDob(new Date(1990, 1, 1));
-        doctor.setSpecialty("Cardiology");
+        doctor.setSpecialty(1);
         doctor.setRankId(1);
         // Set other properties of the patient object
         // Create a sample Account object
@@ -156,12 +167,13 @@ class AccountDBTest {
         accountDB.addNewDoctor(doctor);
         // Assert that the patient is added successfully
         // Write assertions based on the expected behavior of the addNewPatient() method
-        assertEquals(account.getUsername(),"doctor@@");
-        assertEquals(account.getPassword(),"password");
-        assertEquals(account.getPhone(),"123213121");
-        assertEquals(account.getEmail(),"quyetlbche160252@fpt.edu.vn");
-        assertEquals(account.getIsAdmin(),2);
+        assertEquals(account.getUsername(), "doctor@@");
+        assertEquals(account.getPassword(), "password");
+        assertEquals(account.getPhone(), "123213121");
+        assertEquals(account.getEmail(), "quyetlbche160252@fpt.edu.vn");
+        assertEquals(account.getIsAdmin(), 2);
     }
+
     @Test
     public void testAddNewDoctorFalse() {
 // Create a sample Patient object
@@ -171,7 +183,7 @@ class AccountDBTest {
         doctor.setName("John Doe");
         doctor.setGender("Male");
         doctor.setDob(new Date(1990, 1, 1));
-        doctor.setSpecialty("Cardiology");
+        doctor.setSpecialty(1);
         doctor.setRankId(1);
         // Set other properties of the patient object
         // Create a sample Account object
@@ -191,12 +203,13 @@ class AccountDBTest {
         accountDB.addNewDoctor(doctor);
         // Assert that the patient is added successfully
         // Write assertions based on the expected behavior of the addNewPatient() method
-        assertEquals(account.getUsername(),"doctor@@@");
-        assertEquals(account.getPassword(),"password");
-        assertEquals(account.getPhone(),"123213121");
-        assertEquals(account.getEmail(),"quyetlbche160252@fpt.edu.vn");
-        assertFalse(account.getIsAdmin()==3);
+        assertEquals(account.getUsername(), "doctor@@@");
+        assertEquals(account.getPassword(), "password");
+        assertEquals(account.getPhone(), "123213121");
+        assertEquals(account.getEmail(), "quyetlbche160252@fpt.edu.vn");
+        assertFalse(account.getIsAdmin() == 3);
     }
+
     @Test
     public void testAddNewPatientTrue() {
         // Create a sample Patient object
@@ -223,12 +236,13 @@ class AccountDBTest {
         accountDB.addNewPatient(patient);
         // Assert that the patient is added successfully
         // Write assertions based on the expected behavior of the addNewPatient() method
-        assertEquals(account.getUsername(),"testPatient");
-        assertEquals(account.getPassword(),"password");
-        assertEquals(account.getPhone(),"123213121");
-        assertEquals(account.getEmail(),"quyetlbche160252@fpt.edu.vn");
-        assertEquals(account.getIsAdmin(),3);
+        assertEquals(account.getUsername(), "testPatient");
+        assertEquals(account.getPassword(), "password");
+        assertEquals(account.getPhone(), "123213121");
+        assertEquals(account.getEmail(), "quyetlbche160252@fpt.edu.vn");
+        assertEquals(account.getIsAdmin(), 3);
     }
+
     @Test
     public void testAddNewPatientFasle() {
         // Create a sample Patient object
@@ -256,11 +270,12 @@ class AccountDBTest {
         // Assert that the patient is added successfully
         // Write assertions based on the expected behavior of the addNewPatient() method
         assertFalse(account.getUsername().equals("testPatient@@"));
-        assertEquals(account.getPassword(),"password");
-        assertEquals(account.getPhone(),"123213121");
-        assertEquals(account.getEmail(),"quyetlbche160252@fpt.edu.vn");
-        assertEquals(account.getIsAdmin(),3);
+        assertEquals(account.getPassword(), "password");
+        assertEquals(account.getPhone(), "123213121");
+        assertEquals(account.getEmail(), "quyetlbche160252@fpt.edu.vn");
+        assertEquals(account.getIsAdmin(), 3);
     }
+
     @Test
     public void testAddNewStaffTrue() {
         // Create a sample Patient object
@@ -286,12 +301,13 @@ class AccountDBTest {
         accountDB.addNewStaff(staff);
         // Assert that the patient is added successfully
         // Write assertions based on the expected behavior of the addNewPatient() method
-        assertEquals(account.getUsername(),"staff@@");
-        assertEquals(account.getPassword(),"password");
-        assertEquals(account.getPhone(),"123213121");
-        assertEquals(account.getEmail(),"quyetlbche160252@fpt.edu.vn");
-        assertEquals(account.getIsAdmin(),2);
+        assertEquals(account.getUsername(), "staff@@");
+        assertEquals(account.getPassword(), "password");
+        assertEquals(account.getPhone(), "123213121");
+        assertEquals(account.getEmail(), "quyetlbche160252@fpt.edu.vn");
+        assertEquals(account.getIsAdmin(), 2);
     }
+
     @Test
     public void testAddNewStaffFasle() {
         Account account = new Account();
@@ -317,9 +333,9 @@ class AccountDBTest {
         // Assert that the patient is added successfully
         // Write assertions based on the expected behavior of the addNewPatient() method
         assertFalse(account.getUsername().equals("staff@@"));
-        assertEquals(account.getPassword(),"password");
-        assertEquals(account.getPhone(),"123213121");
-        assertEquals(account.getEmail(),"quyetlbche160252@fpt.edu.vn");
-        assertFalse(account.getIsAdmin()==3);
+        assertEquals(account.getPassword(), "password");
+        assertEquals(account.getPhone(), "123213121");
+        assertEquals(account.getEmail(), "quyetlbche160252@fpt.edu.vn");
+        assertFalse(account.getIsAdmin() == 3);
     }
 }

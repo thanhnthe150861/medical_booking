@@ -163,6 +163,14 @@
                         </div>
                         <!-- /Schedule Header -->
                         <form action="booking" method="post">
+                            <select name="diseaseGroup" required
+                                    style="font-size: 16px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                                <option value="" disabled selected>Bạn đến khám gì?
+                                </option>
+                                <c:forEach items="${sessionScope.listSp}" var="ls">
+                                    <option value="${ls.id}">${ls.name}</option>
+                                </c:forEach>
+                            </select>
                             <!-- Schedule Content -->
                             <div class="schedule-cont">
                                 <div class="row">
@@ -173,7 +181,7 @@
                                                 <!-- Morning -->
                                                 <li>
                                                     <c:forEach items="${sessionScope.slotList}" var="sl">
-                                                        <c:if test="${sl.id lt 4}">
+                                                        <c:if test="${sl.id lt 4 && sl.id gt 0}">
                                                             <a class="timing <c:if test='${sessionScope.selectedSlot eq sl.id}'>selected</c:if>"
                                                                href="booking?datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
                                                                 <span>${sl.name}</span>
@@ -196,15 +204,15 @@
                                         </div>
                                         <!-- /Time Slot -->
                                         <div class="card"
-                                             style="margin-top: 20px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                                             style="margin-top: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
                                             <div class="card-body" style="padding: 20px;">
-                                                <label for="textReason"
-                                                       style="font-size: 20px; color: #333;">Lý do</label>
-                                                <br>
-                                                <input type="text" id="textReason" name="textReason"
+                                                <h2 style="font-size: 20px; color: #333; margin-top: 20px;">Mô tả tình
+                                                    trạng bệnh</h2>
+                                                <input required type="text" id="textReason" name="textReason"
                                                        style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
                                             </div>
                                         </div>
+
                                         <%----%>
                                     </div>
                                 </div>

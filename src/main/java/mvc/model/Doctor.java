@@ -8,18 +8,19 @@ public class Doctor {
     private String userName;
     private String url;
     private String name;
-    private  String gender;
+    private String gender;
     private Date dob;
-    private  String specialty;
+    private int specialty;
     private int rankId;
-    private  Account account = new Account();
+    
+    private Account account = new Account();
+    private Specialty specialtys = new Specialty();
     private Rank ranks = new Rank();
 
     public Doctor() {
     }
 
-
-    public Doctor(int id, String userName, String url, String name, String gender, Date dob, String specialty, int rankId, Account account, Rank ranks) {
+    public Doctor(int id, String userName, String url, String name, String gender, Date dob, int specialty, int rankId, Account account, Specialty specialtys, Rank ranks) {
         this.id = id;
         this.userName = userName;
         this.url = url;
@@ -29,34 +30,7 @@ public class Doctor {
         this.specialty = specialty;
         this.rankId = rankId;
         this.account = account;
-        this.ranks = ranks;
-    }
-    public Doctor(int id, String userName, String url, String name, String gender, Date dob, String specialty, int rankId) {
-        this.id = id;
-        this.userName = userName;
-        this.url = url;
-        this.name = name;
-        this.gender = gender;
-        this.dob = dob;
-        this.specialty = specialty;
-        this.rankId = rankId;
-
-    }
-
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    public Rank getRanks() {
-        return ranks;
-    }
-
-    public void setRanks(Rank ranks) {
+        this.specialtys = specialtys;
         this.ranks = ranks;
     }
 
@@ -108,11 +82,11 @@ public class Doctor {
         this.dob = dob;
     }
 
-    public String getSpecialty() {
+    public int getSpecialty() {
         return specialty;
     }
 
-    public void setSpecialty(String specialty) {
+    public void setSpecialty(int specialty) {
         this.specialty = specialty;
     }
 
@@ -122,5 +96,29 @@ public class Doctor {
 
     public void setRankId(int rankId) {
         this.rankId = rankId;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Specialty getSpecialtys() {
+        return specialtys;
+    }
+
+    public void setSpecialtys(Specialty specialtys) {
+        this.specialtys = specialtys;
+    }
+
+    public Rank getRanks() {
+        return ranks;
+    }
+
+    public void setRanks(Rank ranks) {
+        this.ranks = ranks;
     }
 }

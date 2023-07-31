@@ -14,6 +14,38 @@ public class PatientDBContext extends DBContext {
     private static PreparedStatement stm = null;
     private static ResultSet rs = null;
 
+    public void updateBookingStatus(String id, String status, String reason, String did) {
+        try {
+            String sql = "UPDATE booking SET status = ?, reason = ?, doctor_id = ? WHERE id = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, status);
+            stm.setString(2, reason);
+            stm.setInt(3, Integer.parseInt(did));
+            stm.setInt(4, Integer.parseInt(id));
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Specialty> getAllSpecialties() {
+        List<Specialty> specialtyList = new ArrayList<>();
+        try {
+            String sql = "SELECT  * FROM specialty";
+            stm = connection.prepareStatement(sql);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                Specialty specialty = new Specialty();
+                specialty.setId(rs.getInt("id"));
+                specialty.setName(rs.getString("name"));
+                specialtyList.add(specialty);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return specialtyList;
+    }
+
     public List<Slot> getAllSlots() {
         List<Slot> slotList = new ArrayList<>();
         try {
@@ -77,7 +109,7 @@ public class PatientDBContext extends DBContext {
                 doctor.setName(rs.getString("name"));
                 doctor.setGender(rs.getString("gender"));
                 doctor.setDob(rs.getDate("dob"));
-                doctor.setSpecialty(rs.getString("specialty"));
+                doctor.setSpecialty(rs.getInt("specialty"));
                 Rank rank = new Rank();
                 rank.setId(rs.getInt("rank_id"));
                 rank.setName(rs.getString("rank_name"));
@@ -145,7 +177,7 @@ public class PatientDBContext extends DBContext {
                 doctors.setName(rs.getString("doctor_name"));
                 doctors.setDob(rs.getDate("doctor_dob"));
                 doctors.setGender(rs.getString("doctor_gender"));
-                doctors.setSpecialty(rs.getString("specialty"));
+                doctors.setSpecialty(rs.getInt("specialty"));
                 booking.setDoctor(doctors);
                 Patient patient = new Patient();
                 patient.setId(rs.getInt("patient_id"));
@@ -217,7 +249,7 @@ public class PatientDBContext extends DBContext {
                 doctor.setUrl(rs.getString("doctor_url"));
                 doctor.setDob(rs.getDate("doctor_dob"));
                 doctor.setGender(rs.getString("doctor_gender"));
-                doctor.setSpecialty(rs.getString("doctor_specialty"));
+                doctor.setSpecialty(rs.getInt("doctor_specialty"));
                 Rank rank = new Rank();
                 rank.setId(rs.getInt("doctor_rank_id"));
                 rank.setName(rs.getString("doctor_rank"));
@@ -284,7 +316,7 @@ public class PatientDBContext extends DBContext {
                 doctor.setName(rs.getString("name"));
                 doctor.setGender(rs.getString("gender"));
                 doctor.setDob(rs.getDate("dob"));
-                doctor.setSpecialty(rs.getString("specialty"));
+                doctor.setSpecialty(rs.getInt("specialty"));
                 doctor.setRankId(rs.getInt("rank_id"));
                 doctorList.add(doctor);
             }
@@ -296,11 +328,12 @@ public class PatientDBContext extends DBContext {
 
     public void addNewBooking(Booking booking) {
         try {
-            String sql = "INSERT INTO booking (doctor_id, patient_id, slot_id, booking_reason, date, status) VALUES (?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO booking (patient_id, slot_id, specialty_id, booking_reason, date, status)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?);\n";
             stm = connection.prepareStatement(sql);
-            stm.setInt(1, booking.getDoctor_id());
-            stm.setInt(2, booking.getPatient_id());
-            stm.setInt(3, booking.getSlot_id());
+            stm.setInt(1, booking.getPatient_id());
+            stm.setInt(2, booking.getSlot_id());
+            stm.setInt(3, booking.getSpecialty_id());
             stm.setString(4, booking.getBooking_reason());
             stm.setDate(5, booking.getDate());
             stm.setString(6, booking.getStatus());
@@ -315,7 +348,7 @@ public class PatientDBContext extends DBContext {
             String sql = "SELECT *\n" +
                     "FROM booking\n" +
                     "WHERE date = ?\n" +
-                    "AND patient_id = ?;";
+                    "AND patient_id = ? and status != 'Cancelled';";
             stm = connection.prepareStatement(sql);
             stm.setDate(1, Date.valueOf(date));
             stm.setInt(2, patient.getId());
@@ -349,7 +382,7 @@ public class PatientDBContext extends DBContext {
                 doctor.setName(rs.getString("name"));
                 doctor.setUrl(rs.getString("url"));
                 doctor.setDob(rs.getDate("dob"));
-                doctor.setSpecialty(rs.getString("specialty"));
+                doctor.setSpecialty(rs.getInt("specialty"));
                 doctor.setGender(rs.getString("gender"));
                 Rank rank = new Rank();
                 rank.setName(rs.getString("rank_name"));
