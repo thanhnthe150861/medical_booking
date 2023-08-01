@@ -229,7 +229,7 @@ public class FormDetails extends HttpServlet {
             doctor.setName(name);
             doctor.setGender(gender);
             doctor.setDob(Date.valueOf(dob));
-            doctor.setSpecialty(specialty);
+            doctor.setSpecialty(Integer.parseInt(specialty));
             doctor.setRankId(Integer.parseInt(rank));
             adb.UpdateDoctor(doctor);
 
@@ -548,7 +548,7 @@ public class FormDetails extends HttpServlet {
                     doctor.setName(name);
                     doctor.setGender(gender);
                     doctor.setDob(Date.valueOf(dob));
-                    doctor.setSpecialty(specialty);
+                    doctor.setSpecialty(Integer.parseInt(specialty));
                     doctor.setRankId(Integer.parseInt(rank));
                     doctor.setAccount(account);
                     //Lấy file từ jsp và up lên aws s3

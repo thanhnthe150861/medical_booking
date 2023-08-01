@@ -169,7 +169,7 @@
                                             <span>Bệnh nhân của tôi</span>
                                         </a>
                                     </li>
-                                    <li class="active">
+                                    <li>
                                         <a href="doctor_schedule_timings">
                                             <i class="fas fa-hourglass-start"></i>
                                             <span>Lịch làm việc</span>
@@ -181,7 +181,7 @@
                                             <span>Hóa đơn</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="active">
                                         <a href="doctor_ngay_nghi">
                                             <i class="fas fa-calendar-times"></i>
                                             <span>Ngày nghỉ</span>
@@ -219,21 +219,32 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Lịch làm việc </h4>
+                                    <h4 class="card-title">Đơn Ngày nghỉ</h4>
+                                    <% String errorMessage = (String) request.getAttribute("messError"); %>
+                                    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%= errorMessage %>
+                                    </div>
+                                    <% } %>
+                                    <% String messSuccess = (String) request.getAttribute("messSuccess"); %>
+                                    <% if (messSuccess != null && !messSuccess.isEmpty()) { %>
+                                    <div class="alert alert-success" role="alert">
+                                        <%= messSuccess %>
+                                    </div>
+                                    <% } %>
                                     <div class="profile-box">
-                                        <div class="row">
-
-                                            <div class="col-lg-4">
-                                                <form action="doctor_schedule_timings" method="post">
+                                        <form action="doctor_ngay_nghi" method="get">
+                                            <div class="row">
+                                                <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <input type="date" id="datePicker" class="form-control"
                                                                name="datePicker" value="${sessionScope.date}">
                                                     </div>
-                                                    <button class="form-control">Tìm kiếm</button>
-                                                </form>
+                                                    <button class="btn btn-primary form-control">Search</button>
+                                                </div>
                                             </div>
+                                        </form>
 
-                                        </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="card schedule-widget mb-0">
@@ -247,22 +258,84 @@
 
                                                     <!-- Schedule Content -->
                                                     <div class="tab-content schedule-cont">
+                                                        <div class="schedule-cont">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <!-- Time Slot -->
+                                                                    <div class="time-slot">
+                                                                        <form action="doctor_ngay_nghi" method="post">
+                                                                            <ul class="clearfix d-flex align-items-center justify-content-center">
+                                                                                <!-- Morning -->
+                                                                                <li>
+                                                                                    <c:forEach
+                                                                                            items="${sessionScope.slotList}"
+                                                                                            var="sl">
+                                                                                        <c:if test="${sl.id lt 4}">
+                                                                                            <a class="timing <c:if test='${sessionScope.selectedSlot eq sl.id}'>selected</c:if>"
+                                                                                               href="doctor_ngay_nghi?datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                                                <span>${sl.name}</span>
+                                                                                            </a>
+                                                                                        </c:if>
+                                                                                    </c:forEach>
+                                                                                </li>
+                                                                                <!-- Afternoon -->
+                                                                                <li>
+                                                                                    <c:forEach
+                                                                                            items="${sessionScope.slotList}"
+                                                                                            var="sl">
+                                                                                        <c:if test="${sl.id gt 3}">
+                                                                                            <a class="timing <c:if test="${sessionScope.selectedSlot eq sl.id}">selected</c:if>"
+                                                                                               href="doctor_ngay_nghi?datePicker=${sessionScope.date}&selectedSlot=${sl.id}">
+                                                                                                <span>${sl.name}</span>
+                                                                                            </a>
+                                                                                        </c:if>
+                                                                                    </c:forEach>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <button class="btn btn-primary form-control">
+                                                                                Khóa ca làm
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- /Time Slot -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                         <!-- Monday Slot -->
                                                         <div id="slot_monday" class="tab-pane fade show active">
                                                             <h4 class="card-title d-flex justify-content-between">
-                                                                <span>Time Slots</span>
+                                                                <span>Thời gian bị khóa</span>
                                                             </h4>
 
                                                             <!-- Slot List -->
-                                                            <div class="doc-times">
-                                                                <c:forEach items="${sessionScope.bookingList}" var="b">
-                                                                    <c:if test="${b.date eq sessionScope.date}">
-                                                                        <div class="doc-slot-list">
-                                                                            <a href="patient_profile?id=${b.patient.id}">${b.slots.name}</a>
-                                                                        </div>
-                                                                    </c:if>
-                                                                </c:forEach>
+                                                            <div class="table-responsive">
+                                                                <table class="table table-hover table-center mb-0">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>Ngày</th>
+                                                                        <th>Ca nghỉ</th>
+                                                                        <th>Trạng thái</th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <c:forEach items="${sessionScope.ngayNghiList}"
+                                                                               var="dol">
+                                                                        <tr>
+                                                                            <td>${dol.date}</td>
+                                                                            <td>${dol.slot.name}</td>
+                                                                            <td>${dol.status == true ? 'Đã đóng' : 'Đã mở'}</td>
+                                                                            <td><c:if test="${dol.status == true}">
+                                                                                <a href="doctor_ngay_nghi?id=${dol.id}&status=false"
+                                                                                   class="btn btn-sm bg-success-light">
+                                                                                    Mở khóa
+                                                                                </a>
+                                                                            </c:if></td>
+                                                                        </tr>
+                                                                    </c:forEach>
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                             <!-- /Slot List -->
                                                         </div>

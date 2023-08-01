@@ -179,6 +179,12 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="doctor_ngay_nghi">
+                                            <i class="fas fa-calendar-times"></i>
+                                            <span>Ngày nghỉ</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="doctor_profile_settings">
                                             <i class="fas fa-user-cog"></i>
                                             <span>Thông tin cá nhân</span>

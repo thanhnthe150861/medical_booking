@@ -31,7 +31,7 @@ public class PatientDashboard extends HttpServlet {
             if (id != null && status != null) {
                 // Cập nhật trạng thái của đặt lịch
                 DoctorDBContext doctorDBContext = new DoctorDBContext();
-                doctorDBContext.updateBookingStatus(id, status);
+                doctorDBContext.updateNgayNghiStatus(id, status);
                 req.setAttribute("messError", "Hủy lịch đặt thành công");
                 medicalRecordList = patientDBContext.getInforMyPatients(patient);
             }

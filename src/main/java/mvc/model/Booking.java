@@ -9,25 +9,55 @@ public class Booking {
     private String booking_reason;
     private Date date;
     private int slot_id;
+    private int specialty_id;
     private String status;
+    private String reason;
     private Doctor doctor = new Doctor();
     private Patient patient = new Patient();
     private Slot slots = new Slot();
+    private Specialty specialty = new Specialty();
 
     public Booking() {
     }
 
-    public Booking(int id, int doctor_id, int patient_id, String booking_reason, Date date, int slot_id, String status, Doctor doctor, Patient patient, Slot slots) {
+    public Booking(int id, int doctor_id, int patient_id, String booking_reason, Date date, int slot_id, int specialty_id, String status, String reason, Doctor doctor, Patient patient, Slot slots, Specialty specialty) {
         this.id = id;
         this.doctor_id = doctor_id;
         this.patient_id = patient_id;
         this.booking_reason = booking_reason;
         this.date = date;
         this.slot_id = slot_id;
+        this.specialty_id = specialty_id;
         this.status = status;
+        this.reason = reason;
         this.doctor = doctor;
         this.patient = patient;
         this.slots = slots;
+        this.specialty = specialty;
+    }
+
+    public int getSpecialty_id() {
+        return specialty_id;
+    }
+
+    public void setSpecialty_id(int specialty_id) {
+        this.specialty_id = specialty_id;
+    }
+
+    public Specialty getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
     public int getPatient_id() {
@@ -53,7 +83,7 @@ public class Booking {
     public void setDoctor_id(int doctor_id) {
         this.doctor_id = doctor_id;
     }
-    
+
 
     public String getBooking_reason() {
         return booking_reason;

@@ -1,23 +1,23 @@
 
-        package mvc.controller.admin;
+package mvc.controller.admin;
 
-        import jakarta.servlet.RequestDispatcher;
-        import jakarta.servlet.ServletException;
-        import jakarta.servlet.http.HttpServletRequest;
-        import jakarta.servlet.http.HttpServletResponse;
-        import jakarta.servlet.http.HttpSession;
-        import mvc.dal.AccountDB;
-        import mvc.model.*;
-        import org.junit.jupiter.api.Test;
-        import org.mockito.Mock;
-        import org.mockito.MockitoAnnotations;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import mvc.dal.AccountDB;
+import mvc.model.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-        import java.io.IOException;
-        import java.sql.Date;
-        import java.util.List;
+import java.io.IOException;
+import java.sql.Date;
+import java.util.List;
 
-        import static org.junit.jupiter.api.Assertions.*;
-        import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 class FormDetailsTest {
     @Mock
@@ -190,7 +190,7 @@ class FormDetailsTest {
             doctor.setName(name);
             doctor.setGender(gender);
             doctor.setDob(Date.valueOf(dob));
-            doctor.setSpecialty(specialty);
+            doctor.setSpecialty(Integer.parseInt(specialty));
             doctor.setRankId(Integer.parseInt(rank));
             accountDB.UpdateDoctor(doctor);
             formDetails.doGet(request, response);
@@ -372,7 +372,7 @@ class FormDetailsTest {
                 doctor.setName(name);
                 doctor.setGender(gender);
                 doctor.setDob(Date.valueOf(dob));
-                doctor.setSpecialty(specialty);
+                doctor.setSpecialty(Integer.parseInt(specialty));
                 doctor.setRankId(1);
                 doctor.setAccount(account);
                 accountDB.addNewDoctor(doctor);
@@ -522,8 +522,8 @@ class FormDetailsTest {
                     verify(requestDispatcher).forward(request, response);
                 }
             }
-        }else if (str == null) {
-            formDetails.doGet(request,response);
+        } else if (str == null) {
+            formDetails.doGet(request, response);
             verify(session, never()).setAttribute(anyString(), anyString());
             verify(request, never()).getRequestDispatcher(anyString());
             verify(response).sendRedirect("admin_dashboard");

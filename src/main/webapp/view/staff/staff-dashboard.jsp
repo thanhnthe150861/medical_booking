@@ -192,15 +192,17 @@
                                             <tr>
                                                 <td>${bl.id}</td>
                                                 <td>
-                                                    <h2 class="table-avatar">
-                                                        <a class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle"
-                                                                 src="${bl.doctor.url}"
-                                                            >
-                                                        </a>
-                                                        <a>${bl.doctor.name}
-                                                        </a>
-                                                    </h2>
+                                                    <c:if test="${bl.doctor.id != 0}">
+                                                        <h2 class="table-avatar">
+                                                            <a class="avatar avatar-sm mr-2">
+                                                                <img class="avatar-img rounded-circle"
+                                                                     src="${bl.doctor.url}"
+                                                                >
+                                                            </a>
+                                                            <a>${bl.doctor.name}
+                                                            </a>
+                                                        </h2>
+                                                    </c:if>
                                                 </td>
                                                 <td>
                                                     <h2 class="table-avatar">
@@ -225,13 +227,9 @@
                                                 </td>
                                                 <td class="text-right">
                                                     <div class="table-action">
-                                                        <a href="staff_dashboard?bid=${bl.id}&status=Confirmed"
-                                                           class="btn btn-sm bg-success-light">
-                                                            <i class="far fa-trash-alt"></i> Chấp nhận
-                                                        </a>
-                                                        <a href="staff_dashboard?bid=${bl.id}&status=Cancelled"
-                                                           class="btn btn-sm bg-danger-light">
-                                                            <i class="far fa-trash-alt"></i> Hủy
+                                                        <a href="appointment_details?bid=${bl.id}"
+                                                           class="btn btn-sm bg-info-light">
+                                                            <i class="far fa-eye"></i> Xem
                                                         </a>
                                                     </div>
                                                 </td>

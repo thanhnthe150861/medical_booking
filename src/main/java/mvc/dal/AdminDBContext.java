@@ -33,7 +33,7 @@ public class AdminDBContext extends  DBContext{
                 doctors.setName(rs.getString("name"));
                 doctors.setDob(rs.getDate("dob"));
                 doctors.setGender(rs.getString("gender"));
-                doctors.setSpecialty(rs.getString("specialty"));
+                doctors.setSpecialty(rs.getInt("specialty"));
                 Rank rank = new Rank();
                 rank.setName(rs.getString("rank_name"));
                 doctors.setRanks(rank);
@@ -183,7 +183,7 @@ public class AdminDBContext extends  DBContext{
                 doctors.setId(rs.getInt("doctor_id"));
                 doctors.setUrl(rs.getString("doctor_url"));
                 doctors.setName(rs.getString("doctor_name"));
-                doctors.setSpecialty(rs.getString("doctor_specialty"));
+                doctors.setSpecialty(rs.getInt("doctor_specialty"));
                 Patient patient = new Patient();
                 patient.setId(rs.getInt("patient_id"));
                 patient.setUrl(rs.getString("patient_url"));
@@ -237,7 +237,7 @@ public class AdminDBContext extends  DBContext{
                 doctors.setGender(rs.getString("gender"));
                 doctors.setDob(rs.getDate("dob"));
                 doctors.setRankId(rs.getInt("rank_id"));
-                doctors.setSpecialty(rs.getString("specialty"));
+                doctors.setSpecialty(rs.getInt("specialty"));
                 doctors.setAccount(account);
                 Bill bill = new Bill();
                 bill.setTotalPrice(rs.getFloat("total_bill_price"));

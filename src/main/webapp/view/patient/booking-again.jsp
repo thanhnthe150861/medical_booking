@@ -190,7 +190,7 @@
                                                 <!-- Morning -->
                                                 <li>
                                                     <c:forEach items="${sessionScope.slotList}" var="sl">
-                                                    <c:if test="${sl.id < 4}">
+                                                    <c:if test="${sl.id < 4 && sl.id > 0}">
                                                         <c:set var="isSlotExist" value="false"/>
                                                     <c:forEach items="${sessionScope.slotExist}" var="se">
                                                     <c:if test="${se.id eq sl.id}">

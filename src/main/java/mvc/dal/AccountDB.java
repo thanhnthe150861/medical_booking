@@ -9,15 +9,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountDB extends DBContext{
+public class AccountDB extends DBContext {
 
-    public Role getRole(Account account){
+    public Role getRole(Account account) {
         try {
             String sql = "SELECT * FROM role WHERE id = ?;";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, account.getIsAdmin());
             ResultSet rs = stm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 Role role = new Role();
                 role.setId(rs.getInt("id"));
                 role.setName(rs.getString("name"));
@@ -28,14 +28,15 @@ public class AccountDB extends DBContext{
         }
         return null;
     }
-    public Account getAccount(String user, String pass){
+
+    public Account getAccount(String user, String pass) {
         try {
-        String sql = "SELECT * FROM account WHERE username = ? AND password = ?";
-        PreparedStatement stm = connection.prepareStatement(sql);
-        stm.setString(1, user);
-        stm.setString(2, pass);
-        ResultSet rs = stm.executeQuery();
-            if(rs.next()){
+            String sql = "SELECT * FROM account WHERE username = ? AND password = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, user);
+            stm.setString(2, pass);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
                 Account account = new Account();
                 account.setUsername(rs.getString("username"));
                 account.setPassword(rs.getString("password"));
@@ -48,10 +49,10 @@ public class AccountDB extends DBContext{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    return null;
+        return null;
     }
 
-    public void UpdateAccount(Account account){
+    public void UpdateAccount(Account account) {
         try {
             String sql = "UPDATE account\n" +
                     "SET password = ?" +
@@ -64,28 +65,29 @@ public class AccountDB extends DBContext{
             throw new RuntimeException(e);
         }
     }
-    public Account checkAccountExist(String user){
-            try {
-                String sql = "select * from account where username = ?";
-                PreparedStatement stm = connection.prepareStatement(sql);
-                stm.setString(1, user);
-                ResultSet rs = stm.executeQuery();
-                if(rs.next()){
-                    Account account  = new Account();
-                    account.setUsername(rs.getString("username"));
-                    account.setPassword(rs.getString("password"));
-                    account.setPhone(rs.getString("phone"));
-                    account.setEmail(rs.getString("email"));
-                    account.setIsAdmin(rs.getInt("isAdmin"));
-                    return account;
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            return null;
-        }
 
-    public void Register(Account account, String name){
+    public Account checkAccountExist(String user) {
+        try {
+            String sql = "select * from account where username = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, user);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                Account account = new Account();
+                account.setUsername(rs.getString("username"));
+                account.setPassword(rs.getString("password"));
+                account.setPhone(rs.getString("phone"));
+                account.setEmail(rs.getString("email"));
+                account.setIsAdmin(rs.getInt("isAdmin"));
+                return account;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public void Register(Account account, String name) {
         try {
             //Insert Account
             String sql = "INSERT account (username, password, email, isAdmin, status) " +
@@ -108,6 +110,7 @@ public class AccountDB extends DBContext{
             throw new RuntimeException(e);
         }
     }
+
     public void addNewDoctor(Doctor doctor) {
         try {
             // Add data to the account table
@@ -128,13 +131,14 @@ public class AccountDB extends DBContext{
             doctorStm.setString(3, doctor.getName());
             doctorStm.setString(4, doctor.getGender());
             doctorStm.setDate(5, doctor.getDob());
-            doctorStm.setString(6, doctor.getSpecialty());
+            doctorStm.setInt(6, doctor.getSpecialty());
             doctorStm.setInt(7, doctor.getRankId());
             doctorStm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
     public void addNewPatient(Patient patient) {
         try {
             // Add data to the account table
@@ -161,6 +165,7 @@ public class AccountDB extends DBContext{
             throw new RuntimeException(e);
         }
     }
+
     public void addNewStaff(Staff staff) {
         try {
             // Add data to the account table
@@ -186,6 +191,7 @@ public class AccountDB extends DBContext{
             throw new RuntimeException(e);
         }
     }
+
     public void UpdateDoctor(Doctor doctor) {
         try {
             // Add data to the account table
@@ -216,7 +222,7 @@ public class AccountDB extends DBContext{
             doctorStm.setString(2, doctor.getName());
             doctorStm.setString(3, doctor.getGender());
             doctorStm.setDate(4, doctor.getDob());
-            doctorStm.setString(5, doctor.getSpecialty());
+            doctorStm.setInt(5, doctor.getSpecialty());
             doctorStm.setInt(6, doctor.getRankId());
             doctorStm.setInt(7, doctor.getId());
             doctorStm.executeUpdate();
@@ -224,6 +230,7 @@ public class AccountDB extends DBContext{
             throw new RuntimeException(e);
         }
     }
+
     public void UpdatePatient(Patient patient) {
         try {
             // Add data to the account table
@@ -260,6 +267,7 @@ public class AccountDB extends DBContext{
             throw new RuntimeException(e);
         }
     }
+
     public void UpdateStaff(Staff staff) {
         try {
             // Add data to the account table
@@ -294,7 +302,8 @@ public class AccountDB extends DBContext{
             throw new RuntimeException(e);
         }
     }
-    public Staff getStaffByID(String id){
+
+    public Staff getStaffByID(String id) {
         try {
             String sql = "SELECT s.*, a.username, a.password, a.phone, a.email, a.isAdmin, a.status\n" +
                     "FROM staff s\n" +
@@ -303,7 +312,7 @@ public class AccountDB extends DBContext{
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, Integer.parseInt(id));
             ResultSet rs = stm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 Account account = new Account();
                 account.setUsername(rs.getString("username"));
                 account.setPassword(rs.getString("password"));
@@ -325,7 +334,8 @@ public class AccountDB extends DBContext{
         }
         return null;
     }
-    public Patient getPatientByID(String id){
+
+    public Patient getPatientByID(String id) {
         try {
             String sql = "SELECT p.*, rp.name AS rank_name, a.username, a.password, a.phone, a.email, a.isAdmin, a.status\n" +
                     "FROM patient p\n" +
@@ -335,7 +345,7 @@ public class AccountDB extends DBContext{
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, Integer.parseInt(id));
             ResultSet rs = stm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 Account account = new Account();
                 account.setUsername(rs.getString("username"));
                 account.setPassword(rs.getString("password"));
@@ -361,7 +371,8 @@ public class AccountDB extends DBContext{
         }
         return null;
     }
-    public Doctor getDoctorByID(String id){
+
+    public Doctor getDoctorByID(String id) {
         try {
             String sql = "SELECT d.*, rd.name AS rank_name, a.username, a.password, a.phone, a.email, a.isAdmin, a.status\n" +
                     "FROM doctor d\n" +
@@ -371,7 +382,7 @@ public class AccountDB extends DBContext{
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, Integer.parseInt(id));
             ResultSet rs = stm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 Account account = new Account();
                 account.setUsername(rs.getString("username"));
                 account.setPassword(rs.getString("password"));
@@ -390,7 +401,7 @@ public class AccountDB extends DBContext{
                 doctor.setGender(rs.getString("gender"));
                 doctor.setDob(rs.getDate("dob"));
                 doctor.setRankId(rs.getInt("rank_id"));
-                doctor.setSpecialty(rs.getString("specialty"));
+                doctor.setSpecialty(rs.getInt("specialty"));
                 return doctor;
             }
         } catch (SQLException e) {
@@ -398,13 +409,14 @@ public class AccountDB extends DBContext{
         }
         return null;
     }
-    public List<Rank> getRankDoctor(){
+
+    public List<Rank> getRankDoctor() {
         List<Rank> rankList = new ArrayList<>();
         try {
             String sql = "SELECT * FROM rank_doctor";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Rank rank = new Rank();
                 rank.setId(rs.getInt("id"));
                 rank.setName(rs.getString("name"));
@@ -415,13 +427,14 @@ public class AccountDB extends DBContext{
         }
         return rankList;
     }
-    public List<Rank> getRankPatient(){
+
+    public List<Rank> getRankPatient() {
         List<Rank> rankList = new ArrayList<>();
         try {
             String sql = "SELECT * FROM rank_patient";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Rank rank = new Rank();
                 rank.setId(rs.getInt("id"));
                 rank.setName(rs.getString("name"));

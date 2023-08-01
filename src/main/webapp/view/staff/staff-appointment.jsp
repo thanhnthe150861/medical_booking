@@ -175,12 +175,14 @@
                                         <th>Thời gian hẹn</th>
                                         <th class="text-center">Trạng thái</th>
                                         <th>Chi phí</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <% for (MedicalRecord appointment : appointmentList) { %>
                                     <tr>
                                         <td>
+                                            <% if (appointment.getBooking().getDoctor().getId() != 0) {%>
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
@@ -189,6 +191,7 @@
                                                 <a href="#"><%= appointment.getBooking().getDoctor().getName() %>
                                                 </a>
                                             </h2>
+                                            <%}%>
                                         </td>
                                         <td><%= appointment.getBooking().getDoctor().getSpecialty() %>
                                         </td>
@@ -217,6 +220,14 @@
                                         </td>
                                         <td class="text-left">
                                             <%= appointment.getBill().getTotalPrice() %> VND
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="table-action">
+                                                <a href="appointment_details?bid=<%= appointment.getBooking().getId() %>"
+                                                   class="btn btn-sm bg-info-light">
+                                                    <i class="far fa-eye"></i> Xem
+                                                </a>
+                                            </div>
                                         </td>
                                     </tr>
                                     <% } %>

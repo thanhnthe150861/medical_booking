@@ -21,12 +21,12 @@ public class DoctorDashboard extends HttpServlet {
         HttpSession session = req.getSession();
         Account account = (Account) session.getAttribute("account");
         DoctorDBContext doctorDBContext = new DoctorDBContext();
-        if (account != null && account.getIsAdmin() == 1){
+        if (account != null && account.getIsAdmin() == 1) {
             Doctor doctor = doctorDBContext.getDoctor(account);
             session.setAttribute("doctor", doctor);
-            List<Booking> bookingList = doctorDBContext.getBooking(doctor, "Pending");
+            List<Booking> bookingList = doctorDBContext.getBooking(doctor, "Confirmed");
             req.setAttribute("bookingList", bookingList);
-            req.getRequestDispatcher("view/doctor/doctor-dashboard.jsp").forward(req,resp);
+            req.getRequestDispatcher("view/doctor/doctor-dashboard.jsp").forward(req, resp);
         }
         req.getRequestDispatcher("login");
     }

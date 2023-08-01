@@ -186,8 +186,8 @@
                                                         <th>Bác sĩ</th>
                                                         <th></th>
                                                         <th>Ngày đặt lịch</th>
-                                                        <th></th>
-                                                        <th></th>
+                                                        <th>Vấn đề về</th>
+                                                        <th>Mô tả tình trạng</th>
                                                         <th>Trạng thái</th>
                                                         <th class="text-center">Hoạt động</th>
                                                     </tr>
@@ -201,16 +201,15 @@
                                                                         <img class="avatar-img rounded-circle"
                                                                              src="${m.booking.doctor.url}">
                                                                     </a>
-                                                                    <a href="#">${m.booking.doctor.name}
-                                                                        <span>${m.booking.doctor.specialty}</span></a>
+                                                                    <a href="#">${m.booking.doctor.name}</a>
                                                                 </h2>
                                                             </td>
                                                             <td></td>
                                                             <td>${m.booking.date} <span
                                                                     class="d-block text-info">${m.booking.slots.name} </span>
                                                             </td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>${m.booking.specialty.name}</td>
+                                                            <td>m.booking.booking_reason</td>
                                                             <td>
 																		<span class="badge badge-pill bg-${m.booking.status eq 'Confirmed' ? 'success-light' : m.booking.status eq 'Pending' ? 'warning-light' : m.booking.status eq 'Cancelled' ? 'danger-light' : m.booking.status eq 'Completed' ? 'info-light' : ''}">
                                                                                 ${m.booking.status}

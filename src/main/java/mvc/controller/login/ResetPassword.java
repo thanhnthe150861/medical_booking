@@ -8,8 +8,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import mvc.model.Account;
+import service.HashMD5;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @WebServlet(name = "ResetPassword", value = "/reset_password")
 public class ResetPassword extends HttpServlet {
@@ -17,7 +19,7 @@ public class ResetPassword extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.getAttribute("account");
-        req.getRequestDispatcher("view/login/reset-password.jsp").forward(req,resp);
+        req.getRequestDispatcher("view/login/reset-password.jsp").forward(req, resp);
     }
 
     @Override
@@ -27,8 +29,12 @@ public class ResetPassword extends HttpServlet {
         AccountDB adb = new AccountDB();
         String password = req.getParameter("password");
         String rePassword = req.getParameter("repassword");
-        if(password.equals(rePassword)){
-            account.setPassword(password);
+        if (password.equals(rePassword)) {
+            try {
+                account.setPassword(HashMD5.hashMD5(password));
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
             adb.UpdateAccount(account);
             req.setAttribute("mess", "Successfully");
             resp.sendRedirect("login");

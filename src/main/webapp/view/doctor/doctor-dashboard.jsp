@@ -178,6 +178,12 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="doctor_ngay_nghi">
+                                            <i class="fas fa-calendar-times"></i>
+                                            <span>Ngày nghỉ</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="doctor_profile_settings">
                                             <i class="fas fa-user-cog"></i>
                                             <span>Thông tin cá nhân</span>
@@ -230,9 +236,10 @@
                                                         <tr>
                                                             <th>Tên bệnh nhân</th>
                                                             <th>Ngày đặt</th>
-                                                            <th>Mục đích</th>
+                                                            <th>Vấn đề về</th>
+                                                            <th>Mô tả tình trạng</th>
                                                             <th>Trạng thái</th>
-                                                            <%--                                                            <th></th>--%>
+                                                            <th></th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
@@ -250,24 +257,23 @@
                                                                 <td>${b.date}<span
                                                                         class="d-block text-info">${b.slots.name}</span>
                                                                 </td>
+                                                                <td>${b.specialty.name}</td>
                                                                 <td>${b.booking_reason}</td>
                                                                 <td>
 																		<span class="badge badge-pill bg-${b.status eq 'Confirmed' ? 'success-light' : b.status eq 'Pending' ? 'warning-light' : b.status eq 'Cancelled' ? 'danger-light' : b.status eq 'Completed' ? 'info-light' : ''}">
                                                                                 ${b.status}
                                                                         </span>
                                                                 </td>
-                                                                    <%--                                                                <td class="text-right">--%>
-                                                                    <%--                                                                    <div class="table-action">--%>
-                                                                    <%--                                                                        <a href="doctor_appointments?id=${b.id}&status=Confirmed"--%>
-                                                                    <%--                                                                           class="btn btn-sm bg-success-light">--%>
-                                                                    <%--                                                                            <i class="fas fa-check"></i> Chấp nhận--%>
-                                                                    <%--                                                                        </a>--%>
-                                                                    <%--                                                                        <a href="doctor_appointments?id=${b.id}&status=Cancelled"--%>
-                                                                    <%--                                                                           class="btn btn-sm bg-danger-light">--%>
-                                                                    <%--                                                                            <i class="fas fa-times"></i> Hủy--%>
-                                                                    <%--                                                                        </a>--%>
-                                                                    <%--                                                                    </div>--%>
-                                                                    <%--                                                                </td>--%>
+                                                                <td>
+                                                                    <a href="medical_record_details?bid=${b.id}"
+                                                                       class="btn btn-sm bg-info-light">
+                                                                        <i class="fas fa-check"></i> Tạo hồ sơ bệnh án
+                                                                    </a>
+                                                                    <a href="doctor_appointments?id=${b.id}&status=Cancelled"
+                                                                       class="btn btn-sm bg-danger-light">
+                                                                        <i class="far fa-trash-alt"></i> Hủy
+                                                                    </a>
+                                                                </td>
                                                             </tr>
                                                         </c:forEach>
                                                         </tbody>

@@ -183,6 +183,12 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="doctor_ngay_nghi">
+                                            <i class="fas fa-calendar-times"></i>
+                                            <span>Ngày nghỉ</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="doctor_profile_settings">
                                             <i class="fas fa-user-cog"></i>
                                             <span>Thông tin cá nhân</span>
@@ -217,15 +223,15 @@
                                     <tr>
                                         <th>Mã cuộc hẹn</th>
                                         <th>Bệnh nhân</th>
+                                        <th>Vấn đề về</th>
                                         <th>Ngày khám</th>
                                         <th>Bác sĩ</th>
                                         <th>Trạng thái</th>
-                                        <th>Thanh toán</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:if test="${ not empty requestScope.bookingList}">
+                                    <c:if test="${not empty requestScope.bookingList}">
                                         <c:forEach items="${requestScope.bookingList}" var="bl">
                                             <tr>
                                                 <td>
@@ -241,7 +247,8 @@
                                                         <a href="patient_profile?id=${bl.booking.patient.id}">${bl.booking.patient.name}</a>
                                                     </h2>
                                                 </td>
-                                                <td>${bl.booking.date}</td>
+                                                <td>${bl.booking.date}<span
+                                                        class="d-block text-info">${bl.booking.slots.name}</span></td>
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="doctor_profile?id=${bl.booking.doctor.id}"
@@ -252,12 +259,12 @@
                                                         <a href="doctor_profile?id=${bl.booking.doctor.id}">${bl.booking.doctor.name}</a>
                                                     </h2>
                                                 </td>
+                                                <td>${bl.booking.specialty.name}</td>
                                                 <td>
             <span class="badge badge-pill bg-${bl.booking.status eq 'Confirmed' ? 'success-light' : bl.booking.status eq 'Pending' ? 'warning-light' : bl.booking.status eq 'Cancelled' ? 'danger-light' : bl.booking.status eq 'Completed' ? 'info-light' : ''}">
                     ${bl.booking.status}
             </span>
                                                 </td>
-                                                <td>${bl.bill.totalPrice} VND</td>
                                                 <td class="text-right">
                                                     <div class="table-action">
                                                         <c:choose>

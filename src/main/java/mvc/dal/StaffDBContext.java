@@ -3,6 +3,7 @@ package mvc.dal;
 import mvc.dal.DBContext;
 import mvc.model.*;
 
+import javax.print.Doc;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,87 @@ import java.util.List;
 public class StaffDBContext extends DBContext {
     private static PreparedStatement stm = null;
     private static ResultSet rs = null;
+
+
+    public Booking checkBookingExist(Doctor doctor, Date date, int slot) {
+        try {
+            String sql = "SELECT *\n" +
+                    "FROM booking\n" +
+                    "WHERE date = ?\n" +
+                    "  AND doctor_id = ? \n" +
+                    "  AND slot_id = ? \n" +
+                    "  AND (status = 'Confirmed' OR status = 'Completed');\n";
+            stm = connection.prepareStatement(sql);
+            stm.setDate(1, date);
+            stm.setInt(2, doctor.getId());
+            stm.setInt(3, slot);
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                Booking booking = new Booking();
+                booking.setId(rs.getInt("id"));
+                booking.setDoctor_id(rs.getInt("doctor_id"));
+                return booking;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public List<Doctor> getDoctorBySpecialty(int spe, Date date, int slot) {
+        List<Doctor> doctors = new ArrayList<>();
+        try {
+            String sql = "SELECT\n" +
+                    "    doctor.id AS doctor_id,\n" +
+                    "    doctor.url AS doctor_url,\n" +
+                    "    doctor.name AS doctor_name,\n" +
+                    "    doctor.gender AS doctor_gender,\n" +
+                    "    doctor.dob AS doctor_dob,\n" +
+                    "    doctor.rank_id AS doctor_rank_id,\n" +
+                    "    r.name AS rank_name,\n" +
+                    "    doctor.specialty AS doctor_specialty_id,\n" +
+                    "    specialty.name AS specialty_name\n" +
+                    "FROM\n" +
+                    "    doctor\n" +
+                    "LEFT JOIN\n" +
+                    "    rank_doctor r ON doctor.rank_id = r.id\n" +
+                    "LEFT JOIN\n" +
+                    "    booking b ON doctor.id = b.doctor_id\n" +
+                    "LEFT JOIN\n" +
+                    "    specialty ON doctor.specialty = specialty.id\n" +
+                    "WHERE\n" +
+                    "    doctor.specialty = ?\n" +
+                    "    AND ( b.date IS NULL OR b.date = ?)\n" +
+                    "    AND ( b.slot_id IS NULL OR b.slot_id = ?)\n" +
+                    "    AND (b.status IS NULL OR NOT (b.status = 'Confirmed' OR b.status = 'Completed'));";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, spe);
+            stm.setDate(2, date);
+            stm.setInt(3, slot);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                Doctor s = new Doctor();
+                s.setId(rs.getInt("doctor_id"));
+                s.setUrl(rs.getString("doctor_url"));
+                s.setName(rs.getString("doctor_name"));
+                s.setGender(rs.getString("doctor_gender"));
+                s.setDob(rs.getDate("doctor_dob"));
+                s.setSpecialty(rs.getInt("doctor_specialty_id"));
+                Rank rank = new Rank();
+                rank.setId(rs.getInt("doctor_rank_id"));
+                rank.setName(rs.getString("rank_name"));
+                s.setRanks(rank);
+                Specialty specialty = new Specialty();
+                specialty.setId(rs.getInt("doctor_specialty_id"));
+                specialty.setName(rs.getString("specialty_name"));
+                s.setSpecialtys(specialty);
+                doctors.add(s);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return doctors;
+    }
 
     public Staff getStaff(Account account) {
         try {
@@ -123,7 +205,7 @@ public class StaffDBContext extends DBContext {
                 doctor.setId(rs.getInt("doctor_id"));
                 doctor.setUrl(rs.getString("doctor_url"));
                 doctor.setName(rs.getString("doctor_name"));
-                doctor.setSpecialty(rs.getString("doctor_specialty"));
+                doctor.setSpecialty(rs.getInt("doctor_specialty"));
                 doctor.setDob(rs.getDate("doctor_dob"));
                 doctor.setGender(rs.getString("doctor_gender"));
                 booking.setDoctor(doctor);
@@ -205,7 +287,7 @@ public class StaffDBContext extends DBContext {
                 doctor.setId(rs.getInt("doctor_id"));
                 doctor.setUrl(rs.getString("doctor_url"));
                 doctor.setName(rs.getString("doctor_name"));
-                doctor.setSpecialty(rs.getString("doctor_specialty"));
+                doctor.setSpecialty(rs.getInt("doctor_specialty"));
                 doctor.setDob(rs.getDate("doctor_dob"));
                 doctor.setGender(rs.getString("doctor_gender"));
                 booking.setDoctor(doctor);
@@ -260,7 +342,7 @@ public class StaffDBContext extends DBContext {
                 doctors.setId(rs.getInt("doctor_id"));
                 doctors.setUrl(rs.getString("doctor_url"));
                 doctors.setName(rs.getString("doctor_name"));
-                doctors.setSpecialty(rs.getString("doctor_specialty"));
+                doctors.setSpecialty(rs.getInt("doctor_specialty"));
                 Patient patient = new Patient();
                 patient.setId(rs.getInt("patient_id"));
                 patient.setUrl(rs.getString("patient_url"));
@@ -271,6 +353,7 @@ public class StaffDBContext extends DBContext {
                 bill.setPayment_status(rs.getString("payment_status"));
                 bill.setTotalPrice(rs.getFloat("max_total_bill"));
                 Booking booking = new Booking();
+                booking.setId(rs.getInt("id"));
                 booking.setDate(rs.getDate("date"));
                 booking.setStatus(rs.getString("status"));
                 booking.setSlots(slot);
@@ -315,7 +398,7 @@ public class StaffDBContext extends DBContext {
                 doctors.setGender(rs.getString("gender"));
                 doctors.setDob(rs.getDate("dob"));
                 doctors.setRankId(rs.getInt("rank_id"));
-                doctors.setSpecialty(rs.getString("specialty"));
+                doctors.setSpecialty(rs.getInt("specialty"));
                 doctors.setAccount(account);
                 Bill bill = new Bill();
                 bill.setTotalPrice(rs.getFloat("total_bill_price"));
