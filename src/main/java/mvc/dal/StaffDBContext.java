@@ -42,7 +42,7 @@ public class StaffDBContext extends DBContext {
         return null;
     }
 
-    public List<Doctor> getDoctorBySpecialty(int spe, Date date, int slot) {
+    public List<Doctor> getDoctorBySpecialty(int id) {
         List<Doctor> doctors = new ArrayList<>();
         try {
             String sql = "SELECT\n" +
@@ -60,18 +60,10 @@ public class StaffDBContext extends DBContext {
                     "LEFT JOIN\n" +
                     "    rank_doctor r ON doctor.rank_id = r.id\n" +
                     "LEFT JOIN\n" +
-                    "    booking b ON doctor.id = b.doctor_id\n" +
-                    "LEFT JOIN\n" +
                     "    specialty ON doctor.specialty = specialty.id\n" +
-                    "WHERE\n" +
-                    "    specialty.id = ?\n" +
-                    "    AND ( b.date IS NULL OR b.date = ?)\n" +
-                    "    AND ( b.slot_id IS NULL OR b.slot_id = ?)\n" +
-                    "    AND (b.status IS NULL OR NOT (b.status = 'Confirmed' OR b.status = 'Completed'));";
+                    "WHERE specialty.id = ?;";
             stm = connection.prepareStatement(sql);
-            stm.setInt(1, spe);
-            stm.setDate(2, date);
-            stm.setInt(3, slot);
+            stm.setInt(1, id);
             rs = stm.executeQuery();
             while (rs.next()) {
                 Doctor s = new Doctor();
@@ -489,7 +481,9 @@ public class StaffDBContext extends DBContext {
                     "FROM bill b\n" +
                     "JOIN medical_record mr ON b.medical_record_id = mr.id\n" +
                     "JOIN booking bd ON mr.booking_id = bd.id\n" +
-                    "JOIN patient p ON bd.patient_id = p.id;";
+                    "JOIN patient p ON bd.patient_id = p.id \n" +
+                    "ORDER BY\n" +
+                    "    bd.date DESC;\n";
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
             while (rs.next()) {

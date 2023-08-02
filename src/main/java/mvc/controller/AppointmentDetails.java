@@ -37,7 +37,7 @@ public class AppointmentDetails extends HttpServlet {
                 } else if (account.getIsAdmin() == 1) {
 
                 } else if (account.getIsAdmin() == 3) {
-                    List<Doctor> doctors = staffDBContext.getDoctorBySpecialty(bookingID.getBooking().getSpecialty().getId(), bookingID.getBooking().getDate(), bookingID.getBooking().getSlots().getId());
+                    List<Doctor> doctors = staffDBContext.getDoctorBySpecialty(bookingID.getBooking().getSpecialty().getId());
                     session.setAttribute("doctors", doctors);
                     req.getRequestDispatcher("view/staff/staff-appointment-details.jsp").forward(req, resp);
                 }
