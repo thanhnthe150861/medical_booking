@@ -247,6 +247,7 @@
                                                         <a href="patient_profile?id=${bl.booking.patient.id}">${bl.booking.patient.name}</a>
                                                     </h2>
                                                 </td>
+                                                <td>${bl.booking.specialty.name}</td>
                                                 <td>${bl.booking.date}<span
                                                         class="d-block text-info">${bl.booking.slots.name}</span></td>
                                                 <td>

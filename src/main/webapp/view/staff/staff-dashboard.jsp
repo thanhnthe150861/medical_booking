@@ -182,6 +182,7 @@
                                             <th>Tên bác sĩ</th>
                                             <th>Tên bệnh nhân</th>
                                             <th>Đặt ngày</th>
+                                            <th>Vấn đề về</th>
                                             <th>Mục đích</th>
                                             <th class="text-center">Trạng thái</th>
                                             <th></th>
@@ -217,6 +218,8 @@
                                                 </td>
                                                 <td>${bl.date}<span
                                                         class="d-block text-info">${bl.slots.name}</span>
+                                                </td>
+                                                <td>${bl.specialty.name}
                                                 </td>
                                                 <td>${bl.booking_reason}
                                                 </td>

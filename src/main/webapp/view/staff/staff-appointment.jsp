@@ -170,9 +170,10 @@
                                     <thead>
                                     <tr>
                                         <th>Tên bác sĩ</th>
-                                        <th>Chuyên khoa</th>
                                         <th>Tên bệnh nhân</th>
                                         <th>Thời gian hẹn</th>
+                                        <th>Vấn đề về</th>
+                                        <th>Mô tả</th>
                                         <th class="text-center">Trạng thái</th>
                                         <th>Chi phí</th>
                                         <th></th>
@@ -193,8 +194,6 @@
                                             </h2>
                                             <%}%>
                                         </td>
-                                        <td><%= appointment.getBooking().getDoctor().getSpecialty() %>
-                                        </td>
                                         <td>
                                             <h2 class="table-avatar">
                                                 <a href="#" class="avatar avatar-sm mr-2"><img
@@ -206,6 +205,10 @@
                                         </td>
                                         <td><%= appointment.getBooking().getDate() %> <span
                                                 class="text-primary d-block"><%= appointment.getBooking().getSlots().getName() %></span>
+                                        </td>
+                                        <td><%= appointment.getBooking().getSpecialty().getName() %>
+                                        </td>
+                                        <td><%= appointment.getBooking().getBooking_reason() %>
                                         </td>
                                         <td class="text-center">
                                             <% if (appointment.getBooking().getStatus().equals("Confirmed")) { %>

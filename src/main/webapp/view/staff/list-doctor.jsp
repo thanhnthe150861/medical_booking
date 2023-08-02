@@ -183,7 +183,7 @@
                                                 </a>
                                             </h2>
                                         </td>
-                                        <td><%= doctor.getBooking().getDoctor().getSpecialty() %>
+                                        <td><%= doctor.getBooking().getDoctor().getSpecialtys().getName() %>
                                         </td>
                                         <td><%= doctor.getBooking().getDoctor().getDob() %>
                                         </td>

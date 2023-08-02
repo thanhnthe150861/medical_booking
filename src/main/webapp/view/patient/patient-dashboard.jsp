@@ -258,7 +258,7 @@
                                                             <td>${m.booking.date}<span
                                                                     class="d-block text-info">${m.booking.slots.name}</span>
                                                             </td>
-                                                            <td>${m.booking.specialty.name}</td>
+                                                            <td>${m.booking.doctor.specialtys.name}</td>
                                                             <td>${m.booking.booking_reason}</td>
                                                             <td>
                                                                 <span class="badge badge-pill bg-${m.booking.status == 'Confirmed' ? 'success-light' : m.booking.status == 'Pending' ? 'warning-light' : m.booking.status == 'Cancelled' ? 'danger-light' : m.booking.status == 'Completed' ? 'info-light' : ''}">

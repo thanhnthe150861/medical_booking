@@ -14,6 +14,21 @@ public class PatientDBContext extends DBContext {
     private static PreparedStatement stm = null;
     private static ResultSet rs = null;
 
+    public void updateBookingStatusCancel(String id, String status) {
+        try {
+            String sql = "UPDATE booking\n" +
+                    "SET doctor_id = null,\n" +
+                    "    status = ?\n" +
+                    "WHERE id = ?;\n";
+            stm = connection.prepareStatement(sql);
+            stm.setString(1, status);
+            stm.setInt(2, Integer.parseInt(id));
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void updateBookingStatus(String id, String status, String reason, String did) {
         try {
             String sql = "UPDATE booking SET status = ?, reason = ?, doctor_id = ? WHERE id = ?";
@@ -95,8 +110,9 @@ public class PatientDBContext extends DBContext {
 
     public Doctor getDoctorByPatient(String id) {
         try {
-            String sql = "SELECT doctor.id, doctor.url, doctor.name, doctor.gender, doctor.dob, doctor.specialty, doctor.rank_id, rank_doctor.name AS rank_name\n" +
+            String sql = "SELECT doctor.id, doctor.url, doctor.name, doctor.gender, doctor.dob, doctor.specialty, specialty.name AS specialty_name, doctor.rank_id, rank_doctor.name AS rank_name\n" +
                     "FROM doctor\n" +
+                    "LEFT JOIN specialty ON doctor.specialty = specialty.id\n" +
                     "LEFT JOIN rank_doctor ON doctor.rank_id = rank_doctor.id\n" +
                     "WHERE doctor.id = ?;";
             stm = connection.prepareStatement(sql);
@@ -110,6 +126,9 @@ public class PatientDBContext extends DBContext {
                 doctor.setGender(rs.getString("gender"));
                 doctor.setDob(rs.getDate("dob"));
                 doctor.setSpecialty(rs.getInt("specialty"));
+                Specialty specialty = new Specialty();
+                specialty.setName(rs.getString("specialty_name"));
+                doctor.setSpecialtys(specialty);
                 Rank rank = new Rank();
                 rank.setId(rs.getInt("rank_id"));
                 rank.setName(rs.getString("rank_name"));
@@ -341,12 +360,30 @@ public class PatientDBContext extends DBContext {
         }
     }
 
+    public void addNewBookings(Booking booking) {
+        try {
+            String sql = "INSERT INTO booking (patient_id, slot_id, specialty_id, booking_reason, date, status, doctor_id)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?);\n";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, booking.getPatient_id());
+            stm.setInt(2, booking.getSlot_id());
+            stm.setInt(3, booking.getSpecialty_id());
+            stm.setString(4, booking.getBooking_reason());
+            stm.setDate(5, booking.getDate());
+            stm.setString(6, booking.getStatus());
+            stm.setInt(7, booking.getDoctor_id());
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Booking checkBookingExist(Patient patient, String date) {
         try {
             String sql = "SELECT *\n" +
                     "FROM booking\n" +
                     "WHERE date = ?\n" +
-                    "AND patient_id = ? and status != 'Cancelled';";
+                    "AND patient_id = ? AND (status IS NULL OR status NOT IN ('Cancelled', 'Completed'));";
             stm = connection.prepareStatement(sql);
             stm.setDate(1, Date.valueOf(date));
             stm.setInt(2, patient.getId());

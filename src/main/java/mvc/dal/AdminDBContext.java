@@ -14,16 +14,18 @@ public class AdminDBContext extends  DBContext{
     public List<MedicalRecord> getTop5Doctor(){
         List<MedicalRecord> doctorListTop5 = new ArrayList<>();
         try {
-            String sql = "SELECT D.id, D.url, D.name, D.gender, D.dob, D.specialty, RD.name AS rank_name, SUM(B.totalPrice) AS total_revenue\n" +
+            String sql = "SELECT D.id, D.url, D.name, D.gender, D.dob, D.specialty, RD.name AS rank_name, SUM(B.totalPrice) AS total_revenue, S.name AS specialty_name\n" +
                     "FROM doctor D\n" +
                     "JOIN booking BK ON D.id = BK.doctor_id\n" +
                     "JOIN medical_record MR ON BK.id = MR.booking_id\n" +
                     "JOIN bill B ON MR.id = B.medical_record_id\n" +
                     "JOIN rank_doctor RD ON D.rank_id = RD.id\n" +
+                    "LEFT JOIN specialty S ON D.specialty = S.id\n" +
                     "WHERE B.payment_status = 'Paid'\n" +
                     "GROUP BY D.id\n" +
                     "ORDER BY total_revenue DESC\n" +
                     "LIMIT 5;";
+
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
             while (rs.next()){
@@ -34,6 +36,9 @@ public class AdminDBContext extends  DBContext{
                 doctors.setDob(rs.getDate("dob"));
                 doctors.setGender(rs.getString("gender"));
                 doctors.setSpecialty(rs.getInt("specialty"));
+                Specialty specialty = new Specialty();
+                specialty.setName(rs.getString("specialty_name"));
+                doctors.setSpecialtys(specialty);
                 Rank rank = new Rank();
                 rank.setName(rs.getString("rank_name"));
                 doctors.setRanks(rank);
@@ -167,14 +172,15 @@ public class AdminDBContext extends  DBContext{
     public List<MedicalRecord> getInforTotalAppoinment(){
         List<MedicalRecord> getAppoinmentList = new ArrayList<>();
         try {
-            String sql = "SELECT b.*, d.name AS doctor_name, d.specialty AS doctor_specialty, d.url AS doctor_url, p.name AS patient_name, p.url AS patient_url, MAX(m.totalPrice) AS max_total_bill, s.name AS slot_name, m.payment_status\n" +
+            String sql = "SELECT b.*, d.name AS doctor_name, d.specialty AS doctor_specialty, d.url AS doctor_url, p.name AS patient_name, p.url AS patient_url, MAX(m.totalPrice) AS max_total_bill, s.name AS slot_name, m.payment_status, sp.name AS specialty_name\n" +
                     "FROM booking b\n" +
                     "LEFT JOIN doctor d ON b.doctor_id = d.id\n" +
                     "LEFT JOIN patient p ON b.patient_id = p.id\n" +
                     "LEFT JOIN medical_record mr ON b.id = mr.booking_id\n" +
                     "LEFT JOIN bill m ON mr.id = m.medical_record_id\n" +
                     "LEFT JOIN slot s ON b.slot_id = s.id\n" +
-                    "GROUP BY b.id, d.name, p.name, s.name, m.payment_status\n" +
+                    "LEFT JOIN specialty sp ON b.specialty_id = sp.id\n" +
+                    "GROUP BY b.id, d.name, p.name, s.name, m.payment_status, sp.name\n" +
                     "ORDER BY max_total_bill DESC;";
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -196,6 +202,10 @@ public class AdminDBContext extends  DBContext{
                 Booking booking = new Booking();
                 booking.setDate(rs.getDate("date"));
                 booking.setStatus(rs.getString("status"));
+                booking.setBooking_reason(rs.getString("booking_reason"));
+                Specialty specialty = new Specialty();
+                specialty.setName(rs.getString("specialty_name"));
+                booking.setSpecialty(specialty);
                 booking.setSlots(slot);
                 booking.setDoctor(doctors);
                 booking.setPatient(patient);

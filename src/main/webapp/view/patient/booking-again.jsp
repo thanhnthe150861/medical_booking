@@ -184,6 +184,14 @@
                             <div class="schedule-cont">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <select name="disease"
+                                                style="font-size: 16px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                                            <option value="" disabled selected>Bạn đến khám gì?
+                                            </option>
+                                            <c:forEach items="${sessionScope.listSp}" var="ls">
+                                                <option value="${ls.id}" ${sessionScope.doctor.specialty == ls.id ? 'selected' : ''} ${sessionScope.doctor.specialty != ls.id ? 'disabled' : ''}>${ls.name}</option>
+                                            </c:forEach>
+                                        </select>
                                         <!-- Time Slot -->
                                         <div class="time-slot">
                                             <ul class="clearfix d-flex align-items-center justify-content-center">
@@ -259,12 +267,11 @@
                                         </div>
                                         <!-- /Time Slot -->
                                         <div class="card"
-                                             style="margin-top: 20px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                                             style="margin-top: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
                                             <div class="card-body" style="padding: 20px;">
-                                                <label for="textReason"
-                                                       style="font-size: 20px; color: #333;">Lý do</label>
-                                                <br>
-                                                <input type="text" id="textReason" name="textReason"
+                                                <h2 style="font-size: 20px; color: #333; margin-top: 20px;">Mô tả tình
+                                                    trạng bệnh</h2>
+                                                <input required type="text" id="textReason" name="textReason"
                                                        style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
                                             </div>
                                         </div>

@@ -164,9 +164,10 @@
                                     <tr>
                                         <th>Mã lịch đặt</th>
                                         <th>Tên bác sĩ</th>
-                                        <th>Chuyên khoa</th>
                                         <th>Tên bệnh nhân</th>
                                         <th>Thời gian hẹn</th>
+                                        <th>Vấn đề về</th>
+                                        <th>Mô tả tình trạng</th>
                                         <th class="text-center">Trạng thái</th>
                                         <th></th>
                                     </tr>
@@ -186,7 +187,6 @@
                                                     </a>
                                                 </h2>
                                             </td>
-                                            <td>${bl.booking.doctor.specialty}</td>
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="#" class="avatar avatar-sm mr-2">
@@ -201,6 +201,8 @@
                                             <td>${bl.booking.date}<span
                                                     class="d-block text-info">${bl.booking.slots.name}</span>
                                             </td>
+                                            <td>${bl.booking.specialty.name}</td>
+                                            <td>${bl.booking.booking_reason}</td>
                                             <td class="text-center">
                                                     <span class="badge badge-pill bg-${bl.booking.status == 'Confirmed' ? 'success-light' : bl.booking.status == 'Pending' ? 'warning-light' : bl.booking.status == 'Cancelled' ? 'danger-light' : bl.booking.status == 'Completed' ? 'info-light' : ''}">
                                                             ${bl.booking.status}

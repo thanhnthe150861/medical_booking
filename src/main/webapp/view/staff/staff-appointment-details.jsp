@@ -185,9 +185,11 @@
                                             <td><span>Bác sĩ</span></td>
                                             <td>
                                                 <select name="did">
-                                                    <option value="0">Chưa có</option>
+                                                    <option value="0" ${sessionScope.bookingID.booking.status == 'Cancelled' ? 'disabled' : ''}>
+                                                        Chưa có
+                                                    </option>
                                                     <c:forEach items="${sessionScope.doctors}" var="d">
-                                                        <option value="${d.id}" ${sessionScope.bookingID.booking.doctor.id == d.id ? 'selected' : ''}>
+                                                        <option value="${d.id}" ${sessionScope.bookingID.booking.doctor.id == d.id ? 'selected' : ''} ${sessionScope.bookingID.booking.status == 'Cancelled' ? 'disabled' : ''}>
                                                                 ${d.name}
                                                         </option>
                                                     </c:forEach>
@@ -231,13 +233,13 @@
                                             <td>Trạng thái</td>
                                             <td>
                                                 <select name="status">
-                                                    <option value="Cancelled" ${sessionScope.bookingID.booking.status == 'Cancelled' ? 'selected' : ''}>
+                                                    <option value="Cancelled" ${sessionScope.bookingID.booking.status == 'Cancelled' ? 'selected' : ''} ${sessionScope.bookingID.booking.status == 'Cancelled' ? 'disabled' : ''}>
                                                         Cancelled
                                                     </option>
-                                                    <option value="Pending" ${sessionScope.bookingID.booking.status == 'Pending' ? 'selected' : ''}>
+                                                    <option value="Pending" ${sessionScope.bookingID.booking.status == 'Pending' ? 'selected' : ''} ${sessionScope.bookingID.booking.status == 'Cancelled' ? 'disabled' : ''}>
                                                         Pending
                                                     </option>
-                                                    <option value="Confirmed" ${sessionScope.bookingID.booking.status == 'Confirmed' ? 'selected' : ''}>
+                                                    <option value="Confirmed" ${sessionScope.bookingID.booking.status == 'Confirmed' ? 'selected' : ''} ${sessionScope.bookingID.booking.status == 'Cancelled' ? 'disabled' : ''}>
                                                         Confirmed
                                                     </option>
                                                 </select>
@@ -248,7 +250,7 @@
                                             <td>
                                                 <input type="text" name="ghichu"
                                                        value="${sessionScope.bookingID.booking.reason}" required
-                                                       class="form-control">
+                                                       class="form-control" ${sessionScope.bookingID.booking.status == 'Cancelled' ? 'disabled' : ''}>
                                             </td>
                                         </tr>
                                         <tr>

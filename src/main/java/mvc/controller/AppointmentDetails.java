@@ -12,6 +12,7 @@ import mvc.dal.StaffDBContext;
 import mvc.model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "AppointmentDetails", value = "/appointment_details")
@@ -36,7 +37,7 @@ public class AppointmentDetails extends HttpServlet {
                 } else if (account.getIsAdmin() == 1) {
 
                 } else if (account.getIsAdmin() == 3) {
-                    List<Doctor> doctors = staffDBContext.getDoctorBySpecialty(bookingID.getBooking().getSpecialty_id(), bookingID.getBooking().getDate(), bookingID.getBooking().getSlots().getId());
+                    List<Doctor> doctors = staffDBContext.getDoctorBySpecialty(bookingID.getBooking().getSpecialty().getId(), bookingID.getBooking().getDate(), bookingID.getBooking().getSlots().getId());
                     session.setAttribute("doctors", doctors);
                     req.getRequestDispatcher("view/staff/staff-appointment-details.jsp").forward(req, resp);
                 }
@@ -57,6 +58,11 @@ public class AppointmentDetails extends HttpServlet {
         String status = req.getParameter("status");
         String date = req.getParameter("date");
         String slot = req.getParameter("slot");
+        if (Integer.parseInt(did) == 0 && !status.equalsIgnoreCase("Cancelled")) {
+            req.setAttribute("messError", "Bạn chưa chọn bác sĩ khám");
+            req.getRequestDispatcher("view/staff/staff-appointment-details.jsp").forward(req, resp);
+            return;
+        }
         if (account.getIsAdmin() == 3) {
             NgayNghi nghi = doctorDBContext.checkNgayNghi(Integer.parseInt(did), date, slot);
             if (nghi != null) {
@@ -64,7 +70,12 @@ public class AppointmentDetails extends HttpServlet {
                 req.getRequestDispatcher("view/staff/staff-appointment-details.jsp").forward(req, resp);
                 return;
             }
-            patientDBContext.updateBookingStatus(bid, status, ghichu, did);
+
+            if (status.equalsIgnoreCase("Cancelled") && Integer.parseInt(did) == 0) {
+                patientDBContext.updateBookingStatusCancel(bid, status);
+            } else {
+                patientDBContext.updateBookingStatus(bid, status, ghichu, did);
+            }
             MedicalRecord bookingID = doctorDBContext.getTTByBookingID(bid);
             session.setAttribute("bookingID", bookingID);
             req.setAttribute("messSuccess", "Cập nhật thành công");

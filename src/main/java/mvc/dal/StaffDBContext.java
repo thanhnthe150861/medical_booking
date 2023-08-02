@@ -64,7 +64,7 @@ public class StaffDBContext extends DBContext {
                     "LEFT JOIN\n" +
                     "    specialty ON doctor.specialty = specialty.id\n" +
                     "WHERE\n" +
-                    "    doctor.specialty = ?\n" +
+                    "    specialty.id = ?\n" +
                     "    AND ( b.date IS NULL OR b.date = ?)\n" +
                     "    AND ( b.slot_id IS NULL OR b.slot_id = ?)\n" +
                     "    AND (b.status IS NULL OR NOT (b.status = 'Confirmed' OR b.status = 'Completed'));";
@@ -179,7 +179,8 @@ public class StaffDBContext extends DBContext {
                     "    c.url,\n" +
                     "    c.gender,\n" +
                     "    c.dob,\n" +
-                    "    s.name AS slot_name\n" +
+                    "    s.name AS slot_name,\n" +
+                    "    sp.name AS specialty_name\n" +
                     "FROM\n" +
                     "    booking b\n" +
                     "LEFT JOIN\n" +
@@ -188,10 +189,13 @@ public class StaffDBContext extends DBContext {
                     "    doctor d ON d.id = b.doctor_id\n" +
                     "LEFT JOIN\n" +
                     "    slot s ON s.id = b.slot_id\n" +
+                    "LEFT JOIN\n" +
+                    "    specialty sp ON b.specialty_id = sp.id\n" +
                     "WHERE\n" +
                     "    b.status = ?\n" +
                     "ORDER BY\n" +
                     "    b.date ASC;\n";
+
             stm = connection.prepareStatement(sql);
             stm.setString(1, status);
             rs = stm.executeQuery();
@@ -201,6 +205,9 @@ public class StaffDBContext extends DBContext {
                 booking.setBooking_reason(rs.getString("booking_reason"));
                 booking.setDate(rs.getDate("date"));
                 booking.setStatus(rs.getString("status"));
+                Specialty specialty = new Specialty();
+                specialty.setName(rs.getString("specialty_name"));
+                booking.setSpecialty(specialty);
                 Doctor doctor = new Doctor();
                 doctor.setId(rs.getInt("doctor_id"));
                 doctor.setUrl(rs.getString("doctor_url"));
@@ -257,7 +264,8 @@ public class StaffDBContext extends DBContext {
                     "    bill.pricePrescription,\n" +
                     "    bill.priceMedical,\n" +
                     "    bill.totalPrice,\n" +
-                    "    bill.payment_status\n" +
+                    "    bill.payment_status,\n" +
+                    "    sp.name AS specialty_name\n" +
                     "FROM\n" +
                     "    booking b\n" +
                     "LEFT JOIN\n" +
@@ -270,6 +278,8 @@ public class StaffDBContext extends DBContext {
                     "    medical_record m ON m.booking_id = b.id\n" +
                     "LEFT JOIN\n" +
                     "    bill ON bill.medical_record_id = m.id\n" +
+                    "LEFT JOIN\n" +
+                    "    specialty sp ON b.specialty_id = sp.id\n" +
                     "WHERE\n" +
                     "    b.date = ? AND (b.status = 'Confirmed' OR b.status = 'Completed')\n" +
                     "ORDER BY\n" +
@@ -283,6 +293,9 @@ public class StaffDBContext extends DBContext {
                 booking.setBooking_reason(rs.getString("booking_reason"));
                 booking.setDate(rs.getDate("date"));
                 booking.setStatus(rs.getString("status"));
+                Specialty specialty = new Specialty();
+                specialty.setName(rs.getString("specialty_name"));
+                booking.setSpecialty(specialty);
                 Doctor doctor = new Doctor();
                 doctor.setId(rs.getInt("doctor_id"));
                 doctor.setUrl(rs.getString("doctor_url"));
@@ -326,15 +339,17 @@ public class StaffDBContext extends DBContext {
     public List<MedicalRecord> getInforTotalAppoinment() {
         List<MedicalRecord> getAppoinmentList = new ArrayList<>();
         try {
-            String sql = "SELECT b.*, d.name AS doctor_name, d.specialty AS doctor_specialty, d.url AS doctor_url, p.name AS patient_name, p.url AS patient_url, MAX(m.totalPrice) AS max_total_bill, s.name AS slot_name, m.payment_status\n" +
+            String sql = "SELECT b.*, d.name AS doctor_name, d.url AS doctor_url, p.name AS patient_name, p.url AS patient_url, MAX(m.totalPrice) AS max_total_bill, s.name AS slot_name, m.payment_status, sp.name AS doctor_specialty\n" +
                     "FROM booking b\n" +
                     "LEFT JOIN doctor d ON b.doctor_id = d.id\n" +
                     "LEFT JOIN patient p ON b.patient_id = p.id\n" +
                     "LEFT JOIN medical_record mr ON b.id = mr.booking_id\n" +
                     "LEFT JOIN bill m ON mr.id = m.medical_record_id\n" +
                     "LEFT JOIN slot s ON b.slot_id = s.id\n" +
-                    "GROUP BY b.id, d.name, p.name, s.name, m.payment_status\n" +
+                    "LEFT JOIN specialty sp ON b.specialty_id = sp.id\n" +
+                    "GROUP BY b.id, d.name, p.name, s.name, m.payment_status, sp.name\n" +
                     "ORDER BY b.date DESC;";
+
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
             while (rs.next()) {
@@ -342,7 +357,9 @@ public class StaffDBContext extends DBContext {
                 doctors.setId(rs.getInt("doctor_id"));
                 doctors.setUrl(rs.getString("doctor_url"));
                 doctors.setName(rs.getString("doctor_name"));
-                doctors.setSpecialty(rs.getInt("doctor_specialty"));
+                doctors.setSpecialty(rs.getInt("specialty_id"));
+                Specialty specialty = new Specialty();
+                specialty.setName(rs.getString("doctor_specialty"));
                 Patient patient = new Patient();
                 patient.setId(rs.getInt("patient_id"));
                 patient.setUrl(rs.getString("patient_url"));
@@ -356,9 +373,11 @@ public class StaffDBContext extends DBContext {
                 booking.setId(rs.getInt("id"));
                 booking.setDate(rs.getDate("date"));
                 booking.setStatus(rs.getString("status"));
+                booking.setBooking_reason(rs.getString("booking_reason"));
                 booking.setSlots(slot);
                 booking.setDoctor(doctors);
                 booking.setPatient(patient);
+                booking.setSpecialty(specialty);
                 MedicalRecord medicalRecord = new MedicalRecord();
                 medicalRecord.setBooking(booking);
                 medicalRecord.setBill(bill);
@@ -374,12 +393,13 @@ public class StaffDBContext extends DBContext {
         List<MedicalRecord> getDoctorList = new ArrayList<>();
         try {
             String sql = "SELECT d.*, a.username AS account_username, a.password, a.phone, a.email, a.isAdmin, a.status, \n" +
-                    "       SUM(bi.totalPrice) AS total_bill_price\n" +
+                    "       SUM(bi.totalPrice) AS total_bill_price, sp.name AS specialty_name\n" +
                     "FROM doctor d\n" +
                     "LEFT JOIN account a ON d.username = a.username\n" +
                     "LEFT JOIN booking b ON d.id = b.doctor_id\n" +
                     "LEFT JOIN medical_record m ON b.id = m.booking_id\n" +
                     "LEFT JOIN bill bi ON m.id = bi.medical_record_id AND bi.payment_status = 'Paid'\n" +
+                    "LEFT JOIN specialty sp ON d.specialty = sp.id\n" +
                     "GROUP BY d.id";
             stm = connection.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -400,6 +420,9 @@ public class StaffDBContext extends DBContext {
                 doctors.setRankId(rs.getInt("rank_id"));
                 doctors.setSpecialty(rs.getInt("specialty"));
                 doctors.setAccount(account);
+                Specialty specialty = new Specialty();
+                specialty.setName(rs.getString("specialty_name"));
+                doctors.setSpecialtys(specialty);
                 Bill bill = new Bill();
                 bill.setTotalPrice(rs.getFloat("total_bill_price"));
                 Booking booking = new Booking();

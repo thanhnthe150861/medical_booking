@@ -31,6 +31,8 @@ public class BookingAgain extends HttpServlet {
             session.setAttribute("slotList", patientDBContext.getAllSlots());
             // ngày chọn
             session.setAttribute("selectedSlot", req.getParameter("selectedSlot"));
+            List<Specialty> listSp = patientDBContext.getAllSpecialties();
+            session.setAttribute("listSp", listSp);
             //lấy doctor
             String did = req.getParameter("did");
             if (did == null) {//check session xem nếu không null thì set lại vào did
@@ -61,6 +63,7 @@ public class BookingAgain extends HttpServlet {
         String selectedDate = (String) session.getAttribute("date");
         String selectedSlot = (String) session.getAttribute("selectedSlot");
         String textReason = req.getParameter("textReason");
+        String disease = req.getParameter("disease");
 
         if (selectedDate == null || selectedSlot == null) {
             resp.sendRedirect("patient_dashboard");
@@ -77,9 +80,10 @@ public class BookingAgain extends HttpServlet {
             bookings.setPatient_id(patient.getId());
             bookings.setSlot_id(Integer.parseInt(selectedSlot));
             bookings.setDate(Date.valueOf(selectedDate));
+            bookings.setSpecialty_id(Integer.parseInt(disease));
             bookings.setBooking_reason(textReason);
             bookings.setStatus("Pending");
-            patientDBContext.addNewBooking(bookings);
+            patientDBContext.addNewBookings(bookings);
             resp.sendRedirect("patient_dashboard");
             return;
         }
