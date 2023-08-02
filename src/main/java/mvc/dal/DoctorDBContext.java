@@ -571,6 +571,103 @@ public class DoctorDBContext extends DBContext {
         System.out.println(p.getTTByBookingID("4").getBooking().getBooking_reason());
     }
 
+    public MedicalRecord CheckBookingByDoctorId(String did, String date, String slots) {
+        try {
+            String sql = "SELECT \n" +
+                    "    d.id AS doctor_id,\n" +
+                    "    d.name AS doctor_name,\n" +
+                    "    d.url AS doctor_url,\n" +
+                    "    d.specialty AS doctor_specialty,\n" +
+                    "    rd.name AS rank_doctor,\n" +
+                    "    p.id AS patient_id,\n" +
+                    "    p.name AS patient_name,\n" +
+                    "    p.url AS patient_url,\n" +
+                    "    p.dob AS patient_date,\n" +
+                    "    b.id AS booking_id,\n" +
+                    "    b.date AS booking_date,\n" +
+                    "    s.id AS slot_id,\n" +
+                    "    s.name AS slot_name,\n" +
+                    "    b.booking_reason,\n" +
+                    "    b.status,\n" +
+                    "    b.reason AS booking_reason_note,\n" +
+                    "    mr.id AS medical_record_id,\n" +
+                    "    mr.diagnosis AS medical_record_diagnosis,\n" +
+                    "    sp.id AS specialty_id,\n" +
+                    "    sp.name AS specialty_name,\n" +
+                    "    mr.url AS medical_record_url,\n" +
+                    "    mr.prescription AS medical_record_prescription,\n" +
+                    "    bill.id AS bill_id,\n" +
+                    "    bill.priceMedical AS medical_price,\n" +
+                    "    bill.pricePrescription AS prescription_price,\n" +
+                    "    bill.totalPrice AS total_price,\n" +
+                    "    bill.payment_status\n" +
+                    "FROM booking AS b\n" +
+                    "LEFT JOIN doctor AS d ON d.id = b.doctor_id\n" +
+                    "LEFT JOIN rank_doctor AS rd ON rd.id = d.rank_id\n" +
+                    "LEFT JOIN specialty AS sp ON sp.id = b.specialty_id\n" +
+                    "LEFT JOIN patient AS p ON b.patient_id = p.id\n" +
+                    "LEFT JOIN medical_record AS mr ON b.id = mr.booking_id\n" +
+                    "LEFT JOIN slot AS s ON b.slot_id = s.id\n" +
+                    "LEFT JOIN bill ON mr.id = bill.medical_record_id\n" +
+                    "WHERE d.id = ? AND b.date = ? AND b.slot_id = ?;";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, Integer.parseInt(did));
+            stm.setDate(2, Date.valueOf(date));
+            stm.setInt(3, Integer.parseInt(slots));
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                Rank rank = new Rank();
+                rank.setName(rs.getString("rank_doctor"));
+                Doctor doctor = new Doctor();
+                doctor.setId(rs.getInt("doctor_id"));
+                doctor.setUrl(rs.getString("doctor_url"));
+                doctor.setName(rs.getString("doctor_name"));
+                doctor.setSpecialty(rs.getInt("doctor_specialty"));
+                doctor.setRanks(rank);
+                Patient patient = new Patient();
+                patient.setId(rs.getInt("patient_id"));
+                patient.setName(rs.getString("patient_name"));
+                patient.setUrl(rs.getString("patient_url"));
+                patient.setDob(rs.getDate("patient_date"));
+                Slot slot = new Slot();
+                slot.setId(rs.getInt("slot_id"));
+                slot.setName(rs.getString("slot_name"));
+                Booking booking = new Booking();
+                booking.setId(rs.getInt("booking_id"));
+                booking.setDate(rs.getDate("booking_date"));
+                booking.setStatus(rs.getString("status"));
+                booking.setBooking_reason(rs.getString("booking_reason"));
+                booking.setReason(rs.getString("booking_reason_note"));
+                booking.setSpecialty_id(rs.getInt("specialty_id"));
+                booking.setDoctor(doctor);
+                booking.setPatient(patient);
+                booking.setSlots(slot);
+                Specialty specialty = new Specialty();
+                specialty.setId(rs.getInt("specialty_id"));
+                specialty.setName(rs.getString("specialty_name"));
+                booking.setSpecialty(specialty);
+                Bill bill = new Bill();
+                bill.setId(rs.getInt("bill_id"));
+                bill.setPricePrescription(rs.getInt("prescription_price"));
+                bill.setPriceMedical(rs.getInt("medical_price"));
+                bill.setTotalPrice(rs.getInt("total_price"));
+                bill.setPayment_status(rs.getString("payment_status"));
+                MedicalRecord medicalRecord = new MedicalRecord();
+                medicalRecord.setBooking_id(rs.getInt("booking_id"));
+                medicalRecord.setId(rs.getInt("medical_record_id"));
+                medicalRecord.setUrl(rs.getString("medical_record_url"));
+                medicalRecord.setPrescription(rs.getString("medical_record_prescription"));
+                medicalRecord.setDiagnosis(rs.getString("medical_record_diagnosis"));
+                medicalRecord.setBill(bill);
+                medicalRecord.setBooking(booking);
+                return medicalRecord;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
     public MedicalRecord getTTByBookingID(String bid) {
         try {
             String sql = "SELECT \n" +
@@ -675,7 +772,9 @@ public class DoctorDBContext extends DBContext {
                     "JOIN booking bd ON mr.booking_id = bd.id\n" +
                     "JOIN patient p ON bd.patient_id = p.id\n" +
                     "JOIN doctor d ON d.id = bd.doctor_id\n" +
-                    "WHERE d.id = ? and b.payment_status = 'Paid';";
+                    "WHERE d.id = ? and b.payment_status = 'Paid' \n" +
+                    "ORDER BY\n" +
+                    "    bd.date DESC;";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, doctor.getId());
             rs = stm.executeQuery();

@@ -64,8 +64,8 @@ public class AppointmentDetails extends HttpServlet {
             return;
         }
         if (account.getIsAdmin() == 3) {
-            NgayNghi nghi = doctorDBContext.checkNgayNghi(Integer.parseInt(did), date, slot);
-            if (nghi != null) {
+            MedicalRecord bookingIDs = doctorDBContext.CheckBookingByDoctorId(did, date, slot);
+            if (bookingIDs != null) {
                 req.setAttribute("messError", "Bác sĩ đã bận vào ca này");
                 req.getRequestDispatcher("view/staff/staff-appointment-details.jsp").forward(req, resp);
                 return;
