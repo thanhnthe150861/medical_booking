@@ -566,10 +566,10 @@ public class DoctorDBContext extends DBContext {
         return null;
     }
 
-    public static void main(String[] args) {
-        DoctorDBContext p = new DoctorDBContext();
-        System.out.println(p.getTTByBookingID("4").getBooking().getBooking_reason());
-    }
+//    public static void main(String[] args) {
+//        DoctorDBContext p = new DoctorDBContext();
+//        System.out.println(p.getTTByBookingID("4").getBooking().getBooking_reason());
+//    }
 
     public MedicalRecord CheckBookingByDoctorId(String did, String date, String slots) {
         try {
